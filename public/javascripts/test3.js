@@ -3,7 +3,6 @@ $(document).ready(function () {
 	var yellowRenderer = function (instance, td, row, col, prop, value, cellProperties) {
 		Handsontable.renderers.TextRenderer.apply(this, arguments);
 		td.style.backgroundColor = 'yellow';
-
 	};
 
 	var orangeRenderer = function (instance, td, row, col, prop, value, cellProperties) {
@@ -15,6 +14,12 @@ $(document).ready(function () {
 	var greyRenderer = function (instance, td, row, col, prop, value, cellProperties) {
 		Handsontable.renderers.TextRenderer.apply(this, arguments);
 		td.style.backgroundColor = 'grey';
+
+	};
+
+	var greenRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+		Handsontable.renderers.TextRenderer.apply(this, arguments);
+		td.style.backgroundColor = 'green';
 
 	};
 
@@ -522,6 +527,8 @@ $(document).ready(function () {
 						{
 							resArray = method.method(purifyDataMatrix, myData_1.colNum - 2, myData_1.rowNum - 2, 1);
 							console.info("resArray", resArray );
+							myData_1.appendResData("test111", 1, "rowRes", resArray);
+							hot.loadData(myData_1.getPureDataMatrix());
 							alert(resArray);
 						}
 					} else {
@@ -530,6 +537,7 @@ $(document).ready(function () {
 						{
 							resArray = method.method(purifyDataMatrix, myData_1.colNum - 2, myData_1.rowNum - 2, 0);
 							console.info("resArray", resArray );
+							
 							alert(resArray);
 						}
 					}
@@ -737,7 +745,7 @@ $(document).ready(function () {
 	//console.info("WRList = ", g_rightWeight.getRWMethodList());
 	console.info("new matrix");
 	var myData_1 = new myMatrix();
-	myData_1.initMatrix(5, 5);
+	myData_1.initMatrix(5, 6);
 	//myData_1.setCurrentColRWMethod(g_rightWeight.getRightWeightMethod("平均法"));
 	//myData_1.setCurrentRowRWMethod(g_rightWeight.getRightWeightMethod("平均法"));
 	myData_1.setCurrentColRWMethod("平均法");
@@ -773,22 +781,36 @@ $(document).ready(function () {
 			},
 
 			cells : function (row, col, prop) {
+				if("blank" == myData_1.getCellDataType(row, col))
+				{
+					this.renderer = greyRenderer;
+				}
+				if("colHeader" == myData_1.getCellDataType(row, col) || "rowHeader" == myData_1.getCellDataType(row, col))
+				{
+					this.renderer = orangeRenderer;
+				}
+				if("colRW" == myData_1.getCellDataType(row, col) || "rowRW" == myData_1.getCellDataType(row, col))
+				{
+					this.renderer = greenRenderer;
+				}
+				if("colRes" == myData_1.getCellDataType(row, col) || "rowRes" == myData_1.getCellDataType(row, col))
+				{
+					this.renderer = yellowRenderer;
+				}
+				/*
 				if ((row == 0 && col >= 2) || (col == 0 && row >= 2)) {
 					this.renderer = orangeRenderer;
 				}
-				/*
-				if(row < 2 && col < 2){
-				this.renderer = greyRenderer;
-				}
-				 */
+				
 				if ((row == 1 && col >= 2) || (col == 1 && row >= 2)) {
 					this.renderer = yellowRenderer;
 				}
-
+				*/
 				var cellProperties = {};
 				if (row < 2 || col < 2) {
 					cellProperties.readOnly = true;
 				}
+				
 				return cellProperties;
 
 			},

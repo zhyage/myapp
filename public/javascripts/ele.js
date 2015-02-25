@@ -186,7 +186,23 @@ function cellTypeEnume()
         {
             type: "data", 
             editable: true,
-        }
+        },
+        {
+            type: "colResMethod",
+            editable: false,
+        },
+        {
+            type: "colRes",
+            editable: false,
+        },
+        {
+            type: "rowResMethod",
+            editable: false,
+        },
+        {
+            type: "rowRes",
+            editable: false,
+        },
 
     ]
 
@@ -209,9 +225,7 @@ function cellTypeEnume()
 var g_cellType = new cellTypeEnume();
 
 function checkEleValide(ele)
-{
-    //console.info("checkEleValide = ", 
-    //    ele.cellType, ele.dataType, ele.colHeaderName, ele.rowHeaderName, ele.data);
+{   
     if(false == g_cellType.checkCellTypeValide(ele.cellType))
     {
         console.info("111");
@@ -725,6 +739,69 @@ function myMatrix()
         }
         return true;
  
+    }
+
+    this.getCellDataType = function(rowNo, colNo)
+    {
+        if((rowNo >= this.rowNum) || (colNo >= this.colNum))
+        {
+            return;
+        }
+        console.info("rowNo = ", rowNo, "colNo = ", colNo);
+        var e = JSON.parse(this.matrix[rowNo][colNo]);
+        return e.cellType;
+    }
+
+    this.appendResData = function(methodName, colOrRow, dataType, dataList)
+    {
+        var copyMatrix = this.copyCurrentMatrix();
+        var oldColNum = this.colNum;
+        var oldRowNum = this.rowNum;
+
+        console.info("entry appendData");
+        if(dataType != "colRes" && dataType != "rowRes")
+        {
+            console.error("incorrect dataData");
+            return false;                
+        }
+
+        if(1 == colOrRow)//it's coRow, add a row
+        {
+            if(dataList.length != (this.getColumnNum() - 2))
+            {
+                console.error("incorrect colnum");
+                return false;
+            }
+            this.initMatrix(oldColNum - 2, oldRowNum + 1 - 2);
+            for(i = 0; i < this.rowNum - 1; i++)
+            {
+                for(j = 0; j < this.colNum; j++)
+                {
+                    this.matrix[i][j] = copyMatrix[i][j];
+                }
+            }
+            var methodNameEle = new ele();
+            var rowRWEle = new ele();
+            res = methodNameEle.setEle("rowResMethod", "zifuchang", "", "", methodName, this.rowNum - 1, 0);
+            this.matrix[this.rowNum - 1][0] = JSON.stringify(methodNameEle);
+            res = rowRWEle.setEle("blank", "zifuchang", "", "", "", this.rowNum - 1, 1);
+            this.matrix[this.rowNum - 1][1] = JSON.stringify(rowRWEle);
+            for(i = 2; i < this.colNum; i++)
+            {
+                var e = new ele();
+                res = e.setEle("rowRes", "zifuchang", "", "", "0.03", this.rowNum - 1, i);
+                this.matrix[this.rowNum - 1][i] = JSON.stringify(e);
+            }
+
+        }
+        else//it's rowRes
+        {
+            if(dataList.length != (this.getRowNum() - 2))
+            {
+                console.error("incorrect rowNum");
+                return false;
+            }
+        }
     }
 
     this.insertRow = function(rowNo, rowHeaderName)
