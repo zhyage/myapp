@@ -23,6 +23,37 @@ $(document).ready(function () {
 
 	};
 
+	var redRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+		Handsontable.renderers.TextRenderer.apply(this, arguments);
+		td.style.backgroundColor = 'red';
+
+	};
+
+	var pinkRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+		Handsontable.renderers.TextRenderer.apply(this, arguments);
+		td.style.backgroundColor = 'pink';
+
+	};
+
+	var blueRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+		Handsontable.renderers.TextRenderer.apply(this, arguments);
+		td.style.backgroundColor = 'blue';
+
+	};
+
+	var blackRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+		Handsontable.renderers.TextRenderer.apply(this, arguments);
+		td.style.backgroundColor = 'black';
+
+	};
+
+	var whiteRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+		Handsontable.renderers.TextRenderer.apply(this, arguments);
+		td.style.backgroundColor = 'white';
+
+	};
+
+
 	function generateInsertColumnForm(rowNo, colNo, before) {
 		$('#insertFrm').html('');
 		console.info("entry generateInsertCBForm");
@@ -90,7 +121,7 @@ $(document).ready(function () {
 					} else {
 						myData_1.insertCol(colNo + 1, columnName, dataType);
 					}
-					hot.loadData(myData_1.getPureDataMatrix());
+					hot.loadData(myData_1.getShowPureDataMatrix());
 				}
 				$.unblockUI();
 			},
@@ -154,7 +185,7 @@ $(document).ready(function () {
 					} else {
 						myData_1.insertRow(rowNo + 1, rowHeadName);
 					}
-					hot.loadData(myData_1.getPureDataMatrix());
+					hot.loadData(myData_1.getShowPureDataMatrix());
 				}
 				$.unblockUI();
 			},
@@ -204,7 +235,7 @@ $(document).ready(function () {
 				} else {
 					console.info("submit delete column on submit");
 					myData_1.deleteCol(colNo);
-					hot.loadData(myData_1.getPureDataMatrix())
+					hot.loadData(myData_1.getShowPureDataMatrix())
 
 				}
 				$.unblockUI();
@@ -255,7 +286,7 @@ $(document).ready(function () {
 				} else {
 					console.info("submit delete row on submit");
 					myData_1.deleteRow(rowNo);
-					hot.loadData(myData_1.getPureDataMatrix())
+					hot.loadData(myData_1.getShowPureDataMatrix())
 
 				}
 				$.unblockUI();
@@ -268,7 +299,7 @@ $(document).ready(function () {
 		console.info("entry generateColHeaderForm");
 		var e = JSON.parse(cellInfo);
 		var dataTypeList = [];
-		var currentDataType = myData_1.getDataTypeByColNo(colNo, myData_1.copyCurrentMatrix());
+		var currentDataType = myData_1.getDataTypeByColNo(colNo, myData_1.copyCurrentMatrix2());
 		dataTypeList = g_eleType.getUseableDatatypeNameList();
 		console.info("dataTypeList : ", dataTypeList);
 		$('#editFrm').html('');
@@ -301,7 +332,7 @@ $(document).ready(function () {
 					myData_1.modifyColumnHeader(colNo, values.columnHeader, values.dataType);
 					//var jsonStr = JSON.stringify(e);
 					//myData_1.modifyCell(rowNo, colNo, jsonStr);
-					hot.loadData(myData_1.getPureDataMatrix());
+					hot.loadData(myData_1.getShowPureDataMatrix());
 
 				}
 			}
@@ -332,7 +363,7 @@ $(document).ready(function () {
 					//e.data = values.rowHeader;
 					//var jsonStr = JSON.stringify(e);
 					//myData_1.modifyCell(rowNo, colNo, jsonStr);
-					hot.loadData(myData_1.getPureDataMatrix());
+					hot.loadData(myData_1.getShowPureDataMatrix());
 
 				}
 			}
@@ -385,7 +416,7 @@ $(document).ready(function () {
 					//e.data = values.data;
 					//var jsonStr = JSON.stringify(e);
 					//myData_1.modifyCell(rowNo, colNo, jsonStr);
-					hot.loadData(myData_1.getPureDataMatrix());
+					hot.loadData(myData_1.getShowPureDataMatrix());
 
 				}
 			}
@@ -447,7 +478,7 @@ $(document).ready(function () {
 						myData_1.setCurrentRowRWMethod(methodName);
 					}
 					//myData_1.setMatrixColRW();
-					hot.loadData(myData_1.getPureDataMatrix());
+					hot.loadData(myData_1.getShowPureDataMatrix());
 				}
 				$.unblockUI();
 			},
@@ -512,37 +543,45 @@ $(document).ready(function () {
 				if (errors) {
 					alert("error happens when select purify data");
 				} else {
-					console.info("submit select purify data on submit");
+					console.error("submit select purify data on submit");
 					var methodName = values.method;
 					var directName = values.direct;
-					var purifyDataMatrix = myData_1.getUsefulPureDataMatrix();
-					console.info("getUsefulPureDataMatrix :", purifyDataMatrix);
-					var resArray = [];
-					var method = g_purifyData.getPurifyDataMethod(methodName);
+					//var purifyDataMatrix = myData_1.getUsefulPureDataMatrix();
+					//console.info("getUsefulPureDataMatrix :", purifyDataMatrix);
+					//var resArray = [];
+					//var method = g_purifyData.getPurifyDataMethod(methodName);
 					
+					myData_1.addCurrentPurifyMethod(directName, methodName);
+					alert("kkkkkk");
+					hot.loadData(myData_1.getShowPureDataMatrix());
 		
+					/*
 					if ('纵向' == directName) {
 						console.info("calculate 纵向");
 						if(null != method)
 						{
-							resArray = method.method(purifyDataMatrix, myData_1.colNum - 2, myData_1.rowNum - 2, 1);
-							console.info("resArray", resArray );
-							myData_1.appendResData("test111", 1, "rowRes", resArray);
-							hot.loadData(myData_1.getPureDataMatrix());
-							alert(resArray);
+							//resArray = method.method(purifyDataMatrix, myData_1.getPureDataColNum(), myData_1.getPureDataRowNum(), 1);
+							//console.info("resArray", resArray );
+							//myData_1.appendResData(methodName, 1, "rowRes", resArray);
+							myData_1.addCurrentPurifyMethod(directName, methodName);
+							hot.loadData(myData_1.getShowPureDataMatrix());
+							//alert(resArray);
 						}
 					} else {
 						console.info("calculate 横向");
 						if(null != method)
 						{
-							resArray = method.method(purifyDataMatrix, myData_1.colNum - 2, myData_1.rowNum - 2, 0);
-							console.info("resArray", resArray );
+							//resArray = method.method(purifyDataMatrix, myData_1.getPureDataColNum(), myData_1.getPureDataRowNum(), 0);
+							//console.info("resArray", resArray );
+							//myData_1.appendResData(methodName, 1, "rowRes", resArray);
+							hot.loadData(myData_1.getShowPureDataMatrix());
 							
-							alert(resArray);
+							//alert(resArray);
 						}
 					}
+					*/
 					
-					//hot.loadData(myData_1.getPureDataMatrix());
+					//hot.loadData(myData_1.getShowPureDataMatrix());
 				}
 				$.unblockUI();
 			},
@@ -571,7 +610,7 @@ $(document).ready(function () {
 				console.info("load matrix = ", load);
 				myData_1.loadData(load.colNum, load.rowNum, load.currentColRWMethod, load.currentRowRWMethod, load.matrix);
 				console.info("lllllllllllllllll = ", myData_1);
-				hot.loadData(myData_1.getPureDataMatrix());
+				hot.loadData(myData_1.getShowPureDataMatrix());
 				
 			},
 			failure : function (errMsg) {
@@ -752,7 +791,7 @@ $(document).ready(function () {
 	myData_1.setCurrentRowRWMethod("平均法");
 	console.info("kkkkkkkk", myData_1.matrix);
 
-	var data = myData_1.getPureDataMatrix();
+	var data = myData_1.getShowPureDataMatrix();
 
 	myData_1.generateJsonData();
 
@@ -772,12 +811,12 @@ $(document).ready(function () {
 			afterColumnMove : function (srcColNo, destColNo) {
 				console.info("afterColumnMove, srcColNo:", srcColNo, "destColNo:", destColNo);
 				myData_1.moveCol(srcColNo, destColNo);
-				hot.loadData(myData_1.getPureDataMatrix());
+				hot.loadData(myData_1.getShowPureDataMatrix());
 			},
 			afterRowMove : function (srcRowNo, destRowNo) {
 				console.info("afterRowMove, srcRowNo:", srcRowNo, "destRowNo:", destRowNo);
 				myData_1.moveRow(srcRowNo, destRowNo);
-				hot.loadData(myData_1.getPureDataMatrix());
+				hot.loadData(myData_1.getShowPureDataMatrix());
 			},
 
 			cells : function (row, col, prop) {
@@ -791,7 +830,7 @@ $(document).ready(function () {
 				}
 				if("colRW" == myData_1.getCellDataType(row, col) || "rowRW" == myData_1.getCellDataType(row, col))
 				{
-					this.renderer = greenRenderer;
+					this.renderer = blackRenderer;
 				}
 				if("colRes" == myData_1.getCellDataType(row, col) || "rowRes" == myData_1.getCellDataType(row, col))
 				{
@@ -980,7 +1019,7 @@ $(document).ready(function () {
 		console.info("col:", colNum.value, "row:", rowNum.value);
 		//myData_1.initMatrix(5, 5);
 		myData_1.initMatrix(parseInt(colNum.value), parseInt(rowNum.value));
-		hot.loadData(myData_1.getPureDataMatrix());
+		hot.loadData(myData_1.getShowPureDataMatrix());
 		$.unblockUI();
 		return true;
 	});

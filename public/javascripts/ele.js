@@ -125,7 +125,7 @@ function eleDataTypeEnume()
             var e = this.datatypeEnume[i];
             if(type == e.name)
             {
-                console.info("----type ", type, "e.name", e.name, "data = ", data)
+                //console.info("----type ", type, "e.name", e.name, "data = ", data)
                 if(true == e.validate(data))
                 {
                     return true;
@@ -271,18 +271,138 @@ function ele()
 
 }
 
+function purifyMethodEle()
+{
+    this.direct = null;
+    this.method = null;
+}
+
 //var g_rightWeight = new rightWeight();
 
 function myMatrix()
 {
     this.colNum = 2;
     this.rowNum = 2;
-    this.dataColNum = this.colNum - 2;
-    this.dataRowNum = this.rowNum - 2;
+    //this.dataColNum = this.colNum - 2;
+    //this.dataRowNum = this.rowNum - 2;
     this.matrix = [];
 	this.currentColRWMethod = null;
 	this.currentRowRWMethod = null;
+    this.currentPurifyMethod = [];//store such as [{direct:col, method:"平均法"}, {{direct:col, method:"累加法"}}]
+
+    this.addCurrentPurifyMethod = function(direct, method)
+    {
+        console.info("entry addCurrentPurifyMethod");
+        var i = 0;
+        var methodEle = null;
+        var found = false;
+
+        for(i = 0; i < this.currentPurifyMethod.length; i++)
+        {
+            methodEle = this.currentPurifyMethod[i];
+            if(methodEle.direct == direct && methodEle.method == method)
+            {
+                found = true;
+                this.currentPurifyMethod[i].direct = direct;
+                this.currentPurifyMethod[i].method = method;
+            }
+        }
+        if(false == found)
+        {
+            methodEle = {"direct":direct, "method":method};
+            this.currentPurifyMethod[i] = methodEle;
+        }
+
+        console.info("currentPurifyMethod :", this.currentPurifyMethod);
+    }
+
+    this.delCurrentPurifyMethod = function(direct, method)
+    {
+        console.info("entry delCurrentPurifyMethod");
+        var i = 0;
+        var methodEle = null;
+        for(i = 0; i < this.currentPurifyMethod.length; i++)
+        {
+            methodEle = this.currentPurifyMethod[i];
+            if(methodEle.direct == direct && methodEle.method == method)
+            {
+                this.currentPurifyMethod.splice(i, 1);//delete this one
+            }
+        }
+    }
+
+    
+    this.setPurifyResult = function()
+    {
+        var i = 0;
+        var g_purifyData = new purifyData();
+        var methodEle = null;
+        var purifyDataMatrix = this.getUsefulPureDataMatrix();
+        console.info("entry setPurifyResult");
+        var rowAppendResList = [];
+        var colAppendResList = [];
+
+
+        for(i = 0; i < this.currentPurifyMethod.length; i++)
+        {
+            methodEle = this.currentPurifyMethod[i];
+            var method = g_purifyData.getPurifyDataMethod(methodEle.method);
+            var resArray = [];
+            
+            if(null != method)
+            {
+                if("纵向" == methodEle.direct)
+                {
+                    var methodName = methodEle.method;
+                    resArray = method.method(purifyDataMatrix, this.getPureDataColNum(), this.getPureDataRowNum(), 1);
+                    rowAppendResList.push({"name":methodName, "list":resArray});
+
+                }
+                else
+                {
+                    var methodName = methodEle.method;
+                    resArray = method.method(purifyDataMatrix, this.getPureDataColNum(), this.getPureDataRowNum(), 0);
+                    colAppendResList.push({"name":methodName, "list":resArray});
+                }
+            }
+            console.info("rowAppendResList = ",  rowAppendResList);
+            console.info("colAppendResList = ",  colAppendResList);
+
+        }
+        //this.appendRowResData(rowAppendResList);
+        this.appendResData(rowAppendResList, colAppendResList);
+
+    }
 	
+    this.getPureDataColNum = function()
+    {
+        var i = 0;
+        var colNum = 0;
+        for(i = 0; i < this.colNum; i++)
+        {
+            var e = JSON.parse(this.matrix[0][i]);
+            if(e.cellType == "colHeader")
+            {
+                colNum += 1;
+            }
+        }
+        return colNum;
+    }
+
+    this.getPureDataRowNum = function()
+    {
+        var i = 0;
+        var rowNum = 0;
+        for(i = 0; i < this.rowNum; i++)
+        {
+            var e = JSON.parse(this.matrix[i][0]);
+            if(e.cellType == "rowHeader")
+            {
+                rowNum += 1;
+            }
+        }
+        return rowNum;
+    }
 	
 	this.loadData = function(colNum, rowNum, currentColRWMethod, currentRowRWMethod, matrix)
 	{
@@ -331,6 +451,43 @@ function myMatrix()
                 {
                     res = e.setEle("data", "xiaoshu", "col"+(j-2).toString(), "row"+(i-2).toString(), "0.00", i, j);
                 }
+                
+                //var res 
+                if(false == res)
+                {
+                    console.error("incorrect ele data");
+                    return false;
+                }
+                else
+                {
+                    var jsonStr = JSON.stringify(e);
+                    this.matrix[i][j] = jsonStr;
+                    //console.info("this.matrix[",i,"][",j,"] = ",this.matrix[i][j]);
+                }
+            }
+        }
+        return true;
+
+    }
+
+    this.initBlankMatrix = function(x, y)
+    {
+        this.colNum = x + 2;
+        this.rowNum = y + 2;
+        var i = 0;
+        var j = 0;
+        this.matrix = new Array();
+        for(i = 0; i < this.rowNum; i++)
+        {
+            this.matrix[i] = new Array();
+            for(j = 0; j < this.colNum; j++)
+            {
+                var e = new ele()
+                var res = true;
+                
+                res = e.setEle("blank", "undefine", "", "", "NULL", i, j);
+                
+               
                 
                 //var res 
                 if(false == res)
@@ -573,12 +730,14 @@ function myMatrix()
         }
     }
 
-    this.getPureDataMatrix = function()
+    this.getShowPureDataMatrix = function()
     {
+        console.info("entry getShowPureDataMatrix");
         var i = 0;
         var j = 0;
 		this.setMatrixColRW();
 		this.setMatrixRowRW();
+        this.setPurifyResult();
         var dataMatrix = new Array();
         for(i = 0; i < this.rowNum; i++)
         {
@@ -589,11 +748,13 @@ function myMatrix()
                 dataMatrix[i][j] = e.data;
             }
         }
+        this.clearResData();
         return dataMatrix;
     }
 	
 	this.getUsefulPureDataMatrix = function()
     {
+        /*
         var i = 0;
         var j = 0;
 
@@ -602,6 +763,22 @@ function myMatrix()
         {
             usefulDataMatrix[i] = new Array();
             for(j = 0; j < this.colNum - 2; j++)
+            {
+                var e = JSON.parse(this.matrix[i + 2][j + 2]);
+                usefulDataMatrix[i][j] = e.data;
+            }
+        }
+        return usefulDataMatrix;
+        */
+
+        var i = 0;
+        var j = 0;
+
+        var usefulDataMatrix = new Array();
+        for(i = 0; i < this.getPureDataRowNum() ; i++)
+        {
+            usefulDataMatrix[i] = new Array();
+            for(j = 0; j < this.getPureDataColNum(); j++)
             {
                 var e = JSON.parse(this.matrix[i + 2][j + 2]);
                 usefulDataMatrix[i][j] = e.data;
@@ -645,6 +822,23 @@ function myMatrix()
         return copyMatrix;
     }
 
+    this.copyCurrentMatrix2 = function()
+    {
+        var i = 0;
+        var j = 0;
+        var copyMatrix;
+        copyMatrix = new Array();
+        for(i = 0; i < this.getPureDataRowNum() + 2; i++)
+        {
+            copyMatrix[i] = new Array();
+            for(j = 0; j < this.getPureDataColNum() + 2; j++)
+            {
+                copyMatrix[i][j] = this.matrix[i][j];
+            }
+        }
+        return copyMatrix;
+    }
+
     this.getColHeaderNameByColNo = function(colNo)
     {
         var e = JSON.parse(this.matrix[0][colNo]);
@@ -662,6 +856,7 @@ function myMatrix()
         var e = JSON.parse(copyMatrix[2][colNo]);
         return e.dataType;
     }
+
 
     this.insertCol = function(colNo, colHeaderName, dataType)
     {
@@ -687,7 +882,7 @@ function myMatrix()
             return false;
         }
 
-        var copyMatrix = this.copyCurrentMatrix();
+        var copyMatrix = this.copyCurrentMatrix2();
         var oldColNum = this.colNum;
         var oldRowNum = this.rowNum;
         
@@ -741,68 +936,190 @@ function myMatrix()
  
     }
 
+
+
+
     this.getCellDataType = function(rowNo, colNo)
     {
         if((rowNo >= this.rowNum) || (colNo >= this.colNum))
         {
             return;
         }
-        console.info("rowNo = ", rowNo, "colNo = ", colNo);
+        //console.info("rowNo = ", rowNo, "colNo = ", colNo);
         var e = JSON.parse(this.matrix[rowNo][colNo]);
         return e.cellType;
     }
 
-    this.appendResData = function(methodName, colOrRow, dataType, dataList)
+    this.appendResData = function(rowAppendResList, colAppendResList)
     {
-        var copyMatrix = this.copyCurrentMatrix();
-        var oldColNum = this.colNum;
-        var oldRowNum = this.rowNum;
+        var copyMatrix = this.copyCurrentMatrix2();
+        var oldColNum = this.getPureDataColNum() + 2;
+        var oldRowNum = this.getPureDataRowNum() + 2;
+        var rowAppendLength = rowAppendResList.length;
+        var colAppendLength = colAppendResList.length;
+        //var rowAppendLength = 2;
+        //var colAppendLength = 2;
 
-        console.info("entry appendData");
-        if(dataType != "colRes" && dataType != "rowRes")
-        {
-            console.error("incorrect dataData");
-            return false;                
-        }
 
-        if(1 == colOrRow)//it's coRow, add a row
-        {
-            if(dataList.length != (this.getColumnNum() - 2))
+        console.info("entry appendRowResData rowAppendLength = ", rowAppendLength, "colAppendLength = ", colAppendLength, 
+            "oldColnum = ", oldColNum, "oldRowNum = ", oldRowNum);
+       
+
+            //this.initMatrix(oldColNum + colAppendLength - 2, oldRowNum + rowAppendLength - 2);
+            this.initBlankMatrix(oldColNum + colAppendLength - 2, oldRowNum + rowAppendLength - 2);
+            
+            for(i = 0; i < this.rowNum - rowAppendLength; i++)
             {
-                console.error("incorrect colnum");
-                return false;
-            }
-            this.initMatrix(oldColNum - 2, oldRowNum + 1 - 2);
-            for(i = 0; i < this.rowNum - 1; i++)
-            {
-                for(j = 0; j < this.colNum; j++)
+                for(j = 0; j < this.colNum - colAppendLength; j++)
                 {
                     this.matrix[i][j] = copyMatrix[i][j];
                 }
             }
-            var methodNameEle = new ele();
-            var rowRWEle = new ele();
-            res = methodNameEle.setEle("rowResMethod", "zifuchang", "", "", methodName, this.rowNum - 1, 0);
-            this.matrix[this.rowNum - 1][0] = JSON.stringify(methodNameEle);
-            res = rowRWEle.setEle("blank", "zifuchang", "", "", "", this.rowNum - 1, 1);
-            this.matrix[this.rowNum - 1][1] = JSON.stringify(rowRWEle);
-            for(i = 2; i < this.colNum; i++)
+            console.info("this.rowNum = ", this.rowNum, "this.colNum = ", this.colNum);
+
+
+            /* 
+            for(i = 0; i < rowAppendLength; i++)
             {
-                var e = new ele();
-                res = e.setEle("rowRes", "zifuchang", "", "", "0.03", this.rowNum - 1, i);
-                this.matrix[this.rowNum - 1][i] = JSON.stringify(e);
+                var methodNameEle = new ele();
+                var rowRWEle = new ele();
+                var insertRowNum = this.rowNum - rowAppendLength + i;//default
+                //var methodName = rowAppendResList[i].name;
+                var methodName = "ttt";
+                //var dataList = rowAppendResList[i].list;
+                console.info("insertRowNum = ", insertRowNum, "methodName = ", methodName);
+                
+                res = methodNameEle.setEle("rowResMethod", "zifuchang", "", "", methodName, insertRowNum, 0);
+                this.matrix[insertRowNum][0] = JSON.stringify(methodNameEle);
+                res = rowRWEle.setEle("blank", "zifuchang", "", "", "", insertRowNum, 1);
+                this.matrix[insertRowNum][1] = JSON.stringify(rowRWEle);
+                
+                
+                for(j = 2; j < oldColNum; j++)
+                {
+                    var e = new ele();
+                    res = e.setEle("rowRes", "zifuchang", "", "", 33, insertRowNum, j);
+                    this.matrix[insertRowNum][j] = JSON.stringify(e);
+                }
+                
+                
             }
 
-        }
-        else//it's rowRes
-        {
-            if(dataList.length != (this.getRowNum() - 2))
+            for(i = 0; i < colAppendLength; i++)
             {
-                console.error("incorrect rowNum");
-                return false;
+                var methodNameEle = new ele();
+                var colRWEle = new ele();
+                var insertColNum = this.colNum - colAppendLength + i;//default
+                //var methodName = colAppendResList[i].name;
+                var methodName = "kkk";
+                //var dataList = colAppendResList[i].list;
+                console.info("insertColNum = ", insertColNum, "methodName = ", methodName);
+                //this.setEle = function(cellType, dataType, colHeaderName, rowHeaderName, data, i, j)
+                res = methodNameEle.setEle("colResMethod", "zifuchang", "", "", methodName, 0, insertColNum);
+                this.matrix[0][insertColNum] = JSON.stringify(methodNameEle);
+                res = colRWEle.setEle("blank", "zifuchang", "", "", "", 1, insertColNum);
+                this.matrix[1][insertColNum] = JSON.stringify(colRWEle);
+                
+                
+                for(j = 2; j < oldRowNum; j++)
+                {
+                    var e = new ele();
+                    res = e.setEle("colRes", "zifuchang", "", "", 44, j, insertColNum);
+                    this.matrix[j][insertColNum] = JSON.stringify(e);
+                }
+                
+                
             }
-        }
+            */
+
+
+            
+            for(i = 0; i < rowAppendLength; i++)
+            {
+                var methodNameEle = new ele();
+                var rowRWEle = new ele();
+                var insertRowNum = this.rowNum - rowAppendLength + i;//default
+                var methodName = rowAppendResList[i].name;
+                var dataList = rowAppendResList[i].list;
+                console.info("insertRowNum = ", insertRowNum, "methodName = ", methodName);
+                
+                res = methodNameEle.setEle("rowResMethod", "zifuchang", "", "", methodName, insertRowNum, 0);
+                this.matrix[insertRowNum][0] = JSON.stringify(methodNameEle);
+                res = rowRWEle.setEle("blank", "zifuchang", "", "", "", insertRowNum, 1);
+                this.matrix[insertRowNum][1] = JSON.stringify(rowRWEle);
+                
+                
+                for(j = 2; j < oldColNum; j++)
+                {
+                    var e = new ele();
+                    res = e.setEle("rowRes", "zifuchang", "", "", dataList[j - 2], insertRowNum, j);
+                    this.matrix[insertRowNum][j] = JSON.stringify(e);
+                }
+                
+            }
+
+            for(i = 0; i < colAppendLength; i++)
+            {
+                var methodNameEle = new ele();
+                var colRWEle = new ele();
+                var insertColNum = this.colNum - colAppendLength + i;//default
+                var methodName = colAppendResList[i].name;
+                var dataList = colAppendResList[i].list;
+                console.info("insertColNum = ", insertColNum, "methodName = ", methodName);
+                //this.setEle = function(cellType, dataType, colHeaderName, rowHeaderName, data, i, j)
+                res = methodNameEle.setEle("colResMethod", "zifuchang", "", "", methodName, 0, insertColNum);
+                this.matrix[0][insertColNum] = JSON.stringify(methodNameEle);
+                res = colRWEle.setEle("blank", "zifuchang", "", "", "", 1, insertColNum);
+                this.matrix[1][insertColNum] = JSON.stringify(colRWEle);
+                
+                
+                for(j = 2; j < oldRowNum; j++)
+                {
+                    var e = new ele();
+                    res = e.setEle("colRes", "zifuchang", "", "", dataList[j - 2], j, insertColNum);
+                    this.matrix[j][insertColNum] = JSON.stringify(e);
+                }
+                
+            }
+            
+            
+        
     }
+
+    this.clearResData = function()
+    {
+        var appendColNum = 0;
+        var appendRowNum = 0;
+
+        console.info("entry clearResData purifyMethodMethod length = ", this.currentPurifyMethod.length);
+        
+        for(i = 0; i < this.currentPurifyMethod.length; i++)
+        {
+            methodEle = this.currentPurifyMethod[i];
+            //var method = g_purifyData.getPurifyDataMethod(methodEle.method);
+            
+            
+            //if(null != method)
+            //{
+                if("纵向" == methodEle.direct)
+                {
+                    appendRowNum += 1;
+                    //this.deleteRow(this.rowNum - 2 - 1);
+                }
+                else
+                {
+                    appendColNum += 1;
+                    //this.deleteCol(this.colNum - 2 - 1);
+                }
+            //}
+            //console.info("rowAppendResList = ",  rowAppendResList);
+            //console.info("colAppendResList = ",  colAppendResList);
+
+        }
+        console.info("delete appendRowNum = ", appendRowNum, "delete appendColNum = ", appendColNum);
+        
+    }
+
 
     this.insertRow = function(rowNo, rowHeaderName)
     {
@@ -823,7 +1140,7 @@ function myMatrix()
             return false;
         }
 
-        var copyMatrix = this.copyCurrentMatrix();
+        var copyMatrix = this.copyCurrentMatrix2();
         var oldColNum = this.colNum;
         var oldRowNum = this.rowNum;
         
@@ -890,7 +1207,7 @@ function myMatrix()
             console.error("incorrect colNo", colNo);
             return false;
         }
-        var copyMatrix = this.copyCurrentMatrix();
+        var copyMatrix = this.copyCurrentMatrix2();
         var oldColNum = this.colNum;
         var oldRowNum = this.rowNum;
         var i = 0;
@@ -937,7 +1254,7 @@ function myMatrix()
             console.error("incorrect rowNo", rowNo);
             return false;
         }
-        var copyMatrix = this.copyCurrentMatrix();
+        var copyMatrix = this.copyCurrentMatrix2();
         var oldColNum = this.colNum;
         var oldRowNum = this.rowNum;
         var i = 0;
@@ -1017,9 +1334,10 @@ function myMatrix()
 		var method = g_rightWeight.getRightWeightMethod(methodName);
 		if(null != method)
 		{
-			var colRwArr = method.method(this.matrix, this.colNum - 2, this.rowNum - 2, 1);
+			var colRwArr = method.method(this.getUsefulPureDataMatrix, this.getPureDataColNum(), this.getPureDataRowNum(), 1);
 			console.info("colRwArr :", colRwArr);
 			var i = 0;
+            /*
 			for (i = 2; i < this.colNum; i++)
 			{
 				var e = new ele()
@@ -1029,6 +1347,16 @@ function myMatrix()
 				var jsonStr = JSON.stringify(e);
                 this.matrix[1][i] = jsonStr;
 			}
+            */
+            for (i = 0; i < this.getPureDataColNum(); i++)
+            {
+                var e = new ele()
+                var res = e.setEle("colRW", "xiaoshu", 
+                    this.getColHeaderNameByColNo(i + 2), "", colRwArr[i].toString(), 1, i + 2);
+                //console.info("RW: e = ", e);
+                var jsonStr = JSON.stringify(e);
+                this.matrix[1][i + 2] = jsonStr;
+            }
 			return true;
 		}
 		else
@@ -1047,9 +1375,10 @@ function myMatrix()
 		var method = g_rightWeight.getRightWeightMethod(methodName);
 		if(null != method)
 		{
-			var rowRwArr = method.method(this.matrix, this.colNum - 2, this.rowNum - 2, 0);
+			var rowRwArr = method.method(this.getUsefulPureDataMatrix, this.getPureDataColNum(), this.getPureDataRowNum(), 0);
 			console.info("rowRwArr :", rowRwArr);
 			var i = 0;
+            /*
 			for (i = 2; i < this.rowNum; i++)
 			{
 				var e = new ele()
@@ -1059,6 +1388,16 @@ function myMatrix()
 				var jsonStr = JSON.stringify(e);
                 this.matrix[i][1] = jsonStr;
 			}
+            */
+            for (i = 0; i < this.getPureDataRowNum(); i++)
+            {
+                var e = new ele()
+                var res = e.setEle("rowRW", "xiaoshu", 
+                    "", this.getRowHeaderNameByRowNo(i + 2), rowRwArr[i].toString(), i + 2, 1);
+                //console.info("RW: e = ", e);
+                var jsonStr = JSON.stringify(e);
+                this.matrix[i + 2][1] = jsonStr;
+            }
 			return true;
 		}
 		else
@@ -1078,30 +1417,30 @@ var myData = new myMatrix();
 myData.initMatrix(2, 3);
 myData.printMatrix();
 console.info("pure data = ");
-console.info(myData.getPureDataMatrix());
+console.info(myData.getShowPureDataMatrix());
 
 myData.insertCol(2, "newInsert", "xiaoshu");
 myData.printMatrix();
 console.info("after pure data = ");
-console.info(myData.getPureDataMatrix());
+console.info(myData.getShowPureDataMatrix());
 
 myData.insertCol(4, "new2Insert", "xiaoshu");
 myData.printMatrix();
 console.info("after pure data = ");
-console.info(myData.getPureDataMatrix());
+console.info(myData.getShowPureDataMatrix());
 
 myData.deleteCol(3);
 myData.printMatrix();
 console.info("after pure data = ");
-console.info(myData.getPureDataMatrix());
+console.info(myData.getShowPureDataMatrix());
 
 myData.insertRow(2, "newRow");
 myData.printMatrix();
 console.info("after pure data = ");
-console.info(myData.getPureDataMatrix());
+console.info(myData.getShowPureDataMatrix());
 
 myData.deleteRow(3);
 myData.printMatrix();
 console.info("after pure data = ");
-console.info(myData.getPureDataMatrix());
+console.info(myData.getShowPureDataMatrix());
 */

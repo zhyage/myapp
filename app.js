@@ -12,6 +12,7 @@ var getSaveFileList = require('./routes/getSaveFileList');
 var loadFileFromServer = require('./routes/loadFileFromServer');
 
 var app = express();
+app.disable('view cache');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
