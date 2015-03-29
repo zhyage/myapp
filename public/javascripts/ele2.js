@@ -53,6 +53,8 @@ function cellTypeEnume()
     }
 }
 
+var g_cellEnume = new cellTypeEnume();
+
 function eleDataTypeEnume()
 {
     this.datatypeEnume = 
@@ -668,6 +670,255 @@ function matrix()
 
     }
 
+    this.deleteRow = function(rowNo)
+    {
+        console.info("----------------deleteRow rowNo: ", rowNo, "----------------------");
+
+        if(rowNo >= this.rowNum)
+        {
+            console.error("incorrect rowNo", rowNo);
+            return false;
+        }
+        var copyMatrix = this.copyMatrix();
+        var oldColNum = this.colNum;
+        var oldRowNum = this.rowNum;
+        var i = 0;
+        var j = 0;
+
+        this.initMatrix(oldColNum, oldRowNum - 1);
+
+        for(i = 0; i < oldRowNum; i++)
+        {
+            for(j = 0; j < this.colNum; j++)
+            {
+                if(i > rowNo)
+                {
+                    this.matrix[i - 1][j] = copyMatrix[i][j];
+                }
+                else if(i < rowNo)
+                {
+                    this.matrix[i][j] = copyMatrix[i][j];
+                }
+                else
+                {
+                    //do nothing
+                }
+            }
+        }
+        return true;
+    }
+
+    this.moveCol = function(srcColNo, destColNo)
+    {
+        console.info("----------------moveCol srcColNo: ", srcColNo, "destColNo: ", destColNo, "------------");
+        if(srcColNo >= this.colNum || destColNo >= this.colNum)
+        {
+            console.error("error to moveCol");
+            return false;
+        }
+        var i = 0;
+        var j = 0;
+        var tempCol = [];
+        for(i = 0; i < this.rowNum; i++)
+        {
+            tempCol[i] = this.matrix[i][srcColNo];
+        }
+
+        if(srcColNo < destColNo)
+        {
+            for(i = srcColNo; i < destColNo; i++)
+            {
+                for(j = 0; j < this.rowNum; j++)
+                {
+                    this.matrix[j][i] = this.matrix[j][i + 1];
+                }
+            }
+        }
+        else
+        {
+            for(i = srcColNo; i > destColNo; i--)
+            {
+                for(j = 0; j < this.rowNum; j++)
+                {
+                    this.matrix[j][i] = this.matrix[j][i - 1];
+                }
+            }
+        }
+
+        for(i = 0; i < this.rowNum; i++)
+        {
+            this.matrix[i][destColNo] = tempCol[i];
+        }
+        return true;
+    }
+
+
+    this.moveRow = function(srcRowNo, destRowNo)
+    {
+        console.info("----------------moveRow srcRowNo: ", srcRowNo, "destRowNo: ", destRowNo, "------------");
+        if(srcRowNo >= this.rowNum || destRowNo >= this.rowNum)
+        {
+            console.error("error to moveRow");
+            return false;
+        }
+        var i = 0;
+        var j = 0;
+        var tempRow = [];
+        for(i = 0; i < this.colNum; i++)
+        {
+            tempRow[i] = this.matrix[srcRowNo][i];
+        }
+
+        if(srcRowNo < destRowNo)
+        {
+            for(i = srcRowNo; i < destRowNo; i++)
+            {
+                for(j = 0; j < this.colNum; j++)
+                {
+                    this.matrix[i][j] = this.matrix[i + 1][j];
+                }
+            }
+        }
+        else
+        {
+            for(i = srcRowNo; i > destRowNo; i--)
+            {
+                for(j = 0; j < this.colNum; j++)
+                {
+                    this.matrix[i][j] = this.matrix[i - 1][j];
+                }
+            }
+        }
+        for(i = 0; i < this.colNum; i++)
+        {
+            this.matrix[destRowNo][i] = tempRow[i];
+        }
+        return true;
+    }
+
+    this.generateJsonData = function()
+    {
+        var jsonFormatTable = JSON.stringify(this.matrix);
+        console.info("********************************************");
+        console.info(jsonFormatTable);
+        console.info("********************************************");
+    }
+
+
+
+}
+
+function cell()
+{
+    this.cellType = "blank";
+    this.cellContent = "";
+
+    this.setCellType = function(cellType)
+    {
+        if(false == g_cellEnume.checkCellTypeValide(cellType))
+        {
+            return false;
+        }
+        this.cellType = cellType;
+        return true;
+    }
+
+    this.setCellContent = function(cellContent)
+    {
+        this.cellContent = cellContent;
+        return true;
+    }
+
+    this.setCell = function(cellType, cellContent)
+    {
+        return this.setCellType(cellType) & 
+                this.setCellContent(cellContent);
+    }
+}
+
+function sheet()
+{
+
+    this.getSheetColNum = function(matrix)
+    {
+        return matrix.colNum + 2;
+    }
+
+    this.getSheetRowNum = function(matrix)
+    {
+        return matrix.rowNum + 2;
+    }
+
+
+    this.generateSheet = function(matrix)
+    {
+        var i = 0;
+        var j = 0;
+        var x = this.getSheetRowNum(matrix);
+        var y = this.getSheetColNum(matrix);
+        var sheet = new Array();
+        console.info("x : y: ", x, y);
+        for(i = 0; i < x ; i++)
+        {
+            sheet[i] = new Array();
+            for(j = 0; j < y; j++)
+            {
+                var e = new cell()
+                if(i < 2 && j < 2)//blank cell
+                {
+                    e.setCell("blank", "");
+                }
+                else if(i == 0)//col header
+                {
+                    //this.getColHeaderNameByColNo = function(rowNo, colNo)
+                    var colHeaderName = matrix.getColHeaderNameByColNo(0, j - 2);
+                    e.setCell("colHeader", colHeaderName);
+                }
+                else if(j == 0)// row header
+                {
+                    var rowHeaderName = matrix.getRowHeaderNameByRowNo(i - 2, 0);
+                    e.setCell("rowHeader", rowHeaderName);
+                }
+                else if(i == 1)//col RW
+                {
+                    e.setCell("colRW", "");
+                }
+                else if(j == 1)//row RW
+                {
+                    e.setCell("rowRW", "");
+                }
+                else//data
+                {
+                    console.info("matrix, x, y:", i-2, j-2, matrix.getEleByXY(i-2, j-2));
+                    
+                    var ele = matrix.getEleByXY(i-2, j-2);
+                    e.setCell("data", ele.data);
+                }
+                var jsonStr = JSON.stringify(e);
+                sheet[i][j] = jsonStr;
+                console.info("jsonstr :", jsonStr);
+            }
+        }
+        return sheet;
+    }
+
+    this.printSheet = function(matrix)
+    {
+        var i = 0;
+        var j = 0;
+        var x = this.getSheetRowNum(matrix);
+        var y = this.getSheetColNum(matrix);
+        var sheet = this.generateSheet(matrix);
+        for(i = 0; i < x; i++)
+        {
+            for(j = 0; j < y; j++)
+            {
+                console.info("sheet[", i, "][", j, "] = ", sheet[i][j]);
+                console.info(" | ");
+            }
+            console.info("------------------------------------------------------------");
+        }
+    }
 }
 
 
@@ -729,4 +980,26 @@ myMatrix.setMatrixData("421", 2, 1);
 console.info("#############################################")
 myMatrix.printMatrix();
 
+myMatrix.moveCol(0, 1);
+console.info("#############################################")
+myMatrix.printMatrix();
 
+
+myMatrix.deleteColumn(1);
+console.info("#############################################")
+myMatrix.printMatrix();
+
+myMatrix.deleteRow(1);
+console.info("#############################################")
+myMatrix.printMatrix();
+
+myMatrix.moveCol(0, 1);
+console.info("#############################################")
+myMatrix.printMatrix();
+
+myMatrix.moveRow(0, 1);
+console.info("#############################################")
+myMatrix.printMatrix();
+
+var mySheet = new sheet();
+mySheet.printSheet(myMatrix);
