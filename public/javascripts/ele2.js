@@ -55,6 +55,34 @@ function cellTypeEnume()
 
 var g_cellEnume = new cellTypeEnume();
 
+function getColorByCellType(cellType)
+{
+    var i = 0;
+    for(i = 0; i < g_cellEnume.cellEnume.length; i++)
+    {
+        var e = g_cellEnume.cellEnume[i];
+        if(cellType == e.type)
+        {
+            return e.color;
+        }
+    }
+    return "unknow";
+}
+
+function getEditableByCellType(cellType)
+{
+    var i = 0;
+    for(i = 0; i < g_cellEnume.cellEnume.length; i++)
+    {
+        var e = g_cellEnume.cellEnume[i];
+        if(cellType == e.type)
+        {
+            return e.editable;
+        }
+    }
+    return "unknow";
+}
+
 function eleDataTypeEnume()
 {
     this.datatypeEnume = 
@@ -836,26 +864,22 @@ function cell()
     }
 }
 
-function sheet()
+
+
+function sheet(matrix)
 {
 
-    this.getSheetColNum = function(matrix)
-    {
-        return matrix.colNum + 2;
-    }
-
-    this.getSheetRowNum = function(matrix)
-    {
-        return matrix.rowNum + 2;
-    }
+    this.sheetColNum = matrix.colNum + 2;
+    
+    this.sheetRowNum = matrix.rowNum + 2;
 
 
     this.generateSheet = function(matrix)
     {
         var i = 0;
         var j = 0;
-        var x = this.getSheetRowNum(matrix);
-        var y = this.getSheetColNum(matrix);
+        var x = this.sheetRowNum;
+        var y = this.sheetColNum;
         var sheet = new Array();
         console.info("x : y: ", x, y);
         for(i = 0; i < x ; i++)
@@ -902,50 +926,115 @@ function sheet()
         return sheet;
     }
 
-    this.printSheet = function(matrix)
+    this.printSheet = function()
     {
         var i = 0;
         var j = 0;
-        var x = this.getSheetRowNum(matrix);
-        var y = this.getSheetColNum(matrix);
-        var sheet = this.generateSheet(matrix);
-        for(i = 0; i < x; i++)
+        for(i = 0; i < this.sheetRowNum; i++)
         {
-            for(j = 0; j < y; j++)
+            for(j = 0; j < this.sheetColNum; j++)
             {
-                console.info("sheet[", i, "][", j, "] = ", sheet[i][j]);
+                console.info("sheet[", i, "][", j, "] = ", this.sheet[i][j]);
                 console.info(" | ");
             }
             console.info("------------------------------------------------------------");
         }
     }
+
+    this.getShowPureDataSheet = function()
+    {
+        var i = 0;
+        var j = 0;
+        
+        var showSheet = new Array();
+        for(i = 0; i < this.sheetRowNum; i++)
+        {
+            showSheet[i] = new Array();
+            for(j = 0; j < this.sheetColNum; j++)
+            {
+                var e = JSON.parse(this.sheet[i][j]);
+                showSheet[i][j] = e.cellContent;
+            }
+        }
+        return showSheet;
+    }
+
+    this.printShowSheet = function()
+    {
+        var i = 0;
+        var j = 0;
+        console.info("----------------show sheet-------------------");
+        for(i = 0; i < this.sheetRowNum; i++)
+        {
+            for(j = 0; j < this.sheetColNum; j++)
+            {
+                console.info("showSheet[", i, "][", j, "] :", this.showSheet[i][j]);
+            }
+        }
+        console.info("---------------------------------------------");
+    }
+
+    this.getCellDataType = function(rowNo, colNo)
+    {
+        var e = JSON.parse(this.sheet[rowNo][colNo]);
+        return e.cellType;
+    }
+
+    this.getCellColorByXY = function(rowNo, colNo)
+    {
+        if(rowNo < this.sheetRowNum && colNo < this.sheetColNum)
+        {
+            var color = getColorByCellType(this.getCellDataType(rowNo, colNo));
+            return color;
+        }
+        else
+        {
+            return "unknow";
+        }
+    }
+
+    this.getCellEditableByXY = function(rowNo, colNo)
+    {
+        if(rowNo < this.sheetRowNum && colNo < this.sheetColNum)
+        {
+            var editable = getEditableByCellType(this.getCellDataType(rowNo, colNo));
+            return editable;
+        }
+        else
+        {
+            return "unknow";
+        }
+    }
+
+    this.sheet = this.generateSheet(matrix);
+
+    this.showSheet = this.getShowPureDataSheet();
 }
 
-
-
+/*
 
 var testEle = new ele();
 //this.setEle = function(dataType, colHeaderName, rowHeaderName, data, x, y)
-/*
-testEle.setEle("integer", "col1", "row1", "333.3", 0, 0);
-testEle.setEle("integer", "col1", "row1", "333", 0, 0);
 
-var myMatrix = new matrix();
-myMatrix.initMatrix(3, 5);
-myMatrix.printMatrix();
+// testEle.setEle("integer", "col1", "row1", "333.3", 0, 0);
+// testEle.setEle("integer", "col1", "row1", "333", 0, 0);
 
-myMatrix.insertColumn(2, "aaa", "integer");
-console.info("#############################################")
-myMatrix.printMatrix();
+// var myMatrix = new matrix();
+// myMatrix.initMatrix(3, 5);
+// myMatrix.printMatrix();
 
-myMatrix.deleteColumn(3);
-console.info("#############################################")
-myMatrix.printMatrix();
+// myMatrix.insertColumn(2, "aaa", "integer");
+// console.info("#############################################")
+// myMatrix.printMatrix();
 
-myMatrix.insertRow(3);
-console.info("#############################################")
-myMatrix.printMatrix();
-*/
+// myMatrix.deleteColumn(3);
+// console.info("#############################################")
+// myMatrix.printMatrix();
+
+// myMatrix.insertRow(3);
+// console.info("#############################################")
+// myMatrix.printMatrix();
+
 
 var myMatrix = new matrix();
 myMatrix.insertColumn(0, "aaa", "integer");
@@ -1001,5 +1090,61 @@ myMatrix.moveRow(0, 1);
 console.info("#############################################")
 myMatrix.printMatrix();
 
-var mySheet = new sheet();
-mySheet.printSheet(myMatrix);
+var mySheet = new sheet(myMatrix);
+mySheet.printSheet();
+mySheet.printShowSheet();
+//mySheet.getShowPureDataSheet(myMatrix);
+*/
+
+
+
+var myMatrix = new matrix();
+    myMatrix.insertColumn(0, "aaa", "integer");
+    myMatrix.insertColumn(1, "bbb", "integer");
+    myMatrix.insertColumn(1, "ccc", "integer");
+    //this.setMatrixData = function(data, x, y)
+    myMatrix.setMatrixData("400", 0, 0);
+    myMatrix.setMatrixData("401", 0, 1);
+    myMatrix.setMatrixData("402", 0, 2);
+    var mySheet = new sheet(myMatrix);
+
+    var data = mySheet.showSheet;
+
+    console.info("ttt data: ", data);
+
+    mySheet.printShowSheet();
+    
+
+    console.info("color : ", mySheet.getCellColorByXY(0, 0));
+    console.info("color : ", mySheet.getCellColorByXY(0, 1));
+    console.info("color : ", mySheet.getCellColorByXY(0, 2));
+    console.info("color : ", mySheet.getCellColorByXY(0, 3));
+    console.info("color : ", mySheet.getCellColorByXY(0, 4));
+    console.info("----------");
+
+    console.info("color : ", mySheet.getCellColorByXY(1, 0));
+    console.info("color : ", mySheet.getCellColorByXY(1, 1));
+    console.info("color : ", mySheet.getCellColorByXY(1, 2));
+    console.info("color : ", mySheet.getCellColorByXY(1, 3));
+    console.info("color : ", mySheet.getCellColorByXY(1, 4));
+    console.info("----------");
+
+    console.info("color : ", mySheet.getCellColorByXY(2, 0));
+    console.info("color : ", mySheet.getCellColorByXY(2, 1));
+    console.info("color : ", mySheet.getCellColorByXY(2, 2));
+    console.info("color : ", mySheet.getCellColorByXY(2, 3));
+    console.info("color : ", mySheet.getCellColorByXY(2, 4));
+    console.info("----------");
+
+    console.info("color : ", mySheet.getCellColorByXY(3, 0));
+    console.info("color : ", mySheet.getCellColorByXY(3, 1));
+    console.info("color : ", mySheet.getCellColorByXY(3, 2));
+    console.info("color : ", mySheet.getCellColorByXY(3, 3));
+    console.info("color : ", mySheet.getCellColorByXY(3, 4));
+
+    console.info("editable : ", mySheet.getCellEditableByXY(2, 0));
+    console.info("editable : ", mySheet.getCellEditableByXY(2, 1));
+    console.info("editable : ", mySheet.getCellEditableByXY(2, 2));
+    console.info("editable : ", mySheet.getCellEditableByXY(2, 3));
+    console.info("editable : ", mySheet.getCellEditableByXY(2, 4));
+    console.info("----------");
