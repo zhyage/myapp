@@ -11,12 +11,12 @@ function cellTypeEnume()
         },
         {
             type: "colHeader",
-            editable: false,
+            editable: true,
             color:"yellow",
         },
         {
             type: "rowHeader",
-            editable: false,
+            editable: true,
             color: "yellow",
         },
         {
@@ -461,9 +461,9 @@ function matrix()
                 else
                 {
                     var e = new ele();
-                    var rowName = this.getRowHeaderNameByRowNo(i,j);
+                    var rowName = this.getRowHeaderNameByRowNo(i);
                     //console.info("rowName :", rowName);
-                    res = e.createEle(dataType, colHeaderName, this.getRowHeaderNameByRowNo(i,j), i, j);
+                    res = e.createEle(dataType, colHeaderName, this.getRowHeaderNameByRowNo(i), i, j);
 
                     if(false == res)
                     {
@@ -478,26 +478,23 @@ function matrix()
     }
 
 
-    this.getRowHeaderNameByRowNo = function(rowNo, colNo)
+    this.getRowHeaderNameByRowNo = function(rowNo)
     {
-        if(colNo > 0)
+        var i = 0;
+        for(i = 0; i < this.colNum; i++)
         {
-            var e = JSON.parse(this.matrix[rowNo][0]);
-            return e.rowHeaderName;
-        }
-        else
-        {
-            if(this.colNum == 1)//only one column
+            var eString = this.getDataByXY(rowNo, i);
+            if(false == eString)
             {
-                var e = JSON.parse(this.matrix[rowNo][0]);
-                return e.rowHeaderName;
+                continue;
             }
-            else
+            var e = JSON.parse(eString);
+            if(true == e.init)
             {
-                var e = JSON.parse(this.matrix[rowNo][1]);
                 return e.rowHeaderName;
             }
         }
+        return "";
     }
 
     this.deleteColumn = function(colNo)
@@ -568,12 +565,12 @@ function matrix()
         {
             var newData = new ele();
 
-            console.info("getDataTypeByColNo: ", this.getDataTypeByColNo(x, y));
-            console.info("getColHeaderNameByColNo: ", this.getColHeaderNameByColNo(x, y));
-            console.info("getRowHeaderNameByRowNo: ", this.getRowHeaderNameByRowNo(x, y));
-            res = newData.setEle(this.getDataTypeByColNo(x, y), 
-                    this.getColHeaderNameByColNo(x, y), 
-                    this.getRowHeaderNameByRowNo(x, y), 
+            console.info("getDataTypeByColNo: ", this.getDataTypeByColNo(y));
+            console.info("getColHeaderNameByColNo: ", this.getColHeaderNameByColNo(y));
+            console.info("getRowHeaderNameByRowNo: ", this.getRowHeaderNameByRowNo(x));
+            res = newData.setEle(this.getDataTypeByColNo(y), 
+                    this.getColHeaderNameByColNo(y), 
+                    this.getRowHeaderNameByRowNo(x), 
                     data, x, y);
             if(false == res)
             {
@@ -624,7 +621,7 @@ function matrix()
                     //console.info("tttttttttttttttttttttttttttttttt");
                     var e = new ele();
 
-                    res = e.createEle(this.getDataTypeByColNo(i, j), this.getColHeaderNameByColNo(i, j), "", i, j);
+                    res = e.createEle(this.getDataTypeByColNo(j), this.getColHeaderNameByColNo(j), "", i, j);
                     
                     if(false == res)
                     {
@@ -640,49 +637,32 @@ function matrix()
     }
 
 
-    this.getColHeaderNameByColNo = function(rowNo, colNo)
+    this.getColHeaderNameByColNo = function(colNo)
     {
-        if(rowNo > 0)
+       
+        var eString = this.getDataByXY(0, colNo);
+        //console.info("--------------------------------x, y: ", 0, colNo, " eString: ", eString);
+        if(false == eString)
         {
-            var e = JSON.parse(this.matrix[0][colNo]);
-            return e.colHeaderName;
+            return "";
         }
-        else
-        {
-            if(this.rowNum == 1)//only one column
-            {
-                var e = JSON.parse(this.matrix[0][colNo]);
-                return e.colHeaderName;
-            }
-            else
-            {
-                var e = JSON.parse(this.matrix[1][colNo]);
-                return e.colHeaderName;
-            }
-        }
+        var e = JSON.parse(eString);
+        
+        return e.colHeaderName;
+            
     }
 
-    this.getDataTypeByColNo = function(rowNo, colNo)
+    this.getDataTypeByColNo = function(colNo)
     {
-        if(rowNo > 0)
+        var eString = this.getDataByXY(0, colNo);
+        //console.info("--------------------------------x, y: ", 0, colNo, " eString: ", eString);
+        if(false == eString)
         {
-            var e = JSON.parse(this.matrix[0][colNo]);
-            return e.dataType;
+            return "";
         }
-        else
-        {
-            console.info("this.rowNum ==== ", this.rowNum)
-            if(this.rowNum == 1)//only one column
-            {
-                var e = JSON.parse(this.matrix[0][colNo]);
-                return e.dataType;
-            }
-            else
-            {
-                var e = JSON.parse(this.matrix[1][colNo]);
-                return e.dataType;
-            }
-        }
+        var e = JSON.parse(eString);
+        
+        return e.dataType;
     }
 
     this.getEleByXY = function(x, y)
@@ -832,6 +812,82 @@ function matrix()
         console.info("********************************************");
     }
 
+    this.getDataByXY = function(rowNo, colNo)
+    {
+        if(colNo >= this.colNum || rowNo >= this.rowNum)
+        {
+            return false;
+        }
+        return this.matrix[rowNo][colNo];
+    }
+
+    this.setColHeader = function(colNo, name)
+    {
+        var i = 0;
+
+        for(i = 0; i < this.rowNum; i++)
+        {
+            var eString = this.getDataByXY(i, colNo);
+            if(false == eString)
+            {
+                return false;
+            }
+            var e = JSON.parse(eString)
+            if(true == e.init)
+            {
+                var newEle = new ele();
+                if(false == newEle.setEle(e.dataType, name, e.rowHeaderName, e.data, i, colNo))
+                {
+                    return false;
+                }
+                this.matrix[i][colNo] = JSON.stringify(newEle);
+            }
+        }
+        return true;
+    }
+
+    this.setRowHeader = function(rowNo, name)
+    {
+        var i = 0;
+
+        for(i = 0; i < this.colNum; i++)
+        {
+            var eString = this.getDataByXY(rowNo, i);
+            if(false == eString)
+            {
+                return false;
+            }
+            var e = JSON.parse(eString)
+            if(true == e.init)
+            {
+                var newEle = new ele();
+                if(false == newEle.setEle(e.dataType, e.colHeaderName, name, e.data, rowNo, i))
+                {
+                    return false;
+                }
+                this.matrix[rowNo][i] = JSON.stringify(newEle);
+            }
+        }
+        return true;
+    }
+
+    this.setData = function(rowNo, colNo, value)
+    {
+        var eString = this.getDataByXY(rowNo, colNo);
+        if(false == eString)
+        {
+            return false;
+        }
+        var e = JSON.parse(eString);
+        var newEle = new ele();
+        if(false == newEle.setEle(e.dataType, e.colHeaderName, e.rowHeader, value, rowNo, colNo))
+        {
+            return false;
+        }
+        this.matrix[rowNo][colNo] = JSON.stringify(newEle);
+        return true;
+    }
+
 
 
 }
@@ -873,6 +929,14 @@ function sheet(matrix)
     
     this.sheetRowNum = matrix.rowNum + 2;
 
+    this.reLoadSheet = function(matrix)
+    {
+        this.sheetColNum = matrix.colNum + 2;
+        this.sheetRowNum = matrix.rowNum + 2;
+        this.sheet = this.generateSheet(matrix);
+        this.showSheet = this.getShowPureDataSheet();
+    }
+
 
     this.generateSheet = function(matrix)
     {
@@ -895,12 +959,12 @@ function sheet(matrix)
                 else if(i == 0)//col header
                 {
                     //this.getColHeaderNameByColNo = function(rowNo, colNo)
-                    var colHeaderName = matrix.getColHeaderNameByColNo(0, j - 2);
+                    var colHeaderName = matrix.getColHeaderNameByColNo(j - 2);
                     e.setCell("colHeader", colHeaderName);
                 }
                 else if(j == 0)// row header
                 {
-                    var rowHeaderName = matrix.getRowHeaderNameByRowNo(i - 2, 0);
+                    var rowHeaderName = matrix.getRowHeaderNameByRowNo(i - 2);
                     e.setCell("rowHeader", rowHeaderName);
                 }
                 else if(i == 1)//col RW
@@ -1009,6 +1073,7 @@ function sheet(matrix)
     this.sheet = this.generateSheet(matrix);
 
     this.showSheet = this.getShowPureDataSheet();
+
 }
 
 /*
@@ -1101,11 +1166,13 @@ mySheet.printShowSheet();
 var myMatrix = new matrix();
     myMatrix.insertColumn(0, "aaa", "integer");
     myMatrix.insertColumn(1, "bbb", "integer");
-    myMatrix.insertColumn(1, "ccc", "integer");
+    myMatrix.insertColumn(2, "ccc", "integer");
     //this.setMatrixData = function(data, x, y)
     myMatrix.setMatrixData("400", 0, 0);
     myMatrix.setMatrixData("401", 0, 1);
     myMatrix.setMatrixData("402", 0, 2);
+
+    myMatrix.setMatrixData("500", 1, 0);
     var mySheet = new sheet(myMatrix);
 
     var data = mySheet.showSheet;
@@ -1113,8 +1180,15 @@ var myMatrix = new matrix();
     console.info("ttt data: ", data);
 
     mySheet.printShowSheet();
-    
 
+
+    myMatrix.setMatrixData("600", 2, 0);
+    mySheet.reLoadSheet(myMatrix);
+    mySheet.printShowSheet();
+
+
+    
+/*
     console.info("color : ", mySheet.getCellColorByXY(0, 0));
     console.info("color : ", mySheet.getCellColorByXY(0, 1));
     console.info("color : ", mySheet.getCellColorByXY(0, 2));
@@ -1148,3 +1222,4 @@ var myMatrix = new matrix();
     console.info("editable : ", mySheet.getCellEditableByXY(2, 3));
     console.info("editable : ", mySheet.getCellEditableByXY(2, 4));
     console.info("----------");
+    */
