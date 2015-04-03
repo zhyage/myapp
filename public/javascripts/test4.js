@@ -90,7 +90,7 @@ $(document).ready(function () {
             {
                 return matrix.setRowHeader(rowNo - 2, newValue);
             }
-            else if("data" == cellType)
+            else if("data" == cellType || "pendingData"  == cellType)
             {
                 return matrix.setData(rowNo - 2, colNo - 2, newValue);
             }
@@ -148,6 +148,10 @@ $(document).ready(function () {
     myMatrix.setMatrixData("701", 3, 1);
 
     myMatrix.insertColumn(3, "ddd", "integer");
+    myMatrix.insertColumn(4, "eee", "float");
+    myMatrix.insertColumn(5, "fff", "string");
+    myMatrix.insertColumn(6, "ggg", "region");
+    
 
     var mySheet = new sheet(myMatrix);
 

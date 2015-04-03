@@ -34,6 +34,11 @@ function cellTypeEnume()
             editable: true,
             color: "white",
         },
+        {
+            type: "pendingData",
+            editable: true,
+            color: "white",
+        },
         
     ]
 
@@ -119,7 +124,7 @@ function eleDataTypeEnume()
         {
             name: "string",
             comment: "this is string",
-            defaultValue: "",
+            defaultValue: " ",
             validate: function fun(n)
             {
                 if(n.length == 0)
@@ -318,7 +323,7 @@ function ele()
     {
         if(init == false)
         {
-            //this.data = "";
+            /*   
             this.data = g_eleType.getDataDefaultValueByType(dataType);
 
             if(false == g_eleType.checkDataTypeValide(dataType))
@@ -327,6 +332,17 @@ function ele()
             }
             this.dataType = dataType;
             return true;
+            */
+            if(false == g_eleType.checkDataValide(data, dataType))
+            {
+                console.info("error to checkDataValide data: ", data, "dataType :", dataType);
+                return false;
+            }
+            this.init = true;
+            this.data = data;
+            this.dataType = dataType;
+            return true;
+
         }
         else
         {
@@ -362,7 +378,7 @@ function ele()
     {
         var res = this.setEleColHeaderName(colHeaderName)&
                     this.setEleRowHeaderName(rowHeaderName)&
-                    this.setEleData(dataType, "", false);
+                    this.setEleData(dataType, g_eleType.getDataDefaultValueByType(dataType), false);
         if(false == res)
         {
             console.info("createEle res : false");
@@ -600,6 +616,7 @@ function matrix()
                 return false;
             }
             this.matrix[x][y] = JSON.stringify(newData);
+            return true;
             
         }
     }
@@ -895,6 +912,10 @@ function matrix()
 
     this.setData = function(rowNo, colNo, value)
     {
+        var res = this.setMatrixData(value, rowNo, colNo);
+        console.info("++++++++++++++++++++++++++ res :", res);
+        return res;
+        /*
         var eString = this.getDataByXY(rowNo, colNo);
         if(false == eString)
         {
@@ -908,6 +929,7 @@ function matrix()
         }
         this.matrix[rowNo][colNo] = JSON.stringify(newEle);
         return true;
+        */
     }
 
 
@@ -949,12 +971,12 @@ function sheet(matrix)
 
     this.sheetColNum = matrix.colNum + 2;
     
-    this.sheetRowNum = matrix.rowNum + 2;
+    this.sheetRowNum = matrix.rowNum + 3;
 
     this.reLoadSheet = function(matrix)
     {
         this.sheetColNum = matrix.colNum + 2;
-        this.sheetRowNum = matrix.rowNum + 2;
+        this.sheetRowNum = matrix.rowNum + 3;
         this.sheet = this.generateSheet(matrix);
         this.showSheet = this.getShowPureDataSheet();
     }
@@ -977,6 +999,17 @@ function sheet(matrix)
                 if(i < 2 && j < 2)//blank cell
                 {
                     e.setCell("blank", "");
+                }
+                else if(i == x - 1)//the last line
+                {
+                    if(j < 2)
+                    {
+                        e.setCell("blank", "");
+                    }
+                    else
+                    {
+                        e.setCell("pendingData", "");
+                    }
                 }
                 else if(i == 0)//col header
                 {
@@ -1075,9 +1108,12 @@ function sheet(matrix)
         }
         else
         {
+            
             return "unknow";
+            
         }
     }
+
 
     this.getCellEditableByXY = function(rowNo, colNo)
     {
