@@ -90,15 +90,18 @@ function eleDataTypeEnume()
         {
             name: "integer",
             comment: "this is an integer",
+            defaultValue: "0",
             validate: function fun(n)
             {
                 var tmp = Number(n);
                 return (tmp.toString()===n && tmp%1===0);
             }
+
         },
         {
             name: "float",
             comment: "this is float",
+            defaultValue: "0.00",
             validate: function fun(n)
             {
                 var res = parseFloat(n);
@@ -116,6 +119,7 @@ function eleDataTypeEnume()
         {
             name: "string",
             comment: "this is string",
+            defaultValue: "",
             validate: function fun(n)
             {
                 if(n.length == 0)
@@ -128,6 +132,7 @@ function eleDataTypeEnume()
         {
             name: "region",
             comment: "this is region",
+            defaultValue: "0-0",
             validate: function fun(n)
             {
                 var arr = n.split("-");
@@ -148,6 +153,7 @@ function eleDataTypeEnume()
         {
             name: "undefine",
             comment: "this is undefine data",
+            defaultValue: "",
             validate: function fun(n)
             {
                 return true;
@@ -165,6 +171,20 @@ function eleDataTypeEnume()
             }
         }
         return null;
+    }
+
+    this.getDataDefaultValueByType = function(type)
+    {
+        var i = 0;
+        for(i = 0; i < this.datatypeEnume.length; i++)
+        {
+            var e = this.datatypeEnume[i];
+            if(type == e.name)
+            {
+                return e.defaultValue;
+            }
+        }
+        return "";
     }
 
     this.getDataTypeCommentByName = function(name)
@@ -298,7 +318,9 @@ function ele()
     {
         if(init == false)
         {
-            this.data = "";
+            //this.data = "";
+            this.data = g_eleType.getDataDefaultValueByType(dataType);
+
             if(false == g_eleType.checkDataTypeValide(dataType))
             {
                 return false;
@@ -1173,6 +1195,9 @@ var myMatrix = new matrix();
     myMatrix.setMatrixData("402", 0, 2);
 
     myMatrix.setMatrixData("500", 1, 0);
+
+    myMatrix.insertColumn(3, "ddd", "float");
+
     var mySheet = new sheet(myMatrix);
 
     var data = mySheet.showSheet;
@@ -1182,9 +1207,9 @@ var myMatrix = new matrix();
     mySheet.printShowSheet();
 
 
-    myMatrix.setMatrixData("600", 2, 0);
-    mySheet.reLoadSheet(myMatrix);
-    mySheet.printShowSheet();
+    //myMatrix.setMatrixData("600", 2, 0);
+    //mySheet.reLoadSheet(myMatrix);
+    //mySheet.printShowSheet();
 
 
     

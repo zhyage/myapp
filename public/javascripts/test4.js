@@ -145,7 +145,9 @@ $(document).ready(function () {
 
     myMatrix.setMatrixData("501", 1, 1);
     myMatrix.setMatrixData("601", 2, 1);
-    myMatrix.setMatrixData("701", 3, 1);    
+    myMatrix.setMatrixData("701", 3, 1);
+
+    myMatrix.insertColumn(3, "ddd", "integer");
 
     var mySheet = new sheet(myMatrix);
 
