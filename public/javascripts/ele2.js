@@ -381,7 +381,7 @@ function ele()
                     this.setEleData(dataType, g_eleType.getDataDefaultValueByType(dataType), false);
         if(false == res)
         {
-            console.info("createEle res : false");
+            console.error("createEle res : false");
         }
         else
         {
@@ -397,6 +397,13 @@ function matrix()
     this.colNum = 0;
     this.rowNum = 0;
     this.matrix = [];
+
+    this.loadData = function(matrix)
+    {
+        this.colNum = matrix.colNum;
+        this.rowNum = matrix.rowNum;
+        this.matrix = matrix.matrix;
+    }
 
 
     this.initMatrix = function(x, y)
@@ -864,6 +871,11 @@ function matrix()
     {
         var i = 0;
 
+        if(true == this.checkColHeaderExist(name))
+        {
+            return false;
+        }
+
         for(i = 0; i < this.rowNum; i++)
         {
             var eString = this.getDataByXY(i, colNo);
@@ -888,6 +900,11 @@ function matrix()
     this.setRowHeader = function(rowNo, name)
     {
         var i = 0;
+
+        if(true == this.checkRowHeaderExist(name))
+        {
+            return false;
+        } 
 
         for(i = 0; i < this.colNum; i++)
         {
@@ -915,21 +932,60 @@ function matrix()
         var res = this.setMatrixData(value, rowNo, colNo);
         console.info("++++++++++++++++++++++++++ res :", res);
         return res;
-        /*
-        var eString = this.getDataByXY(rowNo, colNo);
-        if(false == eString)
+    }
+
+    this.checkColHeaderExist = function(colHeaderName)
+    {
+        var i = 0;
+        for(i = 0; i < this.colNum; i++)
+        {
+            var colName = this.getColHeaderNameByColNo(i);
+            if(colName == colHeaderName)
+            {
+                console.error("colHeaderName :", colHeaderName , "already exist");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    this.checkRowHeaderExist = function(rowHeaderName)
+    {
+        if("" == rowHeaderName)//allow rowHeaderName be empty
         {
             return false;
         }
-        var e = JSON.parse(eString);
-        var newEle = new ele();
-        if(false == newEle.setEle(e.dataType, e.colHeaderName, e.rowHeader, value, rowNo, colNo))
+        var i = 0;
+        for(i = 0; i < this.rowNum; i++)
         {
-            return false;
+            var rowName = this.getRowHeaderNameByRowNo(i);
+            if(rowName == rowHeaderName)
+            {
+                console.error("rowHeaderName :", rowHeaderName , "already exist");
+                return true;
+            }
         }
-        this.matrix[rowNo][colNo] = JSON.stringify(newEle);
+        return false;
+    }
+
+    this.changeColDataType = function(colNo, type)
+    {
+        var defaultValue = g_eleType.getDataDefaultValueByType(type);
+        var i = 0;
+        for(i = 0; i < this.rowNum; i++)
+        {
+            var e = new ele();
+
+            res = e.createEle(type, this.getColHeaderNameByColNo(colNo), this.getRowHeaderNameByRowNo(i), i, colNo);
+            
+            if(false == res)
+            {
+                console.error("incorrect new insert data");
+                return false;
+            }
+            this.matrix[i][colNo] = JSON.stringify(e);
+        }
         return true;
-        */
     }
 
 

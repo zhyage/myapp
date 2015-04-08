@@ -54,13 +54,803 @@ $(document).ready(function () {
     };
 
 
+    function generateInsertColumnForm(rowNo, colNo, before) {
+        $('#insertFrm').html('');
+        console.info("entry generateInsertCBForm");
+        if (colNo < 2 || colNo > mySheet.sheetColNum) {
+            setTimeout(function () {
+                $.unblockUI({
+                    onUnblock : function () {
+                        alert('please select position where you want insert column first');
+                    }
+                });
+            }, 200);
+            return;
+        }
+        var dataTypeList = [];
+        dataTypeList = g_eleType.getUseableDatatypeNameList();
+
+        $('#insertFrm').jsonForm({
+            schema : {
+                columnHeader : {
+                    type : 'string',
+                    title : 'column Header Name',
+                    required : true
+                },
+                dataType : {
+                    type : 'string',
+                    title : 'data type',
+                    required : true,
+                    'enum' : dataTypeList,
+                }
+            },
+            "value" : {
+                "columnHeader" : "",
+                "dataType" : "float",
+            },
+
+            "form" : [
+                "columnHeader",
+                "dataType", {
+                    "type" : "actions",
+                    "items" : [{
+                            "type" : "submit",
+                            "title" : "Submit"
+                        }, {
+                            "type" : "button",
+                            "title" : "Cancel",
+                            "onClick" : function (evt) {
+                                evt.preventDefault();
+                                console.info("cancel insert column on submit");
+                                $.unblockUI();
+                            }
+                        }
+                    ]
+                }
+            ],
+
+            onSubmit : function (errors, values) {
+                if (errors) {
+                    alert("error happens when set colHEaderName cell");
+                } else {
+                    console.info("submit insert column on submit");
+                    columnName = values.columnHeader;
+                    dataType = values.dataType;
+                    if (true == before) {
+                        myData_1.insertCol(colNo, columnName, dataType);
+                    } else {
+                        myData_1.insertCol(colNo + 1, columnName, dataType);
+                    }
+                    hot.loadData(myData_1.getShowPureDataMatrix());
+                }
+                $.unblockUI();
+            },
+
+        });
+    }
+
+    function generateInsertRowForm(rowNo, colNo, before) {
+        $('#insertFrm').html('');
+        console.info("entry generateInsertRowForm");
+        if (rowNo < 2 || rowNo > myData_1.getRowNum()) {
+            setTimeout(function () {
+                $.unblockUI({
+                    onUnblock : function () {
+                        alert('please select position where you want insert row first');
+                    }
+                });
+            }, 200);
+            return;
+        }
+
+        $('#insertFrm').jsonForm({
+            schema : {
+                rowHeader : {
+                    type : 'string',
+                    title : 'row Header Name',
+                    required : true
+                },
+            },
+            "value" : {
+                "rowHeader" : "",
+            },
+
+            "form" : [
+                "rowHeader", {
+                    "type" : "actions",
+                    "items" : [{
+                            "type" : "submit",
+                            "title" : "Submit"
+                        }, {
+                            "type" : "button",
+                            "title" : "Cancel",
+                            "onClick" : function (evt) {
+                                evt.preventDefault();
+                                console.info("cancel insert row");
+                                $.unblockUI();
+                            }
+                        }
+                    ]
+                }
+            ],
+
+            onSubmit : function (errors, values) {
+                if (errors) {
+                    alert("error happens when set rowHEaderName cell");
+                } else {
+                    console.info("submit insert row on submit");
+                    rowHeadName = values.rowHeader;
+                    if (true == before) {
+                        myData_1.insertRow(rowNo, rowHeadName);
+                    } else {
+                        myData_1.insertRow(rowNo + 1, rowHeadName);
+                    }
+                    hot.loadData(myData_1.getShowPureDataMatrix());
+                }
+                $.unblockUI();
+            },
+
+        });
+    }
+
+    function generateDeleteColForm(rowNo, colNo) {
+        $('#insertFrm').html('');
+        console.info("entry generateDeleteColForm");
+        if (colNo < 2 || colNo > myData_1.getColumnNum()) {
+            setTimeout(function () {
+                $.unblockUI({
+                    onUnblock : function () {
+                        alert('please select position where you want delete column first');
+                    }
+                });
+            }, 200);
+            return;
+        }
+
+        $('#insertFrm').jsonForm({
+            "form" : [{
+                    "type" : "help",
+                    "helpvalue" : "Would you like to contine?."
+                }, {
+                    "type" : "actions",
+                    "items" : [{
+                            "type" : "submit",
+                            "title" : "Submit"
+                        }, {
+                            "type" : "button",
+                            "title" : "Cancel",
+                            "onClick" : function (evt) {
+                                evt.preventDefault();
+                                console.info("cancel delete column");
+                                $.unblockUI();
+                            }
+                        }
+                    ]
+                }
+            ],
+
+            onSubmit : function (errors, values) {
+                if (errors) {
+                    alert("error happens when delete column");
+                } else {
+                    console.info("submit delete column on submit");
+                    myData_1.deleteCol(colNo);
+                    hot.loadData(myData_1.getShowPureDataMatrix())
+
+                }
+                $.unblockUI();
+            },
+
+        });
+    }
+
+    function generateDeleteRowForm(rowNo, colNo) {
+        $('#insertFrm').html('');
+        console.info("entry generateDeleteRowForm");
+        if (rowNo < 2 || rowNo > myData_1.getRowNum()) {
+            setTimeout(function () {
+                $.unblockUI({
+                    onUnblock : function () {
+                        alert('please select position where you want delete row first');
+                    }
+                });
+            }, 200);
+            return;
+        }
+
+        $('#insertFrm').jsonForm({
+            "form" : [{
+                    "type" : "help",
+                    "helpvalue" : "Would you like to contine?."
+                }, {
+                    "type" : "actions",
+                    "items" : [{
+                            "type" : "submit",
+                            "title" : "Submit"
+                        }, {
+                            "type" : "button",
+                            "title" : "Cancel",
+                            "onClick" : function (evt) {
+                                evt.preventDefault();
+                                console.info("cancel delete row");
+                                $.unblockUI();
+                            }
+                        }
+                    ]
+                }
+            ],
+
+            onSubmit : function (errors, values) {
+                if (errors) {
+                    alert("error happens when delete row");
+                } else {
+                    console.info("submit delete row on submit");
+                    myData_1.deleteRow(rowNo);
+                    hot.loadData(myData_1.getShowPureDataMatrix())
+
+                }
+                $.unblockUI();
+            },
+
+        });
+    }
+
+    function generateColHeaderForm(sheet, matrix, colNo) {
+        console.info("entry generateColHeaderForm");
+        var oldMatrix = matrix.copyMatrix();
+        var currentColHeaderName = matrix.getColHeaderNameByColNo(colNo - 2);
+        var currentColDataType = matrix.getDataTypeByColNo(colNo - 2);
+
+        var dataTypeList = [];
+        dataTypeList = g_eleType.getUseableDatatypeNameList();
+        console.info("dataTypeList : ", dataTypeList);
+        $('#editFrm').html('');
+        $('#editFrm').jsonForm({
+            schema : {
+                columnHeader : {
+                    type : 'string',
+                    title : 'column Header Name',
+                    required : true,
+
+                },
+                dataType : {
+                    type : 'string',
+                    title : 'data type',
+                    required : true,
+                    'enum' : dataTypeList,
+                }
+            },
+            "value" : {
+                "columnHeader" : currentColHeaderName,
+                //"dataType": e.dataType
+                "dataType" : currentColDataType
+            },
+            onSubmit : function (errors, values) {
+                if (errors) {
+                    alert("error to set column information");
+                    reloadData(sheet, oldMatrix);
+                } else {
+                    if(values.dataType != currentColDataType)
+                    {
+                        if(true == matrix.changeColDataType(colNo - 2, values.dataType))
+                        {
+                            reloadData(sheet, matrix);
+                        }
+                        else
+                        {
+                            alert("error to set column information!");
+                            reloadData(sheet, oldMatrix);
+                        }
+                    }
+                    if(values.columnHeader != currentColHeaderName)
+                    {
+                        if(true == matrix.setColHeader(colNo - 2, values.columnHeader))
+                        {
+                            reloadData(sheet, matrix);
+                        }
+                        else
+                        {
+                            alert("error to set column information");
+                            eloadData(sheet, oldMatrix);
+                        }
+                    }
+                }
+            }
+
+        });
+    }
+
+    function generateRowHeaderForm(sheet, matrix, rowNo) {
+        console.info("entry generateRowHeaderForm");
+        var oldMatrix = matrix.copyMatrix();
+        var currentRowHeaderName = matrix.getRowHeaderNameByRowNo(rowNo - 2);
+        
+        $('#editFrm').html('');
+        $('#editFrm').jsonForm({
+            schema : {
+                rowHeader : {
+                    type : 'string',
+                    title : 'row Header Name',
+                    required : true
+                },
+            },
+            "value" : {
+                "rowHeader" : currentRowHeaderName,
+            },
+            onSubmit : function (errors, values) {
+                if (errors) {
+                    alert("error happens when set rowHeaderName cell");
+                    reloadData(sheet, oldMatrix);
+                } else {
+                    if(values.rowHeader != currentRowHeaderName)
+                    {
+                        if(true == matrix.setRowHeader(rowNo - 2, values.rowHeader))
+                        {
+                            reloadData(sheet, matrix);
+                        }
+                        else
+                        {
+                            reloadData(sheet, oldMatrix);
+                        }
+                    }
+                }
+            }
+
+        });
+    }
+
+
+    function generateNormalDataForm(sheet, matrix, rowNo, colNo) {
+        console.info("entry generateNormalDataForm");
+        var oldMatrix = matrix.copyMatrix();
+        var currentColHeaderName = matrix.getColHeaderNameByColNo(colNo - 2);
+        var currentColDataType = matrix.getDataTypeByColNo(colNo - 2);
+        var currentRowHeaderName = matrix.getRowHeaderNameByRowNo(rowNo - 2);
+        var tmp = matrix.getEleByXY(rowNo - 2, colNo - 2);
+        var currentData = "";
+        if(false == tmp)//ugly, fix me
+        {
+            currentData = "";
+        }
+        else
+        {
+            currentData = tmp.data;
+        }
+
+        $('#editFrm').html('');
+        $('#editFrm').jsonForm({
+            schema : {
+                columnHeaderName : {
+                    type : 'string',
+                    title : 'column header name',
+                    readonly : true,
+                },
+                rowHeaderName : {
+                    type : 'string',
+                    title : 'row header name',
+                    readonly : true,
+                },
+                dataType : {
+                    type : 'string',
+                    title : 'data type',
+                    readonly : true,
+                },
+                data : {
+                    type : 'string',
+                    title : 'data',
+                    required : true
+                },
+            },
+            "value" : {
+                "columnHeaderName" : currentColHeaderName,
+                "rowHeaderName" : currentRowHeaderName,
+                "dataType" : currentColDataType,
+                "data" : currentData,
+            },
+            onSubmit : function (errors, values) {
+                if (errors) {
+                    alert("error happens when set rowHeaderName cell");
+                    reloadData(sheet, oldMatrix);
+                } else {
+                    res = matrix.setData(rowNo - 2, colNo - 2, values.data);
+                    if(false == res)
+                    {
+                        alert("error to set data!");
+                        reloadData(sheet, oldMatrix);
+                    }
+                    else
+                    {
+                        reloadData(sheet, matrix);
+                    }
+                }
+            }
+
+        });
+    }
+
+    function generateRightWeightForm(column) {
+        $('#insertFrm').html('');
+        console.info("entry generateRightWeightForm");
+
+        var methodList = [];
+        var g_rightWeight = new rightWeight();
+        methodList = g_rightWeight.getRWMethodList();
+
+        $('#insertFrm').jsonForm({
+            schema : {
+                method : {
+                    type : 'string',
+                    title : '权重算法',
+                    required : true,
+                    'enum' : methodList,
+                },
+            },
+            "value" : {
+                "method" : methodList[0]
+            },
+
+            "form" : [
+                "method", {
+                    "type" : "actions",
+                    "items" : [{
+                            "type" : "submit",
+                            "title" : "Submit"
+                        }, {
+                            "type" : "button",
+                            "title" : "Cancel",
+                            "onClick" : function (evt) {
+                                evt.preventDefault();
+                                console.info("cancel select right weight");
+                                $.unblockUI();
+                            }
+                        }
+                    ]
+                }
+            ],
+
+            onSubmit : function (errors, values) {
+                if (errors) {
+                    alert("error happens when select right weight");
+                } else {
+                    console.info("submit select right weight on submit");
+                    methodName = values.method;
+                    if (true == column) {
+                        //myData_1.setCurrentColRWMethod(g_rightWeight.getRightWeightMethod(methodName));
+                        myData_1.setCurrentColRWMethod(methodName);
+                    } else {
+                        //myData_1.setCurrentRowRWMethod(g_rightWeight.getRightWeightMethod(methodName));
+                        myData_1.setCurrentRowRWMethod(methodName);
+                    }
+                    //myData_1.setMatrixColRW();
+                    hot.loadData(myData_1.getShowPureDataMatrix());
+                }
+                $.unblockUI();
+            },
+
+        });
+    }
+    
+    function generatePurifyDataForm() {
+        $('#insertFrm').html('');
+        console.info("entry generatePurifyDataForm");
+
+        var methodList = [];
+        var directList = ['纵向','横向'];
+        var g_purifyData = new purifyData();
+        methodList = g_purifyData.getPurifyDataMethodList();
+
+        $('#insertFrm').jsonForm({
+            schema : {
+                method : {
+                    type : 'string',
+                    title : '无量纲化算法',
+                    required : true,
+                    'enum' : methodList,
+                },
+                direct : {
+                    type : 'string',
+                    title : '方向',
+                    required : true,
+                    'enum' : directList,
+                },
+            },
+            "value" : {
+                "method" : methodList[0],
+                "direct" : directList[0],
+            },
+
+            "form" : [
+                "method", 
+                {
+                            "key" : "direct",
+                            "type" : "radios"
+                },
+                {
+                    "type" : "actions",
+                    "items" : [{
+                            "type" : "submit",
+                            "title" : "Submit"
+                        }, {
+                            "type" : "button",
+                            "title" : "Cancel",
+                            "onClick" : function (evt) {
+                                evt.preventDefault();
+                                console.info("cancel select purify data");
+                                $.unblockUI();
+                            }
+                        }
+                    ]
+                }
+            ],
+
+            onSubmit : function (errors, values) {
+                if (errors) {
+                    alert("error happens when select purify data");
+                } else {
+                    console.error("submit select purify data on submit");
+                    var methodName = values.method;
+                    var directName = values.direct;
+                    //var purifyDataMatrix = myData_1.getUsefulPureDataMatrix();
+                    //console.info("getUsefulPureDataMatrix :", purifyDataMatrix);
+                    //var resArray = [];
+                    //var method = g_purifyData.getPurifyDataMethod(methodName);
+                    
+                    myData_1.addCurrentPurifyMethod(directName, methodName);
+                    alert("kkkkkk");
+                    hot.loadData(myData_1.getShowPureDataMatrix());
+        
+                    /*
+                    if ('纵向' == directName) {
+                        console.info("calculate 纵向");
+                        if(null != method)
+                        {
+                            //resArray = method.method(purifyDataMatrix, myData_1.getPureDataColNum(), myData_1.getPureDataRowNum(), 1);
+                            //console.info("resArray", resArray );
+                            //myData_1.appendResData(methodName, 1, "rowRes", resArray);
+                            myData_1.addCurrentPurifyMethod(directName, methodName);
+                            hot.loadData(myData_1.getShowPureDataMatrix());
+                            //alert(resArray);
+                        }
+                    } else {
+                        console.info("calculate 横向");
+                        if(null != method)
+                        {
+                            //resArray = method.method(purifyDataMatrix, myData_1.getPureDataColNum(), myData_1.getPureDataRowNum(), 0);
+                            //console.info("resArray", resArray );
+                            //myData_1.appendResData(methodName, 1, "rowRes", resArray);
+                            hot.loadData(myData_1.getShowPureDataMatrix());
+                            
+                            //alert(resArray);
+                        }
+                    }
+                    */
+                    
+                    //hot.loadData(myData_1.getShowPureDataMatrix());
+                }
+                $.unblockUI();
+            },
+
+        });
+    }
+    
+
+    function loadFileFromServer(fileName)
+    {
+        var loadBody = new fileInServer();
+        loadBody.setSaveData(fileName, '');
+        var bodyData = JSON.stringify(loadBody);
+
+        $.ajax({
+            type : "POST",
+            url : "/loadFileFromServer",
+            data : bodyData,
+            contentType : "application/json; charset=utf-8",
+            //contentType: "text/html; charset=utf-8",
+            //dataType: "json",
+            async: "false",
+            success : function (data) {
+                console.info("load file = ", data);
+                var loadMatrix = JSON.parse(data);
+                myMatrix.loadData(loadMatrix);
+                reloadData(mySheet, myMatrix);
+            },
+            failure : function (errMsg) {
+                alert("load file error");
+            }
+        });
+
+    }
+
+    function generateLoadForm() {
+        $('#insertFrm').html('');
+        console.info("entry generateLoadForm");
+
+        fileNameList = [];
+        $.ajax({
+            type : "POST",
+            url : "/getSaveFileList",
+            data : '',
+            contentType : "application/json; charset=utf-8",
+            async : "false",
+            success : function (data) {
+                console.info("getSaveFileListFromServer = ", data);
+                fileNameList = JSON.parse(data);
+                console.info("fileNameList parse = ", fileNameList);
+                if (fileNameList.length == 0) {
+                    alert("no file exist");
+                    $.unblockUI();
+                    return;
+                }
+
+                $('#insertFrm').jsonForm({
+                    schema : {
+                        "fileName" : {
+                            "type" : 'string',
+                            "title" : 'fileName',
+                            "required" : true,
+                            'enum' : fileNameList,
+                        },
+                    },
+                    "value" : {
+                        "fileName" : "",
+                    },
+
+                    "form" : [{
+                            "key" : "fileName",
+                            "type" : "radios"
+                        },
+                        {
+                            "type" : "actions",
+                            "items" : [{
+                                    "type" : "submit",
+                                    "title" : "Submit"
+                                }, {
+                                    "type" : "button",
+                                    "title" : "Cancel",
+                                    "onClick" : function (evt) {
+                                        evt.preventDefault();
+                                        console.info("cancel Load file");
+                                        $.unblockUI();
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+
+                    onSubmit : function (errors, values) {
+                        if (errors) {
+                            alert("error happens when set LoadFile");
+                        } else {
+                            console.info("submit loadFile select fileName = ", values.fileName);
+                            loadFileFromServer(values.fileName);
+                        }
+                        $.unblockUI();
+                    },
+
+                });
+            },
+            failure : function (errMsg) {
+                alert("no file exist");
+                $.unblockUI();
+                return;
+            }
+        });
+
+    }
+
+    function createForm(sheet, matrix, rowNo, colNo) {
+        $('#editFrm').html('');
+        var cellType = sheet.getCellDataType(rowNo, colNo);
+        switch(cellType)
+        {
+            case "colHeader" :
+            {
+                //alert("colHeader");
+                generateColHeaderForm(sheet, matrix, colNo);
+            }
+            break;
+            case "rowHeader" :
+            {
+                //alert("rowHeader");
+                generateRowHeaderForm(sheet, matrix, rowNo);
+            }
+            break;
+            case "data" :
+            case "pendingData" :
+            {
+                generateNormalDataForm(sheet, matrix, rowNo, colNo);
+                //alert("data");
+            }
+            break;
+            default:
+            {
+                return false;
+            }
+            break;
+        }
+
+        /*
+        var cellInfo = "";
+        $('#editFrm').html('');
+        if (rowNo < 2 && colNo < 2) //the nosence blank
+        {
+            return false;
+        }
+        if (rowNo < 0 || colNo < 0) //the colId and RowId
+        {
+            return false;
+        }
+        cellInfo = myData_1.getCellByColNoAndRowNo(rowNo, colNo);
+        if ("" == cellInfo) {
+            console.error("invalid cellInfo");
+            return false;
+        }
+        console.info("cellInfo : ", cellInfo);
+
+        if (rowNo == 0 && colNo >= 2) //the colHeaderName cell
+        {
+            generateColHeaderForm(rowNo, colNo, cellInfo);
+        } else if (colNo == 0 && rowNo >= 2) //the RowHeaderName cell
+        {
+            generateRowHeaderForm(rowNo, colNo, cellInfo);
+        } else if (rowNo == 1 && colNo >= 2) //the colRW cell
+        {}
+        else if (colNo == 1 && rowNo >= 2) //the colNo cell
+        {}
+        else //normal data cell
+        {
+            generateNormalDataForm(rowNo, colNo, cellInfo);
+        }
+
+        return true;
+        */
+
+    }
+
+    function fileInServer() {
+        this.fileName = '';
+        this.matrix = '';
+        this.setSaveData = function (fileName, matrix) {
+            this.fileName = fileName;
+            this.matrix = matrix;
+        }
+    }
+
+    function saveCurrentSheetToServer(fileName, matrix) {
+        console.info("entry saveCurrentSheetToServer");
+        var saveBody = new fileInServer();
+        
+        saveBody.setSaveData(fileName, matrix)
+        var bodyData = JSON.stringify(saveBody);
+        $.ajax({
+            type : "POST",
+            url : "/saveToServer",
+            // The key needs to match your method's input parameter (case-sensitive).
+            //data: JSON.stringify({ Markers: markers }),
+            data : bodyData,
+            //data: JSON.stringify(myData_1.matrix),
+            contentType : "application/json; charset=utf-8",
+            //contentType: "text/html; charset=utf-8",
+            //dataType: "json",
+            //async: "false",
+            success : function (data) {
+                alert(data);
+            },
+            failure : function (errMsg) {
+                alert(errMsg);
+            }
+        });
+    }
+
+
+
     var clickRow = 0;
     var clickCol = 0;
 
-    function setClickRowAndCol(row, col) {
+    function setClickRowAndCol(sheet, matrix, row, col) {
         clickRow = row;
         clickCol = col;
-        createForm(row, col);
+        createForm(sheet, matrix, row, col);
     }
 
     function reloadData(sheet, matrix)
@@ -74,6 +864,7 @@ $(document).ready(function () {
     {
         var changeCellNum = changeArray.length;
         var i = 0;
+        var res = true;
         for(i = 0; i < changeCellNum; i++)
         {
             var rowNo = changeArray[i][0];
@@ -84,15 +875,31 @@ $(document).ready(function () {
             var cellType = sheet.getCellDataType(rowNo, colNo);
             if("colHeader" == cellType)
             {
-                return matrix.setColHeader(colNo - 2, newValue);
+                res = matrix.setColHeader(colNo - 2, newValue);
+                if(false == res)
+                {
+                    alert("error to set column header name!");
+                }
+                return res;
             }
             else if("rowHeader" == cellType)
             {
-                return matrix.setRowHeader(rowNo - 2, newValue);
+                res = matrix.setRowHeader(rowNo - 2, newValue);
+                if(false == res)
+                {
+                    alert("error to set row header name!");
+                }
+                return res;
+                
             }
             else if("data" == cellType || "pendingData"  == cellType)
             {
-                return matrix.setData(rowNo - 2, colNo - 2, newValue);
+                res = matrix.setData(rowNo - 2, colNo - 2, newValue);
+                if(false == res)
+                {
+                    alert("error to set data!");
+                }
+                return res;
             }
             else
             {
@@ -114,7 +921,6 @@ $(document).ready(function () {
         var oldMatrix = matrix;
         if(false == setChange(sheet, matrix, changeArray))
         {
-            alert("error to setChange");
             reloadData(sheet, oldMatrix);
             return false;
         }
@@ -133,6 +939,7 @@ $(document).ready(function () {
     console.info("xxxxxxxxxxxxxx start xxxxxxxxxxxxxx");
 
     var myMatrix = new matrix();
+    
     myMatrix.insertColumn(0, "aaa", "integer");
     myMatrix.insertColumn(1, "bbb", "integer");
     myMatrix.insertColumn(2, "ccc", "integer");
@@ -188,6 +995,12 @@ $(document).ready(function () {
                 hot.loadData(myData_1.getShowPureDataMatrix());
             },
             */
+
+            afterOnCellMouseDown : function (changes, sources) {
+                console.info(" sources === ", sources);
+                console.info("sources.row = ", sources.row, "sources.col = ", sources.col);
+                setClickRowAndCol(mySheet, myMatrix, sources.row, sources.col);
+            },
 
             afterColumnMove : function (srcColNo, destColNo) {
                 console.info("afterColumnMove, srcColNo:", srcColNo, "destColNo:", destColNo);
@@ -437,7 +1250,7 @@ $(document).ready(function () {
         var frm = document.getElementById('saveFrm');
         var fileName = document.getElementById('fileName');
         console.info("save to server file name: ", fileName.value);
-        saveCurrentSheetToServer(fileName.value);
+        saveCurrentSheetToServer(fileName.value, myMatrix);
         $.unblockUI();
         return true;
     });
