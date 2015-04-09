@@ -54,10 +54,20 @@ $(document).ready(function () {
     };
 
 
-    function generateInsertColumnForm(rowNo, colNo, before) {
+    function generateInsertColumnForm(sheet, matrix, rowNo, colNo, before) {
         $('#insertFrm').html('');
+        var oldMatrix = matrix.copyMatrix();
+        var insertColNo = 0;
+        if(true == before)
+        {
+            insertColNo = colNo - 2;
+        }
+        else
+        {
+            insertColNo = colNo - 2 + 1;
+        }
         console.info("entry generateInsertCBForm");
-        if (colNo < 2 || colNo > mySheet.sheetColNum) {
+        if (insertColNo < 0 || insertColNo > matrix.colNum) {
             setTimeout(function () {
                 $.unblockUI({
                     onUnblock : function () {
@@ -116,12 +126,17 @@ $(document).ready(function () {
                     console.info("submit insert column on submit");
                     columnName = values.columnHeader;
                     dataType = values.dataType;
-                    if (true == before) {
-                        myData_1.insertCol(colNo, columnName, dataType);
-                    } else {
-                        myData_1.insertCol(colNo + 1, columnName, dataType);
+                    
+
+                    if(false == matrix.insertColumn(insertColNo, columnName, dataType))
+                    {
+                        reloadData(sheet, oldMatrix);
                     }
-                    hot.loadData(myData_1.getShowPureDataMatrix());
+                    else
+                    {
+                        reloadData(sheet, matrix);
+                    }
+
                 }
                 $.unblockUI();
             },
@@ -129,10 +144,21 @@ $(document).ready(function () {
         });
     }
 
-    function generateInsertRowForm(rowNo, colNo, before) {
+    function generateInsertRowForm(sheet, matrix, rowNo, colNo, before) {
         $('#insertFrm').html('');
         console.info("entry generateInsertRowForm");
-        if (rowNo < 2 || rowNo > myData_1.getRowNum()) {
+        var oldMatrix = matrix.copyMatrix();
+        var insertRowNo = 0;
+        if(true == before)
+        {
+            insertRowNo = rowNo - 2;
+        }
+        else
+        {
+            insertRowNo = rowNo - 2 + 1;
+        }
+        
+        if (insertRowNo < 0 || insertRowNo > matrix.rowNum) {
             setTimeout(function () {
                 $.unblockUI({
                     onUnblock : function () {
@@ -148,7 +174,7 @@ $(document).ready(function () {
                 rowHeader : {
                     type : 'string',
                     title : 'row Header Name',
-                    required : true
+                    //required : true
                 },
             },
             "value" : {
@@ -177,15 +203,25 @@ $(document).ready(function () {
             onSubmit : function (errors, values) {
                 if (errors) {
                     alert("error happens when set rowHEaderName cell");
+                    reloadData(sheet, oldMatrix);
                 } else {
-                    console.info("submit insert row on submit");
-                    rowHeadName = values.rowHeader;
-                    if (true == before) {
-                        myData_1.insertRow(rowNo, rowHeadName);
-                    } else {
-                        myData_1.insertRow(rowNo + 1, rowHeadName);
+
+                    if(false == matrix.insertRow(insertRowNo))
+                    {
+                        reloadData(sheet, oldMatrix);
                     }
-                    hot.loadData(myData_1.getShowPureDataMatrix());
+                    else
+                    {
+                        if(false == matrix.setRowHeader(insertRowNo, values.rowHeader))
+                        {
+                            reloadData(sheet, oldMatrix);
+                        }
+                        else
+                        {
+                            reloadData(sheet, matrix);
+                        }
+                        
+                    }
                 }
                 $.unblockUI();
             },
@@ -193,10 +229,12 @@ $(document).ready(function () {
         });
     }
 
-    function generateDeleteColForm(rowNo, colNo) {
+    function generateDeleteColForm(sheet, matrix, rowNo, colNo) {
         $('#insertFrm').html('');
+        var oldMatrix = matrix.copyMatrix();
+        var delColNo = colNo - 2;
         console.info("entry generateDeleteColForm");
-        if (colNo < 2 || colNo > myData_1.getColumnNum()) {
+        if (delColNo < 0 || delColNo > matrix.colNum) {
             setTimeout(function () {
                 $.unblockUI({
                     onUnblock : function () {
@@ -230,13 +268,22 @@ $(document).ready(function () {
             ],
 
             onSubmit : function (errors, values) {
-                if (errors) {
+                if (errors) 
+                {
                     alert("error happens when delete column");
-                } else {
+                    reLoadSheet(sheet, oldMatrix);
+                } 
+                else 
+                {
                     console.info("submit delete column on submit");
-                    myData_1.deleteCol(colNo);
-                    hot.loadData(myData_1.getShowPureDataMatrix())
-
+                    if(false == matrix.deleteColumn(delColNo))
+                    {
+                        reloadData(sheet, oldMatrix);
+                    }
+                    else
+                    {
+                        reloadData(sheet, matrix);
+                    }
                 }
                 $.unblockUI();
             },
@@ -244,10 +291,12 @@ $(document).ready(function () {
         });
     }
 
-    function generateDeleteRowForm(rowNo, colNo) {
+    function generateDeleteRowForm(sheet, matrix, rowNo, colNo) {
         $('#insertFrm').html('');
         console.info("entry generateDeleteRowForm");
-        if (rowNo < 2 || rowNo > myData_1.getRowNum()) {
+        var oldMatrix = matrix.copyMatrix();
+        var delRowNo = rowNo - 2;
+        if (delRowNo < 0 || delRowNo > matrix.rowNum) {
             setTimeout(function () {
                 $.unblockUI({
                     onUnblock : function () {
@@ -283,11 +332,16 @@ $(document).ready(function () {
             onSubmit : function (errors, values) {
                 if (errors) {
                     alert("error happens when delete row");
+                    reloadData(sheet, oldMatrix);
                 } else {
-                    console.info("submit delete row on submit");
-                    myData_1.deleteRow(rowNo);
-                    hot.loadData(myData_1.getShowPureDataMatrix())
-
+                    if(false == matrix.deleteRow(delRowNo))
+                    {
+                        reloadData(sheet, oldMatrix);
+                    }
+                    else
+                    {
+                        reloadData(sheet, matrix);
+                    }
                 }
                 $.unblockUI();
             },
@@ -940,6 +994,7 @@ $(document).ready(function () {
 
     var myMatrix = new matrix();
     
+    
     myMatrix.insertColumn(0, "aaa", "integer");
     myMatrix.insertColumn(1, "bbb", "integer");
     myMatrix.insertColumn(2, "ccc", "integer");
@@ -1091,6 +1146,7 @@ $(document).ready(function () {
         }
     });
 
+    /*
     $('#New').click(function () {
         console.info("new");
         $.blockUI({
@@ -1098,6 +1154,7 @@ $(document).ready(function () {
             message : $('#newForm')
         });
     });
+    */
 
     $('#Save').click(function () {
         console.info("save");
@@ -1120,9 +1177,19 @@ $(document).ready(function () {
 
     });
 
+    $('#New').click(function () {
+        console.info("new");
+        generateInsertColumnForm(mySheet, myMatrix, 0, mySheet.sheetColNum - 1, false);
+
+        $.blockUI({
+            //$.fn.blockUI({
+            message : $('#insertFrm')
+        });
+    });
+
     $('#InsertCB').click(function () {
         console.info("insert column before");
-        generateInsertColumnForm(clickRow, clickCol, true);
+        generateInsertColumnForm(mySheet, myMatrix, clickRow, clickCol, true);
 
         $.blockUI({
             //$.fn.blockUI({
@@ -1132,7 +1199,7 @@ $(document).ready(function () {
 
     $('#InsertCA').click(function () {
         console.info("insert column after");
-        generateInsertColumnForm(clickRow, clickCol, false);
+        generateInsertColumnForm(mySheet, myMatrix, clickRow, clickCol, false);
 
         $.blockUI({
             //$.fn.blockUI({
@@ -1142,7 +1209,7 @@ $(document).ready(function () {
 
     $('#InsertRB').click(function () {
         console.info("insert row before");
-        generateInsertRowForm(clickRow, clickCol, true);
+        generateInsertRowForm(mySheet, myMatrix, clickRow, clickCol, true);
 
         $.blockUI({
             //$.fn.blockUI({
@@ -1152,7 +1219,7 @@ $(document).ready(function () {
 
     $('#InsertRA').click(function () {
         console.info("insert row after");
-        generateInsertRowForm(clickRow, clickCol, false);
+        generateInsertRowForm(mySheet, myMatrix, clickRow, clickCol, false);
 
         $.blockUI({
             //$.fn.blockUI({
@@ -1162,7 +1229,7 @@ $(document).ready(function () {
 
     $('#DeleteColumn').click(function () {
         console.info("delete column");
-        generateDeleteColForm(clickRow, clickCol);
+        generateDeleteColForm(mySheet, myMatrix, clickRow, clickCol);
 
         $.blockUI({
             //$.fn.blockUI({
@@ -1172,7 +1239,7 @@ $(document).ready(function () {
 
     $('#DeleteRow').click(function () {
         console.info("delete row");
-        generateDeleteRowForm(clickRow, clickCol);
+        generateDeleteRowForm(mySheet, myMatrix, clickRow, clickCol);
 
         $.blockUI({
             //$.fn.blockUI({

@@ -643,10 +643,18 @@ function matrix()
             return false;
         }
         
+        var dataTypeList = [];
+        var colHeaderNameList = [];
+        for(i = 0; i < this.colNum; i++)
+        {
+            dataTypeList[i] = this.getDataTypeByColNo(i);
+            colHeaderNameList[i] = this.getColHeaderNameByColNo(i);
+        }
 
         var copyMatrix = this.copyMatrix();
         var oldColNum = this.colNum;
         var oldRowNum = this.rowNum;
+        
         
         this.initMatrix(oldColNum, oldRowNum + 1);
 
@@ -667,7 +675,8 @@ function matrix()
                     //console.info("tttttttttttttttttttttttttttttttt");
                     var e = new ele();
 
-                    res = e.createEle(this.getDataTypeByColNo(j), this.getColHeaderNameByColNo(j), "", i, j);
+                    //res = e.createEle(this.getDataTypeByColNo(j), this.getColHeaderNameByColNo(j), "", i, j);
+                    res = e.createEle(dataTypeList[j], colHeaderNameList[j], "", i, j);
                     
                     if(false == res)
                     {
