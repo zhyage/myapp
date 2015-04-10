@@ -1266,7 +1266,7 @@ $(document).ready(function () {
             message : $('#insertFrm')
         });
     });
-    
+    /*
     $('#purifyData').click(function () {
         console.info("set purify Data method");
         generatePurifyDataForm();
@@ -1276,6 +1276,12 @@ $(document).ready(function () {
             message : $('#insertFrm')
         });
     });
+    */
+
+    $('#purifyData').click(function () {
+        window.location.href = "transfer.html";
+    });
+
 
     $("#load li a").click(function (e) {
         console.info("load");
