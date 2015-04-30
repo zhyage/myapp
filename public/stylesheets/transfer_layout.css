@@ -1,0 +1,58 @@
+*{
+    padding : 0;
+    margin : 0;
+    border : 0;
+}
+body{
+    background-image : url(' bi-background-plum.png ');
+    background-attachment : fixed;
+    background-size : 100% auto;
+}
+.blended_grid{
+    display : block;
+    width : 960px;
+    overflow : auto;
+    margin : 60px auto 0 auto;
+}
+.leftTopColumn{
+    background-color : rgba(0, 0, 0, 0.5);
+    float : left;
+    clear : none;
+    height : 300px;
+    width : 300px;
+}
+.topBanner{
+    background-color : rgba(0, 0, 0, 0.5);
+    float : left;
+    clear : none;
+    height : 300px;
+    width : 660px;
+}
+.leftBottomBanner{
+    clear : none;
+    float : left;
+    position : relative;
+    width : 300px;
+    height : 800px;
+}
+.leftContent{
+    background-color : rgba(0, 0, 0, 0.5);
+    float : left;
+    clear : none;
+    height : 500px;
+    width : 330px;
+}
+.rightContent{
+    background-color : rgba(0, 0, 0, 0.5);
+    float : left;
+    clear : none;
+    height : 500px;
+    width : 330px;
+}
+.bottomBanner{
+    background-color : rgba(0, 0, 0, 0.5);
+    float : left;
+    clear : none;
+    height : 300px;
+    width : 660px;
+}

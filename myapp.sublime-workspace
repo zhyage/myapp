@@ -1,0 +1,584 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"row",
+				"rowNum"
+			],
+			[
+				"bad",
+				"badMax"
+			],
+			[
+				"badMin",
+				"badMinNum"
+			],
+			[
+				"pro",
+				"prompt"
+			],
+			[
+				"comm",
+				"commonUtils  (module)"
+			],
+			[
+				"wu",
+				"wuLiangLineArr"
+			],
+			[
+				"ZhengZhiBiao",
+				"ZhengZhiBiaoRes"
+			],
+			[
+				"huanbi",
+				"huanBiArr"
+			],
+			[
+				"is",
+				"isNum  (function)"
+			],
+			[
+				"sheet",
+				"sheetNarray"
+			],
+			[
+				"wuLi",
+				"wuLiangLineArr"
+			],
+			[
+				"inser",
+				"insertNode"
+			],
+			[
+				"sele",
+				"select"
+			],
+			[
+				"selec",
+				"selectNum"
+			],
+			[
+				"LI",
+				"LiXiangZhiRes"
+			],
+			[
+				"execu",
+				"executeFunction"
+			],
+			[
+				"metho",
+				"methodNode"
+			],
+			[
+				"return",
+				"returnArgList"
+			],
+			[
+				"array",
+				"arrayStr"
+			],
+			[
+				"Loa",
+				"LoadExistMethodPattern"
+			],
+			[
+				"shee",
+				"sheetNarray"
+			],
+			[
+				"imp",
+				"importSheet"
+			],
+			[
+				"Lo",
+				"LoadConfigFile"
+			],
+			[
+				"lo",
+				"loadConfig"
+			],
+			[
+				"loadC",
+				"loadConfigMod"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"markdow",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdown",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdo",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"install package ",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"sublimeInter",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"togg",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"sublimelinter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"sublimelin",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"sublime",
+				"SublimeLint: Show All Errors"
+			],
+			[
+				"set syntax: mar",
+				"Set Syntax: MultiMarkdown"
+			],
+			[
+				"mark",
+				"GitHub Flavored Markdown: Preview"
+			],
+			[
+				"markd",
+				"Set Syntax: MultiMarkdown"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/work/features/FRIC/timer_sync/PTP.md",
+		"/D/userdata/vdmc34/Downloads/leo-editor-master/leo-editor-master/INSTALL.TXT",
+		"/D/userdata/vdmc34/Downloads/leo-editor-master/leo-editor-master/launchLeo.py",
+		"/D/userdata/vdmc34/My Documents/My Knowledge/temp/427975077/BIP协议及ethernet sync-427975077.htm",
+		"/D/userdata/vdmc34/Application Data/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/D/userdata/vdmc34/Application Data/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/D/userdata/vdmc34/Application Data/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/D/userdata/vdmc34/Application Data/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/D/userdata/vdmc34/Application Data/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/D/userdata/vdmc34/Application Data/Sublime Text 3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/D/work/ubuntu_shared/work_under_linux/django_extjs/hello_extjs/static/hello_extjs/hello_extjs.js",
+		"/D/快盘/其他/感言.txt",
+		"/D/work/ubuntu_shared/work_under_linux/django_extjs/hello_extjs/static/hello_extjs/dynAddDelGrid.js",
+		"/D/work/ubuntu_shared/work_under_linux/django_extjs/hello_extjs/static/hello_extjs/cell_edit.js",
+		"/D/快盘/work/liwei/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/zz.html",
+		"/D/快盘/work/liwei/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/zz.js",
+		"/D/快盘/work/liwei/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/column_test.js",
+		"/D/快盘/work/liwei/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/columnInsert.js",
+		"/D/快盘/work/liwei/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/highlight.js",
+		"/D/userdata/vdmc34/Desktop/autoIp.sh",
+		"/D/快盘/work/liwei/ext-4.2.1-gpl/ext-4.2.1.883/examples/charts/sample_from_internet.js",
+		"/D/快盘/work/liwei/综合评价/workSpace/xmlTest/pattern/zhongHePinJia.py",
+		"/D/快盘/work/liwei/ext-4.2.1-gpl/ext-4.2.1.883/examples/charts/zhy4.html",
+		"/D/快盘/work/liwei/ext-4.2.1-gpl/ext-4.2.1.883/examples/grid/row-editing.js",
+		"/D/userdata/vdmc34/Downloads/report_ip.sh",
+		"/D/快盘/work/liwei/ext-4.2.1-gpl/ext-4.2.1.883/examples/charts/zhy4.js",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/extjs/ext-4.2.1-gpl/ext-4.2.1.883/examples/charts/zhy4.js",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/extjs/ext-4.2.1-gpl/ext-4.2.1.883/examples/charts/zhy4.html",
+		"/D/userdata/vdmc34/Application Data/Sublime Text 3/Packages/User/bh_core.sublime-settings",
+		"/D/userdata/vdmc34/Application Data/Sublime Text 3/Packages/BracketHighlighter/bh_core.sublime-settings",
+		"/D/work/features/1976/IRMessageTrace.txt",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/extjs/ext-4.2.1-gpl/ext-4.2.1.883/examples/charts/Line.js",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/extjs/ext-4.2.1-gpl/ext-4.2.1.883/examples/charts/LiveAnimated.js",
+		"/D/work/moan/SYSLOG_237.LOG",
+		"/D/work/moan/237_note.xml",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/grid/row-editing.js",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/grid/locking-grp-summary-grp-hdrs-grid.js",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/zz.js",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/zhy-grid.js",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/action-grid.html",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/action-grid.js",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/zhy-grid.html",
+		"/D/userdata/vdmc34/Downloads/proxy.pac",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/menu/menus.html",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/menu/menus.js",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/zhy/zhy-grid - Copy.js",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/menu/action-grid.html",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/menu/action-grid.js",
+		"/D/doc/LTE/logs/20140828/SYSLOG_157.LOG",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/grid-filtering/grid-filter-local.js",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/grid/infinite-scroll-grid-tuner.js",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/grid/xml-grid.html",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/grid/sheldon.xml",
+		"/D/self/ExtJs/ext-4.2.1-gpl/ext-4.2.1.883/examples/desktop/GridWindow.js",
+		"/D/userdata/vdmc34/Downloads/ext-4.2.1-gpl/ext-4.2.1.883/examples/grid-filtering/grid-filter-local.js",
+		"/C/Program Files/Apache Software Foundation/Tomcat 8.0/webapps/ROOT/index.jsp",
+		"/C/Program Files/Apache Software Foundation/Tomcat 8.0/webapps/docs/index.html",
+		"/D/work/src/rsync_cellp.sh",
+		"/D/work/github/zhongHePinJia/generateMethodPattern.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_XiaYiGongXiaoXiShuFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/GuangYiZhiShuFaCommon.py",
+		"/D/work/github/zhongHePinJia/t3.xls__configurePattern.xml",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_PinFangHeBiZhongFa.py",
+		"/D/userdata/vdmc34/My Documents/My Knowledge/temp/49468884/未命名-49468884.htm",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_BiaoZhunHuaFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_BiZhongFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_ChuZhiFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_DiZhongChaBianHuanFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_FenWeiShuFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_GaoZhongChaBianHuanFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_HuanBiShuLiangFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_JiChaBianHuanFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_JiZhiHuaFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_JunZhiFa.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_LiXiangFa.py",
+		"/D/work/github/zhongHePinJia/executeFunction.py",
+		"/D/work/github/zhongHePinJia/commonUtils.py",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_XiaYiGongXiaoXiShuFa.xml",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_BiZhongFa.xml",
+		"/D/work/github/zhongHePinJia/importSheetData.py",
+		"/D/userdata/vdmc34/Downloads/2proxy.pac",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_HuanBiShuLiangFa.xml",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_JiZhiHuaFa.xml",
+		"/D/work/github/zhongHePinJia/configurePatternBase.xml",
+		"/D/work/github/zhongHePinJia/BiaoZhunZhi/BiaoZhunZhi_BiaoZhunHuaFa.xml",
+		"/D/work/github/zhongHePinJia/loadConfig.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_FenWeiShuFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_LiXiangFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/commonUtils.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_LiXiangFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_FenWeiShuFa.xml",
+		"/C/Program Files (x86)/Cntlm/cntlm.ini",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_ChuZhiFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_ChuZhiFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_JunZhiFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_JunZhiFa.xml",
+		"/D/work/features/1656/1656_study.txt",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/loadConfig.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/generateMethodPattern.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/executeFunction.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/t3.xls__configurePattern.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_BiZhongFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_BiZhongFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_JiZhiHuaFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/importSheetData.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_JiZhiHuaFa.py",
+		"/D/userdata/vdmc34/My Documents/My Knowledge/temp/124845166/aaa.md-124845182.htm",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_PinFangHeBiZhongFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_PinFangHeBiZhongFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_BiaoZhunHuaFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_JiZhiHua.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_JiZhiHua.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/loadFunction.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/zhongHePinJia.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/generateConfig.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/configurePattern.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_BiaoZhunHuaFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_DiZhongChaBianHuanFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_GaoZhongChaBianHuanFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_HuanBiShuLiangFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_JiChaBianHuanFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_XiaYiGongXiaoXiShuFa.py",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_DiZhongChaBianHuanFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_GaoZhongChaBianHuanFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_HuanBiShuLiangFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_JiChaBianHuanFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/pattern/BiaoZhunZhi/BiaoZhunZhi_XiaYiGongXiaoXiShuFa.xml",
+		"/D/userdata/vdmc34/My Documents/百度云同步盘/综合评价/workSpace/xmlTest/test.py"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 96.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"http",
+			"proxy",
+			"columns",
+			"Columns",
+			"columns",
+			"Columns",
+			"id",
+			"jobStore",
+			"generateData",
+			"3824",
+			"43968",
+			"error in reading MoMha_a",
+			"MHA",
+			"ALMAG",
+			"ALDU_L",
+			"CreateMha",
+			"ALManager",
+			"Creating controllers for RU",
+			"ALMAG",
+			"ALD",
+			"editor-grid",
+			"grid",
+			"length",
+			"features",
+			"data",
+			"Data",
+			"data",
+			"store",
+			"tbar",
+			"themeName",
+			"show",
+			"toolbar",
+			"render",
+			"Menu",
+			"menu",
+			"Menu",
+			"menu",
+			"Menu",
+			"menu",
+			"Menu",
+			"menu",
+			"Menu",
+			"menu",
+			"suspendLayouts",
+			"tb",
+			"menu",
+			"Menu",
+			"menu",
+			"Menu",
+			"menu",
+			"Menu",
+			"menu",
+			"dateMenu",
+			"Change",
+			"change",
+			"Change",
+			"change",
+			"getSelectionModel",
+			"buyAction",
+			"sellAction",
+			"contextMenu",
+			"contextmenu",
+			"contextMenu",
+			"Change",
+			"change",
+			"Change",
+			"change",
+			"grid",
+			"Grid",
+			"grid",
+			"Store",
+			"store",
+			"myData",
+			"index",
+			"successfully",
+			"CpriOptSynchronizer",
+			"sheet",
+			"executeComplexArgFun",
+			"RadioSelect",
+			"zhengZhiBiao",
+			"executeComplexArgFun",
+			"getArgOfMethod",
+			"selectMethod",
+			"patternNode",
+			"getOneConfigureNode",
+			"patternNode",
+			"insertOneConfigureNode",
+			"methodName",
+			"getMethodPatternNode",
+			"insertOneConfigureNode",
+			"insertMethodPatternNodeIntoConfigurePattern",
+			"methodNodes",
+			"selectMethod",
+			"yes",
+			"selectMethod",
+			"insertOneConfigureNode",
+			"insertMethodPatternNodeIntoConfigurePattern",
+			"generateEmptyLineNode",
+			"arrayNum",
+			"FenWenShuType",
+			"yes",
+			"AssignedDataToMatrix",
+			"yes",
+			"LoadExistMethodPattern",
+			"LoadConfigFile",
+			"yes",
+			"selectMethod",
+			"returnArgList",
+			"insertMethodPatternNodeIntoConfigurePattern",
+			"generateEmptyLineNode",
+			"resetPatternFile",
+			"selectMethod",
+			"yes",
+			"executeComplexArgFun",
+			"yes",
+			"selected",
+			"methodQuestionList",
+			"executeComplexArgFun",
+			"getArgOfMethod",
+			"yes",
+			"executeComplexArgFun",
+			"yes",
+			"selectMethod",
+			"arrayNum",
+			"executeComp",
+			"path",
+			"pathn",
+			"path"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "myapp.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 233.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
