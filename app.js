@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var saveToServer = require('./routes/saveToServer');
 var getSaveFileList = require('./routes/getSaveFileList');
 var loadFileFromServer = require('./routes/loadFileFromServer');
+var submitComputExpressAndData = require('./routes/submitComputExpressAndData');
 
 var app = express();
 app.disable('view cache');
@@ -31,6 +32,7 @@ app.use('/users', users);
 app.use('/saveToServer', saveToServer);
 app.use('/getSaveFileList', getSaveFileList);
 app.use('/loadFileFromServer', loadFileFromServer);
+app.use('/submitComputExpressAndData', submitComputExpressAndData);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

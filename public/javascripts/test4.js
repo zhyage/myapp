@@ -101,7 +101,8 @@ $(document).ready(function () {
 
             "form" : [
                 "columnHeader",
-                "dataType", {
+                "dataType", 
+                {
                     "type" : "actions",
                     "items" : [{
                             "type" : "submit",
@@ -405,7 +406,7 @@ $(document).ready(function () {
                         else
                         {
                             alert("error to set column information");
-                            eloadData(sheet, oldMatrix);
+                            reloadData(sheet, oldMatrix);
                         }
                     }
                 }
@@ -451,6 +452,49 @@ $(document).ready(function () {
             }
 
         });
+    }
+
+    function generateTestForm(sheet, matrix) {
+        console.info("entry generateTestForm");
+        var i = 0;
+        var colHeaderList = [];
+        for(i = 0; i < matrix.colNum; i++)
+        {
+            colHeaderList.push(matrix.getColHeaderNameByColNo(i));
+        }
+        
+        $('#editFrm').html('');
+        $('#editFrm').jsonForm({
+              "schema": {
+                "language": {
+                  "type": "string",
+                  "title": "Best language",
+                  //"enum": [ "JavaScript", "Python", "PHP", "Java", "C++", "other" ]
+                  "enum": colHeaderList
+                }
+              },
+
+              "form": [
+                {
+                  "key": "language",
+                  //"type": "radiobuttons",
+                  "type": "radios",
+                  "activeClass": "btn-success",
+
+                  
+                  "onClick": function(evt)
+                  {
+                    var value = $(evt.target).val();
+                    console.info("value :", value, "length :", value.length);
+                    if(value.length != 0)
+                    {
+                        alert("value :", value);
+                    }
+                  } 
+                            
+                }
+              ]
+            });  
     }
 
 
@@ -888,10 +932,12 @@ $(document).ready(function () {
             //dataType: "json",
             //async: "false",
             success : function (data) {
-                alert(data);
+                //alert(data);
+                return true;
             },
             failure : function (errMsg) {
                 alert(errMsg);
+                return false;
             }
         });
     }
@@ -995,7 +1041,7 @@ $(document).ready(function () {
     var myMatrix = new matrix();
     
     
-    myMatrix.insertColumn(0, "aaa", "integer");
+    myMatrix.insertColumn(0, "kkk", "integer");
     myMatrix.insertColumn(1, "bbb", "integer");
     myMatrix.insertColumn(2, "ccc", "integer");
     
@@ -1009,10 +1055,10 @@ $(document).ready(function () {
     myMatrix.setMatrixData("601", 2, 1);
     myMatrix.setMatrixData("701", 3, 1);
 
-    myMatrix.insertColumn(3, "ddd", "integer");
-    myMatrix.insertColumn(4, "eee", "float");
-    myMatrix.insertColumn(5, "fff", "string");
-    myMatrix.insertColumn(6, "ggg", "region");
+    // myMatrix.insertColumn(3, "ddd", "integer");
+    // myMatrix.insertColumn(4, "eee", "float");
+    // myMatrix.insertColumn(5, "fff", "string");
+    // myMatrix.insertColumn(6, "ggg", "region");
     
 
     var mySheet = new sheet(myMatrix);
@@ -1279,7 +1325,25 @@ $(document).ready(function () {
     */
 
     $('#purifyData').click(function () {
-        window.location.href = "transfer.html";
+        //generateTestForm(mySheet, myMatrix);
+        
+        sessionStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+        $.get('javascripts/computing.html', function(html) {
+            console.info("1111111111111111");
+        $.blockUI({ 
+                    message: html ,
+                    css: 
+                    {
+                        //top:  ($(window).height() - 400) /2 + 'px', 
+                        //left: ($(window).width() - 400) /2 + 'px', 
+                        //width: '400px'
+                        top: '10px',
+                        left: '10px',
+                        width: '400px' 
+                    }
+                });
+        });
+        
     });
 
 
@@ -1327,6 +1391,7 @@ $(document).ready(function () {
         $.unblockUI();
         return true;
     });
+
 
 
 });

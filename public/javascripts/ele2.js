@@ -430,7 +430,7 @@ function matrix()
                 }
                 else
                 {
-                    var jsonStr = JSON.stringify(e);
+                    var jsonStr = (e);
                     this.matrix[i][j] = jsonStr;
                 }
             }
@@ -481,7 +481,7 @@ function matrix()
                 console.info("incorrect new insert data");
                 return false;
             }
-            this.matrix[i][j] = JSON.stringify(e);
+            this.matrix[i][j] = (e);
             return true;
         }
 
@@ -515,7 +515,7 @@ function matrix()
                         console.info("incorrect new insert data");
                         return false;
                     }
-                    this.matrix[i][j] = JSON.stringify(e);
+                    this.matrix[i][j] = (e);
                 }
             }
         }
@@ -533,7 +533,7 @@ function matrix()
             {
                 continue;
             }
-            var e = JSON.parse(eString);
+            var e = (eString);
             if(true == e.init)
             {
                 return e.rowHeaderName;
@@ -622,7 +622,7 @@ function matrix()
                 console.info("incorrect new insert data");
                 return false;
             }
-            this.matrix[x][y] = JSON.stringify(newData);
+            this.matrix[x][y] = (newData);
             return true;
             
         }
@@ -683,7 +683,7 @@ function matrix()
                         console.info("incorrect new insert data");
                         return false;
                     }
-                    this.matrix[i][j] = JSON.stringify(e);
+                    this.matrix[i][j] = (e);
 
                 }
             }
@@ -701,7 +701,7 @@ function matrix()
         {
             return "";
         }
-        var e = JSON.parse(eString);
+        var e = (eString);
         
         return e.colHeaderName;
             
@@ -715,7 +715,7 @@ function matrix()
         {
             return "";
         }
-        var e = JSON.parse(eString);
+        var e = (eString);
         
         return e.dataType;
     }
@@ -728,7 +728,7 @@ function matrix()
             console.error("error to getEleByXY");
             return false;
         }        
-        var e = JSON.parse(this.matrix[x][y]);
+        var e = (this.matrix[x][y]);
         return e;
 
     }
@@ -861,7 +861,7 @@ function matrix()
 
     this.generateJsonData = function()
     {
-        var jsonFormatTable = JSON.stringify(this.matrix);
+        var jsonFormatTable = (this.matrix);
         console.info("********************************************");
         console.info(jsonFormatTable);
         console.info("********************************************");
@@ -892,7 +892,7 @@ function matrix()
             {
                 return false;
             }
-            var e = JSON.parse(eString)
+            var e = (eString)
             if(true == e.init)
             {
                 var newEle = new ele();
@@ -900,7 +900,7 @@ function matrix()
                 {
                     return false;
                 }
-                this.matrix[i][colNo] = JSON.stringify(newEle);
+                this.matrix[i][colNo] = (newEle);
             }
         }
         return true;
@@ -922,7 +922,7 @@ function matrix()
             {
                 return false;
             }
-            var e = JSON.parse(eString)
+            var e = (eString)
             if(true == e.init)
             {
                 var newEle = new ele();
@@ -930,7 +930,7 @@ function matrix()
                 {
                     return false;
                 }
-                this.matrix[rowNo][i] = JSON.stringify(newEle);
+                this.matrix[rowNo][i] = (newEle);
             }
         }
         return true;
@@ -992,7 +992,7 @@ function matrix()
                 console.error("incorrect new insert data");
                 return false;
             }
-            this.matrix[i][colNo] = JSON.stringify(e);
+            this.matrix[i][colNo] = (e);
         }
         return true;
     }
@@ -1102,7 +1102,7 @@ function sheet(matrix)
                     var ele = matrix.getEleByXY(i-2, j-2);
                     e.setCell("data", ele.data);
                 }
-                var jsonStr = JSON.stringify(e);
+                var jsonStr = (e);
                 sheet[i][j] = jsonStr;
                 console.info("jsonstr :", jsonStr);
             }
@@ -1136,7 +1136,7 @@ function sheet(matrix)
             showSheet[i] = new Array();
             for(j = 0; j < this.sheetColNum; j++)
             {
-                var e = JSON.parse(this.sheet[i][j]);
+                var e = (this.sheet[i][j]);
                 showSheet[i][j] = e.cellContent;
             }
         }
@@ -1160,7 +1160,7 @@ function sheet(matrix)
 
     this.getCellDataType = function(rowNo, colNo)
     {
-        var e = JSON.parse(this.sheet[rowNo][colNo]);
+        var e = (this.sheet[rowNo][colNo]);
         return e.cellType;
     }
 
@@ -1306,6 +1306,11 @@ var myMatrix = new matrix();
     console.info("ttt data: ", data);
 
     mySheet.printShowSheet();
+
+
+    console.info("------------------");
+    console.info((myMatrix));
+    console.info("-------------------")
 
 
     //myMatrix.setMatrixData("600", 2, 0);
