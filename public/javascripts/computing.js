@@ -57,7 +57,8 @@ $(document).ready(function() {
         data: bodyData,
         contentType: "application/json; charset=utf-8",
         success: function(data) {
-          alert(data);
+          //alert(data);
+          sessionStorage.setItem("computedMatrix", data);
           return true;
         },
         failure: function(errMsg) {

@@ -1343,6 +1343,13 @@ $(document).ready(function () {
                     }
                 });
         });
+
+        var computedMatrixString = sessionStorage.getItem("computedMatrix");
+        console.info("9999999999999999 :", computedMatrixString);
+        var loadMatrix = JSON.parse(computedMatrixString);
+                myMatrix.loadData(loadMatrix);
+                reloadData(mySheet, myMatrix);
+  //computingMatrix.loadData(JSON.parse(computingMatrixString));
         
     });
 
