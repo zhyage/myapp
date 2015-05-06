@@ -59,7 +59,7 @@ while True:
     #print "Received request: ", message
     # time.sleep(1)
     #socket.send("World from %s" % port)
-    socket.send(json.dumps(resultMsg[1]));    
+    socket.send(json.dumps(resultMsg));    
 
 
 # def main():

@@ -83,7 +83,8 @@ def computingnSheet(targetVarName, expression, sheet, nSheet):
 
 def expressionHandle(targetVarName, expression, sheet):
     nSheet = generateNumpyArray(sheet)
-    newSheet = computingnSheet('zhy', 'kkk + bbb + ccc', sheet, nSheet)
+    #newSheet = computingnSheet(targetVarName, 'kkk + bbb + ccc', sheet, nSheet)
+    newSheet = computingnSheet(targetVarName, expression, sheet, nSheet)
     newSheetJson =  json.dumps(newSheet)
     return True, newSheetJson
     

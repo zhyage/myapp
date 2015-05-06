@@ -1037,23 +1037,54 @@ $(document).ready(function () {
 
 
     console.info("xxxxxxxxxxxxxx start xxxxxxxxxxxxxx");
-
+    
     var myMatrix = new matrix();
-    
-    
-    myMatrix.insertColumn(0, "kkk", "integer");
-    myMatrix.insertColumn(1, "bbb", "integer");
-    myMatrix.insertColumn(2, "ccc", "integer");
-    
-    myMatrix.setMatrixData("400", 0, 0);
-    myMatrix.setMatrixData("401", 0, 1);
-    myMatrix.setMatrixData("402", 0, 2);
 
-    myMatrix.setMatrixData("500", 1, 0);
+    var computedMatrixString = sessionStorage.getItem("computedMatrix");
+    console.info("9999999999999999 :", computedMatrixString);
+    if(null == computedMatrixString)
+    {
+        alert("no previous data");
+        myMatrix.insertColumn(0, "kkk", "integer");
+        myMatrix.insertColumn(1, "bbb", "integer");
+        myMatrix.insertColumn(2, "ccc", "integer");
+        
+        myMatrix.setMatrixData("400", 0, 0);
+        myMatrix.setMatrixData("401", 0, 1);
+        myMatrix.setMatrixData("402", 0, 2);
 
-    myMatrix.setMatrixData("501", 1, 1);
-    myMatrix.setMatrixData("601", 2, 1);
-    myMatrix.setMatrixData("701", 3, 1);
+        myMatrix.setMatrixData("500", 1, 0);
+
+        myMatrix.setMatrixData("501", 1, 1);
+        myMatrix.setMatrixData("601", 2, 1);
+        myMatrix.setMatrixData("701", 3, 1);
+    }
+    else
+    {
+        var computedMatrix = JSON.parse(computedMatrixString);
+        console.info("88888888888888888 result:", computedMatrix.result);
+        if("success" == computedMatrix.result)
+        {
+            alert("previous data exist");
+            var loadMatrix = JSON.parse(computedMatrix.matrix);
+            console.info("4444444444444444444 matrix:", computedMatrix.matrix);
+            myMatrix.loadData(loadMatrix);
+        }
+        else
+        {
+            alert("previous data error");
+        }
+        
+    }
+    
+
+
+
+    
+    
+    
+    
+    
 
     // myMatrix.insertColumn(3, "ddd", "integer");
     // myMatrix.insertColumn(4, "eee", "float");
@@ -1325,11 +1356,11 @@ $(document).ready(function () {
     */
 
     $('#purifyData').click(function () {
-        //generateTestForm(mySheet, myMatrix);
         
         sessionStorage.setItem("localMatrix", JSON.stringify(myMatrix));
         $.get('javascripts/computing.html', function(html) {
             console.info("1111111111111111");
+
         $.blockUI({ 
                     message: html ,
                     css: 
@@ -1344,12 +1375,36 @@ $(document).ready(function () {
                 });
         });
 
-        var computedMatrixString = sessionStorage.getItem("computedMatrix");
-        console.info("9999999999999999 :", computedMatrixString);
-        var loadMatrix = JSON.parse(computedMatrixString);
-                myMatrix.loadData(loadMatrix);
-                reloadData(mySheet, myMatrix);
-  //computingMatrix.loadData(JSON.parse(computingMatrixString));
+         
+        // var computedMatrixString = sessionStorage.getItem("computedMatrix");
+        //  console.info("9999999999999999 :", computedMatrixString);
+        //  var computedMatrix = JSON.parse(computedMatrixString);
+        //  console.info("88888888888888888 :", computedMatrix);
+        // console.info("after unblockUI");
+
+
+        // var url ="javascripts/computing.html";
+        // $.ajax({
+        //     url: url,
+        //     dataType: 'html',
+        //     success: function(data){
+        //      //do something with data, which is the page 1.html
+        //      $.blockUI({ 
+        //             message: data ,
+        //             css: 
+        //             {
+        //                 //top:  ($(window).height() - 400) /2 + 'px', 
+        //                 //left: ($(window).width() - 400) /2 + 'px', 
+        //                 //width: '400px'
+        //                 top: '10px',
+        //                 left: '10px',
+        //                 width: '400px' 
+        //             }
+        //         });
+        //    }
+
+        // });
+        
         
     });
 

@@ -3,6 +3,7 @@ $(document).ready(function() {
   $('#cancelButton').click(function() {
 
     $.unblockUI();
+    
     return true;
   });
 
@@ -12,7 +13,7 @@ $(document).ready(function() {
 
     submitComputExpressAndData(targetVarName, expression, computingMatrix);
 
-    $.unblockUI();
+    //$.unblockUI();
     return true;
   });
 
@@ -56,14 +57,18 @@ $(document).ready(function() {
         url: "/submitComputExpressAndData",
         data: bodyData,
         contentType: "application/json; charset=utf-8",
+        async: "false",
         success: function(data) {
           //alert(data);
           sessionStorage.setItem("computedMatrix", data);
-          return true;
+          console.info("now complete submitComputExpressAndData");
+          location.replace("http://192.168.56.101:3000");
+          $.unblockUI();
+          //return true;
         },
         failure: function(errMsg) {
           alert(errMsg);
-          return false;
+          //return false;
         }
       });
     }
