@@ -7,6 +7,9 @@ from py_expression_eval import Parser
 import json
 from copy import deepcopy
 
+sys.path.append("")
+sys.path.append("method")
+
 def generateNumpyArray(sheet):
     colNum = sheet['colNum']
     rowNum = sheet['rowNum']
@@ -57,25 +60,51 @@ def appendSheetnewArr(targetVarName, sheet, newArr):
 
     print sheet
 
+#fn(gyzsf_jiZhiHua)(x, y)
+def parseExpressionMethod(expression):
+    method = expression.strip()
+    method = method[3:]
+    npos = method.index(")")
+    method = method[:npos]
+    print "method : ", method
+    return method
+
+
+
+def computingFnSheet(targetVarName, expression, sheet, nSheet):
+
+    methodName = parseExpressionMethod(expression)
+    callFunction = methodName
+
+
+    module = __import__(methodName, globals(), locals(), [callFunction])
+    ds = getattr(module, callFunction)
+    res = ds(targetVarName, expression, sheet, nSheet)
+    print "execute result : ", res
+
 def computingnSheet(targetVarName, expression, sheet, nSheet):
-    parser = Parser()
-    expr = parser.parse(expression)
-    varList = expr.variables()
-    varDic = {}
-    for var in varList:
-        colArr = getNColumnByVarName(var, sheet, nSheet)
-        print "colArr = ", var, " : ", colArr
-        varDic[var] = colArr
+    if("fn(" in expression):
+        computingFnSheet(targetVarName, expression, sheet, nSheet)
+        return sheet;
+    else:
+        parser = Parser()
+        expr = parser.parse(expression)
+        varList = expr.variables()
+        varDic = {}
+        for var in varList:
+            colArr = getNColumnByVarName(var, sheet, nSheet)
+            print "colArr = ", var, " : ", colArr
+            varDic[var] = colArr
 
-    print varDic    
+        print varDic    
 
 
-    newCol = parser.evaluate(expression, varDic)
-    print "newCol : ", newCol
+        newCol = parser.evaluate(expression, varDic)
+        print "newCol : ", newCol
 
-    appendSheetnewArr(targetVarName, sheet, newCol)
+        appendSheetnewArr(targetVarName, sheet, newCol)
 
-    return sheet
+        return sheet
 
 
 
@@ -83,7 +112,6 @@ def computingnSheet(targetVarName, expression, sheet, nSheet):
 
 def expressionHandle(targetVarName, expression, sheet):
     nSheet = generateNumpyArray(sheet)
-    #newSheet = computingnSheet(targetVarName, 'kkk + bbb + ccc', sheet, nSheet)
     newSheet = computingnSheet(targetVarName, expression, sheet, nSheet)
     newSheetJson =  json.dumps(newSheet)
     return True, newSheetJson

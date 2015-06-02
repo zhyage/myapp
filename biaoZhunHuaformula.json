@@ -3,12 +3,12 @@
     {
       "name": "gyzsf_jiZhiHua",
       "formula": "x, y",
-      "hints": "x: filled with data source, y: filled with direction, 1: positive , -1: nagtive"
+      "hints": "x: 选择源数据, y: 正指标或逆指标 1:正指标 2:逆指标"
     },
     {
       "name": "gyzsf_junZhiHua",
       "formula": "x, y",
-      "hints": "x: filled with data source, y: filled with direction, 1: positive , -1: nagtive"
+      "hints": "x: 选择源数据, y: 正指标或逆指标 1:正指标 2:逆指标"
     }
   ]
 }

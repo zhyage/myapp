@@ -95,7 +95,6 @@ $(document).ready(function() {
         success: function(data) {
           var returnMsg = JSON.parse(data);
           setExpression(returnMsg.formula);
-          alert(returnMsg.hints);
           setHints(returnMsg.hints);
 
         },
