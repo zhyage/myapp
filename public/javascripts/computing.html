@@ -46,7 +46,9 @@
     <script type="text/javascript" src="javascripts/jsv.js"></script>
     <script type="text/javascript" src="javascripts/jsonform.js"></script>
 	<script type="text/javascript" src="javascripts/computing.js"></script>
+	
 	<script src="javascripts/ele2.js"></script>
+	
 	
 	
 
@@ -76,7 +78,8 @@
 					<!--
 						<input type="text" class="form-control" id="numericExpressions">
 					-->
-					<textarea class="medium" name="textarea" id="numericExpressions" placeholder="Text Area"></textarea>	
+					<textarea class="medium" name="textarea" id="numericExpressions" placeholder="Text Area"></textarea>
+					<textarea class="medium" name="textarea" id="numericExpressionsHint" placeholder="Text Area"></textarea>	
 					</div>
 				</div>
 			</form>
@@ -135,6 +138,7 @@
 			</div>
 			</div>
 		</div>
+		<!--
 		<div class="col-md-5 column">
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -150,6 +154,19 @@
 				</div>
 			</div>
 		</div>
+		-->
+		<div class="col-md-5 column">
+			<div class="row clearfix">
+				<div id="gyzsf_jiZhiHua" class="col-md-12 column">
+					<button type="button" class="btn btn-default">广义指数法-级值化</button>
+				</div>
+			</div>
+			<div class="row clearfix">	
+				<div id="gy-junzh" class="col-md-12 column">
+					<button type="button" class="btn btn-default">广义指数法-均值化</button>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="row clearfix">
 		<div id="yesButton" class="col-md-6 column">
@@ -160,5 +177,15 @@
 		</div>
 	</div>
 </div>
+
+
+<!--
+<div id="parent">
+This is the main container.
+<div id="popup" style="display: none">some text here</div>
+</div>
+-->
+
+
 </body>
 </html>

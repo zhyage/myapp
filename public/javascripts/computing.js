@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() {
 
   $('#cancelButton').click(function() {
@@ -16,6 +18,11 @@ $(document).ready(function() {
     //$.unblockUI();
     return true;
   });
+
+  $('#gyzsf_jiZhiHua').click(function(){
+    toGetBiaoZhunHuaExpress("gyzsf_jiZhiHua");
+    return true;
+  })
 
   $('#addVar2ExpressionButton').click(function() {
     console.info("addVar2ExpressionButton clicked");
@@ -50,7 +57,7 @@ $(document).ready(function() {
       console.info("entry submitComputExpressAndData");
       var submitBody = new computExpressAndData();
 
-      submitBody.setComputExpressAndData(targetVarName, expression, matrix)
+      submitBody.setComputExpressAndData(targetVarName, expression, matrix);
       var bodyData = JSON.stringify(submitBody);
       $.ajax({
         type: "POST",
@@ -65,6 +72,32 @@ $(document).ready(function() {
           location.replace("http://192.168.56.101:3000");
           $.unblockUI();
           //return true;
+        },
+        failure: function(errMsg) {
+          alert(errMsg);
+          //return false;
+        }
+      });
+    }
+
+    function toGetBiaoZhunHuaExpress(biaoZhunHuaName) {
+      console.info("entry toGetBiaoZhunHuaExpress");
+      var submitBody = {"biaoZhunHuaName": ""};
+      submitBody.biaoZhunHuaName =  biaoZhunHuaName;
+
+      var bodyData = JSON.stringify(submitBody);
+      $.ajax({
+        type: "POST",
+        url: "/toGetBiaoZhunHuaExpress",
+        data: bodyData,
+        contentType: "application/json; charset=utf-8",
+        async: "false",
+        success: function(data) {
+          var returnMsg = JSON.parse(data);
+          setExpression(returnMsg.formula);
+          alert(returnMsg.hints);
+          setHints(returnMsg.hints);
+
         },
         failure: function(errMsg) {
           alert(errMsg);
@@ -150,6 +183,10 @@ function setExpression(expressString) {
   $('#numericExpressions').val(expressString);
 }
 
+function setHints(hitMessage) {
+  $('#numericExpressionsHint').val(hitMessage);
+}
+
 function getExpression()
 {
   return $('#numericExpressions').val();
@@ -176,3 +213,38 @@ function modifyExpression(addString) {
   setExpression(newExpress);
   //alert($('#yesButton').text());
 }
+
+
+/*
+
+function getGy_jizhFormula(){
+  var gy = new gy_jizh_method();
+  setExpression(gy.getFormulaName());
+  $('#numericExpressions').select();
+}
+
+  
+
+function gy_jizh_method(){
+    this.formulaName = "gyzhishufa";
+    this.inputCol = "x";
+    this.positive = "y";
+
+    this.getFormulaName = function(){
+        return this.formulaName;
+    }
+    this.gethitDescript = function(){
+
+    }
+}
+
+
+
+function showHint(hitMessage) {
+  $('#numericExpressionsHint').val(hitMessage);
+}
+function clearHint() {
+  $('#numericExpressionsHint').val("");
+}
+
+*/

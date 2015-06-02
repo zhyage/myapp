@@ -1,0 +1,14 @@
+{
+  "allFormula": [
+    {
+      "name": "gyzsf_jiZhiHua",
+      "formula": "x, y",
+      "hints": "x: filled with data source, y: filled with direction, 1: positive , -1: nagtive"
+    },
+    {
+      "name": "gyzsf_junZhiHua",
+      "formula": "x, y",
+      "hints": "x: filled with data source, y: filled with direction, 1: positive , -1: nagtive"
+    }
+  ]
+}
