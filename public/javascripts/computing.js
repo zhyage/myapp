@@ -24,6 +24,11 @@ $(document).ready(function() {
     return true;
   })
 
+  $('#gyzsf_junZhiFa').click(function(){
+    toGetBiaoZhunFaExpress("gyzsf_junZhiFa");
+    return true;
+  })
+
   $('#addVar2ExpressionButton').click(function() {
     console.info("addVar2ExpressionButton clicked");
     var inputVar = getInputVar();
