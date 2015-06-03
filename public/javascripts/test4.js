@@ -1062,8 +1062,12 @@ $(document).ready(function () {
     else
     {
         var computedMatrix = JSON.parse(computedMatrixString);
-        console.info("88888888888888888 result:", computedMatrix.result);
-        if("success" == computedMatrix.result)
+        //var loadMatrix = JSON.parse(computedMatrix);
+        var loadMatrix = computedMatrix;
+            console.info("4444444444444444444 matrix:", computedMatrix);
+            myMatrix.loadData(loadMatrix);
+
+        /*if("success" == computedMatrix.result)
         {
             alert("previous data exist");
             var loadMatrix = JSON.parse(computedMatrix.matrix);
@@ -1073,7 +1077,7 @@ $(document).ready(function () {
         else
         {
             alert("previous data error");
-        }
+        }*/
         
     }
     

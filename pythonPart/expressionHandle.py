@@ -6,95 +6,113 @@ from scipy import *
 from py_expression_eval import Parser
 import json
 from copy import deepcopy
+from sheetHandle import generateNumpyArray
+from sheetHandle import generateSheetByNSheet
+from sheetHandle import getNColumnByVarName
+from sheetHandle import appendSheetnewArr
 
 sys.path.append("")
 sys.path.append("method")
 
-def generateNumpyArray(sheet):
-    colNum = sheet['colNum']
-    rowNum = sheet['rowNum']
-    matrix = sheet['matrix']
-    nSheet = np.zeros((rowNum, colNum), float32)
+# def generateNumpyArray(sheet):
+#     colNum = sheet['colNum']
+#     rowNum = sheet['rowNum']
+#     matrix = sheet['matrix']
+#     nSheet = np.zeros((rowNum, colNum), float32)
 
-    for i in range(0, rowNum):
-        for j in range(0, colNum):
-            ele = matrix[i][j]
-            dataStr = ele["data"]
-            data = float(dataStr);
-            nSheet[i][j] = data
-    print "nSheet :--------------------"
-    print nSheet
+#     for i in range(0, rowNum):
+#         for j in range(0, colNum):
+#             ele = matrix[i][j]
+#             dataStr = ele["data"]
+#             data = float(dataStr);
+#             nSheet[i][j] = data
+#     print "nSheet :--------------------"
+#     print nSheet
 
-    return nSheet
+#     return nSheet
 
-def generateSheetByNSheet(nSheet, sheet, targetVarName):
-    shape = nSheet.shape
-    nRowNum = sharp[0]
-    nColNum = sharp[1]
-    colNum = sheet['colNum']
-    rowNum = sheet['rowNum']
-    matrix = sheet['matrix']
+# def generateSheetByNSheet(nSheet, sheet, targetVarName):
+#     shape = nSheet.shape
+#     nRowNum = sharp[0]
+#     nColNum = sharp[1]
+#     colNum = sheet['colNum']
+#     rowNum = sheet['rowNum']
+#     matrix = sheet['matrix']
 
-def getNColumnByVarName(varName, sheet, nSheet):
-    colNum = sheet['colNum']
-    rowNum = sheet['rowNum']
-    matrix = sheet['matrix']
+# def getNColumnByVarName(varName, sheet, nSheet):
+#     colNum = sheet['colNum']
+#     rowNum = sheet['rowNum']
+#     matrix = sheet['matrix']
 
-    for i in range(0, colNum):
-        ele = matrix[0][i]
-        if varName == ele['colHeaderName']:
-            return nSheet[:, i]
+#     for i in range(0, colNum):
+#         ele = matrix[0][i]
+#         if varName == ele['colHeaderName']:
+#             return nSheet[:, i]
 
-def appendSheetnewArr(targetVarName, sheet, newArr):
-    colNum = sheet['colNum']
-    sheet['colNum'] = colNum + 1;
-    rowNum = sheet['rowNum']
-    matrix = sheet['matrix']        
-    elePattern = {u'writeable': False, u'colHeaderName': u'', u'dataType': u'integer', u'init': True, u'rowHeaderName': u'', u'data': u''}   
-    for i in range(0, rowNum):
-        ele = elePattern
-        ele['colHeaderName'] = targetVarName
-        ele['data'] = str(newArr[i])
-        print "ele : ", ele
-        sheet['matrix'][i].append(deepcopy(ele))
+# def appendSheetnewArr(targetVarName, sheet, newArr):
+#     colNum = sheet['colNum']
+#     sheet['colNum'] = colNum + 1;
+#     rowNum = sheet['rowNum']
+#     matrix = sheet['matrix']        
+#     elePattern = {u'writeable': False, u'colHeaderName': u'', u'dataType': u'integer', u'init': True, u'rowHeaderName': u'', u'data': u''}   
+#     for i in range(0, rowNum):
+#         ele = elePattern
+#         ele['colHeaderName'] = targetVarName
+#         ele['data'] = str(newArr[i])
+#         print "ele : ", ele
+#         sheet['matrix'][i].append(deepcopy(ele))
 
-    print sheet
+#     print sheet
 
-#fn(gyzsf_jiZhiHua)(x, y)
-def parseExpressionMethod(expression):
-    method = expression.strip()
-    method = method[3:]
-    npos = method.index(")")
-    method = method[:npos]
+#fn(gyzsf_jiZhiFa)(x, y)
+def parseExpressionMethodAndArgList(expression):
+    tmp = expression.strip()
+    tmp = tmp[3:]
+    npos = tmp.index(")")
+    method = tmp[:npos]
+    npos = tmp.index("(")
+    argListStr = tmp[npos+1:-1]
+    argList = argListStr.split(',');
+    for i in range(0, len(argList)):
+        argList[i] = argList[i].strip()
+
+
     print "method : ", method
-    return method
+    print "argList :", argList
+    return method, argList
 
 
 
 def computingFnSheet(targetVarName, expression, sheet, nSheet):
 
-    methodName = parseExpressionMethod(expression)
+    tmp = parseExpressionMethodAndArgList(expression)
+    methodName = tmp[0]
+    argList = tmp[1]
     callFunction = methodName
 
 
     module = __import__(methodName, globals(), locals(), [callFunction])
     ds = getattr(module, callFunction)
-    res = ds(targetVarName, expression, sheet, nSheet)
+    res = ds(targetVarName, expression, argList, sheet, nSheet)
     print "execute result : ", res
+    return res
 
 def computingnSheet(targetVarName, expression, sheet, nSheet):
     if("fn(" in expression):
-        computingFnSheet(targetVarName, expression, sheet, nSheet)
-        return sheet;
+        return computingFnSheet(targetVarName, expression, sheet, nSheet)
+        #return True, sheet;
     else:
         parser = Parser()
         expr = parser.parse(expression)
         varList = expr.variables()
         varDic = {}
         for var in varList:
-            colArr = getNColumnByVarName(var, sheet, nSheet)
-            print "colArr = ", var, " : ", colArr
-            varDic[var] = colArr
+            [res, colArr] = getNColumnByVarName(var, sheet, nSheet)
+            if(False == res):
+                return False, sheet
+            else:
+                print "colArr = ", var, " : ", colArr
+                varDic[var] = colArr
 
         print varDic    
 
@@ -104,7 +122,7 @@ def computingnSheet(targetVarName, expression, sheet, nSheet):
 
         appendSheetnewArr(targetVarName, sheet, newCol)
 
-        return sheet
+        return True, sheet
 
 
 
@@ -112,7 +130,7 @@ def computingnSheet(targetVarName, expression, sheet, nSheet):
 
 def expressionHandle(targetVarName, expression, sheet):
     nSheet = generateNumpyArray(sheet)
-    newSheet = computingnSheet(targetVarName, expression, sheet, nSheet)
+    [res, newSheet] = computingnSheet(targetVarName, expression, sheet, nSheet)
     newSheetJson =  json.dumps(newSheet)
-    return True, newSheetJson
+    return res, newSheetJson
     

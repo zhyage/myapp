@@ -6,13 +6,13 @@ var fs = require('fs');
 router.post('/', function(req, res, next) {
 
 
-	var conf = JSON.parse(fs.readFileSync('biaoZhunHuaformula.json', 'utf8'));
-	console.info("biaoZhunHua conf: ", conf);
+	var conf = JSON.parse(fs.readFileSync('biaoZhunFaformula.json', 'utf8'));
+	console.info("biaoZhunFa conf: ", conf);
 	var toGetData = req.body;
-	console.info("biaoZhunHuaName = ", toGetData.biaoZhunHuaName);
+	console.info("biaoZhunFaName = ", toGetData.biaoZhunFaName);
 	var matchConf = {};
 	conf.allFormula.forEach(function(confEle){
-		if(confEle.name == toGetData.biaoZhunHuaName){
+		if(confEle.name == toGetData.biaoZhunFaName){
 			matchConf = confEle;
 		}
 	})

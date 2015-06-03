@@ -1,12 +1,12 @@
 {
   "allFormula": [
     {
-      "name": "gyzsf_jiZhiHua",
+      "name": "gyzsf_jiZhiFa",
       "formula": "x, y",
       "hints": "x: 选择源数据, y: 正指标或逆指标 1:正指标 2:逆指标"
     },
     {
-      "name": "gyzsf_junZhiHua",
+      "name": "gyzsf_junZhiFa",
       "formula": "x, y",
       "hints": "x: 选择源数据, y: 正指标或逆指标 1:正指标 2:逆指标"
     }

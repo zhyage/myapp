@@ -19,8 +19,8 @@ $(document).ready(function() {
     return true;
   });
 
-  $('#gyzsf_jiZhiHua').click(function(){
-    toGetBiaoZhunHuaExpress("gyzsf_jiZhiHua");
+  $('#gyzsf_jiZhiFa').click(function(){
+    toGetBiaoZhunFaExpress("gyzsf_jiZhiFa");
     return true;
   })
 
@@ -67,7 +67,18 @@ $(document).ready(function() {
         async: "false",
         success: function(data) {
           //alert(data);
-          sessionStorage.setItem("computedMatrix", data);
+          var resData = JSON.parse(data);
+          if(resData.result == "success"){
+            //sessionStorage.setItem("computedMatrix", JSON.stringify(resData.matrix));
+            //console.info("cccccccccccccc:", JSON.stringify(resData.matrix))
+            sessionStorage.setItem("computedMatrix", resData.matrix);
+            console.info("cccccccccccccc:", resData.matrix)
+          }else{
+            var origData = sessionStorage.getItem("localMatrix");
+            sessionStorage.setItem("computedMatrix", origData);
+            console.info("cccccccccccccc:", origData);
+            alert("computing error!");
+          }
           console.info("now complete submitComputExpressAndData");
           location.replace("http://192.168.56.101:3000");
           $.unblockUI();
@@ -80,15 +91,15 @@ $(document).ready(function() {
       });
     }
 
-    function toGetBiaoZhunHuaExpress(biaoZhunHuaName) {
-      console.info("entry toGetBiaoZhunHuaExpress");
-      var submitBody = {"biaoZhunHuaName": ""};
-      submitBody.biaoZhunHuaName =  biaoZhunHuaName;
+    function toGetBiaoZhunFaExpress(biaoZhunFaName) {
+      console.info("entry toGetBiaoZhunFaExpress");
+      var submitBody = {"biaoZhunFaName": ""};
+      submitBody.biaoZhunFaName =  biaoZhunFaName;
 
       var bodyData = JSON.stringify(submitBody);
       $.ajax({
         type: "POST",
-        url: "/toGetBiaoZhunHuaExpress",
+        url: "/toGetBiaoZhunFaExpress",
         data: bodyData,
         contentType: "application/json; charset=utf-8",
         async: "false",
@@ -112,6 +123,7 @@ $(document).ready(function() {
   var colHeaderList = [];
 
   var computingMatrixString = sessionStorage.getItem("localMatrix");
+  console.info("dddddddddddd:", computingMatrixString);
   computingMatrix.loadData(JSON.parse(computingMatrixString));
 
 
