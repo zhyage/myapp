@@ -12,6 +12,7 @@ var getSaveFileList = require('./routes/getSaveFileList');
 var loadFileFromServer = require('./routes/loadFileFromServer');
 var submitComputExpressAndData = require('./routes/submitComputExpressAndData');
 var toGetBiaoZhunFaExpress = require('./routes/toGetBiaoZhunFaExpress');
+var toGetBiaoZhunFaConf = require('./routes/toGetBiaoZhunFaConf');
 
 var app = express();
 app.disable('view cache');
@@ -35,6 +36,7 @@ app.use('/getSaveFileList', getSaveFileList);
 app.use('/loadFileFromServer', loadFileFromServer);
 app.use('/submitComputExpressAndData', submitComputExpressAndData);
 app.use('/toGetBiaoZhunFaExpress', toGetBiaoZhunFaExpress);
+app.use('/toGetBiaoZhunFaConf', toGetBiaoZhunFaConf);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
