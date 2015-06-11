@@ -7,6 +7,24 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "views/index.html",
+			"settings":
+			{
+				"buffer_size": 5911,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 1279 files for \"cssmenu\"\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/test3.js:\n  857  		});\n  858  \n  859: 	$('#cssmenu > ul > li > a').click(function () {\n  860  		console.info(\"hello2\");\n  861: 		$('#cssmenu li').removeClass('active');\n  862  		$(this).closest('li').addClass('active');\n  863  		var checkElement = $(this).next();\n  ...\n  867  		}\n  868  		if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {\n  869: 			$('#cssmenu ul ul:visible').slideUp('normal');\n  870  			checkElement.slideDown('normal');\n  871  		}\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/test4.js:\n 1208  \n 1209  \n 1210:     $('#cssmenu > ul > li > a').click(function () {\n 1211          console.info(\"hello2\");\n 1212:         $('#cssmenu li').removeClass('active');\n 1213          $(this).closest('li').addClass('active');\n 1214          var checkElement = $(this).next();\n ....\n 1218          }\n 1219          if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {\n 1220:             $('#cssmenu ul ul:visible').slideUp('normal');\n 1221              checkElement.slideDown('normal');\n 1222          }\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/stylesheets/14423.css:\n   62  @charset \"UTF-8\";\n   63  /* Base Styles */\n   64: #cssmenu,\n   65: #cssmenu ul,\n   66: #cssmenu li,\n   67: #cssmenu a {\n   68  \n   69    margin: 0;\n   ..\n   79    	\n   80  }\n   81: #cssmenu a {\n   82    line-height: 1.3;\n   83  }\n   84: #cssmenu {\n   85  /*\n   86    width: 250px;\n   ..\n  101    \n  102  }\n  103: #cssmenu > ul > li {\n  104    margin: 0 0 2px 0;\n  105  }\n  106: #cssmenu > ul > li:last-child {\n  107    margin: 0;\n  108  }\n  109: #cssmenu > ul > li > a {\n  110    font-size: 15px;\n  111    display: block;\n  ...\n  122    border-radius: 4px;\n  123  }\n  124: #cssmenu > ul > li > a > span {\n  125    display: block;\n  126    border: 1px solid #666666;\n  ...\n  131    font-weight: bold;\n  132  }\n  133: #cssmenu > ul > li > a:hover {\n  134    text-decoration: none;\n  135  }\n  136: #cssmenu > ul > li.active {\n  137    border-bottom: none;\n  138  }\n  139: #cssmenu > ul > li.active > a {\n  140    background: #97be10;\n  141    background: -moz-linear-gradient(#97be10 0%, #79980d 100%);\n  ...\n  147    border: 1px solid #79980d;\n  148  }\n  149: #cssmenu > ul > li.active > a span {\n  150    border: 1px solid #97be10;\n  151  }\n  152: #cssmenu > ul > li.has-sub > a span {\n  153    /*background: url(images/icon_plus.png) 98% center no-repeat;*/\n  154    background: 98% center no-repeat;\n  155  }\n  156: #cssmenu > ul > li.has-sub.active > a span {\n  157    /*background: url(images/icon_minus.png) 98% center no-repeat;*/\n  158    background: 98% center no-repeat;\n  159  }\n  160  /* Sub menu */\n  161: #cssmenu ul ul {\n  162    padding: 5px 12px;\n  163    display: none;\n  164  }\n  165: #cssmenu ul ul li {\n  166    padding: 3px 0;\n  167  }\n  168: #cssmenu ul ul a {\n  169    display: block;\n  170    color: #595959;\n  ...\n  172    font-weight: bold;\n  173  }\n  174: #cssmenu ul ul a:hover {\n  175    color: #79980d;\n  176  }\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/views/index.html:\n   41  	   </div></div>\n   42  	   \n   43:     <div id='cssmenu'>\n   44  	<ul>\n   45  	<li class='active'><a href='#'><span>File</span></a>\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/views/index.jade:\n   27        | &#x9;   \n   28        |     \n   29:       #cssmenu\n   30          ul\n   31            li.active\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/views/index.jade.work.2.4:\n   27        | &#x9;   \n   28        |     \n   29:       #cssmenu\n   30          ul\n   31            li.active\n\n29 matches across 6 files\n",
+			"settings":
+			{
+				"buffer_size": 3917,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -15,7 +33,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 75.0,
+		"height": 117.0,
 		"last_filter": "install",
 		"selected_items":
 		[
@@ -32,7 +50,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 593.0
 	},
 	"console":
 	{
@@ -53,9 +71,11 @@
 	},
 	"expanded_folders":
 	[
+		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp"
 	],
 	"file_history":
 	[
+		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/stylesheets/14423.css",
 		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/content/test.js",
 		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/content/test2.js",
 		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/content/index.html",
@@ -77,9 +97,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 102.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -87,6 +108,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"cssmenu",
 			"reconfig"
 		],
 		"highlight": true,
@@ -105,8 +127,316 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "views/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5911,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2771,
+								2771
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 726.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3917,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										184,
+										191
+									],
+									[
+										274,
+										281
+									],
+									[
+										510,
+										517
+									],
+									[
+										755,
+										762
+									],
+									[
+										857,
+										864
+									],
+									[
+										1126,
+										1133
+									],
+									[
+										1414,
+										1421
+									],
+									[
+										1431,
+										1438
+									],
+									[
+										1451,
+										1458
+									],
+									[
+										1471,
+										1478
+									],
+									[
+										1545,
+										1552
+									],
+									[
+										1601,
+										1608
+									],
+									[
+										1677,
+										1684
+									],
+									[
+										1742,
+										1749
+									],
+									[
+										1810,
+										1817
+									],
+									[
+										1937,
+										1944
+									],
+									[
+										2080,
+										2087
+									],
+									[
+										2159,
+										2166
+									],
+									[
+										2233,
+										2240
+									],
+									[
+										2422,
+										2429
+									],
+									[
+										2511,
+										2518
+									],
+									[
+										2681,
+										2688
+									],
+									[
+										2881,
+										2888
+									],
+									[
+										2966,
+										2973
+									],
+									[
+										3027,
+										3034
+									],
+									[
+										3146,
+										3153
+									],
+									[
+										3365,
+										3372
+									],
+									[
+										3612,
+										3619
+									],
+									[
+										3837,
+										3844
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 66.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -158,6 +488,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"css",
+				"public/stylesheets/14423.css"
+			],
+			[
+				"index.html",
+				"views/index.html"
+			]
 		],
 		"width": 0.0
 	},
