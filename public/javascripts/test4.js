@@ -1207,7 +1207,7 @@ $(document).ready(function () {
         });
 
 
-    $('#cssmenu > ul > li > a').click(function () {
+/*    $('#cssmenu > ul > li > a').click(function () {
         console.info("hello2");
         $('#cssmenu li').removeClass('active');
         $(this).closest('li').addClass('active');
@@ -1225,7 +1225,26 @@ $(document).ready(function () {
         } else {
             return false;
         }
+    });*/
+
+    $('#cssmenu li.has-sub>a').on('click', function(){
+        $(this).removeAttr('href');
+        var element = $(this).parent('li');
+        if (element.hasClass('open')) {
+            element.removeClass('open');
+            element.find('li').removeClass('open');
+            element.find('ul').slideUp();
+        }
+        else {
+            element.addClass('open');
+            element.children('ul').slideDown();
+            element.siblings('li').children('ul').slideUp();
+            element.siblings('li').removeClass('open');
+            element.siblings('li').find('li').removeClass('open');
+            element.siblings('li').find('ul').slideUp();
+        }
     });
+
 
     /*
     $('#New').click(function () {
@@ -1379,35 +1398,6 @@ $(document).ready(function () {
                 });
         });
 
-         
-        // var computedMatrixString = sessionStorage.getItem("computedMatrix");
-        //  console.info("9999999999999999 :", computedMatrixString);
-        //  var computedMatrix = JSON.parse(computedMatrixString);
-        //  console.info("88888888888888888 :", computedMatrix);
-        // console.info("after unblockUI");
-
-
-        // var url ="javascripts/computing.html";
-        // $.ajax({
-        //     url: url,
-        //     dataType: 'html',
-        //     success: function(data){
-        //      //do something with data, which is the page 1.html
-        //      $.blockUI({ 
-        //             message: data ,
-        //             css: 
-        //             {
-        //                 //top:  ($(window).height() - 400) /2 + 'px', 
-        //                 //left: ($(window).width() - 400) /2 + 'px', 
-        //                 //width: '400px'
-        //                 top: '10px',
-        //                 left: '10px',
-        //                 width: '400px' 
-        //             }
-        //         });
-        //    }
-
-        // });
         
         
     });

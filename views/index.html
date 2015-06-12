@@ -37,14 +37,13 @@
     <div id="contentliquid"><div id="hot">
            <!--
 		   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. </p><p>Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. </p><p>Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. </p>
-    -->
-  </div></div>
+     -->
+   </div></div>
 
-  <div id='cssmenu'>
+<!--   <div id='cssmenu'>
    <ul>
      <li class='active'><a href='#'><span>File</span></a>
       <ul>
-       <!--<li><a id="New" href='#'><span>New</span></a></li>-->
        <li><a id= "Load" href='#'><span>Load</span></a></li>
        <li><a id= "Save" href='#'><span>Save</span></a></li>
        <li><a id= "SaveAs" href='#'><span>Save as</span></a></li>
@@ -71,42 +70,112 @@
  </ul>
 </li>
 </ul>
+</div> -->
 
+<div id='cssmenu'>
+  <ul>
+  <li class='active has-sub'><a href='#'><span>File</span></a>
+    <ul>
+    <li><a id="Load" href='#'><span>Load</span></a></li>
+    <li><a id="Save" href='#'><span>Save</span></a></li>
+    <li><a id="SaveAs" href='#'><span>Save as</span></a></li>
+    <li><a id="Import" href='#'><span>Import</span></a></li>
+    <li class='last'><a id= "Export" href='#'><span>Export</span></a></li>
+   </ul>
+ </li>
+
+   <li class='has-sub'><a href='#'><span>Edit</span></a>
+    <ul>
+    <li><a id="New" href='#'><span>New</span></a></li>
+    <li><a id="InsertCB" href='#'><span>Insert column before</span></a></li>
+    <li><a id="InsertCA" href='#'><span>Insert column after</span></a></li>
+    <li><a id="InsertRB" href='#'><span>Insert row before</span></a></li>
+    <li><a id="InsertRA" href='#'><span>Insert row after</span></a></li>
+    <li><a id="DeleteColumn" href='#'><span>Delete column</span></a></li>
+     <li class='last'><a id= "DeleteRow" href='#'><span>Delete row</span></a></li>
+   </ul>
+ </li>
+
+  <li class='has-sub'><a href='#'><span>Operate</span></a>
+    <ul>
+    <li><a id="New" href='#'><span>New</span></a></li>
+    <li><a id="calculate" href='#'><span>normal calculate</span></a></li>
+    <li><a id="purifyData" href='#'><span>purify Data</span></a></li>
+    <li class='has-sub'><a href='#'><span>column weight calculate</span></a>
+      <ul>
+        <li><a id="ColumnWeight" href='#'><span>weight 1</span></a></li>
+        <li class='has-sub'><a href='#'><span>weight 2</span></a>
+          <ul>
+            <li><a href='#'><span>Sub Product</span></a></li>
+            <li class='last'><a href='#'><span>Sub Product</span></a></li>
+          </ul>
+        </li>
+
+        <li class='last'><a href='#'><span>weight 3</span></a></li>
+      </ul>
+      </li>
+<!--     <li><a id="InsertRA" href='#'><span>Insert row after</span></a></li>
+    <li><a id="DeleteColumn" href='#'><span>Delete column</span></a></li>
+     <li class='last'><a id= "DeleteRow" href='#'><span>Delete row</span></a></li> -->
+   </ul>
+ </li>
+
+ <li class='has-sub'><a href='#'><span>Products</span></a>
+  <ul>
+   <li class='has-sub'><a href='#'><span>Product 1</span></a>
+    <ul>
+     <li><a href='#'><span>Sub Product</span></a></li>
+     <li class='last'><a href='#'><span>Sub Product</span></a></li>
+   </ul>
+ </li>
+ <li class='has-sub'><a href='#'><span>Product 2</span></a>
+  <ul>
+   <li><a href='#'><span>Sub Product</span></a></li>
+   <li class='last'><a href='#'><span>Sub Product</span></a></li>
+ </ul>
+</li>
+</ul>
+</li>
+<li><a href='#'><span>About</span></a></li>
+<li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
 </div>
+
+
 <div id="rightcolumn">
-          <form name="editForm" id="editFrm" ></form>
-        </div>
-      </div>
+  <form name="editForm" id="editFrm" ></form>
+</div>
+</div>
 
-      <div id="newForm" style="display:none">
-        <form name ="newForm" id="newFrm" action="#">
-          <p><label>column number:</label><input type="text" id = colNum name="columnNum" /></p>
-          <p><label>row number:</label><input type="text" id = rowNum name="rowNum" /></p>
-          <input type="button" id="newFormYes" value="Submit" /> 
-          <input type="button" id="newFormNo" value="Cancel" />
-        </form>
-      </div>
+<div id="newForm" style="display:none">
+  <form name ="newForm" id="newFrm" action="#">
+    <p><label>column number:</label><input type="text" id = colNum name="columnNum" /></p>
+    <p><label>row number:</label><input type="text" id = rowNum name="rowNum" /></p>
+    <input type="button" id="newFormYes" value="Submit" /> 
+    <input type="button" id="newFormNo" value="Cancel" />
+  </form>
+</div>
 
-      <div id="saveForm" style="display:none">
-        <form name ="saveForm" id="saveFrm" action="#">
-          <p><label>save file name:</label><input type="text" id = fileName name="fileName" /></p>
-          <input type="button" id="saveFormYes" value="Submit" /> 
-          <input type="button" id="saveFormNo" value="Cancel" />
-        </form>
-      </div>
+<div id="saveForm" style="display:none">
+  <form name ="saveForm" id="saveFrm" action="#">
+    <p><label>save file name:</label><input type="text" id = fileName name="fileName" /></p>
+    <input type="button" id="saveFormYes" value="Submit" /> 
+    <input type="button" id="saveFormNo" value="Cancel" />
+  </form>
+</div>
 
-      <div id="insertForm" style="display:none">
-        <form name ="insertFor" id="insertFrm" action="#">
-        </form>
-      </div>
+<div id="insertForm" style="display:none">
+  <form name ="insertFor" id="insertFrm" action="#">
+  </form>
+</div>
 
-      <div id="question" style="display:none; cursor: default"> 
-        <h1>Would you like to contine?.</h1> 
-        <input type="button" id="yes" value="Yes" /> 
-        <input type="button" id="no" value="No" /> 
-      </div> 
+<div id="question" style="display:none; cursor: default"> 
+  <h1>Would you like to contine?.</h1> 
+  <input type="button" id="yes" value="Yes" /> 
+  <input type="button" id="no" value="No" /> 
+</div> 
 
 
-    </body>
-    </html>
+</body>
+</html>
 
