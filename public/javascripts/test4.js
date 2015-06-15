@@ -1366,19 +1366,9 @@ $(document).ready(function () {
             message : $('#insertFrm')
         });
     });
-    /*
-    $('#purifyData').click(function () {
-        console.info("set purify Data method");
-        generatePurifyDataForm();
 
-        $.blockUI({
-            //$.fn.blockUI({
-            message : $('#insertFrm')
-        });
-    });
-    */
 
-    $('#purifyData').click(function () {
+/*    $('#purifyData').click(function () {
         
         sessionStorage.setItem("localMatrix", JSON.stringify(myMatrix));
         $.get('javascripts/computing.html', function(html) {
@@ -1398,10 +1388,41 @@ $(document).ready(function () {
                 });
         });
 
-        
-        
-    });
+    });*/
 
+/*    $('#purifyData').click(function () {
+
+        sessionStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+        $.ajax({
+            type : "GET",
+            url : "/computingPage",
+            data : "",
+            contentType : "application/json; charset=utf-8",
+            //contentType: "text/html; charset=utf-8",
+            //dataType: "json",
+            async: "false",
+            success : function (data) {
+                console.info("get computing.html file = ", data);
+                
+            },
+            failure : function (errMsg) {
+                alert("get computing.html error");
+            }
+        });
+
+    });*/
+
+    
+    $('#purifyData').click(function () {
+        var win = window.open("/computingPage", '_blank');
+        if(win){
+            //Browser has allowed it to be opened
+            win.focus();
+        }else{
+            //Broswer has blocked it
+            alert('Please allow popups for this site');
+        }
+    });
 
     $("#load li a").click(function (e) {
         console.info("load");
