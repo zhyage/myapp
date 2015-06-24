@@ -1412,9 +1412,23 @@ $(document).ready(function () {
 
     });*/
 
+
+    $('#calculate').click(function () {
+        sessionStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+        var win = window.open("/computingPage", '_blank');
+        if(win){
+            //Browser has allowed it to be opened
+            win.focus();
+        }else{
+            //Broswer has blocked it
+            alert('Please allow popups for this site');
+        }
+    });
+    
     
     $('#purifyData').click(function () {
-        var win = window.open("/computingPage", '_blank');
+        sessionStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+        var win = window.open("/biaoZhunHuaPage", '_blank');
         if(win){
             //Browser has allowed it to be opened
             win.focus();
