@@ -1,12 +1,100 @@
 $(document).ready(function() {
     $('#suffixName').val("ttddss");
 
-var formularConf = [];
-var currentFormular = {};
-var selectedSourceDataList = {};
+    var formularConf = [];
+    var currentFormular = {};
+    var selectedSourceDataList = {};
 
-var selectedData = {};
-/*
+    var selectedData = {};
+
+    /*function generateFormularData ()
+    {
+        this.srcDataName;
+        this.targetName;
+        this.formularName;
+        this.parameterList;
+
+        this.setSrcDataName = function(name){
+            this.srcDataName = name;
+        }
+
+        this.setTargetName = function(name){
+            this.targetname = name;
+        }
+
+        this.setFormularName = function(name){
+            this.formularName = name;
+        }
+
+        this.addParameter = function(parameter){
+            this.parameterList.push(parameter);
+        }
+
+        this.clearFormularData = function(){
+            this.srcDataName = "";
+            this.targetName = "";
+            this.formularName = "";
+            this.parameterList = [];
+        }
+    }
+
+    g_generateFormularData = new generateFormularData();*/
+
+    g_generateFormularDataList = [];
+
+    function g_generateFormularDataLisRepeat(generateFormularData){
+        /*_.some(g_generateFormularDataList, function(ele){
+            console.info("ele.srcDataName :", ele.srcDataName, "generateFormularData.srcDataName :", generateFormularData.srcDataName);
+            console.info("ele.targetName :", ele.targetName, "generateFormularData.targetName :", generateFormularData.targetName);
+            console.info("ele.formularName :", ele.formularName, "generateFormularData.formularName :", generateFormularData.formularName);
+            console.info("ele.parameterList.length :", ele.parameterList.length, "generateFormularData.parameterList.length :", generateFormularData.parameterList.length);
+            return (ele.srcDataName == generateFormularData.srcDataName &&
+               ele.targetName == generateFormularData.targetName &&
+               ele.formularName == generateFormularData.formularName &&
+               ele.parameterList.length == generateFormularData.parameterList.length)
+            
+        })*/
+        //return _.contains(g_generateFormularDataList, generateFormularData);
+        var i = 0;
+        for(i = 0; i < g_generateFormularDataList.length; i++){
+            if(g_generateFormularDataList[i].targetName == generateFormularData.targetName){
+                return true;
+            }else if(g_generateFormularDataList[i].srcDataName == generateFormularData.srcDataName &&
+               g_generateFormularDataList[i].formularName == generateFormularData.formularName &&
+               g_generateFormularDataList[i].parameterList.length == generateFormularData.parameterList.length){
+                    if (g_generateFormularDataList[i].parameterList.toString() 
+                        == generateFormularData.parameterList.toString()){
+                            return true;
+                    }
+
+            }
+        }
+            
+      
+        return false;
+
+    }
+
+    function append_g_generateFormularDataList(srcDataName, targetName, formularName, parameterList){
+        var generateFormularData = {};
+
+        generateFormularData.srcDataName = srcDataName;
+        generateFormularData.targetName = targetName;
+        generateFormularData.formularName = formularName;
+        generateFormularData.parameterList = parameterList;
+
+        if(true == g_generateFormularDataLisRepeat(generateFormularData)){
+            alert("formular already exist");
+            return false;
+        }
+
+        g_generateFormularDataList.push(generateFormularData);
+
+
+        return true;
+    }
+    
+    /*
 var selectedData = 
 {
     srcDataName:"ccc",
@@ -16,7 +104,7 @@ var selectedData =
 }
 */
 
-    function setSelectedData(srcDataName, suffixName, formularExpress, parameterList){
+    function setSelectedData(srcDataName, suffixName, formularExpress, parameterList) {
         selectedData.srcDataName = srcDataName;
         selectedData.suffixName = suffixName;
         selectedData.formularExpress = formularExpress;
@@ -37,8 +125,42 @@ var selectedData =
         return true;
     });
 
+    $('#HintYesButton').click(function() {
+
+        // TODO: function to check the validate of parameters
+        $.unblockUI();
+
+        //console.info("inputSrcDataText :", inputSrcDataText,  "targetNameText :", targetNameText, "parameters_ :", parameters_);
+        //console.info("targetNameText :", $('#targetNameText').val() );
+        var srcDataName = $('#inputSrcDataText').val();
+        var targetName = $('#targetNameText').val();
+        var formularName = currentFormular.name;
+        var parameterList = currentFormular.parameters;
+        var formularParameterList = [];
+        _.each(parameterList, function(ele) {
+            var parameterName = '#targetParameters_' + ele.name;
+            //console.info("targetParameters : ", $(parameterName).val());
+            formularParameterList.push($(parameterName).val());
+        })
+
+        append_g_generateFormularDataList(srcDataName, targetName, formularName, formularParameterList);
+        console.info("g_generateFormularDataList : ", g_generateFormularDataList);
+
+        generaterFormularExpressionList();
+
+        return true;
+
+    })
+
+    $('#HintCancelButton').click(function() {
+        $.unblockUI();
+
+        return true;
+
+    })
+
     function getFormulaConfFromServer() {
-        
+
         console.info("entry getFormulaConfFromServer");
 
         $.ajax({
@@ -81,7 +203,7 @@ var selectedData =
                 "key": "methodList",
                 "onChange": function(evt) {
                     var value = $(evt.target).val();
-                    if (value){
+                    if (value) {
                         setCurrentSelectFormular(value);
                         refreshCheckBox();
                     } //alert(value);
@@ -93,24 +215,24 @@ var selectedData =
     }
 
 
-    function setCurrentSelectFormular(formularName){
+    function setCurrentSelectFormular(formularName) {
         currentFormular = getFormularConfByButtonName(formularName);
         alert(currentFormular.buttonName);
     }
 
-    function getCurrentSelectFormular(){
+    function getCurrentSelectFormular() {
         return currentFormular;
     }
 
-    function getFormularConfByButtonName(buttonName){
-        var formular = _.find(formularConf, function(formular){
+    function getFormularConfByButtonName(buttonName) {
+        var formular = _.find(formularConf, function(formular) {
             return (formular.buttonName === buttonName)
         })
         return formular;
     }
 
-    function getFormularConfByName(formularName){
-        var formular = _.find(formularConf, function(formular){
+    function getFormularConfByName(formularName) {
+        var formular = _.find(formularConf, function(formular) {
             return (formular.name === formularName)
         })
         return formular;
@@ -135,6 +257,44 @@ var selectedData =
 
     }
 
+    function generateParameterHintForm(srcDataName) {
+
+        var suffixName = currentFormular.defaultSuffixName;
+        var parameterList = currentFormular.parameters;
+        var parameterAppendStr = "";
+        var inputSrcDataAppendStr = "";
+
+        inputSrcDataAppendStr = '<p><label>input data:</label><input type="text" id = "inputSrcDataText" value= ' + srcDataName + ' readonly="readonly"/></p>';
+
+        $("#HintInputSrcData").html('');
+        $("#HintInputSrcData").append(inputSrcDataAppendStr);
+        //var suffixAppendStr = '<p><label>suffix name:</label><input type="text" id = "suffixNameText" /></p>';
+        var targetName = suffixName + '_' + srcDataName;
+        var targetNameAppendStr = '<p><label>target name:</label><input type="text" id = "targetNameText" value= ' + targetName + '></p>';
+        $("#HintTargetName").html('');
+        $("#HintTargetName").append(targetNameAppendStr);
+
+        _.each(parameterList, function(ele) {
+            console.info("ele.name :", ele.name);
+            console.info("ele.hint :", ele.hint);
+            parameterAppendStr = parameterAppendStr + '<p><label>' + ele.hint + ' </label> <p><label>' + ele.name + ' :</label><input type="text" id = "targetParameters_' + ele.name + '" /></p>'
+
+        })
+        $("#HintParameterList").html('');
+        $("#HintParameterList").append(parameterAppendStr);
+
+        var commentStr = '<p><label>commnet :</label><input type="text" id = "inputTargetDataComment" value= ""></p>';
+        $('#HintComment').html('');
+        $('#HintComment').append(commentStr);
+
+        //TODO: to design a more flex and complicate rules for show parameters
+
+        $.blockUI({
+            message: $('#parameterHintFrm')
+        });
+
+    }
+
 
     function generaterColumList() {
 
@@ -155,6 +315,29 @@ var selectedData =
 
     }
 
+
+
+    function generateColumListButton() {
+        getMatrixData();
+
+        var appendStr = "";
+        var i = 0;
+        for (i = 0; i < colNameList.length; i++) {
+            var colName = '"' + colNameList[i] + '"';
+            console.info("colName :", colName);
+            //var tmpStr = '<button type="button"  onClick=this.generateParameterHintForm(' + colName + ') class="btn btn-default">' + colName + ' </button> <br>';
+            //var tmpStr = '<button type="button"  class="btn btn-default">' + colName + ' </button> <br>';
+            var tmpStr = '<label><input type="button" name=' + colName + ' value = ' + colName + ' /> </label> <br>';
+
+            console.info("tmpStr : ", tmpStr);
+            appendStr = appendStr.concat(tmpStr);
+        }
+        console.log("appendStr :", appendStr);
+        $("#colNameList").append(appendStr);
+        attachButtonClickHandlers();
+    }
+
+
     // call onload or in script segment below form
     function attachCheckboxHandlers() {
         // get reference to element containing toppings checkboxes
@@ -171,6 +354,23 @@ var selectedData =
         }
     }
 
+    function attachButtonClickHandlers() {
+        // get reference to element containing toppings checkboxes
+        var el = document.getElementById('colNameList');
+
+        // get reference to input elements in toppings container element
+        var tops = el.getElementsByTagName('input');
+
+        // assign updateTotal function to onclick property of each checkbox
+        for (var i = 0, len = tops.length; i < len; i++) {
+            if (tops[i].type === 'button') {
+                tops[i].onclick = columDataClicked;
+            }
+        }
+    }
+
+
+
     // called onclick of toppings checkboxes
     function columDataSelected(e) {
 
@@ -178,7 +378,7 @@ var selectedData =
             //alert(this.name + "checked");
             generateParameterHintForm(this.name);
             //$.blockUI({ message: $('#parameterHintFrm') }); 
- 
+
             //setTimeout($.unblockUI, 2000); 
 
             selectedSouceDataListAdd(this.name);
@@ -191,37 +391,15 @@ var selectedData =
 
     }
 
-
-
-    function generateParameterHintForm(srcDataName){
-
-        var suffixName = currentFormular.defaultSuffixName;
-        var parameterList = currentFormular.parameters;
-        var parameterAppendStr = "";
-        var inputSrcDataAppendStr = "";
-
-        inputSrcDataAppendStr = '<p><label>input data:</label><input type="text" id = "inputSrcDataText" placeholder= ' + srcDataName + ' readonly="readonly"/></p>';
-
-        $("#inputSrcData").append(inputSrcDataAppendStr);
-        //var suffixAppendStr = '<p><label>suffix name:</label><input type="text" id = "suffixNameText" /></p>';
-        var suffixAppendStr = '<p><label>suffix name:</label><input type="text" id = "suffixNameText" placeholder= ' + suffixName + '/></p>';
-        $("#suffixName").html('');
-        $("#suffixName").append(suffixAppendStr);
-
-        _.each(parameterList, function(ele){
-            console.info("ele.name :", ele.name);
-            console.info("ele.hint :", ele.hint);
-            parameterAppendStr = parameterAppendStr + '<p><label>' + ele.hint + ' </label> <p><label>' + ele.name + ' :</label><input type="text" id = "parameters_' + ele.name + '" /></p>'
-
-        })
-        $("#parameterList").html('');
-        $("#parameterList").append(parameterAppendStr);
-
-        $.blockUI({ message: $('#parameterHintFrm') }); 
-
+    function columDataClicked(e) {
+        generateParameterHintForm(this.name);
     }
 
-    function refreshCheckBox(){
+
+
+
+
+    function refreshCheckBox() {
         var list = selectedSourceDataList[currentFormular.name];
 
         var el = document.getElementById('colNameList');
@@ -231,9 +409,9 @@ var selectedData =
         // assign updateTotal function to onclick property of each checkbox
         for (var i = 0, len = tops.length; i < len; i++) {
             if (tops[i].type === 'checkbox') {
-                if(undefined != _.find(list, function(name){
+                if (undefined != _.find(list, function(name) {
                     return (name === tops[i].name);
-                })){
+                })) {
                     tops[i].checked = true;
                 } else {
                     tops[i].checked = false;
@@ -245,72 +423,100 @@ var selectedData =
 
 
 
-    function initSelectedSourceDataList(){
+    function initSelectedSourceDataList() {
         var formularNameList = _.map(formularConf, function(conf) {
             return conf.name;
         })
 
-        for(var i = 0; i < formularNameList.length; i++){
+        for (var i = 0; i < formularNameList.length; i++) {
             selectedSourceDataList[formularNameList[i]] = [];
         }
         console.info("selectedSourceDataList : ", selectedSourceDataList);
 
     }
 
-    function clearSelectedSourceDataList(){
+    function clearSelectedSourceDataList() {
         initSelectedSourceDataList();
     }
 
-    function selectedSouceDataListAdd(ele){
-        if(undefined == _.find(selectedSourceDataList[currentFormular.name], function(e){
+    function selectedSouceDataListAdd(ele) {
+        if (undefined == _.find(selectedSourceDataList[currentFormular.name], function(e) {
             return (ele === e);
-        })){
+        })) {
             selectedSourceDataList[currentFormular.name].push(ele);
         }
     }
 
-    function selectedSourceDataListDel(ele){
+    function selectedSourceDataListDel(ele) {
         var index = _.indexOf(selectedSourceDataList[currentFormular.name], ele);
-        if(-1 != index){
+        if (-1 != index) {
             selectedSourceDataList[currentFormular.name].splice(index, 1);
         }
     }
 
-    function showSelectedSourceDataList(){
+    function showSelectedSourceDataList() {
         console.info("selectedSourceDataList : ", selectedSourceDataList);
     }
 
 
-    function generaterFormularExpressionList(){
+/*    function generaterFormularExpressionList() {
 
 
-        var generaterFormularExpression = function(formularName, colName){
+        var generaterFormularExpression = function(formularName, colName) {
             var formularConf = getFormularConfByName(formularName);
             var formularExpress = 'fn(' + formularConf.name + ')' + '(' + colName + " , " + formularConf.formula + ')';
             return formularExpress;
 
         }
 
-        
+
         var expressionListStr = "";
-        for(var formular in selectedSourceDataList){
+        for (var formular in selectedSourceDataList) {
             var list = selectedSourceDataList[formular]
-            for(var i = 0; i < list.length; i++){
+            for (var i = 0; i < list.length; i++) {
                 var formularExpress = generaterFormularExpression(formular, list[i]);
                 expressionListStr = expressionListStr.concat(formularExpress + '\n');
             }
 
         }
-        
+
         setExpression(expressionListStr);
 
+    }*/
+    /*
+
+        generateFormularData.srcDataName = srcDataName;
+        generateFormularData.targetName = targetName;
+        generateFormularData.formularName = formularName;
+        generateFormularData.parameterList = parameterList;
+    */    
+
+    function generaterFormularExpressionList(){
+        var generaterFormularExpression = function(ele){
+            var targetName = ele.targetName;
+            var formularName = ele.formularName;
+            var defaultArg = ele.srcDataName;
+            var argList = ele.parameterList;
+
+            var expressString = targetName + " = " + "fn( " + formularName + " )( " + defaultArg + ", " + argList.toString() + " )";
+            console.info(expressString);
+            return expressString;
+        }
+        var expressStringList = "";
+        _.each(g_generateFormularDataList, function(ele){
+            
+            expressStringList = expressStringList.concat(generaterFormularExpression(ele) + '\n');
+
+        })
+        setExpression(expressStringList);
     }
 
 
 
     getFormulaConfFromServer();
-    generaterColumList();
-    attachCheckboxHandlers();
+    //generaterColumList();
+    generateColumListButton();
+    //attachCheckboxHandlers();
 
 
 })
@@ -359,4 +565,45 @@ function modifyExpression(addString) {
     //alert(newExpress);
     setExpression(newExpress);
     //alert($('#yesButton').text());
+}
+
+/*    function generateParameterHintForm_step(srcDataName) {
+
+        var suffixName = currentFormular.defaultSuffixName;
+        var parameterList = currentFormular.parameters;
+        var parameterAppendStr = "";
+        var inputSrcDataAppendStr = "";
+
+        inputSrcDataAppendStr = '<p><label>input data:</label><input type="text" id = "inputSrcDataText" placeholder= ' + srcDataName + ' readonly="readonly"/></p>';
+
+        $("#HintInputSrcData").append(inputSrcDataAppendStr);
+        //var suffixAppendStr = '<p><label>suffix name:</label><input type="text" id = "suffixNameText" /></p>';
+        var targetName = suffixName + '_' + srcDataName;
+        var targetNameAppendStr = '<p><label>target name:</label><input type="text" id = "targetNameText" placeholder= ' + targetName + '></p>';
+        $("#HintTargetName").html('');
+        $("#HintTargetName").append(targetNameAppendStr);
+
+        _.each(parameterList, function(ele) {
+            console.info("ele.name :", ele.name);
+            console.info("ele.hint :", ele.hint);
+            parameterAppendStr = parameterAppendStr + '<p><label>' + ele.hint + ' </label> <p><label>' + ele.name + ' :</label><input type="text" id = "parameters_' + ele.name + '" /></p>'
+
+        })
+        $("#HintParameterList").html('');
+        $("#HintParameterList").append(parameterAppendStr);
+
+        var commentStr = '<p><label>commnet :</label><input type="text" id = "inputTargetDataComment" placeholder= "comment"></p>';
+        $('#HintComment').html('');
+        $('#HintComment').append(commentStr);
+
+        //TODO: to design a more flex and complicate rules for show parameters
+
+        $.blockUI({
+            message: $('#parameterHintFrm')
+        });
+
+    }*/
+
+function step_step(name) {
+    generateParameterHintForm(name);
 }

@@ -808,7 +808,7 @@ $(document).ready(function () {
                                     "onClick" : function (evt) {
                                         evt.preventDefault();
                                         console.info("cancel Load file");
-                                        $.unblockUI();
+                                        $.unblockUIl();
                                     }
                                 }
                             ]
@@ -822,14 +822,14 @@ $(document).ready(function () {
                             console.info("submit loadFile select fileName = ", values.fileName);
                             loadFileFromServer(values.fileName);
                         }
-                        $.unblockUI();
+                        $.unblockUIl();
                     },
 
                 });
             },
             failure : function (errMsg) {
                 alert("no file exist");
-                $.unblockUI();
+                $.unblockUIl();
                 return;
             }
         });
@@ -1451,7 +1451,7 @@ $(document).ready(function () {
         var colNum = document.getElementById('colNum');
         var rowNum = document.getElementById('rowNum');
         console.info("col:", colNum.value, "row:", rowNum.value);
-        $.unblockUI();
+        $.unblockUIl();
         return false;
     });
 
@@ -1463,14 +1463,14 @@ $(document).ready(function () {
         //myData_1.initMatrix(5, 5);
         myData_1.initMatrix(parseInt(colNum.value), parseInt(rowNum.value));
         hot.loadData(myData_1.getShowPureDataMatrix());
-        $.unblockUI();
+        $.unblockUIl();
         return true;
     });
 
     $('#saveFormNo').click(function () {
         var frm = document.getElementById('saveFrm');
         var colNum = document.getElementById('fileName');
-        $.unblockUI();
+        $.unblockUIl();
         return false;
     });
 
