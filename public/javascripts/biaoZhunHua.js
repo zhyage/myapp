@@ -7,42 +7,10 @@ $(document).ready(function() {
 
     var selectedData = {};
 
-    /*function generateFormularData ()
-    {
-        this.srcDataName;
-        this.targetName;
-        this.formularName;
-        this.parameterList;
-
-        this.setSrcDataName = function(name){
-            this.srcDataName = name;
-        }
-
-        this.setTargetName = function(name){
-            this.targetname = name;
-        }
-
-        this.setFormularName = function(name){
-            this.formularName = name;
-        }
-
-        this.addParameter = function(parameter){
-            this.parameterList.push(parameter);
-        }
-
-        this.clearFormularData = function(){
-            this.srcDataName = "";
-            this.targetName = "";
-            this.formularName = "";
-            this.parameterList = [];
-        }
-    }
-
-    g_generateFormularData = new generateFormularData();*/
 
     g_generateFormularDataList = [];
 
-    function g_generateFormularDataLisRepeat(generateFormularData){
+    function g_generateFormularDataLisRepeat(generateFormularData) {
         /*_.some(g_generateFormularDataList, function(ele){
             console.info("ele.srcDataName :", ele.srcDataName, "generateFormularData.srcDataName :", generateFormularData.srcDataName);
             console.info("ele.targetName :", ele.targetName, "generateFormularData.targetName :", generateFormularData.targetName);
@@ -56,26 +24,25 @@ $(document).ready(function() {
         })*/
         //return _.contains(g_generateFormularDataList, generateFormularData);
         var i = 0;
-        for(i = 0; i < g_generateFormularDataList.length; i++){
-            if(g_generateFormularDataList[i].targetName == generateFormularData.targetName){
+        for (i = 0; i < g_generateFormularDataList.length; i++) {
+            if (g_generateFormularDataList[i].targetName == generateFormularData.targetName) {
                 return true;
-            }else if(g_generateFormularDataList[i].srcDataName == generateFormularData.srcDataName &&
-               g_generateFormularDataList[i].formularName == generateFormularData.formularName &&
-               g_generateFormularDataList[i].parameterList.length == generateFormularData.parameterList.length){
-                    if (g_generateFormularDataList[i].parameterList.toString() 
-                        == generateFormularData.parameterList.toString()){
-                            return true;
-                    }
+            } else if (g_generateFormularDataList[i].srcDataName == generateFormularData.srcDataName &&
+                g_generateFormularDataList[i].formularName == generateFormularData.formularName &&
+                g_generateFormularDataList[i].parameterList.length == generateFormularData.parameterList.length) {
+                if (g_generateFormularDataList[i].parameterList.toString() == generateFormularData.parameterList.toString()) {
+                    return true;
+                }
 
             }
         }
-            
-      
+
+
         return false;
 
     }
 
-    function append_g_generateFormularDataList(srcDataName, targetName, formularName, parameterList){
+    function append_g_generateFormularDataList(srcDataName, targetName, formularName, parameterList) {
         var generateFormularData = {};
 
         generateFormularData.srcDataName = srcDataName;
@@ -83,7 +50,7 @@ $(document).ready(function() {
         generateFormularData.formularName = formularName;
         generateFormularData.parameterList = parameterList;
 
-        if(true == g_generateFormularDataLisRepeat(generateFormularData)){
+        if (true == g_generateFormularDataLisRepeat(generateFormularData)) {
             alert("formular already exist");
             return false;
         }
@@ -93,7 +60,7 @@ $(document).ready(function() {
 
         return true;
     }
-    
+
     /*
 var selectedData = 
 {
@@ -459,7 +426,7 @@ var selectedData =
     }
 
 
-/*    function generaterFormularExpressionList() {
+    /*    function generaterFormularExpressionList() {
 
 
         var generaterFormularExpression = function(formularName, colName) {
@@ -489,10 +456,10 @@ var selectedData =
         generateFormularData.targetName = targetName;
         generateFormularData.formularName = formularName;
         generateFormularData.parameterList = parameterList;
-    */    
+    */
 
-    function generaterFormularExpressionList(){
-        var generaterFormularExpression = function(ele){
+    function generaterFormularExpressionList() {
+        var generaterFormularExpression = function(ele) {
             var targetName = ele.targetName;
             var formularName = ele.formularName;
             var defaultArg = ele.srcDataName;
@@ -503,8 +470,8 @@ var selectedData =
             return expressString;
         }
         var expressStringList = "";
-        _.each(g_generateFormularDataList, function(ele){
-            
+        _.each(g_generateFormularDataList, function(ele) {
+
             expressStringList = expressStringList.concat(generaterFormularExpression(ele) + '\n');
 
         })
