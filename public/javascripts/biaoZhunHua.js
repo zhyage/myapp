@@ -78,7 +78,7 @@ var selectedData =
         selectedData.parameters = parameterList;
     }
 
-    $('#parameterSubmit').click(function() {
+/*    $('#parameterSubmit').click(function() {
 
         $.unblockUI();
 
@@ -90,7 +90,7 @@ var selectedData =
         $.unblockUI();
 
         return true;
-    });
+    });*/
 
     $('#HintYesButton').click(function() {
 
