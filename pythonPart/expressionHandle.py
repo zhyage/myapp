@@ -65,27 +65,30 @@ sys.path.append("method")
 #     print sheet
 
 #fn(gyzsf_jiZhiFa)(x, y)
-def parseExpressionMethodAndArgList(expression):
+def parseExpressionMethodAndArgList(expression, srcVarName, parameteList):
+    print("expression === ", expression)
+    print("parameteList === ", parameteList)
     tmp = expression.strip()
     tmp = tmp[3:]
     npos = tmp.index(")")
     method = tmp[:npos]
-    npos = tmp.index("(")
-    argListStr = tmp[npos+1:-1]
-    argList = argListStr.split(',');
-    for i in range(0, len(argList)):
-        argList[i] = argList[i].strip()
+    parameteList.insert(0, srcVarName)
+    #npos = tmp.index("(")
+    # argListStr = tmp[npos+1:-1]
+    # argList = argListStr.split(',');
+    # for i in range(0, len(argList)):
+    #     argList[i] = argList[i].strip()
 
 
     print "method : ", method
-    print "argList :", argList
-    return method, argList
+    print "argList :", parameteList
+    return method, parameteList
 
 
 
-def computingFnSheet(targetVarName, expression, sheet, nSheet):
+def computingFnSheet(targetVarName, srcVarName, expression, parameteList, sheet, nSheet):
 
-    tmp = parseExpressionMethodAndArgList(expression)
+    tmp = parseExpressionMethodAndArgList(expression, srcVarName, parameteList)
     methodName = tmp[0]
     argList = tmp[1]
     callFunction = methodName
@@ -97,9 +100,9 @@ def computingFnSheet(targetVarName, expression, sheet, nSheet):
     print "execute result : ", res
     return res
 
-def computingnSheet(targetVarName, expression, sheet, nSheet):
+def computingnSheet(targetVarName, srcVarName, expression, parameteList, sheet, nSheet):
     if("fn(" in expression):
-        return computingFnSheet(targetVarName, expression, sheet, nSheet)
+        return computingFnSheet(targetVarName, srcVarName, expression, parameteList, sheet, nSheet)
         #return True, sheet;
     else:
         parser = Parser()
@@ -128,9 +131,9 @@ def computingnSheet(targetVarName, expression, sheet, nSheet):
 
 
 
-def expressionHandle(targetVarName, expression, sheet):
+def expressionHandle(targetVarName, srcVarName, expression, parameteList, sheet):
     nSheet = generateNumpyArray(sheet)
-    [res, newSheet] = computingnSheet(targetVarName, expression, sheet, nSheet)
+    [res, newSheet] = computingnSheet(targetVarName, srcVarName, expression, parameteList, sheet, nSheet)
     newSheetJson =  json.dumps(newSheet)
     return res, newSheetJson
     

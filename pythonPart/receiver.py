@@ -8,37 +8,73 @@ from expressionHandle import expressionHandle
 
 def parseMsg(jsonStr):
     returnVar = {"result":"", "matrix":""}
-    print jsonStr
+    #print jsonStr
     jsonObj = json.loads(jsonStr)
     #print json.dumps(jsonObj)
 
-    targetVarName = jsonObj["targetVarName"]
-    expression = jsonObj["expression"]
+    userName = jsonObj["userName"]
+    passwd = jsonObj["passwd"]
+    sessionId = jsonObj["sessionId"]
+    formularList = jsonObj["formularList"]
+
+    print userName
+    print passwd
+    print sessionId
+    for formular in formularList:
+        print formular
 
 
-    sheet = jsonObj["matrix"]
-    colNum = sheet['colNum']
-    rowNum = sheet['rowNum']
-    matrix = sheet['matrix']
+    sheet = jsonObj['matrix']
+    for formular in formularList:
+        targetVarName = formular['targetName']
+        srcVarName = formular['srcDataName']
+        expression = formular['formularName']
+        parameterList = formular['parameterList']
 
-    for i in range(0, rowNum):
-        for j in range(0, colNum):
-            print "matrix [%d][%d] : %s" % (i, j, matrix[i][j]);
+        if True != validateMathExpression(targetVarName, srcVarName, expression, parameterList, sheet):
+            returnVar["result"] = "validate Mathexpression failed with" + targetVarName
+            returnVar["matrix"] = ""
+            return returnVar 
 
-    if True != validateMathExpression(targetVarName, expression, sheet):
-        returnVar["result"] = "validate Mathexpression failed"
-        returnVar["matrix"] = ""
-        return returnVar    
+        res = expressionHandle(targetVarName, srcVarName, expression, parameterList, sheet)
+        if True != res[0]:
+            returnVar["result"] = "expressionHandle failed with " + targetVarName
+            returnVar["matrix"] = ""
+            return returnVar
 
-    res = expressionHandle(targetVarName, expression, sheet)
-    if True != res[0]:
-        returnVar["result"] = "expressionHandle failed"
-        returnVar["matrix"] = ""
-        return returnVar
-    else:
-        returnVar["result"] = "success"
-        returnVar["matrix"] = res[1]
-        return returnVar
+
+
+    returnVar["result"] = "success"
+    returnVar["matrix"] = res[1]
+    return returnVar
+
+    # targetVarName = jsonObj["targetVarName"]
+    # expression = jsonObj["expression"]
+
+
+    # sheet = jsonObj["matrix"]
+    # colNum = sheet['colNum']
+    # rowNum = sheet['rowNum']
+    # matrix = sheet['matrix']
+
+    # for i in range(0, rowNum):
+    #     for j in range(0, colNum):
+    #         print "matrix [%d][%d] : %s" % (i, j, matrix[i][j]);
+
+    # if True != validateMathExpression(targetVarName, expression, sheet):
+    #     returnVar["result"] = "validate Mathexpression failed"
+    #     returnVar["matrix"] = ""
+    #     return returnVar    
+
+    # res = expressionHandle(targetVarName, expression, sheet)
+    # if True != res[0]:
+    #     returnVar["result"] = "expressionHandle failed"
+    #     returnVar["matrix"] = ""
+    #     return returnVar
+    # else:
+    #     returnVar["result"] = "success"
+    #     returnVar["matrix"] = res[1]
+    #     return returnVar
                 
 
 

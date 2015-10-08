@@ -10,6 +10,78 @@ $(document).ready(function() {
 
     g_generateFormularDataList = [];
 
+
+    $('#formularCommitButton').click(function() {
+
+
+        submitFormular2Server();
+
+        return true;
+    });
+
+    function submitFormularReq(){
+        this.userName = '';
+        this.passwd = '';
+        this.sessionId = 0;
+        this.matrix = '';
+        this.formularList = '';
+
+        this.generateSubmitFormularReq = function(userName, passwd, sessionId, matrix, formularList){
+            this.userName = userName;
+            this.passwd = passwd;
+            this.sessionId = sessionId;
+            this.matrix = matrix;
+            this.formularList = formularList;
+        }
+    }
+
+    function submitFormular2Server(){
+        console.info("entry submitFormular2Server");
+
+        var userName = "zhy";
+        var passwd = "123456";
+        var sessionId = 1;
+
+        var submitBody = new submitFormularReq();
+
+        submitBody.generateSubmitFormularReq(userName, passwd, sessionId, 
+                                                    biaoZhunHuaMatrix, g_generateFormularDataList);
+        var bodyData = JSON.stringify(submitBody);
+
+        $.ajax({
+            type: "POST",
+            url: "/submitComputExpressAndData",
+            data: bodyData,
+            contentType: "application/json; charset=utf-8",
+            async: "false",
+            success: function(data) {
+                //alert(data);
+                var resData = JSON.parse(data);
+                if (resData.result == "success") {
+                    //sessionStorage.setItem("computedMatrix", JSON.stringify(resData.matrix));
+                    //console.info("cccccccccccccc:", JSON.stringify(resData.matrix))
+                    sessionStorage.setItem("computedMatrix", resData.matrix);
+                    console.info("cccccccccccccc:", resData.matrix)
+                } else {
+                    var origData = sessionStorage.getItem("localMatrix");
+                    sessionStorage.setItem("computedMatrix", origData);
+                    console.info("cccccccccccccc:", origData);
+                    alert("computing error!");
+                }
+                console.info("now complete submitComputExpressAndData");
+                location.replace("http://192.168.56.101:3000");
+                //$.unblockUI();
+                //return true;
+            },
+            failure: function(errMsg) {
+                alert(errMsg);
+                //return false;
+            }
+        });
+
+    }
+
+
     function g_generateFormularDataLisRepeat(generateFormularData) {
         /*_.some(g_generateFormularDataList, function(ele){
             console.info("ele.srcDataName :", ele.srcDataName, "generateFormularData.srcDataName :", generateFormularData.srcDataName);
@@ -101,7 +173,7 @@ var selectedData =
         //console.info("targetNameText :", $('#targetNameText').val() );
         var srcDataName = $('#inputSrcDataText').val();
         var targetName = $('#targetNameText').val();
-        var formularName = currentFormular.name;
+        var formularName = 'fn(' + currentFormular.name + ')';
         var parameterList = currentFormular.parameters;
         var formularParameterList = [];
         _.each(parameterList, function(ele) {
@@ -465,7 +537,7 @@ var selectedData =
             var defaultArg = ele.srcDataName;
             var argList = ele.parameterList;
 
-            var expressString = targetName + " = " + "fn( " + formularName + " )( " + defaultArg + ", " + argList.toString() + " )";
+            var expressString = targetName + " = "  + formularName + "( " + defaultArg + ", " + argList.toString() + " )";
             console.info(expressString);
             return expressString;
         }

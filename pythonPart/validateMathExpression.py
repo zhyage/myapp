@@ -1,4 +1,4 @@
 import sys
 
-def validateMathExpression(targetVarName, expression, matrix):
+def validateMathExpression(targetVarName, srcVarName, expression, parameterList, matrix):
     return True;

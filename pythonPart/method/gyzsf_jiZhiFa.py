@@ -27,10 +27,10 @@ def getNewColArr(colList, positive, xib):
 
 def gyzsf_jiZhiFa(targetVarName, expression, argList, sheet, nSheet):
     print "execute gyzsf_jiZhiFa"
-    # print "targetVarName: ", targetVarName
-    # print "argList :", argList
-    # print "sheet: ", sheet
-    # print "nSheet :", nSheet
+    print "targetVarName: ", targetVarName
+    print "argList :", argList
+    print "sheet: ", sheet
+    print "nSheet :", nSheet
 
     [res, colArr] = getNColumnByVarName(argList[0], sheet, nSheet)
     if(False == res):
