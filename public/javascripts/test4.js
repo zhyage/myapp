@@ -352,6 +352,7 @@ $(document).ready(function () {
 
     function generateColHeaderForm(sheet, matrix, colNo) {
         console.info("entry generateColHeaderForm");
+        console.info("now matrix ==== ", matrix.matrix);
         var oldMatrix = matrix.copyMatrix();
         var currentColHeaderName = matrix.getColHeaderNameByColNo(colNo - 2);
         var currentColDataType = matrix.getDataTypeByColNo(colNo - 2);
@@ -1045,9 +1046,9 @@ $(document).ready(function () {
     if(null == computedMatrixString)
     {
         alert("no previous data");
-        myMatrix.insertColumn(0, "kkk", "integer");
-        myMatrix.insertColumn(1, "bbb", "integer");
-        myMatrix.insertColumn(2, "ccc", "integer");
+        myMatrix.insertColumn(0, "kkk", "float");
+        myMatrix.insertColumn(1, "bbb", "float");
+        myMatrix.insertColumn(2, "ccc", "float");
         
         myMatrix.setMatrixData("400", 0, 0);
         myMatrix.setMatrixData("401", 0, 1);
