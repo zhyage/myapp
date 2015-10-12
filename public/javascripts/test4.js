@@ -1041,7 +1041,7 @@ $(document).ready(function () {
     
     var myMatrix = new matrix();
 
-    var computedMatrixString = sessionStorage.getItem("computedMatrix");
+    var computedMatrixString = localStorage.getItem("computedMatrix");
     console.info("9999999999999999 :", computedMatrixString);
     if(null == computedMatrixString)
     {
@@ -1371,7 +1371,7 @@ $(document).ready(function () {
 
 /*    $('#purifyData').click(function () {
         
-        sessionStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+        localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
         $.get('javascripts/computing.html', function(html) {
             console.info("1111111111111111");
 
@@ -1393,7 +1393,7 @@ $(document).ready(function () {
 
 /*    $('#purifyData').click(function () {
 
-        sessionStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+        localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
         $.ajax({
             type : "GET",
             url : "/computingPage",
@@ -1415,7 +1415,7 @@ $(document).ready(function () {
 
 
     $('#calculate').click(function () {
-        sessionStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+        localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
         var win = window.open("/computingPage", '_blank');
         if(win){
             //Browser has allowed it to be opened
@@ -1428,7 +1428,7 @@ $(document).ready(function () {
     
     
     $('#purifyData').click(function () {
-        sessionStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+        localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
         var win = window.open("/biaoZhunHuaPage", '_blank');
         if(win){
             //Browser has allowed it to be opened

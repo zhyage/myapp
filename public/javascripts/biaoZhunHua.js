@@ -58,13 +58,13 @@ $(document).ready(function() {
                 //alert(data);
                 var resData = JSON.parse(data);
                 if (resData.result == "success") {
-                    //sessionStorage.setItem("computedMatrix", JSON.stringify(resData.matrix));
+                    //localStorage.setItem("computedMatrix", JSON.stringify(resData.matrix));
                     //console.info("cccccccccccccc:", JSON.stringify(resData.matrix))
-                    sessionStorage.setItem("computedMatrix", resData.matrix);
+                    localStorage.setItem("computedMatrix", resData.matrix);
                     console.info("cccccccccccccc:", resData.matrix)
                 } else {
-                    var origData = sessionStorage.getItem("localMatrix");
-                    sessionStorage.setItem("computedMatrix", origData);
+                    var origData = localStorage.getItem("localMatrix");
+                    localStorage.setItem("computedMatrix", origData);
                     console.info("cccccccccccccc:", origData);
                     alert("computing error!");
                 }
@@ -281,7 +281,7 @@ var selectedData =
     var colNameList = [];
 
     function getMatrixData() {
-        var biaoZhunHuaMatrixString = sessionStorage.getItem("localMatrix");
+        var biaoZhunHuaMatrixString = localStorage.getItem("localMatrix");
         console.info("dddddddddddd:", biaoZhunHuaMatrixString);
         biaoZhunHuaMatrix.loadData(JSON.parse(biaoZhunHuaMatrixString));
 
