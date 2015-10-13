@@ -93,32 +93,12 @@ function eleDataTypeEnume()
     this.datatypeEnume = 
     [
         {
-            name: "integer",
-            comment: "this is an integer",
-            defaultValue: "0",
-            validate: function fun(n)
-            {
-                var tmp = Number(n);
-                return (tmp.toString()===n && tmp%1===0);
-            }
-
-        },
-        {
-            name: "float",
-            comment: "this is float",
+            name: "number",
+            comment: "this is a number",
             defaultValue: "0.00",
             validate: function fun(n)
             {
-                var res = parseFloat(n);
-                if(isNaN(res))
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-                
+                return !isNaN(parseFloat(n)) && isFinite(n);
             }
         },
         {
@@ -137,7 +117,7 @@ function eleDataTypeEnume()
         {
             name: "region",
             comment: "this is region",
-            defaultValue: "0-0",
+            defaultValue: "0.00-0.00",
             validate: function fun(n)
             {
                 var arr = n.split("-");
@@ -245,22 +225,6 @@ function eleDataTypeEnume()
         }
         return false;
 
-    }
-    this.isRealDataTypeValide = function(type)
-    {
-        var i = 0;
-        for(i = 0; i < this.datatypeEnume.length; i++)
-        {
-            var e = this.datatypeEnume[i];
-            if(type == e.name)
-            {
-                if(type == "zhengshu" || type == "xiaoshu" || type == "qujianshu")
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     this.checkDataTypeValide = function(dataType)
@@ -398,11 +362,37 @@ function matrix()
     this.rowNum = 0;
     this.matrix = [];
 
+
+    this.verifyMatrix = function(){
+        //console.info("verifyMatrix, this.rowNum = ", this.rowNum, "this.colNum = ", this.colNum);
+        var needCleanUpCol = [];
+        for(x = 0; x < this.rowNum; x++){
+            for(y = 0; y < this.colNum; y++){
+                var e = this.getEleByXY(x, y)
+                //console.info("verifyMatrix, dataType: ", e.dataType);
+                //console.info("verifyMatrix, data value: ", e.data);
+                if(false == g_eleType.checkDataValide(e.data, e.dataType)){
+                    var alertStr = "ther is illegal data in colnume : " + e.colHeaderName;
+                    needCleanUpCol.push(this.getColNoByColHeaderName(e.colHeaderName));
+                    alert(alertStr);
+                }
+            }
+        }
+        return needCleanUpCol;
+    }
+
+    this.cleanUpIllegalColnum = function(needCleanUpCol){
+        for(i = 0; i < needCleanUpCol.length; i++){
+            this.deleteColumn(needCleanUpCol[i]);
+        }
+    }
+
     this.loadData = function(matrix)
     {
         this.colNum = matrix.colNum;
         this.rowNum = matrix.rowNum;
         this.matrix = matrix.matrix;
+        this.cleanUpIllegalColnum(this.verifyMatrix());
     }
 
 
@@ -705,6 +695,16 @@ function matrix()
         
         return e.colHeaderName;
             
+    }
+
+    this.getColNoByColHeaderName = function(colHeaderName){
+        for(y = 0; y < this.colNum; y++){
+            var e = this.getDataByXY(0, y);
+            if(colHeaderName == e.colHeaderName){
+                return y;
+            }
+        }
+        return false;
     }
 
     this.getDataTypeByColNo = function(colNo)
@@ -1286,7 +1286,7 @@ mySheet.printShowSheet();
 
 
 
-var myMatrix = new matrix();
+/*var myMatrix = new matrix();
     myMatrix.insertColumn(0, "aaa", "integer");
     myMatrix.insertColumn(1, "bbb", "integer");
     myMatrix.insertColumn(2, "ccc", "integer");
@@ -1310,7 +1310,7 @@ var myMatrix = new matrix();
 
     console.info("------------------");
     console.info((myMatrix));
-    console.info("-------------------")
+    console.info("-------------------")*/
 
 
     //myMatrix.setMatrixData("600", 2, 0);

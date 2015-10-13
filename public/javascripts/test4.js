@@ -96,7 +96,7 @@ $(document).ready(function () {
             },
             "value" : {
                 "columnHeader" : "",
-                "dataType" : "float",
+                "dataType" : "number",
             },
 
             "form" : [
@@ -1046,9 +1046,9 @@ $(document).ready(function () {
     if(null == computedMatrixString)
     {
         alert("no previous data");
-        myMatrix.insertColumn(0, "kkk", "float");
-        myMatrix.insertColumn(1, "bbb", "float");
-        myMatrix.insertColumn(2, "ccc", "float");
+        myMatrix.insertColumn(0, "kkk", "number");
+        myMatrix.insertColumn(1, "bbb", "number");
+        myMatrix.insertColumn(2, "ccc", "number");
         
         myMatrix.setMatrixData("400", 0, 0);
         myMatrix.setMatrixData("401", 0, 1);

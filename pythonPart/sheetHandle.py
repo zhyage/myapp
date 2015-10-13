@@ -49,7 +49,7 @@ def appendSheetnewArr(targetVarName, sheet, newArr):
     sheet['colNum'] = colNum + 1;
     rowNum = sheet['rowNum']
     matrix = sheet['matrix']        
-    elePattern = {u'writeable': False, u'colHeaderName': u'', u'dataType': u'float', u'init': True, u'rowHeaderName': u'', u'data': u''}   
+    elePattern = {u'writeable': False, u'colHeaderName': u'', u'dataType': u'number', u'init': True, u'rowHeaderName': u'', u'data': u''}   
     for i in range(0, rowNum):
         ele = elePattern
         ele['colHeaderName'] = targetVarName

@@ -133,7 +133,7 @@ def computingnSheet(targetVarName, srcVarName, expression, parameteList, sheet, 
 
 def expressionHandle(targetVarName, srcVarName, expression, parameteList, sheet):
     nSheet = generateNumpyArray(sheet)
-    [res, newSheet] = computingnSheet(targetVarName, srcVarName, expression, parameteList, sheet, nSheet)
+    [res, newSheet, reason] = computingnSheet(targetVarName, srcVarName, expression, parameteList, sheet, nSheet)
     newSheetJson =  json.dumps(newSheet)
-    return res, newSheetJson
+    return res, newSheetJson, reason
     

@@ -24,6 +24,22 @@ def getNewColArr(colList, positive, xib):
     return colList
 
 
+def verify(targetVarName, expression, argList, sheet, nSheet):
+    print "in gyzsf_jiZhiFa verify"
+    [res, colArr] = getNColumnByVarName(argList[0], sheet, nSheet)
+    if(False == res):
+        return False, "incorrect data source"
+    
+    print "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+    for x in np.nditer(colArr):
+        if (x == 0):
+            errorReason = "gyzsf_jiZhiFa does not allow " + argList[0] + "has 0 to be elements"
+            return False, errorReason
+    print "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkend"    
+
+    return True, ""
+
+
 
 def gyzsf_jiZhiFa(targetVarName, expression, argList, sheet, nSheet):
     print "execute gyzsf_jiZhiFa"
@@ -32,9 +48,14 @@ def gyzsf_jiZhiFa(targetVarName, expression, argList, sheet, nSheet):
     print "sheet: ", sheet
     print "nSheet :", nSheet
 
+    verifyRes = verify(targetVarName, expression, argList, sheet, nSheet)
+    if(False == verifyRes[0]):
+        return False, sheet, verifyRes[1];
+
+
     [res, colArr] = getNColumnByVarName(argList[0], sheet, nSheet)
     if(False == res):
-        return False, 0
+        return False, 0, "incorrect data source"
     else:
         print "colArr = ", var, " : ", colArr
 
@@ -46,7 +67,8 @@ def gyzsf_jiZhiFa(targetVarName, expression, argList, sheet, nSheet):
 
     appendSheetnewArr(targetVarName, sheet, newCol)
 
-    return True, sheet
+    return True, sheet, ""
+
 
 
 

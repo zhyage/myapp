@@ -38,7 +38,7 @@ def parseMsg(jsonStr):
 
         res = expressionHandle(targetVarName, srcVarName, expression, parameterList, sheet)
         if True != res[0]:
-            returnVar["result"] = "expressionHandle failed with " + targetVarName
+            returnVar["result"] = res[2]
             returnVar["matrix"] = ""
             return returnVar
 

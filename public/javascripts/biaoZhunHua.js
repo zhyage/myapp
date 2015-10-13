@@ -57,6 +57,7 @@ $(document).ready(function() {
             success: function(data) {
                 //alert(data);
                 var resData = JSON.parse(data);
+                console.info(" resData.reason = ", resData.reason);
                 if (resData.result == "success") {
                     //localStorage.setItem("computedMatrix", JSON.stringify(resData.matrix));
                     //console.info("cccccccccccccc:", JSON.stringify(resData.matrix))
@@ -66,7 +67,7 @@ $(document).ready(function() {
                     var origData = localStorage.getItem("localMatrix");
                     localStorage.setItem("computedMatrix", origData);
                     console.info("cccccccccccccc:", origData);
-                    alert("computing error!");
+                    alert(resData.result);
                 }
                 console.info("now complete submitComputExpressAndData");
                 location.replace("http://192.168.56.101:3000");
