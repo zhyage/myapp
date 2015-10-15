@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"save",
+				"saveMatrixStr2LocalStorage"
+			],
+			[
+				"load",
+				"loadMatrixFromLocalStorage"
+			],
+			[
+				"matrix",
+				"matrixString〔variable〕"
+			],
+			[
+				"lo",
+				"localStorageName"
+			],
+			[
+				"java",
+				"javascripts"
+			],
+			[
+				"de",
+				"deleteColumn"
+			],
+			[
+				"del",
+				"deleteColnum"
+			],
+			[
+				"deleteCol",
+				"deleteColumn"
+			],
+			[
+				"dele",
+				"deleteCol"
+			],
+			[
+				"getCol",
+				"getColNoByColHeaderName"
+			],
+			[
+				"col",
+				"colHeaderName"
+			],
+			[
+				"colHead",
+				"colHeaderName"
+			],
+			[
+				"get",
+				"getDataByXY"
+			],
+			[
 				"g_",
 				"g_indictorDirect"
 			],
@@ -84,10 +136,6 @@
 				"colNameList"
 			],
 			[
-				"col",
-				"colNameList"
-			],
-			[
 				"m",
 				"methodList"
 			]
@@ -95,46 +143,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "public/javascripts/biaoZhunHua.js",
-			"settings":
-			{
-				"buffer_size": 21885,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 2424,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/biaoZhunHua.html",
-			"settings":
-			{
-				"buffer_size": 3922,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "pythonPart/receiver.py",
-			"settings":
-			{
-				"buffer_size": 4246,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/javascripts/computing.html",
-			"settings":
-			{
-				"buffer_size": 7749,
-				"line_ending": "Unix"
-			}
-		},
 		{
 			"file": "public/javascripts/computing.js",
 			"settings":
@@ -144,10 +152,58 @@
 			}
 		},
 		{
+			"file": "views/computing.html",
+			"settings":
+			{
+				"buffer_size": 7749,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/normalComputing.html",
+			"settings":
+			{
+				"buffer_size": 7502,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/javascripts/normalComputing.js",
+			"settings":
+			{
+				"buffer_size": 1781,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/biaoZhunHua.html",
+			"settings":
+			{
+				"buffer_size": 3970,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/javascripts/biaoZhunHua.js",
+			"settings":
+			{
+				"buffer_size": 22367,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/javascripts/ele2.js",
+			"settings":
+			{
+				"buffer_size": 36016,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "views/index.html",
 			"settings":
 			{
-				"buffer_size": 7934,
+				"buffer_size": 8000,
 				"line_ending": "Unix"
 			}
 		},
@@ -155,41 +211,23 @@
 			"file": "public/javascripts/test4.js",
 			"settings":
 			{
-				"buffer_size": 48368,
+				"buffer_size": 45783,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "pythonPart/expressionHandle.py",
+			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 4184,
+				"buffer_size": 2545,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "pythonPart/method/gyzsf_jiZhiFa.py",
+			"file": "public/javascripts/matrixLocalStorageHandle.js",
 			"settings":
 			{
-				"buffer_size": 1233,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 1276 files for \"error to set column information\"\n\nD:\\work\\ubuntu_shared\\work_under_linux\\node.js\\zhy_1\\express_fileUpload\\test1\\myapp\\public\\javascripts\\test4.js:\n  383              onSubmit : function (errors, values) {\n  384                  if (errors) {\n  385:                     alert(\"error to set column information\");\n  386                      reloadData(sheet, oldMatrix);\n  387                  } else {\n  ...\n  394                          else\n  395                          {\n  396:                             alert(\"error to set column information!\");\n  397                              reloadData(sheet, oldMatrix);\n  398                          }\n  ...\n  406                          else\n  407                          {\n  408:                             alert(\"error to set column information\");\n  409                              reloadData(sheet, oldMatrix);\n  410                          }\n\n3 matches in 1 file\n\n\nSearching 1278 files for \"isRealDataTypeValide\"\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/ele.js:\n  136  \n  137      }\n  138:     this.isRealDataTypeValide = function(type)\n  139      {\n  140          var i = 0;\n  ...\n  564  		}\n  565  		\n  566: 		if(false == g_eleType.isRealDataTypeValide(dataType))\n  567          {\n  568              console.error(\"incorrect data type\", dataType);\n  ...\n  877              return false;\n  878          }\n  879:         if(false == g_eleType.isRealDataTypeValide(dataType))\n  880          {\n  881              console.error(\"incorrect data type\", dataType);\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/ele2.js:\n  228  \n  229      }\n  230:     this.isRealDataTypeValide = function(type)\n  231      {\n  232          var i = 0;\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/ele2.js.bak:\n  247  \n  248      }\n  249:     this.isRealDataTypeValide = function(type)\n  250      {\n  251          var i = 0;\n\n5 matches across 3 files\n\n\nSearching 1278 files for \"integer\"\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/body-parser/node_modules/iconv-lite/encodings/dbcs-codec.js:\n   33      // Decode tables: MBCS -> Unicode.\n   34  \n   35:     // decodeTables is a trie, encoded as an array of arrays of integers. Internal arrays are trie nodes and all have len = 256.\n   36      // Trie root is decodeTables[0].\n   37      // Values: >=  0 -> unicode character code. can be > 0xFFFF\n   ..\n   43      this.decodeTables[0] = UNASSIGNED_NODE.slice(0); // Create root node.\n   44  \n   45:     // Sometimes a MBCS char corresponds to a sequence of unicode chars. We store them as arrays of integers here. \n   46      this.decodeTableSeq = [];\n   47  \n   ..\n   55      // Encode tables: Unicode -> DBCS.\n   56  \n   57:     // `encodeTable` is array mapping from unicode char to encoded char. All its values are integers for performance.\n   58      // Because it can be sparse, it is represented as array of buckets by 256 chars each. Bucket can be null.\n   59      // Values: >=  0 -> it is a normal char. Write the value (if <=256 then 1 byte, if <=65536 then 2 bytes, etc.).\n   ..\n  216              }\n  217          } \n  218:         else if (typeof part === \"number\") { // Integer, meaning increasing sequence starting with prev character.\n  219              var charCode = writeTable[curAddr - 1] + 1;\n  220              for (var l = 0; l < part; l++)\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/body-parser/node_modules/raw-body/index.js:\n   22      : 'utf-8'\n   23  \n   24:   // convert the limit to an integer\n   25    var limit = null\n   26    if (typeof options.limit === 'number')\n   ..\n   29      limit = bytes(options.limit)\n   30  \n   31:   // convert the expected length to an integer\n   32    var length = null\n   33    if (options.length != null && !isNaN(options.length))\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/jade.js:\n 4826  \n 4827    // This function is used to raise exceptions on parse errors. It\n 4828:   // takes an offset integer (into the current `input`) to indicate\n 4829    // the location of the error, attaches the position to the end\n 4830    // of the error message, and then raises a `SyntaxError` with that\n ....\n 5346          if (next === 98 || next === 66) return readRadixNumber(2); // '0b', '0B' - binary number\n 5347        }\n 5348:     // Anything else beginning with a digit is an integer, octal\n 5349      // number, or float.\n 5350      case 49: case 50: case 51: case 52: case 53: case 54: case 55: case 56: case 57: // 1-9\n ....\n 5453    }\n 5454  \n 5455:   // Read an integer in the given radix. Return null if zero digits\n 5456:   // were read, the integer value otherwise. When `len` is given, this\n 5457:   // will return `null` unless the integer has exactly `len` digits.\n 5458  \n 5459    function readInt(radix, len) {\n ....\n 5482    }\n 5483  \n 5484:   // Read an integer, octal integer, or floating-point number.\n 5485  \n 5486    function readNumber(startsWithDot) {\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/commander/Readme.md:\n   67    .version('0.0.1')\n   68    .usage('[options] <file ...>')\n   69:   .option('-i, --integer <n>', 'An integer argument', parseInt)\n   70    .option('-f, --float <n>', 'A float argument', parseFloat)\n   71    .option('-r, --range <a>..<b>', 'A range', range)\n   ..\n   76    .parse(process.argv);\n   77  \n   78: console.log(' int: %j', program.integer);\n   79  console.log(' float: %j', program.float);\n   80  console.log(' optional: %j', program.optional);\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/constantinople/node_modules/acorn-globals/node_modules/acorn/acorn.js:\n  309    // inside, and count the amount of open braces seen inside them, to\n  310    // be able to switch back to a template token when the } to match ${\n  311:   // is encountered. It will hold an array of integers.\n  312  \n  313    var templates;\n  ...\n  323  \n  324    // This function is used to raise exceptions on parse errors. It\n  325:   // takes an offset integer (into the current `input`) to indicate\n  326    // the location of the error, attaches the position to the end\n  327    // of the error message, and then raises a `SyntaxError` with that\n  ...\n  845          if (next === 98 || next === 66) return readRadixNumber(2); // '0b', '0B' - binary number\n  846        }\n  847:     // Anything else beginning with a digit is an integer, octal\n  848      // number, or float.\n  849      case 49: case 50: case 51: case 52: case 53: case 54: case 55: case 56: case 57: // 1-9\n  ...\n  976    }\n  977  \n  978:   // Read an integer in the given radix. Return null if zero digits\n  979:   // were read, the integer value otherwise. When `len` is given, this\n  980:   // will return `null` unless the integer has exactly `len` digits.\n  981  \n  982    function readInt(radix, len) {\n  ...\n 1005    }\n 1006  \n 1007:   // Read an integer, octal integer, or floating-point number.\n 1008  \n 1009    function readNumber(startsWithDot) {\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/constantinople/node_modules/acorn-globals/node_modules/acorn/acorn_csp.js:\n  309    // inside, and count the amount of open braces seen inside them, to\n  310    // be able to switch back to a template token when the } to match ${\n  311:   // is encountered. It will hold an array of integers.\n  312  \n  313    var templates;\n  ...\n  323  \n  324    // This function is used to raise exceptions on parse errors. It\n  325:   // takes an offset integer (into the current `input`) to indicate\n  326    // the location of the error, attaches the position to the end\n  327    // of the error message, and then raises a `SyntaxError` with that\n  ...\n  820          if (next === 98 || next === 66) return readRadixNumber(2); // '0b', '0B' - binary number\n  821        }\n  822:     // Anything else beginning with a digit is an integer, octal\n  823      // number, or float.\n  824      case 49: case 50: case 51: case 52: case 53: case 54: case 55: case 56: case 57: // 1-9\n  ...\n  951    }\n  952  \n  953:   // Read an integer in the given radix. Return null if zero digits\n  954:   // were read, the integer value otherwise. When `len` is given, this\n  955:   // will return `null` unless the integer has exactly `len` digits.\n  956  \n  957    function readInt(radix, len) {\n  ...\n  980    }\n  981  \n  982:   // Read an integer, octal integer, or floating-point number.\n  983  \n  984    function readNumber(startsWithDot) {\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/constantinople/node_modules/acorn-globals/node_modules/acorn/docco.css:\n  173  body .mf { color: #666666 }                     /* Literal.Number.Float */\n  174  body .mh { color: #666666 }                     /* Literal.Number.Hex */\n  175: body .mi { color: #666666 }                     /* Literal.Number.Integer */\n  176  body .mo { color: #666666 }                     /* Literal.Number.Oct */\n  177  body .sb { color: #219161 }                     /* Literal.String.Backtick */\n  ...\n  190  body .vg { color: #19469D }                     /* Name.Variable.Global */\n  191  body .vi { color: #19469D }                     /* Name.Variable.Instance */\n  192: body .il { color: #666666 }                     /* Literal.Number.Integer.Long */\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/constantinople/node_modules/acorn-globals/node_modules/acorn/test/codemirror-string.js:\n 2478      tabindex: null,\\n\\\n 2479      autofocus: null,\\n\\\n 2480:     lineNumberFormatter: function(integer) { return integer; }\\n\\\n 2481    };\\n\\\n 2482  \\n\\\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/constantinople/node_modules/acorn-globals/node_modules/acorn/test/jquery-string.js:\n 2358  \\t\\t\\t\\t// We must always have either seed elements or outermost context\\n\\\n 2359  \\t\\t\\t\\telems = seed || byElement && Expr.find[\\\"TAG\\\"]( \\\"*\\\", outermost ),\\n\\\n 2360: \\t\\t\\t\\t// Use integer dirruns iff this is the outermost matcher\\n\\\n 2361  \\t\\t\\t\\tdirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),\\n\\\n 2362  \\t\\t\\t\\tlen = elems.length;\\n\\\n ....\n 6158  \\n\\\n 6159  \\t\\t// Support: IE\\n\\\n 6160: \\t\\t// IE returns zIndex value as an integer.\\n\\\n 6161  \\t\\treturn ret === undefined ?\\n\\\n 6162  \\t\\t\\tret :\\n\\\n ....\n 6210  \\n\\\n 6211  \\t\\t// Support: IE\\n\\\n 6212: \\t\\t// IE returns zIndex value as an integer.\\n\\\n 6213  \\t\\treturn ret === undefined ?\\n\\\n 6214  \\t\\t\\tret :\\n\\\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/constantinople/node_modules/acorn-globals/node_modules/acorn/test/compare/traceur.js:\n  913      return typeof x === 'number';\n  914    }\n  915:   function toInteger(x) {\n  916      x = +x;\n  917      if ($isNaN(x))\n  ...\n  923    var MAX_SAFE_LENGTH = $pow(2, 53) - 1;\n  924    function toLength(x) {\n  925:     var len = toInteger(x);\n  926      return len < 0 ? 0 : $min(len, MAX_SAFE_LENGTH);\n  927    }\n  ...\n  948        return isNumber;\n  949      },\n  950:     get toInteger() {\n  951:       return toInteger;\n  952      },\n  953      get toLength() {\n  ...\n  969        isConstructor = $__3.isConstructor,\n  970        checkIterable = $__3.checkIterable,\n  971:       toInteger = $__3.toInteger,\n  972        toLength = $__3.toLength,\n  973        toObject = $__3.toObject;\n  ...\n 1018      var object = toObject(this);\n 1019      var len = toLength(object.length);\n 1020:     var fillStart = toInteger(start);\n 1021:     var fillEnd = end !== undefined ? toInteger(end) : len;\n 1022      fillStart = fillStart < 0 ? Math.max(len + fillStart, 0) : Math.min(fillStart, len);\n 1023      fillEnd = fillEnd < 0 ? Math.max(len + fillEnd, 0) : Math.min(fillEnd, len);\n ....\n 1394    var $__17 = System.get(\"traceur@0.0.52/src/runtime/polyfills/utils\"),\n 1395        isNumber = $__17.isNumber,\n 1396:       toInteger = $__17.toInteger;\n 1397    var $abs = Math.abs;\n 1398    var $isFinite = isFinite;\n 1399    var $isNaN = isNaN;\n 1400:   var MAX_SAFE_INTEGER = Math.pow(2, 53) - 1;\n 1401:   var MIN_SAFE_INTEGER = -Math.pow(2, 53) + 1;\n 1402    var EPSILON = Math.pow(2, -52);\n 1403    function NumberIsFinite(number) {\n ....\n 1405    }\n 1406    ;\n 1407:   function isInteger(number) {\n 1408:     return NumberIsFinite(number) && toInteger(number) === number;\n 1409    }\n 1410    function NumberIsNaN(number) {\n ....\n 1412    }\n 1413    ;\n 1414:   function isSafeInteger(number) {\n 1415      if (NumberIsFinite(number)) {\n 1416:       var integral = toInteger(number);\n 1417        if (integral === number)\n 1418:         return $abs(integral) <= MAX_SAFE_INTEGER;\n 1419      }\n 1420      return false;\n 1421    }\n 1422    return {\n 1423:     get MAX_SAFE_INTEGER() {\n 1424:       return MAX_SAFE_INTEGER;\n 1425      },\n 1426:     get MIN_SAFE_INTEGER() {\n 1427:       return MIN_SAFE_INTEGER;\n 1428      },\n 1429      get EPSILON() {\n ....\n 1433        return NumberIsFinite;\n 1434      },\n 1435:     get isInteger() {\n 1436:       return isInteger;\n 1437      },\n 1438      get isNaN() {\n 1439        return NumberIsNaN;\n 1440      },\n 1441:     get isSafeInteger() {\n 1442:       return isSafeInteger;\n 1443      }\n 1444    };\n ....\n 2130        mixin = $__39.mixin;\n 2131    var $__40 = System.get(\"traceur@0.0.52/src/runtime/polyfills/Number\"),\n 2132:       MAX_SAFE_INTEGER = $__40.MAX_SAFE_INTEGER,\n 2133:       MIN_SAFE_INTEGER = $__40.MIN_SAFE_INTEGER,\n 2134        EPSILON = $__40.EPSILON,\n 2135        isFinite = $__40.isFinite,\n 2136:       isInteger = $__40.isInteger,\n 2137        isNaN = $__40.isNaN,\n 2138:       isSafeInteger = $__40.isSafeInteger;\n 2139    var getPrototypeOf = $traceurRuntime.assertObject(Object).getPrototypeOf;\n 2140    function maybeDefine(object, name, descr) {\n ....\n 2225    }\n 2226    function polyfillNumber(Number) {\n 2227:     maybeAddConsts(Number, ['MAX_SAFE_INTEGER', MAX_SAFE_INTEGER, 'MIN_SAFE_INTEGER', MIN_SAFE_INTEGER, 'EPSILON', EPSILON]);\n 2228:     maybeAddFunctions(Number, ['isFinite', isFinite, 'isInteger', isInteger, 'isNaN', isNaN, 'isSafeInteger', isSafeInteger]);\n 2229    }\n 2230    function polyfill(global) {\n ....\n 8471          next();\n 8472          if (!isHexDigit(currentCharCode)) {\n 8473:           reportError('Hex Integer Literal must contain at least one digit');\n 8474          }\n 8475          skipHexDigits();\n ....\n 8481          next();\n 8482          if (!isBinaryDigit(currentCharCode)) {\n 8483:           reportError('Binary Integer Literal must contain at least one digit');\n 8484          }\n 8485          skipBinaryDigits();\n ....\n 8491          next();\n 8492          if (!isOctalDigit(currentCharCode)) {\n 8493:           reportError('Octal Integer Literal must contain at least one digit');\n 8494          }\n 8495          skipOctalDigits();\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/js-yaml/README.md:\n  123  So, JSON schema is not as strict as defined in the YAML specification.\n  124  It allows numbers in any notaion, use `Null` and `NULL` as `null`, etc.\n  125: Core schema also has no such restrictions. It allows binary notation for integers.\n  126  \n  127  \n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/js-yaml/lib/js-yaml/type/int.js:\n    5  \n    6  \n    7: var YAML_INTEGER_PATTERN = new RegExp(\n    8    '^(?:[-+]?0b[0-1_]+' +\n    9    '|[-+]?0[0-7_]+' +\n   ..\n   13  \n   14  \n   15: function resolveYamlInteger(state) {\n   16    var value, sign, base, digits,\n   17        object = state.result;\n   18  \n   19:   if (!YAML_INTEGER_PATTERN.test(object)) {\n   20      return false;\n   21    }\n   ..\n   68  \n   69  \n   70: function isInteger(object) {\n   71    return ('[object Number]' === Object.prototype.toString.call(object)) &&\n   72           (0 === object % 1);\n   ..\n   76  module.exports = new Type('tag:yaml.org,2002:int', {\n   77    loadKind: 'scalar',\n   78:   loadResolver: resolveYamlInteger,\n   79:   dumpPredicate: isInteger,\n   80    dumpRepresenter: {\n   81      binary:      function (object) { return '0b' + object.toString(2); },\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/js-yaml/node_modules/argparse/examples/sum.js:\n    5  \n    6  var ArgumentParser  = require('../lib/argparse').ArgumentParser;\n    7: var parser = new ArgumentParser({ description: 'Process some integers.' });\n    8  \n    9  \n   ..\n   18  \n   19  \n   20: parser.addArgument(['integers'], {\n   21    metavar:      'N',\n   22    type:         'int',\n   23    nargs:        '+',\n   24:   help:         'an integer for the accumulator'\n   25  });\n   26  parser.addArgument(['--sum'], {\n   ..\n   29    constant:     sum,\n   30    defaultValue: max,\n   31:   help:         'sum the integers (default: find the max)'\n   32  });\n   33  \n   34  var args = parser.parseArgs('--sum 1 2 -1'.split(' '));\n   35: console.log(args.accumulate(args.integers));\n   36  \n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/js-yaml/node_modules/argparse/lib/action.js:\n   62   * ##### nargs supported values:\n   63   *\n   64:  * - `N` (an integer) consumes N arguments (and produces a list)\n   65   * - `?`  consumes zero or one arguments\n   66   * - `*` consumes zero or more arguments (and produces a list)\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/js-yaml/node_modules/argparse/lib/argument_parser.js:\n   89      var result = parseInt(x, 10);\n   90      if (isNaN(result)) {\n   91:       throw new Error(x + ' is not a valid integer.');\n   92      }\n   93      return result;\n   ..\n  871      regexpNargs = '(-*A[-AO]*)';\n  872      break;\n  873:   // all others should be integers\n  874    default:\n  875      regexpNargs = '(-*' + _.str.repeat('-*A', action.nargs) + '-*)';\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/js-yaml/node_modules/argparse/node_modules/underscore/underscore.js:\n  615    };\n  616  \n  617:   // Generate an integer Array containing an arithmetic progression. A port of\n  618    // the native Python `range()` function. See\n  619    // [the Python documentation](http://docs.python.org/library/functions.html#range).\n  ...\n 1196    };\n 1197  \n 1198:   // Return a random integer between min and max (inclusive).\n 1199    _.random = function(min, max) {\n 1200      if (max == null) {\n ....\n 1205    };\n 1206  \n 1207:   // A (possibly faster) way to get the current timestamp as an integer.\n 1208    _.now = Date.now || function() {\n 1209      return new Date().getTime();\n ....\n 1246    };\n 1247  \n 1248:   // Generate a unique integer id (unique within the entire client session).\n 1249    // Useful for temporary DOM ids.\n 1250    var idCounter = 0;\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/README.md:\n  262  * `encoding` - Encoding to be used on `setEncoding` of response data. If `null`, the `body` is returned as a `Buffer`.\n  263  * `pool` - A hash object containing the agents for these requests. If omitted, the request will use the global pool (which is set to node's default `maxSockets`)\n  264: * `pool.maxSockets` - Integer containing the maximum amount of sockets in the pool.\n  265: * `timeout` - Integer containing the number of milliseconds to wait for a request to respond before aborting the request\n  266  * `proxy` - An HTTP proxy to be used. Supports proxy Auth with Basic Auth, identical to support for the `url` parameter (by embedding the auth info in the `uri`)\n  267  * `oauth` - Options for OAuth HMAC-SHA1 signing. See documentation above.\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/form-data/node_modules/async/README.md:\n 1067    task, which must call its `callback(err)` argument when finished, with an \n 1068    optional `error` as an argument.\n 1069: * `concurrency` - An `integer` for determining how many `worker` functions should be\n 1070    run in parallel.\n 1071  \n ....\n 1079  * `running()` - a function returning the number of items currently being processed.\n 1080  * `idle()` - a function returning false if there are items waiting or being processed, or true if not.\n 1081: * `concurrency` - an integer for determining how many `worker` functions should be\n 1082    run in parallel. This property can be changed after a `queue` is created to\n 1083    alter the concurrency on-the-fly.\n ....\n 1165    queued tasks, which must call its `callback(err)` argument when finished, with \n 1166    an optional `err` argument.\n 1167: * `payload` - An optional `integer` for determining how many tasks should be\n 1168    processed per round; if omitted, the default is unlimited.\n 1169  \n ....\n 1174  \n 1175  * `length()` - A function returning the number of items waiting to be processed.\n 1176: * `payload` - An `integer` for determining how many tasks should be\n 1177    process per round. This property can be changed after a `cargo` is created to\n 1178    alter the payload on-the-fly.\n ....\n 1355  __Arguments__\n 1356  \n 1357: * `times` - An integer indicating how many times to attempt the `task` before giving up. Defaults to 5.\n 1358  * `task(callback, results)` - A function which receives two arguments: (1) a `callback(err, result)`\n 1359    which must be called when finished, passing `err` (which can be `null`) and the `result` of \n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/lib/util.js:\n   25  \n   26  function writeInt(writer, buffer) {\n   27:   writer.writeByte(0x02); // ASN1.Integer\n   28    writer.writeLength(buffer.length);\n   29  \n   ..\n  277  \n  278      // modulus\n  279:     assert.equal(der.peek(), asn1.Ber.Integer, 'modulus not an integer');\n  280      der._offset = der.readLength(der.offset + 1);\n  281      var modulus = der._buf.slice(der.offset, der.offset + der.length);\n  ...\n  283  \n  284      // exponent\n  285:     assert.equal(der.peek(), asn1.Ber.Integer, 'exponent not an integer');\n  286      der._offset = der.readLength(der.offset + 1);\n  287      var exponent = der._buf.slice(der.offset, der.offset + der.length);\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/ber/reader.js:\n  135  \n  136  Reader.prototype.readInt = function() {\n  137:   return this._readTag(ASN1.Integer);\n  138  };\n  139  \n  ...\n  240  \n  241    if (this.length > 4)\n  242:     throw newInvalidAsn1Error('Integer too long: ' + this.length);\n  243  \n  244    if (this.length > this._size - o)\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/ber/types.js:\n    5    EOC: 0,\n    6    Boolean: 1,\n    7:   Integer: 2,\n    8    BitString: 3,\n    9    OctetString: 4,\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/ber/writer.js:\n   75      throw new TypeError('argument must be a Number');\n   76    if (typeof(tag) !== 'number')\n   77:     tag = ASN1.Integer;\n   78  \n   79    var sz = 4;\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/node_modules/asn1/tst/ber/reader.test.js:\n  126    BIND[0] = 0x30;  // Sequence\n  127    BIND[1] = 12;    // len\n  128:   BIND[2] = 0x02;  // ASN.1 Integer\n  129    BIND[3] = 1;     // len\n  130    BIND[4] = 0x04;  // msgid (make up 4)\n  131    BIND[5] = 0x60;  // Bind Request\n  132    BIND[6] = 7;     // len\n  133:   BIND[7] = 0x02;  // ASN.1 Integer\n  134    BIND[8] = 1;     // len\n  135    BIND[9] = 0x03;  // v3\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/node_modules/ctype/README:\n   11  \n   12  There are two APIs that you can use, depending on what abstraction you'd like.\n   13: The low level API let's you read and write individual integers and floats from\n   14  buffers. The higher level API let's you read and write structures of these. To\n   15  illustrate this, let's looks look at how we would read and write a binary\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/node_modules/ctype/README.old:\n  119  specified. The size must be specified and it can be done in one of two ways:\n  120  \n  121:     * An explicit non-zero integer size\n  122      * A name of a previously declared variable in the struct whose value is a\n  123        number.\n  ...\n  133  ]\n  134  \n  135: Arrays are permitted in typedefs; however, they must have a declared integer\n  136  size. The following are examples of valid and invalid arrays:\n  137  \n  ...\n  142  \n  143  Unfortunately Javascript represents values with a double, so you lose precision\n  144: and the ability to represent Integers roughly beyond 2^53. To alleviate this, I\n  145: propose the following for returning 64 bit integers when read:\n  146  \n  147  value[2]: Each entry is a 32 bit number which can be reconstructed to the\n  ...\n  241  \n  242  /*\n  243:  * Attempts to convert an array of two integers returned from rsint64 / ruint64\n  244   * into an absolute 64 bit number. If however the value would exceed 2^52 this\n  245   * will instead throw an error. The mantissa in a double is a 52 bit number and\n  ...\n  247   * error. If you would rather an approximation, please see toApprox64.\n  248   *\n  249:  *	val		An array of two 32-bit integers\n  250   */\n  251  Number function toAbs64(val)\n  ...\n  257   * the value.\n  258   *\n  259:  *	val		An array of two 32-bit integers\n  260   */\n  261  Number function toApprox64(val)\n  ...\n  265  The following function are provided at the low level:\n  266  \n  267: Read unsigned integers from a buffer:\n  268  Number ruint8(buffer, endian, offset);\n  269  Number ruint16(buffer, endian, offset);\n  ...\n  271  Number[] ruint64(buffer, endian, offset);\n  272  \n  273: Read signed integers from a buffer:\n  274  Number rsint8(buffer, endian, offset);\n  275  Number rsint16(buffer, endian, offset);\n  ...\n  281  Number rdouble(buffer, endian, offset);  /* IEEE-754 Double precision */\n  282  \n  283: Write unsigned integers to a buffer:\n  284  void wuint8(Number, endian, buffer, offset);\n  285  void wuint16(Number, endian, buffer, offset);\n  ...\n  287  void wuint64(Number[], endian, buffer, offset);\n  288  \n  289: Write signed integers from a buffer:\n  290  void wsint8(Number, endian, buffer, offset);\n  291  void wsint16(Number, endian, buffer, offset);\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/node_modules/ctype/ctf.js:\n   13  \n   14  var ctf_versions = [ '1.0' ];\n   15: var ctf_entries = [ 'integer', 'float', 'typedef', 'struct' ];\n   16  var ctf_deftypes = [ 'int8_t', 'uint8_t', 'int16_t', 'uint16_t', 'int32_t',\n   17      'uint32_t', 'float', 'double' ];\n   18  \n   19: function ctfParseInteger(entry, ctype)\n   20  {\n   21  	var name, sign, len, type;\n   22  \n   23  	name = entry['name'];\n   24: 	if (!('signed' in entry['integer']))\n   25: 		throw (new Error('Malformed CTF JSON: integer missing ' +\n   26  		    'signed value'));\n   27  \n   28  \n   29: 	if (!('length' in entry['integer']))\n   30: 		throw (new Error('Malformed CTF JSON: integer missing ' +\n   31  		    'length value'));\n   32  \n   33: 	sign = entry['integer']['signed'];\n   34: 	len = entry['integer']['length'];\n   35  	type = null;\n   36  \n   ..\n   53  \n   54  	if (type === null)\n   55: 		throw (new Error('Malformed CTF JSON: integer has ' +\n   56  		    'unsupported length and sign - ' + len + '/' + sign));\n   57  \n   ..\n  111  	 * We need to ensure that we're not looking at type that's one of our\n  112  	 * built in types. Traditionally in C a uint32_t would be a typedef to\n  113: 	 * some kind of integer. However, those size types are built ins.\n  114  	 */\n  115  	for (ii = 0; ii < ctf_deftypes.length; ii++) {\n  ...\n  188  		    'entry'));\n  189  \n  190: 	if ('integer' in entry) {\n  191: 		ctfParseInteger(entry, ctype);\n  192  		return;\n  193  	}\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/node_modules/ctype/ctio.js:\n   25   * Numbers in Javascript have a secret: all numbers must be represented with an\n   26   * IEEE-754 double. The double has a mantissa with a length of 52 bits with an\n   27:  * implicit one. Thus the range of integers that can be represented is limited\n   28:  * to the size of the mantissa, this makes reading and writing 64-bit integers\n   29   * difficult, but far from impossible.\n   30   *\n   ..\n   44  \n   45  /*\n   46:  * An 8 bit unsigned integer involves doing no significant work.\n   47   */\n   48  function ruint8(buffer, endian, offset)\n   ..\n  153   * doesn't quite work. Javascript has chosen to only have numbers that can be\n  154   * represented by a double. A double only has 52 bits of mantissa with an\n  155:  * implicit 1, thus we have up to 53 bits to represent an integer. However, 2^53\n  156   * doesn't quite give us what we want. Isn't 53 bits enough for anyone? What\n  157   * could you have possibly wanted to represent that was larger than that? Oh,\n  ...\n  160   *\n  161   * To get around this egregious language issue, we're going to instead construct\n  162:  * an array of two 32 bit unsigned integers. Where arr[0] << 32 + arr[1] would\n  163   * give the actual number. However, note that the above code probably won't\n  164   * produce the desired results because of the way Javascript numbers are\n  ...\n  199  \n  200  /*\n  201:  * Signed integer types, yay team! A reminder on how two's complement actually\n  202   * works. The first bit is the signed bit, i.e. tells us whether or not the\n  203   * number should be positive or negative. If the two's complement value is\n  ...\n  666  \n  667  /*\n  668:  * We have to make sure that the value is a valid integer. This means that it is\n  669   * non-negative. It has no fractional component and that it does not exceed the\n  670   * maximum allowed value.\n  ...\n  874   *	mb + val + 1, where\n  875   *	mb	is the maximum unsigned value in that byte size\n  876:  *	val	is the Javascript negative integer\n  877   *\n  878   *\n  ...\n 1006  \n 1007  /*\n 1008:  * The signed 64 bit integer should by in the same format as when received.\n 1009:  * Mainly it should ensure that the value is an array of two integers where\n 1010   * value[0] << 32 + value[1] is the desired number. Furthermore, the two values\n 1011   * need to be equal.\n ....\n 1057  \n 1058  	/*\n 1059: 	 * Doing verification for a signed 64-bit integer is actually a big\n 1060  	 * trickier than it appears. We can't quite use our standard techniques\n 1061  	 * because we need to compare both sets of values. The first value is\n ....\n 1063  	 * we error out. However, the valid range of the second value varies\n 1064  	 * based on the first one. If the first value is negative, and *not* the\n 1065: 	 * largest negative value, than it can be any integer within the range [\n 1066  	 * 0, 0xffffffff ]. If it is the largest negative number, it must be\n 1067  	 * zero.\n ....\n 1069  	 * If the first number is positive, than it doesn't matter what the\n 1070  	 * value is. We just simply have to make sure we have a valid positive\n 1071: 	 * integer.\n 1072  	 */\n 1073  	if (vzpos) {\n ....\n 1108   * 15.7.4.2-Number.prototype.toString (radix):\n 1109   *\n 1110:  * If radix is an integer from 2 to 36, but not 10, the result is a string, the\n 1111   * choice of which is implementation-dependent.\n 1112   *\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/node_modules/ctype/ctype.js:\n  340  		 * the types until the len field is undefined in key. However,\n  341  		 * each time len is defined we need to verify it is either an\n  342: 		 * integer or corresponds to an already seen key.\n  343  		 */\n  344  		while (key['len'] !== undefined) {\n  ...\n  855  \n  856  /*\n  857:  * Attempts to convert an array of two integers returned from rsint64 / ruint64\n  858   * into an absolute 64 bit number. If however the value would exceed 2^52 this\n  859   * will instead throw an error. The mantissa in a double is a 52 bit number and\n  ...\n  861   * error. If you would rather an approximation, please see toApprox64.\n  862   *\n  863:  *	val		An array of two 32-bit integers\n  864   */\n  865  function toAbs64(val)\n  ...\n  887   * the value.\n  888   *\n  889:  *	val		An array of two 32-bit integers\n  890   */\n  891  function toApprox64(val)\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/http-signature/node_modules/ctype/man/man3ctype/ctio.3ctype:\n   24  ctio, ruint8, ruint16, ruint32, ruint64, wuint8, wuint16, wuint32, wuint64,\n   25  rsint8, rsint16, rsint32, rsint64, wsint8, wsint16, wsint32, wsint64, rfloat,\n   26: rdouble, wfloat, wdouble \\- integer and float operations\n   27  .SH SYNOPSIS\n   28  .LP\n   ..\n  153  The \\fBruint8()\\fR, \\fBruint16()\\fR, and \\fBruint32()\\fR functions work just as\n  154  \\fBruint8()\\fR, \\fBruint16()\\fR, and \\fBruint32()\\fR, except they return signed\n  155: integers.\n  156  \n  157  .SS \"\\fBruint64()\\fR, \\fBrsint64()\\fR\"\n  ...\n  159  .LP\n  160  The \\fBruint64()\\fR and \\fBrsint64()\\fR functions read unsigned and signed 64\n  161: bit integers respectively from \\fBbuf\\fR. Due to the limitations of ECMAScript's\n  162  \\fBNumber\\fR type, they cannot be stored as one value without a loss of\n  163  precision. Instead of returning the values as a single \\fBNumber\\fR, the\n  ...\n  172  .LP\n  173  The functions \\fBwuint8()\\fR, \\fBwuint16()\\fR, and \\fBwuint32()\\fR modify the\n  174: contents of \\fBbuf\\fR by writing an 8, 16, and 32-bit unsigned integer\n  175: respectively to \\fBbuf\\fR. It is illegal to pass a number that is not an integer\n  176: within the domain of the integer size, for example, for \\fBwuint8()\\fR the valid\n  177  range is \\fB[0, 255]\\fR. The value will be written in either big or little\n  178  endian format based upon the value of \\fBendian\\fR.\n  ...\n  192  .LP\n  193  The functions \\fBwuint64()\\fR and \\fBswint64()\\fR write out 64-bit unsigned and\n  194: signed integers to \\fBbuf\\fR. The \\fBvalue\\fR argument must be in the same\n  195  format as described in \\fBruint64()\\fR and \\fBrsint64()\\fR.\n  196  \n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/coveralls/node_modules/request/node_modules/tough-cookie/node_modules/punycode/punycode.js:\n   43  	/** Error messages */\n   44  	errors = {\n   45: 		'overflow': 'Overflow: input needs wider integers to process',\n   46  		'not-basic': 'Illegal input >= 0x80 (not a basic code point)',\n   47  		'invalid-input': 'Invalid input'\n   ..\n  172  \n  173  	/**\n  174: 	 * Converts a basic code point into a digit/integer.\n  175  	 * @see `digitToBasic()`\n  176  	 * @private\n  177  	 * @param {Number} codePoint The basic numeric code point value.\n  178  	 * @returns {Number} The numeric value of a basic code point (for use in\n  179: 	 * representing integers) in the range `0` to `base - 1`, or `base` if\n  180  	 * the code point does not represent a value.\n  181  	 */\n  ...\n  194  \n  195  	/**\n  196: 	 * Converts a digit/integer into a basic code point.\n  197  	 * @see `basicToDigit()`\n  198  	 * @private\n  199  	 * @param {Number} digit The numeric value of a basic code point.\n  200  	 * @returns {Number} The basic code point whose value (when used for\n  201: 	 * representing integers) is `digit`, which needs to be in the range\n  202  	 * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is\n  203  	 * used; else, the lowercase form is used. The behavior is undefined\n  ...\n  274  \n  275  			// `index` is the index of the next character to be consumed.\n  276: 			// Decode a generalized variable-length integer into `delta`,\n  277  			// which gets added to `i`. The overflow checking is easier\n  278  			// if we increase `i` as we go, then subtract off its starting\n  ...\n  412  \n  413  				if (currentValue == n) {\n  414: 					// Represent delta as a generalized variable-length integer\n  415  					for (q = delta, k = base; /* no condition */; k += base) {\n  416  						t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/transformers/node_modules/uglify-js/lib/ast.js:\n  277          parent_scope: \"[AST_Scope?/S] link to the parent scope\",\n  278          enclosed: \"[SymbolDef*/S] a list of all symbol definitions that are accessed from this scope or any subscopes\",\n  279:         cname: \"[integer/S] current index for mangling variables (used internally by the mangler)\",\n  280      },\n  281  }, AST_Block);\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/transformers/node_modules/uglify-js/node_modules/source-map/lib/source-map/base64.js:\n   21  \n   22    /**\n   23:    * Encode an integer in the range of 0 to 63 to a single base 64 digit.\n   24     */\n   25    exports.encode = function base64_encode(aNumber) {\n   ..\n   31  \n   32    /**\n   33:    * Decode a single base 64 digit to an integer.\n   34     */\n   35    exports.decode = function base64_decode(aChar) {\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn/acorn.js:\n  288  \n  289    // This function is used to raise exceptions on parse errors. It\n  290:   // takes an offset integer (into the current `input`) to indicate\n  291    // the location of the error, attaches the position to the end\n  292    // of the error message, and then raises a `SyntaxError` with that\n  ...\n  808          if (next === 98 || next === 66) return readRadixNumber(2); // '0b', '0B' - binary number\n  809        }\n  810:     // Anything else beginning with a digit is an integer, octal\n  811      // number, or float.\n  812      case 49: case 50: case 51: case 52: case 53: case 54: case 55: case 56: case 57: // 1-9\n  ...\n  915    }\n  916  \n  917:   // Read an integer in the given radix. Return null if zero digits\n  918:   // were read, the integer value otherwise. When `len` is given, this\n  919:   // will return `null` unless the integer has exactly `len` digits.\n  920  \n  921    function readInt(radix, len) {\n  ...\n  944    }\n  945  \n  946:   // Read an integer, octal integer, or floating-point number.\n  947  \n  948    function readNumber(startsWithDot) {\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn/acorn_csp.js:\n  288  \n  289    // This function is used to raise exceptions on parse errors. It\n  290:   // takes an offset integer (into the current `input`) to indicate\n  291    // the location of the error, attaches the position to the end\n  292    // of the error message, and then raises a `SyntaxError` with that\n  ...\n  789          if (next === 98 || next === 66) return readRadixNumber(2); // '0b', '0B' - binary number\n  790        }\n  791:     // Anything else beginning with a digit is an integer, octal\n  792      // number, or float.\n  793      case 49: case 50: case 51: case 52: case 53: case 54: case 55: case 56: case 57: // 1-9\n  ...\n  896    }\n  897  \n  898:   // Read an integer in the given radix. Return null if zero digits\n  899:   // were read, the integer value otherwise. When `len` is given, this\n  900:   // will return `null` unless the integer has exactly `len` digits.\n  901  \n  902    function readInt(radix, len) {\n  ...\n  925    }\n  926  \n  927:   // Read an integer, octal integer, or floating-point number.\n  928  \n  929    function readNumber(startsWithDot) {\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn/docco.css:\n  173  body .mf { color: #666666 }                     /* Literal.Number.Float */\n  174  body .mh { color: #666666 }                     /* Literal.Number.Hex */\n  175: body .mi { color: #666666 }                     /* Literal.Number.Integer */\n  176  body .mo { color: #666666 }                     /* Literal.Number.Oct */\n  177  body .sb { color: #219161 }                     /* Literal.String.Backtick */\n  ...\n  190  body .vg { color: #19469D }                     /* Name.Variable.Global */\n  191  body .vi { color: #19469D }                     /* Name.Variable.Instance */\n  192: body .il { color: #666666 }                     /* Literal.Number.Integer.Long */\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn/test/codemirror-string.js:\n 2478      tabindex: null,\\n\\\n 2479      autofocus: null,\\n\\\n 2480:     lineNumberFormatter: function(integer) { return integer; }\\n\\\n 2481    };\\n\\\n 2482  \\n\\\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn/test/compare/traceur.js:\n  913      return typeof x === 'number';\n  914    }\n  915:   function toInteger(x) {\n  916      x = +x;\n  917      if ($isNaN(x))\n  ...\n  923    var MAX_SAFE_LENGTH = $pow(2, 53) - 1;\n  924    function toLength(x) {\n  925:     var len = toInteger(x);\n  926      return len < 0 ? 0 : $min(len, MAX_SAFE_LENGTH);\n  927    }\n  ...\n  948        return isNumber;\n  949      },\n  950:     get toInteger() {\n  951:       return toInteger;\n  952      },\n  953      get toLength() {\n  ...\n  969        isConstructor = $__3.isConstructor,\n  970        checkIterable = $__3.checkIterable,\n  971:       toInteger = $__3.toInteger,\n  972        toLength = $__3.toLength,\n  973        toObject = $__3.toObject;\n  ...\n 1018      var object = toObject(this);\n 1019      var len = toLength(object.length);\n 1020:     var fillStart = toInteger(start);\n 1021:     var fillEnd = end !== undefined ? toInteger(end) : len;\n 1022      fillStart = fillStart < 0 ? Math.max(len + fillStart, 0) : Math.min(fillStart, len);\n 1023      fillEnd = fillEnd < 0 ? Math.max(len + fillEnd, 0) : Math.min(fillEnd, len);\n ....\n 1394    var $__17 = System.get(\"traceur@0.0.52/src/runtime/polyfills/utils\"),\n 1395        isNumber = $__17.isNumber,\n 1396:       toInteger = $__17.toInteger;\n 1397    var $abs = Math.abs;\n 1398    var $isFinite = isFinite;\n 1399    var $isNaN = isNaN;\n 1400:   var MAX_SAFE_INTEGER = Math.pow(2, 53) - 1;\n 1401:   var MIN_SAFE_INTEGER = -Math.pow(2, 53) + 1;\n 1402    var EPSILON = Math.pow(2, -52);\n 1403    function NumberIsFinite(number) {\n ....\n 1405    }\n 1406    ;\n 1407:   function isInteger(number) {\n 1408:     return NumberIsFinite(number) && toInteger(number) === number;\n 1409    }\n 1410    function NumberIsNaN(number) {\n ....\n 1412    }\n 1413    ;\n 1414:   function isSafeInteger(number) {\n 1415      if (NumberIsFinite(number)) {\n 1416:       var integral = toInteger(number);\n 1417        if (integral === number)\n 1418:         return $abs(integral) <= MAX_SAFE_INTEGER;\n 1419      }\n 1420      return false;\n 1421    }\n 1422    return {\n 1423:     get MAX_SAFE_INTEGER() {\n 1424:       return MAX_SAFE_INTEGER;\n 1425      },\n 1426:     get MIN_SAFE_INTEGER() {\n 1427:       return MIN_SAFE_INTEGER;\n 1428      },\n 1429      get EPSILON() {\n ....\n 1433        return NumberIsFinite;\n 1434      },\n 1435:     get isInteger() {\n 1436:       return isInteger;\n 1437      },\n 1438      get isNaN() {\n 1439        return NumberIsNaN;\n 1440      },\n 1441:     get isSafeInteger() {\n 1442:       return isSafeInteger;\n 1443      }\n 1444    };\n ....\n 2130        mixin = $__39.mixin;\n 2131    var $__40 = System.get(\"traceur@0.0.52/src/runtime/polyfills/Number\"),\n 2132:       MAX_SAFE_INTEGER = $__40.MAX_SAFE_INTEGER,\n 2133:       MIN_SAFE_INTEGER = $__40.MIN_SAFE_INTEGER,\n 2134        EPSILON = $__40.EPSILON,\n 2135        isFinite = $__40.isFinite,\n 2136:       isInteger = $__40.isInteger,\n 2137        isNaN = $__40.isNaN,\n 2138:       isSafeInteger = $__40.isSafeInteger;\n 2139    var getPrototypeOf = $traceurRuntime.assertObject(Object).getPrototypeOf;\n 2140    function maybeDefine(object, name, descr) {\n ....\n 2225    }\n 2226    function polyfillNumber(Number) {\n 2227:     maybeAddConsts(Number, ['MAX_SAFE_INTEGER', MAX_SAFE_INTEGER, 'MIN_SAFE_INTEGER', MIN_SAFE_INTEGER, 'EPSILON', EPSILON]);\n 2228:     maybeAddFunctions(Number, ['isFinite', isFinite, 'isInteger', isInteger, 'isNaN', isNaN, 'isSafeInteger', isSafeInteger]);\n 2229    }\n 2230    function polyfill(global) {\n ....\n 8471          next();\n 8472          if (!isHexDigit(currentCharCode)) {\n 8473:           reportError('Hex Integer Literal must contain at least one digit');\n 8474          }\n 8475          skipHexDigits();\n ....\n 8481          next();\n 8482          if (!isBinaryDigit(currentCharCode)) {\n 8483:           reportError('Binary Integer Literal must contain at least one digit');\n 8484          }\n 8485          skipBinaryDigits();\n ....\n 8491          next();\n 8492          if (!isOctalDigit(currentCharCode)) {\n 8493:           reportError('Octal Integer Literal must contain at least one digit');\n 8494          }\n 8495          skipOctalDigits();\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn-globals/node_modules/acorn/acorn.js:\n  309    // inside, and count the amount of open braces seen inside them, to\n  310    // be able to switch back to a template token when the } to match ${\n  311:   // is encountered. It will hold an array of integers.\n  312  \n  313    var templates;\n  ...\n  323  \n  324    // This function is used to raise exceptions on parse errors. It\n  325:   // takes an offset integer (into the current `input`) to indicate\n  326    // the location of the error, attaches the position to the end\n  327    // of the error message, and then raises a `SyntaxError` with that\n  ...\n  845          if (next === 98 || next === 66) return readRadixNumber(2); // '0b', '0B' - binary number\n  846        }\n  847:     // Anything else beginning with a digit is an integer, octal\n  848      // number, or float.\n  849      case 49: case 50: case 51: case 52: case 53: case 54: case 55: case 56: case 57: // 1-9\n  ...\n  976    }\n  977  \n  978:   // Read an integer in the given radix. Return null if zero digits\n  979:   // were read, the integer value otherwise. When `len` is given, this\n  980:   // will return `null` unless the integer has exactly `len` digits.\n  981  \n  982    function readInt(radix, len) {\n  ...\n 1005    }\n 1006  \n 1007:   // Read an integer, octal integer, or floating-point number.\n 1008  \n 1009    function readNumber(startsWithDot) {\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn-globals/node_modules/acorn/acorn_csp.js:\n  309    // inside, and count the amount of open braces seen inside them, to\n  310    // be able to switch back to a template token when the } to match ${\n  311:   // is encountered. It will hold an array of integers.\n  312  \n  313    var templates;\n  ...\n  323  \n  324    // This function is used to raise exceptions on parse errors. It\n  325:   // takes an offset integer (into the current `input`) to indicate\n  326    // the location of the error, attaches the position to the end\n  327    // of the error message, and then raises a `SyntaxError` with that\n  ...\n  820          if (next === 98 || next === 66) return readRadixNumber(2); // '0b', '0B' - binary number\n  821        }\n  822:     // Anything else beginning with a digit is an integer, octal\n  823      // number, or float.\n  824      case 49: case 50: case 51: case 52: case 53: case 54: case 55: case 56: case 57: // 1-9\n  ...\n  951    }\n  952  \n  953:   // Read an integer in the given radix. Return null if zero digits\n  954:   // were read, the integer value otherwise. When `len` is given, this\n  955:   // will return `null` unless the integer has exactly `len` digits.\n  956  \n  957    function readInt(radix, len) {\n  ...\n  980    }\n  981  \n  982:   // Read an integer, octal integer, or floating-point number.\n  983  \n  984    function readNumber(startsWithDot) {\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn-globals/node_modules/acorn/docco.css:\n  173  body .mf { color: #666666 }                     /* Literal.Number.Float */\n  174  body .mh { color: #666666 }                     /* Literal.Number.Hex */\n  175: body .mi { color: #666666 }                     /* Literal.Number.Integer */\n  176  body .mo { color: #666666 }                     /* Literal.Number.Oct */\n  177  body .sb { color: #219161 }                     /* Literal.String.Backtick */\n  ...\n  190  body .vg { color: #19469D }                     /* Name.Variable.Global */\n  191  body .vi { color: #19469D }                     /* Name.Variable.Instance */\n  192: body .il { color: #666666 }                     /* Literal.Number.Integer.Long */\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn-globals/node_modules/acorn/test/codemirror-string.js:\n 2478      tabindex: null,\\n\\\n 2479      autofocus: null,\\n\\\n 2480:     lineNumberFormatter: function(integer) { return integer; }\\n\\\n 2481    };\\n\\\n 2482  \\n\\\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn-globals/node_modules/acorn/test/jquery-string.js:\n 2358  \\t\\t\\t\\t// We must always have either seed elements or outermost context\\n\\\n 2359  \\t\\t\\t\\telems = seed || byElement && Expr.find[\\\"TAG\\\"]( \\\"*\\\", outermost ),\\n\\\n 2360: \\t\\t\\t\\t// Use integer dirruns iff this is the outermost matcher\\n\\\n 2361  \\t\\t\\t\\tdirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),\\n\\\n 2362  \\t\\t\\t\\tlen = elems.length;\\n\\\n ....\n 6158  \\n\\\n 6159  \\t\\t// Support: IE\\n\\\n 6160: \\t\\t// IE returns zIndex value as an integer.\\n\\\n 6161  \\t\\treturn ret === undefined ?\\n\\\n 6162  \\t\\t\\tret :\\n\\\n ....\n 6210  \\n\\\n 6211  \\t\\t// Support: IE\\n\\\n 6212: \\t\\t// IE returns zIndex value as an integer.\\n\\\n 6213  \\t\\treturn ret === undefined ?\\n\\\n 6214  \\t\\t\\tret :\\n\\\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/jade/node_modules/with/node_modules/acorn-globals/node_modules/acorn/test/compare/traceur.js:\n  913      return typeof x === 'number';\n  914    }\n  915:   function toInteger(x) {\n  916      x = +x;\n  917      if ($isNaN(x))\n  ...\n  923    var MAX_SAFE_LENGTH = $pow(2, 53) - 1;\n  924    function toLength(x) {\n  925:     var len = toInteger(x);\n  926      return len < 0 ? 0 : $min(len, MAX_SAFE_LENGTH);\n  927    }\n  ...\n  948        return isNumber;\n  949      },\n  950:     get toInteger() {\n  951:       return toInteger;\n  952      },\n  953      get toLength() {\n  ...\n  969        isConstructor = $__3.isConstructor,\n  970        checkIterable = $__3.checkIterable,\n  971:       toInteger = $__3.toInteger,\n  972        toLength = $__3.toLength,\n  973        toObject = $__3.toObject;\n  ...\n 1018      var object = toObject(this);\n 1019      var len = toLength(object.length);\n 1020:     var fillStart = toInteger(start);\n 1021:     var fillEnd = end !== undefined ? toInteger(end) : len;\n 1022      fillStart = fillStart < 0 ? Math.max(len + fillStart, 0) : Math.min(fillStart, len);\n 1023      fillEnd = fillEnd < 0 ? Math.max(len + fillEnd, 0) : Math.min(fillEnd, len);\n ....\n 1394    var $__17 = System.get(\"traceur@0.0.52/src/runtime/polyfills/utils\"),\n 1395        isNumber = $__17.isNumber,\n 1396:       toInteger = $__17.toInteger;\n 1397    var $abs = Math.abs;\n 1398    var $isFinite = isFinite;\n 1399    var $isNaN = isNaN;\n 1400:   var MAX_SAFE_INTEGER = Math.pow(2, 53) - 1;\n 1401:   var MIN_SAFE_INTEGER = -Math.pow(2, 53) + 1;\n 1402    var EPSILON = Math.pow(2, -52);\n 1403    function NumberIsFinite(number) {\n ....\n 1405    }\n 1406    ;\n 1407:   function isInteger(number) {\n 1408:     return NumberIsFinite(number) && toInteger(number) === number;\n 1409    }\n 1410    function NumberIsNaN(number) {\n ....\n 1412    }\n 1413    ;\n 1414:   function isSafeInteger(number) {\n 1415      if (NumberIsFinite(number)) {\n 1416:       var integral = toInteger(number);\n 1417        if (integral === number)\n 1418:         return $abs(integral) <= MAX_SAFE_INTEGER;\n 1419      }\n 1420      return false;\n 1421    }\n 1422    return {\n 1423:     get MAX_SAFE_INTEGER() {\n 1424:       return MAX_SAFE_INTEGER;\n 1425      },\n 1426:     get MIN_SAFE_INTEGER() {\n 1427:       return MIN_SAFE_INTEGER;\n 1428      },\n 1429      get EPSILON() {\n ....\n 1433        return NumberIsFinite;\n 1434      },\n 1435:     get isInteger() {\n 1436:       return isInteger;\n 1437      },\n 1438      get isNaN() {\n 1439        return NumberIsNaN;\n 1440      },\n 1441:     get isSafeInteger() {\n 1442:       return isSafeInteger;\n 1443      }\n 1444    };\n ....\n 2130        mixin = $__39.mixin;\n 2131    var $__40 = System.get(\"traceur@0.0.52/src/runtime/polyfills/Number\"),\n 2132:       MAX_SAFE_INTEGER = $__40.MAX_SAFE_INTEGER,\n 2133:       MIN_SAFE_INTEGER = $__40.MIN_SAFE_INTEGER,\n 2134        EPSILON = $__40.EPSILON,\n 2135        isFinite = $__40.isFinite,\n 2136:       isInteger = $__40.isInteger,\n 2137        isNaN = $__40.isNaN,\n 2138:       isSafeInteger = $__40.isSafeInteger;\n 2139    var getPrototypeOf = $traceurRuntime.assertObject(Object).getPrototypeOf;\n 2140    function maybeDefine(object, name, descr) {\n ....\n 2225    }\n 2226    function polyfillNumber(Number) {\n 2227:     maybeAddConsts(Number, ['MAX_SAFE_INTEGER', MAX_SAFE_INTEGER, 'MIN_SAFE_INTEGER', MIN_SAFE_INTEGER, 'EPSILON', EPSILON]);\n 2228:     maybeAddFunctions(Number, ['isFinite', isFinite, 'isInteger', isInteger, 'isNaN', isNaN, 'isSafeInteger', isSafeInteger]);\n 2229    }\n 2230    function polyfill(global) {\n ....\n 8471          next();\n 8472          if (!isHexDigit(currentCharCode)) {\n 8473:           reportError('Hex Integer Literal must contain at least one digit');\n 8474          }\n 8475          skipHexDigits();\n ....\n 8481          next();\n 8482          if (!isBinaryDigit(currentCharCode)) {\n 8483:           reportError('Binary Integer Literal must contain at least one digit');\n 8484          }\n 8485          skipBinaryDigits();\n ....\n 8491          next();\n 8492          if (!isOctalDigit(currentCharCode)) {\n 8493:           reportError('Octal Integer Literal must contain at least one digit');\n 8494          }\n 8495          skipOctalDigits();\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/zmq/binding.cc:\n  223      if (args.Length() == 1) {\n  224        if (!args[0]->IsNumber()) {\n  225:         return NanThrowTypeError(\"io_threads must be an integer\");\n  226        }\n  227:       io_threads = (int) args[0]->ToInteger()->Value();\n  228        if (io_threads < 1) {\n  229          return NanThrowRangeError(\"io_threads must be a positive number\");\n  ...\n  280        return NanThrowError(\"Must pass an option\");\n  281      if (!args[0]->IsNumber())\n  282:       return NanThrowTypeError(\"Option must be an integer\");\n  283      int option = args[0]->Int32Value();\n  284  \n  285      Context *context = GetContext(args);\n  286      int value = zmq_ctx_get(context->context_, option);\n  287:     NanReturnValue(NanNew<Integer>(value));\n  288    }\n  289  #endif\n  ...\n  346  \n  347      if (!args[1]->IsNumber()) {\n  348:       return NanThrowTypeError(\"Type must be an integer\");\n  349      }\n  350  \n  351:     int type = (int) args[1]->ToInteger()->Value();\n  352  \n  353      Socket *socket = new Socket(context, type);\n  ...\n  403  \n  404        Local<Value> argv[3];\n  405:       argv[0] = NanNew<Integer>(event_id);\n  406:       argv[1] = NanNew<Integer>(event_value);\n  407        argv[2] = NanNew<String>(event_endpoint);\n  408  \n  ...\n  523      NanScope();\n  524      Socket* socket = ObjectWrap::Unwrap<Socket>(args.Holder());\n  525:     NanReturnValue(NanNew<Integer>(socket->state_));\n  526    }\n  527  \n  ...\n  529      NanScope();\n  530      Socket* socket = ObjectWrap::Unwrap<Socket>(args.Holder());\n  531:     NanReturnValue(NanNew<Integer>(socket->pending_));\n  532    }\n  533  \n  ...\n  535      NanScope();\n  536      if (!value->IsNumber()) {\n  537:       NanThrowTypeError(\"Pending must be an integer\");\n  538      }\n  539  \n  ...\n  564    Handle<Value> Socket::SetSockOpt(int option, Handle<Value> wrappedValue) {\n  565      if (!wrappedValue->IsNumber()) {\n  566:       NanThrowError(\"Value must be an integer\");\n  567        return NanUndefined();\n  568      }\n  569:     T value = (T) wrappedValue->ToInteger()->Value();\n  570      if (zmq_setsockopt(socket_, option, &value, sizeof(T)) < 0)\n  571        NanThrowError(ExceptionFromError());\n  ...\n  603        return NanThrowError(\"Must pass an option\");\n  604      if (!args[0]->IsNumber())\n  605:       return NanThrowTypeError(\"Option must be an integer\");\n  606:     int64_t option = args[0]->ToInteger()->Value();\n  607  \n  608      GET_SOCKET(args);\n  ...\n  628        return NanThrowError(\"Must pass an option and a value\");\n  629      if (!args[0]->IsNumber())\n  630:        return NanThrowTypeError(\"Option must be an integer\");\n  631:     int64_t option = args[0]->ToInteger()->Value();\n  632      GET_SOCKET(args);\n  633  \n  ...\n  930        if (!args[0]->IsUndefined()) {\n  931          if (!args[0]->IsNumber())\n  932:           return NanThrowTypeError(\"Option must be an integer\");\n  933:         timer_interval = args[0]->ToInteger()->Value();\n  934          if (timer_interval <= 0)\n  935:           return NanThrowTypeError(\"Option must be a positive integer\");\n  936        }\n  937      }\n  ...\n  974      if (argc == 1) {\n  975        if (!args[0]->IsNumber())\n  976:         return NanThrowTypeError(\"Argument should be an integer\");\n  977:       flags = args[0]->ToInteger()->Value();\n  978      } else if (argc != 0) {\n  979        return NanThrowTypeError(\"Only one argument at most was expected\");\n  ...\n 1075      if (argc == 2) {\n 1076        if (!args[1]->IsNumber())\n 1077:         return NanThrowTypeError(\"Second argument should be an integer\");\n 1078:       flags = args[1]->ToInteger()->Value();\n 1079      }\n 1080  \n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/zmq/build/Release/zmq.node:\n    <binary>\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/zmq/build/Release/obj.target/zmq.node:\n    <binary>\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/zmq/node_modules/nan/CHANGELOG.md:\n   50   - Performance: Removed superfluous scope in NanAsyncWorker f4b7821\n   51   - Sugar/Feature: Added NanReturnThis() and NanReturnHolder() shorthands 237a5ff, d697208\n   52:  - Feature: Added suitable overload of NanNew for v8::Integer::NewFromUnsigned b27b450\n   53  \n   54  ### 1.3.0 Aug 2 2014\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/zmq/node_modules/nan/README.md:\n  916  ### uint32_t NanUInt32OptionValue(Handle&lt;Value&gt;, Handle&lt;String&gt;, uint32_t)\n  917  \n  918: Similar to `NanBooleanOptionValue`, use `NanUInt32OptionValue` to fetch an integer option from your options object. Can be any kind of JavaScript `Number` and it will be coerced to an unsigned 32-bit integer.\n  919  \n  920  Requires all 3 arguments as a default is not optional:\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/zmq/node_modules/nan/nan.h:\n  204  \n  205  # define _NAN_PROPERTY_QUERY_ARGS_TYPE                                         \\\n  206:     const v8::PropertyCallbackInfo<v8::Integer>&\n  207  # define _NAN_PROPERTY_QUERY_ARGS _NAN_PROPERTY_QUERY_ARGS_TYPE args\n  208  # define _NAN_PROPERTY_QUERY_RETURN_TYPE void\n  ...\n  229  \n  230  # define _NAN_INDEX_QUERY_ARGS_TYPE                                            \\\n  231:     const v8::PropertyCallbackInfo<v8::Integer>&\n  232  # define _NAN_INDEX_QUERY_ARGS _NAN_INDEX_QUERY_ARGS_TYPE args\n  233  # define _NAN_INDEX_QUERY_RETURN_TYPE void\n  ...\n  462      v8::Local<v8::Value> err = v8::Exception::Error(NanNew<v8::String>(msg));\n  463      v8::Local<v8::Object> obj = err.As<v8::Object>();\n  464:     obj->Set(NanNew<v8::String>(\"code\"), NanNew<v8::Integer>(errorNumber));\n  465      return err;\n  466    }\n  ...\n  744  # define _NAN_PROPERTY_QUERY_ARGS_TYPE const v8::AccessorInfo&\n  745  # define _NAN_PROPERTY_QUERY_ARGS _NAN_PROPERTY_QUERY_ARGS_TYPE args\n  746: # define _NAN_PROPERTY_QUERY_RETURN_TYPE v8::Handle<v8::Integer>\n  747  \n  748  # define _NAN_INDEX_GETTER_ARGS_TYPE const v8::AccessorInfo&\n  ...\n  764  # define _NAN_INDEX_QUERY_ARGS_TYPE const v8::AccessorInfo&\n  765  # define _NAN_INDEX_QUERY_ARGS _NAN_INDEX_QUERY_ARGS_TYPE args\n  766: # define _NAN_INDEX_QUERY_RETURN_TYPE v8::Handle<v8::Integer>\n  767  \n  768    NAN_DEPRECATED NAN_INLINE v8::Local<v8::String> NanSymbol(\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/zmq/node_modules/nan/nan_implementation_12_inl.h:\n  100  }\n  101  \n  102: //=== Integer, Int32 and Uint32 ================================================\n  103  \n  104  template <typename T>\n  105: typename IntegerFactory<T>::return_t\n  106: IntegerFactory<T>::New(int32_t value) {\n  107    return To<T>(T::New(v8::Isolate::GetCurrent(), value));\n  108  }\n  109  \n  110  template <typename T>\n  111: typename IntegerFactory<T>::return_t\n  112: IntegerFactory<T>::New(uint32_t value) {\n  113    return To<T>(T::NewFromUnsigned(v8::Isolate::GetCurrent(), value));\n  114  }\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/zmq/node_modules/nan/nan_implementation_pre_12_inl.h:\n  107  }\n  108  \n  109: //=== Integer, Int32 and Uint32 ================================================\n  110  \n  111  template <typename T>\n  112: typename IntegerFactory<T>::return_t\n  113: IntegerFactory<T>::New(int32_t value) {\n  114    return To<T>(T::New(value));\n  115  }\n  116  \n  117  template <typename T>\n  118: typename IntegerFactory<T>::return_t\n  119: IntegerFactory<T>::New(uint32_t value) {\n  120    return To<T>(T::NewFromUnsigned(value));\n  121  }\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/node_modules/zmq/node_modules/nan/nan_new.h:\n   21  \n   22  // TODO(agnat): Generalize\n   23: template <typename T> v8::Local<T> To(v8::Handle<v8::Integer> i);\n   24  \n   25  template <>\n   26  inline\n   27: v8::Local<v8::Integer>\n   28: To<v8::Integer>(v8::Handle<v8::Integer> i) { return i->ToInteger(); }\n   29  \n   30  template <>\n   31  inline\n   32  v8::Local<v8::Int32>\n   33: To<v8::Int32>(v8::Handle<v8::Integer> i)   { return i->ToInt32(); }\n   34  \n   35  template <>\n   36  inline\n   37  v8::Local<v8::Uint32>\n   38: To<v8::Uint32>(v8::Handle<v8::Integer> i)  { return i->ToUint32(); }\n   39  \n   40  template <typename T> struct FactoryBase { typedef v8::Local<T> return_t; };\n   ..\n   96  \n   97  template <typename T>\n   98: struct IntegerFactory : FactoryBase<T> {\n   99    typedef typename FactoryBase<T>::return_t return_t;\n  100    static inline return_t New(int32_t value);\n  ...\n  103  \n  104  template <>\n  105: struct Factory<v8::Integer> : IntegerFactory<v8::Integer> {};\n  106  \n  107  template <>\n  108: struct Factory<v8::Int32> : IntegerFactory<v8::Int32> {};\n  109  \n  110  template <>\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/ele2.js:\n 1170  //this.setEle = function(dataType, colHeaderName, rowHeaderName, data, x, y)\n 1171  \n 1172: // testEle.setEle(\"integer\", \"col1\", \"row1\", \"333.3\", 0, 0);\n 1173: // testEle.setEle(\"integer\", \"col1\", \"row1\", \"333\", 0, 0);\n 1174  \n 1175  // var myMatrix = new matrix();\n ....\n 1177  // myMatrix.printMatrix();\n 1178  \n 1179: // myMatrix.insertColumn(2, \"aaa\", \"integer\");\n 1180  // console.info(\"#############################################\")\n 1181  // myMatrix.printMatrix();\n ....\n 1191  \n 1192  var myMatrix = new matrix();\n 1193: myMatrix.insertColumn(0, \"aaa\", \"integer\");\n 1194  console.info(\"#############################################\")\n 1195  myMatrix.printMatrix();\n ....\n 1207  myMatrix.printMatrix();\n 1208  \n 1209: myMatrix.insertColumn(1, \"bbb\", \"integer\");\n 1210  console.info(\"#############################################\")\n 1211  myMatrix.printMatrix();\n ....\n 1253  \n 1254  var myMatrix = new matrix();\n 1255:     myMatrix.insertColumn(0, \"aaa\", \"integer\");\n 1256:     myMatrix.insertColumn(1, \"bbb\", \"integer\");\n 1257:     myMatrix.insertColumn(2, \"ccc\", \"integer\");\n 1258      //this.setMatrixData = function(data, x, y)\n 1259      myMatrix.setMatrixData(\"400\", 0, 0);\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/ele2.js.bak:\n   94      [\n   95          {\n   96:             name: \"integer\",\n   97:             comment: \"this is an integer\",\n   98              defaultValue: \"0\",\n   99              validate: function fun(n)\n  ...\n 1205  //this.setEle = function(dataType, colHeaderName, rowHeaderName, data, x, y)\n 1206  \n 1207: // testEle.setEle(\"integer\", \"col1\", \"row1\", \"333.3\", 0, 0);\n 1208: // testEle.setEle(\"integer\", \"col1\", \"row1\", \"333\", 0, 0);\n 1209  \n 1210  // var myMatrix = new matrix();\n ....\n 1212  // myMatrix.printMatrix();\n 1213  \n 1214: // myMatrix.insertColumn(2, \"aaa\", \"integer\");\n 1215  // console.info(\"#############################################\")\n 1216  // myMatrix.printMatrix();\n ....\n 1226  \n 1227  var myMatrix = new matrix();\n 1228: myMatrix.insertColumn(0, \"aaa\", \"integer\");\n 1229  console.info(\"#############################################\")\n 1230  myMatrix.printMatrix();\n ....\n 1242  myMatrix.printMatrix();\n 1243  \n 1244: myMatrix.insertColumn(1, \"bbb\", \"integer\");\n 1245  console.info(\"#############################################\")\n 1246  myMatrix.printMatrix();\n ....\n 1288  \n 1289  var myMatrix = new matrix();\n 1290:     myMatrix.insertColumn(0, \"aaa\", \"integer\");\n 1291:     myMatrix.insertColumn(1, \"bbb\", \"integer\");\n 1292:     myMatrix.insertColumn(2, \"ccc\", \"integer\");\n 1293      //this.setMatrixData = function(data, x, y)\n 1294      myMatrix.setMatrixData(\"400\", 0, 0);\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/handsontable.full.js:\n 1250     * @param {Number} col Index of column in which do you want to do splice.\n 1251     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 1252:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 1253     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 1254     */\n ....\n 1261     * @param {Number} row Index of column in which do you want to do splice.\n 1262     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 1263:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 1264     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 1265     */\n ....\n 4987     * @param {Number} col Index of column in which do you want to do splice.\n 4988     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 4989:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 4990     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 4991     */\n ....\n 5013     * @param {Number} row Index of row in which do you want to do splice.\n 5014     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 5015:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 5016     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 5017     */\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/handsontable.js:\n 1250     * @param {Number} col Index of column in which do you want to do splice.\n 1251     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 1252:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 1253     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 1254     */\n ....\n 1261     * @param {Number} row Index of column in which do you want to do splice.\n 1262     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 1263:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 1264     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 1265     */\n ....\n 4987     * @param {Number} col Index of column in which do you want to do splice.\n 4988     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 4989:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 4990     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 4991     */\n ....\n 5013     * @param {Number} row Index of row in which do you want to do splice.\n 5014     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 5015:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 5016     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 5017     */\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/jquery-1.11.1.js:\n 2357  				// We must always have either seed elements or outermost context\n 2358  				elems = seed || byElement && Expr.find[\"TAG\"]( \"*\", outermost ),\n 2359: 				// Use integer dirruns iff this is the outermost matcher\n 2360  				dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),\n 2361  				len = elems.length;\n ....\n 6157  \n 6158  		// Support: IE\n 6159: 		// IE returns zIndex value as an integer.\n 6160  		return ret === undefined ?\n 6161  			ret :\n ....\n 6209  \n 6210  		// Support: IE\n 6211: 		// IE returns zIndex value as an integer.\n 6212  		return ret === undefined ?\n 6213  			ret :\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/jquery.fileupload.js:\n  114              singleFileUploads: true,\n  115              // To limit the number of files uploaded with one XHR request,\n  116:             // set the following option to an integer greater than 0:\n  117              limitMultiFileUploads: undefined,\n  118              // The following option limits the number of files uploaded with one\n  ...\n  128              sequentialUploads: false,\n  129              // To limit the number of concurrent uploads,\n  130:             // set the following option to an integer greater than 0:\n  131              limitConcurrentUploads: undefined,\n  132              // Set the following option to true to force iframe transport uploads:\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/jquery.js:\n 2357  				// We must always have either seed elements or outermost context\n 2358  				elems = seed || byElement && Expr.find[\"TAG\"]( \"*\", outermost ),\n 2359: 				// Use integer dirruns iff this is the outermost matcher\n 2360  				dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),\n 2361  				len = elems.length;\n ....\n 6157  \n 6158  		// Support: IE\n 6159: 		// IE returns zIndex value as an integer.\n 6160  		return ret === undefined ?\n 6161  			ret :\n ....\n 6209  \n 6210  		// Support: IE\n 6211: 		// IE returns zIndex value as an integer.\n 6212  		return ret === undefined ?\n 6213  			ret :\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/jsonform.js:\n 2402      }\n 2403      if ((eltSchema.type === 'number') ||\n 2404:       (eltSchema.type === 'integer')) {\n 2405        if (_.isString(formArray[i].value)) {\n 2406          if (!formArray[i].value.length) {\n ....\n 3087          formElement.type = 'color';\n 3088        } else if ((schemaElement.type === 'number' ||\n 3089:           schemaElement.type === 'integer' ||\n 3090            schemaElement.type === 'string' ||\n 3091            schemaElement.type === 'any') &&\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/jsv.js:\n 2148  		},\n 2149  \n 2150: 		\"integer\" : function (instance, report) {\n 2151  			return instance.getType() === \"number\" && instance.getValue() % 1 === 0;\n 2152  		},\n ....\n 2494  \n 2495  			\"minItems\" : {\n 2496: 				\"type\" : \"integer\",\n 2497  				\"optional\" : true,\n 2498  				\"minimum\" : 0,\n ....\n 2519  \n 2520  			\"maxItems\" : {\n 2521: 				\"type\" : \"integer\",\n 2522  				\"optional\" : true,\n 2523  				\"minimum\" : 0,\n ....\n 2571  \n 2572  			\"minLength\" : {\n 2573: 				\"type\" : \"integer\",\n 2574  				\"optional\" : true,\n 2575  				\"minimum\" : 0,\n ....\n 2596  \n 2597  			\"maxLength\" : {\n 2598: 				\"type\" : \"integer\",\n 2599  				\"optional\" : true,\n 2600  \n ....\n 2706  \n 2707  			\"maxDecimal\" : {\n 2708: 				\"type\" : \"integer\",\n 2709  				\"optional\" : true,\n 2710  				\"minimum\" : 0,\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/test4.js:\n 1092      \n 1093  \n 1094:     // myMatrix.insertColumn(3, \"ddd\", \"integer\");\n 1095      // myMatrix.insertColumn(4, \"eee\", \"float\");\n 1096      // myMatrix.insertColumn(5, \"fff\", \"string\");\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/underscore.js:\n  446    };\n  447  \n  448:   // Generate an integer Array containing an arithmetic progression. A port of\n  449    // the native Python `range()` function. See\n  450    // [the Python documentation](http://docs.python.org/library/functions.html#range).\n  ...\n  904    };\n  905  \n  906:   // Generate a unique integer id (unique within the entire client session).\n  907    // Useful for temporary DOM ids.\n  908    var idCounter = 0;\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/expressionHandle.py:\n   55  #     rowNum = sheet['rowNum']\n   56  #     matrix = sheet['matrix']        \n   57: #     elePattern = {u'writeable': False, u'colHeaderName': u'', u'dataType': u'integer', u'init': True, u'rowHeaderName': u'', u'data': u''}   \n   58  #     for i in range(0, rowNum):\n   59  #         ele = elePattern\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/receiver.py:\n  100  \n  101  # def main():\n  102: #     message = '{\"targetVarName\":\"rr\",\"expression\":\"kkk+ccc\",\"matrix\":{\"colNum\":3,\"rowNum\":4,\"matrix\":[[{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"kkk\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"400\"},{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"bbb\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"401\"},{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"ccc\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"402\"}],[{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"kkk\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"500\"},{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"bbb\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"501\"},{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"ccc\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"0\"}],[{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"kkk\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"0\"},{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"bbb\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"601\"},{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"ccc\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"0\"}],[{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"kkk\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"0\"},{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"bbb\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"701\"},{\"init\":true,\"dataType\":\"integer\",\"colHeaderName\":\"ccc\",\"rowHeaderName\":\"\",\"writeable\":false,\"data\":\"0\"}]]}}'\n  103  #     parseMsg(message)\n  104  \n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/views/bootstrap.html:\n  131  				</li>\n  132  				<li>\n  133: 					Integer molestie lorem at massa\n  134  				</li>\n  135  				<li>\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/views/index.html:\n   36      <div id=\"contentliquid\"><div id=\"hot\">\n   37             <!--\n   38: 		   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. </p><p>Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. </p><p>Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. </p>\n   39       -->\n   40     </div></div>\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/views/index.jade:\n   24          #hot\n   25            //\n   26:             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. </p><p>Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. </p><p>Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. </p>\n   27        | &#x9;   \n   28        |     \n   ..\n  102        #rightcolumn\n  103          //\n  104:           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>\n  105          form#editFrm(name='editForm')\n  106      | &#x9;\n\n/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/views/index.jade.work.2.4:\n   24          #hot\n   25            //\n   26:             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. </p><p>Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. </p><p>Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. </p>\n   27        | &#x9;   \n   28        |     \n   ..\n  102        #rightcolumn\n  103          //\n  104:           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>\n  105          form#editFrm(name='editForm')\n  106      | &#x9;\n\n463 matches across 69 files\n\n\nSearching 35 files for \"integer\"\n\n/root/myapp/public/javascripts/ele2.js:\n 1170  //this.setEle = function(dataType, colHeaderName, rowHeaderName, data, x, y)\n 1171  \n 1172: // testEle.setEle(\"integer\", \"col1\", \"row1\", \"333.3\", 0, 0);\n 1173: // testEle.setEle(\"integer\", \"col1\", \"row1\", \"333\", 0, 0);\n 1174  \n 1175  // var myMatrix = new matrix();\n ....\n 1177  // myMatrix.printMatrix();\n 1178  \n 1179: // myMatrix.insertColumn(2, \"aaa\", \"integer\");\n 1180  // console.info(\"#############################################\")\n 1181  // myMatrix.printMatrix();\n ....\n 1191  \n 1192  var myMatrix = new matrix();\n 1193: myMatrix.insertColumn(0, \"aaa\", \"integer\");\n 1194  console.info(\"#############################################\")\n 1195  myMatrix.printMatrix();\n ....\n 1207  myMatrix.printMatrix();\n 1208  \n 1209: myMatrix.insertColumn(1, \"bbb\", \"integer\");\n 1210  console.info(\"#############################################\")\n 1211  myMatrix.printMatrix();\n ....\n 1253  \n 1254  var myMatrix = new matrix();\n 1255:     myMatrix.insertColumn(0, \"aaa\", \"integer\");\n 1256:     myMatrix.insertColumn(1, \"bbb\", \"integer\");\n 1257:     myMatrix.insertColumn(2, \"ccc\", \"integer\");\n 1258      //this.setMatrixData = function(data, x, y)\n 1259      myMatrix.setMatrixData(\"400\", 0, 0);\n\n/root/myapp/public/javascripts/ele2.js.bak:\n   94      [\n   95          {\n   96:             name: \"integer\",\n   97:             comment: \"this is an integer\",\n   98              defaultValue: \"0\",\n   99              validate: function fun(n)\n  ...\n 1205  //this.setEle = function(dataType, colHeaderName, rowHeaderName, data, x, y)\n 1206  \n 1207: // testEle.setEle(\"integer\", \"col1\", \"row1\", \"333.3\", 0, 0);\n 1208: // testEle.setEle(\"integer\", \"col1\", \"row1\", \"333\", 0, 0);\n 1209  \n 1210  // var myMatrix = new matrix();\n ....\n 1212  // myMatrix.printMatrix();\n 1213  \n 1214: // myMatrix.insertColumn(2, \"aaa\", \"integer\");\n 1215  // console.info(\"#############################################\")\n 1216  // myMatrix.printMatrix();\n ....\n 1226  \n 1227  var myMatrix = new matrix();\n 1228: myMatrix.insertColumn(0, \"aaa\", \"integer\");\n 1229  console.info(\"#############################################\")\n 1230  myMatrix.printMatrix();\n ....\n 1242  myMatrix.printMatrix();\n 1243  \n 1244: myMatrix.insertColumn(1, \"bbb\", \"integer\");\n 1245  console.info(\"#############################################\")\n 1246  myMatrix.printMatrix();\n ....\n 1288  \n 1289  var myMatrix = new matrix();\n 1290:     myMatrix.insertColumn(0, \"aaa\", \"integer\");\n 1291:     myMatrix.insertColumn(1, \"bbb\", \"integer\");\n 1292:     myMatrix.insertColumn(2, \"ccc\", \"integer\");\n 1293      //this.setMatrixData = function(data, x, y)\n 1294      myMatrix.setMatrixData(\"400\", 0, 0);\n\n/root/myapp/public/javascripts/handsontable.full.js:\n 1250     * @param {Number} col Index of column in which do you want to do splice.\n 1251     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 1252:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 1253     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 1254     */\n ....\n 1261     * @param {Number} row Index of column in which do you want to do splice.\n 1262     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 1263:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 1264     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 1265     */\n ....\n 4987     * @param {Number} col Index of column in which do you want to do splice.\n 4988     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 4989:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 4990     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 4991     */\n ....\n 5013     * @param {Number} row Index of row in which do you want to do splice.\n 5014     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 5015:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 5016     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 5017     */\n\n/root/myapp/public/javascripts/handsontable.js:\n 1250     * @param {Number} col Index of column in which do you want to do splice.\n 1251     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 1252:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 1253     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 1254     */\n ....\n 1261     * @param {Number} row Index of column in which do you want to do splice.\n 1262     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 1263:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 1264     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 1265     */\n ....\n 4987     * @param {Number} col Index of column in which do you want to do splice.\n 4988     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 4989:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 4990     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 4991     */\n ....\n 5013     * @param {Number} row Index of row in which do you want to do splice.\n 5014     * @param {Number} index Index at which to start changing the array. If negative, will begin that many elements from the end\n 5015:    * @param {Number} amount An integer indicating the number of old array elements to remove. If amount is 0, no elements are removed\n 5016     * param {...*} elements Optional. The elements to add to the array. If you don't specify any elements, spliceCol simply removes elements from the array\n 5017     */\n\n/root/myapp/public/javascripts/jquery-1.11.1.js:\n 2357  				// We must always have either seed elements or outermost context\n 2358  				elems = seed || byElement && Expr.find[\"TAG\"]( \"*\", outermost ),\n 2359: 				// Use integer dirruns iff this is the outermost matcher\n 2360  				dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),\n 2361  				len = elems.length;\n ....\n 6157  \n 6158  		// Support: IE\n 6159: 		// IE returns zIndex value as an integer.\n 6160  		return ret === undefined ?\n 6161  			ret :\n ....\n 6209  \n 6210  		// Support: IE\n 6211: 		// IE returns zIndex value as an integer.\n 6212  		return ret === undefined ?\n 6213  			ret :\n\n/root/myapp/public/javascripts/jquery.fileupload.js:\n  114              singleFileUploads: true,\n  115              // To limit the number of files uploaded with one XHR request,\n  116:             // set the following option to an integer greater than 0:\n  117              limitMultiFileUploads: undefined,\n  118              // The following option limits the number of files uploaded with one\n  ...\n  128              sequentialUploads: false,\n  129              // To limit the number of concurrent uploads,\n  130:             // set the following option to an integer greater than 0:\n  131              limitConcurrentUploads: undefined,\n  132              // Set the following option to true to force iframe transport uploads:\n\n/root/myapp/public/javascripts/jquery.js:\n 2357  				// We must always have either seed elements or outermost context\n 2358  				elems = seed || byElement && Expr.find[\"TAG\"]( \"*\", outermost ),\n 2359: 				// Use integer dirruns iff this is the outermost matcher\n 2360  				dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),\n 2361  				len = elems.length;\n ....\n 6157  \n 6158  		// Support: IE\n 6159: 		// IE returns zIndex value as an integer.\n 6160  		return ret === undefined ?\n 6161  			ret :\n ....\n 6209  \n 6210  		// Support: IE\n 6211: 		// IE returns zIndex value as an integer.\n 6212  		return ret === undefined ?\n 6213  			ret :\n\n/root/myapp/public/javascripts/jsonform.js:\n 2402      }\n 2403      if ((eltSchema.type === 'number') ||\n 2404:       (eltSchema.type === 'integer')) {\n 2405        if (_.isString(formArray[i].value)) {\n 2406          if (!formArray[i].value.length) {\n ....\n 3087          formElement.type = 'color';\n 3088        } else if ((schemaElement.type === 'number' ||\n 3089:           schemaElement.type === 'integer' ||\n 3090            schemaElement.type === 'string' ||\n 3091            schemaElement.type === 'any') &&\n\n/root/myapp/public/javascripts/jsv.js:\n 2148  		},\n 2149  \n 2150: 		\"integer\" : function (instance, report) {\n 2151  			return instance.getType() === \"number\" && instance.getValue() % 1 === 0;\n 2152  		},\n ....\n 2494  \n 2495  			\"minItems\" : {\n 2496: 				\"type\" : \"integer\",\n 2497  				\"optional\" : true,\n 2498  				\"minimum\" : 0,\n ....\n 2519  \n 2520  			\"maxItems\" : {\n 2521: 				\"type\" : \"integer\",\n 2522  				\"optional\" : true,\n 2523  				\"minimum\" : 0,\n ....\n 2571  \n 2572  			\"minLength\" : {\n 2573: 				\"type\" : \"integer\",\n 2574  				\"optional\" : true,\n 2575  				\"minimum\" : 0,\n ....\n 2596  \n 2597  			\"maxLength\" : {\n 2598: 				\"type\" : \"integer\",\n 2599  				\"optional\" : true,\n 2600  \n ....\n 2706  \n 2707  			\"maxDecimal\" : {\n 2708: 				\"type\" : \"integer\",\n 2709  				\"optional\" : true,\n 2710  				\"minimum\" : 0,\n\n/root/myapp/public/javascripts/test4.js:\n 1092      \n 1093  \n 1094:     // myMatrix.insertColumn(3, \"ddd\", \"integer\");\n 1095      // myMatrix.insertColumn(4, \"eee\", \"float\");\n 1096      // myMatrix.insertColumn(5, \"fff\", \"string\");\n\n/root/myapp/public/javascripts/underscore.js:\n  446    };\n  447  \n  448:   // Generate an integer Array containing an arithmetic progression. A port of\n  449    // the native Python `range()` function. See\n  450    // [the Python documentation](http://docs.python.org/library/functions.html#range).\n  ...\n  904    };\n  905  \n  906:   // Generate a unique integer id (unique within the entire client session).\n  907    // Useful for temporary DOM ids.\n  908    var idCounter = 0;\n\n45 matches across 11 files\n",
-			"settings":
-			{
-				"buffer_size": 97218,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "public/javascripts/ele2.js",
-			"settings":
-			{
-				"buffer_size": 34690,
+				"buffer_size": 732,
 				"line_ending": "Windows"
 			}
 		}
@@ -202,16 +240,16 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "jsf",
+		"last_filter": "install",
 		"selected_items":
 		[
 			[
-				"jsf",
-				"Javascript Beautify"
-			],
-			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"jsf",
+				"Javascript Beautify"
 			],
 			[
 				"install package",
@@ -222,7 +260,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 464.0
+		"width": 528.0
 	},
 	"console":
 	{
@@ -243,17 +281,35 @@
 	},
 	"expanded_folders":
 	[
-		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp",
-		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart",
-		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/method"
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/method"
 	],
 	"file_history":
 	[
-		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/sheetHandle.py",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/routes/computing.js",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/routes/normalComputingPage.js",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/routes/matrixLocalStorageHandle.js",
+		"/D/userdata/vdmc34/Application Data/Sublime Text 3/Packages/JsFormat/JsFormat.sublime-settings",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/app.js",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/biaoZhunHua.js",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/views/biaoZhunHua.html",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/computing.html",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/views/index.html",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/test4.js",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/expressionHandle.py",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/receiver.py",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/javascripts/ele2.js",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/method/gyzsf_jiZhiFa.py",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/method/gyzsf_junZhiFa.py",
+		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/sheetHandle.py",
 		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/stylesheets/14423.css.bak",
 		"/D/work/ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/public/stylesheets/14423.css",
 		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/views/biaoZhunHua.html",
 		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/biaoZhunFaformula.json",
+		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/sheetHandle.py",
 		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/method/gyzsf_jiZhiFa.py",
 		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/method/gyzsf_junZhiFa.py",
 		"/media/sf_ubuntu_shared/work_under_linux/node.js/zhy_1/express_fileUpload/test1/myapp/pythonPart/expressionHandle.py",
@@ -296,14 +352,13 @@
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
 		"height": 102.0,
 		"where_history":
 		[
-			"-.tags,/root/myapp/public/javascripts",
 			"-.tags",
 			""
 		]
@@ -313,13 +368,72 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"columDataClicked",
+			"attachButtonClickHandlers",
+			"colHeaderList",
+			"colNameList",
+			"loca",
 			"9999",
+			"origDataStr",
+			"computedMatrix",
+			"saveMatr",
+			"loadMatrixFromLocalStorage",
+			"Sheet",
+			"sheet",
+			"local",
+			"biaoZhunHuaMatrix",
+			"getMatrixData",
+			"generateColumListButton",
+			"columDataSelected",
+			"attachCheckboxHandlers",
+			"generaterColumList",
+			"attachCheckboxHandlers",
+			"setCurrentSelectFormular",
+			"refreshCheckBox",
+			"initSelectedSourceDataList",
+			"columDataSelected",
+			"columDataClicked",
+			"selectedSouceDataListAdd",
+			"clearSelectedSourceDataList",
+			"initSelectedSourceDataList",
+			"getFormulaConfFromServer",
+			"initSelectedSourceDataList",
+			"getMatrixData",
+			"numericExpressions",
+			"computing",
+			"normalComputingPage",
+			"routes",
+			"biaoZhunHuaPage",
+			"normalComputingPage",
+			"computingPage",
+			"comput",
+			"var",
+			"getNColumnByVarName",
 			"computingFnSheet",
 			"computingnSheet",
-			"float",
-			"integer",
-			"isRealDataTypeValide",
-			"parseFloat",
+			"expressionHandle",
+			"computingnSheet",
+			"computingFnSheet",
+			"deleteColumn",
+			"deleteColnum",
+			"_",
+			"deleteColumn",
+			"insert",
+			"append",
+			"insert",
+			"deletecol",
+			"getCol",
+			"generateDeleteColForm",
+			"deleteCol",
+			"deleteColumn",
+			"del",
+			"checkDataValide",
+			"getele",
+			"verif",
+			"validate",
+			"matrix",
+			"valide",
+			"9999",
 			"sessionStorage",
 			"purify",
 			"hover",
@@ -381,66 +495,7 @@
 			"val",
 			"inputSrcDataText",
 			"targetNameText",
-			"inputSrcDataText",
-			"addCheckedFormularIntoList",
-			"attachCheckboxHandlers",
-			"generateParameterHintForm",
-			"currentFormular",
-			"generateParameterHintForm",
-			"getMatrixData",
-			"generateParameterHintForm",
-			"colName",
-			"modifyExpression",
-			"generateParameterHintForm",
-			"onClick",
-			"generateColumListButton",
-			"generaterColumList",
-			"button",
-			"selectedSouceDataListAdd",
-			"parameterSubmit",
-			"selectedSouceDataListAdd",
-			"input type=\"text\"",
-			"suffixName",
-			"attachCheckboxHandlers",
-			"parameterList",
-			"insertFor",
-			"insertForm",
-			"blockUI",
-			"parameterHintFrm",
-			"generateParameterHintForm",
-			"selectedSourceDataList",
-			"selectedSouceDataListAdd",
-			"generaterFormularExpressionList",
-			"generaterFo",
-			"generaterFormularExpressionList",
-			"formular",
-			"generateParameterHintForm",
-			"key",
-			"suffixNameText",
-			"suffixName",
-			"generateLoadForm",
-			"generateParameterHintForm",
-			"appendStr",
-			"append",
-			"Append",
-			"append",
-			"unblockUI",
-			"generaterFormularExpressionList",
-			"save",
-			"find",
-			"getFormularConfByName",
-			"currentFormular",
-			"showFormulaList",
-			"selectedSouceDataListAdd",
-			"selectedSourceDataList",
-			"expressionListStr",
-			"currentFormular",
-			"getFormulaConfFromServer",
-			"currentFormular",
-			"formularName",
-			"showFormulaList",
-			"generaterColumList",
-			"toGetBiaoZhunFaExpress"
+			"inputSrcDataText"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -460,67 +515,51 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/javascripts/biaoZhunHua.js",
+					"file": "public/javascripts/computing.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21885,
+						"buffer_size": 8586,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2157,
-								2157
+								922,
+								922
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
-							"auto_complete": false,
 							"bh_regions":
 							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -531,16 +570,31 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
@@ -548,286 +602,15 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 964.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2424,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2395,
-								2395
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 969.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "views/biaoZhunHua.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3922,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								999,
-								999
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"auto_complete": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
-							"is_xml": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 194.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "pythonPart/receiver.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4246,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								766,
-								766
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 399.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/javascripts/computing.html",
+					"file": "views/computing.html",
 					"semi_transient": false,
 					"settings":
 					{
@@ -851,8 +634,8 @@
 						"selection":
 						[
 							[
-								7366,
-								7366
+								6512,
+								3569
 							]
 						],
 						"settings":
@@ -860,61 +643,61 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"is_xml": false,
@@ -922,117 +705,40 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3078.0,
+						"translation.y": 1520.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "public/javascripts/computing.js",
+					"buffer": 2,
+					"file": "views/normalComputing.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8586,
+						"buffer_size": 7502,
 						"regions":
 						{
+							"TagLint":
+							{
+								"flags": 2356,
+								"icon": "dot",
+								"regions":
+								[
+									[
+										3123,
+										3129
+									]
+								],
+								"scope": "variable.parameter"
+							}
 						},
 						"selection":
 						[
 							[
-								1687,
-								1687
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
-							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1140.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "views/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7934,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5286,
-								5286
+								6255,
+								6255
 							]
 						],
 						"settings":
@@ -1041,61 +747,61 @@
 							"auto_complete": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"is_xml": false,
@@ -1104,2353 +810,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 600.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "public/javascripts/test4.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 48368,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								35793,
-								35793
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"auto_complete": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 19955.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "pythonPart/expressionHandle.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4184,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2550,
-								2550
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1335.0,
+						"translation.y": 1740.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "pythonPart/method/gyzsf_jiZhiFa.py",
+					"buffer": 3,
+					"file": "public/javascripts/normalComputing.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1233,
+						"buffer_size": 1781,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 97218,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										302,
-										333
-									],
-									[
-										543,
-										574
-									],
-									[
-										794,
-										825
-									],
-									[
-										1149,
-										1169
-									],
-									[
-										1284,
-										1304
-									],
-									[
-										1493,
-										1513
-									],
-									[
-										1761,
-										1781
-									],
-									[
-										1994,
-										2014
-									],
-									[
-										2420,
-										2427
-									],
-									[
-										2802,
-										2809
-									],
-									[
-										3022,
-										3029
-									],
-									[
-										3388,
-										3395
-									],
-									[
-										3777,
-										3784
-									],
-									[
-										3959,
-										3966
-									],
-									[
-										4281,
-										4288
-									],
-									[
-										4658,
-										4665
-									],
-									[
-										4849,
-										4856
-									],
-									[
-										4931,
-										4938
-									],
-									[
-										5024,
-										5031
-									],
-									[
-										5151,
-										5158
-									],
-									[
-										5166,
-										5173
-									],
-									[
-										5485,
-										5492
-									],
-									[
-										5503,
-										5510
-									],
-									[
-										5743,
-										5750
-									],
-									[
-										6254,
-										6261
-									],
-									[
-										6412,
-										6419
-									],
-									[
-										6789,
-										6796
-									],
-									[
-										6980,
-										6987
-									],
-									[
-										7062,
-										7069
-									],
-									[
-										7155,
-										7162
-									],
-									[
-										7282,
-										7289
-									],
-									[
-										7297,
-										7304
-									],
-									[
-										7787,
-										7794
-									],
-									[
-										7945,
-										7952
-									],
-									[
-										8322,
-										8329
-									],
-									[
-										8513,
-										8520
-									],
-									[
-										8595,
-										8602
-									],
-									[
-										8688,
-										8695
-									],
-									[
-										8815,
-										8822
-									],
-									[
-										8830,
-										8837
-									],
-									[
-										9344,
-										9351
-									],
-									[
-										9765,
-										9772
-									],
-									[
-										10089,
-										10096
-									],
-									[
-										10107,
-										10114
-									],
-									[
-										10541,
-										10548
-									],
-									[
-										10819,
-										10826
-									],
-									[
-										10984,
-										10991
-									],
-									[
-										11335,
-										11342
-									],
-									[
-										11502,
-										11509
-									],
-									[
-										11652,
-										11659
-									],
-									[
-										11686,
-										11693
-									],
-									[
-										11856,
-										11863
-									],
-									[
-										11873,
-										11880
-									],
-									[
-										12081,
-										12088
-									],
-									[
-										12144,
-										12151
-									],
-									[
-										12488,
-										12495
-									],
-									[
-										12506,
-										12513
-									],
-									[
-										12631,
-										12638
-									],
-									[
-										12684,
-										12691
-									],
-									[
-										12848,
-										12855
-									],
-									[
-										12912,
-										12919
-									],
-									[
-										13043,
-										13050
-									],
-									[
-										13132,
-										13139
-									],
-									[
-										13236,
-										13243
-									],
-									[
-										13336,
-										13343
-									],
-									[
-										13377,
-										13384
-									],
-									[
-										13424,
-										13431
-									],
-									[
-										13465,
-										13472
-									],
-									[
-										13588,
-										13595
-									],
-									[
-										13622,
-										13629
-									],
-									[
-										13738,
-										13745
-									],
-									[
-										13776,
-										13783
-									],
-									[
-										13952,
-										13959
-									],
-									[
-										13977,
-										13984
-									],
-									[
-										14008,
-										14015
-									],
-									[
-										14033,
-										14040
-									],
-									[
-										14135,
-										14142
-									],
-									[
-										14153,
-										14160
-									],
-									[
-										14215,
-										14222
-									],
-									[
-										14237,
-										14244
-									],
-									[
-										14487,
-										14494
-									],
-									[
-										14506,
-										14513
-									],
-									[
-										14525,
-										14532
-									],
-									[
-										14544,
-										14551
-									],
-									[
-										14638,
-										14645
-									],
-									[
-										14650,
-										14657
-									],
-									[
-										14682,
-										14689
-									],
-									[
-										14698,
-										14705
-									],
-									[
-										14871,
-										14878
-									],
-									[
-										15091,
-										15098
-									],
-									[
-										15312,
-										15319
-									],
-									[
-										15811,
-										15818
-									],
-									[
-										16043,
-										16050
-									],
-									[
-										16182,
-										16189
-									],
-									[
-										16302,
-										16309
-									],
-									[
-										16410,
-										16417
-									],
-									[
-										16675,
-										16682
-									],
-									[
-										16710,
-										16717
-									],
-									[
-										17164,
-										17171
-									],
-									[
-										17245,
-										17252
-									],
-									[
-										17372,
-										17379
-									],
-									[
-										17545,
-										17552
-									],
-									[
-										17701,
-										17708
-									],
-									[
-										17977,
-										17984
-									],
-									[
-										18465,
-										18472
-									],
-									[
-										18613,
-										18620
-									],
-									[
-										18970,
-										18977
-									],
-									[
-										19233,
-										19240
-									],
-									[
-										19442,
-										19449
-									],
-									[
-										19589,
-										19596
-									],
-									[
-										20197,
-										20204
-									],
-									[
-										20280,
-										20287
-									],
-									[
-										20994,
-										21001
-									],
-									[
-										21326,
-										21333
-									],
-									[
-										21682,
-										21689
-									],
-									[
-										21935,
-										21942
-									],
-									[
-										22168,
-										22175
-									],
-									[
-										22749,
-										22756
-									],
-									[
-										22890,
-										22897
-									],
-									[
-										22915,
-										22922
-									],
-									[
-										23143,
-										23150
-									],
-									[
-										23169,
-										23176
-									],
-									[
-										23620,
-										23627
-									],
-									[
-										23730,
-										23737
-									],
-									[
-										24077,
-										24084
-									],
-									[
-										24473,
-										24480
-									],
-									[
-										24836,
-										24843
-									],
-									[
-										25034,
-										25041
-									],
-									[
-										25466,
-										25473
-									],
-									[
-										25992,
-										25999
-									],
-									[
-										26210,
-										26217
-									],
-									[
-										26432,
-										26439
-									],
-									[
-										26533,
-										26540
-									],
-									[
-										26712,
-										26719
-									],
-									[
-										27058,
-										27065
-									],
-									[
-										27189,
-										27196
-									],
-									[
-										27344,
-										27351
-									],
-									[
-										27543,
-										27550
-									],
-									[
-										27776,
-										27783
-									],
-									[
-										27992,
-										27999
-									],
-									[
-										28398,
-										28405
-									],
-									[
-										28599,
-										28606
-									],
-									[
-										28736,
-										28743
-									],
-									[
-										28795,
-										28802
-									],
-									[
-										28895,
-										28902
-									],
-									[
-										28954,
-										28961
-									],
-									[
-										29035,
-										29042
-									],
-									[
-										29077,
-										29084
-									],
-									[
-										29215,
-										29222
-									],
-									[
-										29494,
-										29501
-									],
-									[
-										29662,
-										29669
-									],
-									[
-										29700,
-										29707
-									],
-									[
-										30170,
-										30177
-									],
-									[
-										30291,
-										30298
-									],
-									[
-										30408,
-										30415
-									],
-									[
-										30747,
-										30754
-									],
-									[
-										31085,
-										31092
-									],
-									[
-										31333,
-										31340
-									],
-									[
-										31648,
-										31655
-									],
-									[
-										31937,
-										31944
-									],
-									[
-										32017,
-										32024
-									],
-									[
-										32140,
-										32147
-									],
-									[
-										32345,
-										32352
-									],
-									[
-										32747,
-										32754
-									],
-									[
-										33040,
-										33047
-									],
-									[
-										33177,
-										33184
-									],
-									[
-										33665,
-										33672
-									],
-									[
-										33839,
-										33846
-									],
-									[
-										34185,
-										34192
-									],
-									[
-										34309,
-										34316
-									],
-									[
-										34787,
-										34794
-									],
-									[
-										35034,
-										35041
-									],
-									[
-										35211,
-										35218
-									],
-									[
-										35619,
-										35626
-									],
-									[
-										35707,
-										35714
-									],
-									[
-										35747,
-										35754
-									],
-									[
-										36062,
-										36069
-									],
-									[
-										36514,
-										36521
-									],
-									[
-										36728,
-										36735
-									],
-									[
-										36968,
-										36975
-									],
-									[
-										37143,
-										37150
-									],
-									[
-										37404,
-										37411
-									],
-									[
-										37745,
-										37752
-									],
-									[
-										38024,
-										38031
-									],
-									[
-										38566,
-										38573
-									],
-									[
-										38932,
-										38939
-									],
-									[
-										39139,
-										39146
-									],
-									[
-										39481,
-										39488
-									],
-									[
-										39858,
-										39865
-									],
-									[
-										40049,
-										40056
-									],
-									[
-										40131,
-										40138
-									],
-									[
-										40224,
-										40231
-									],
-									[
-										40351,
-										40358
-									],
-									[
-										40366,
-										40373
-									],
-									[
-										40721,
-										40728
-									],
-									[
-										41098,
-										41105
-									],
-									[
-										41289,
-										41296
-									],
-									[
-										41371,
-										41378
-									],
-									[
-										41464,
-										41471
-									],
-									[
-										41591,
-										41598
-									],
-									[
-										41606,
-										41613
-									],
-									[
-										42083,
-										42090
-									],
-									[
-										42504,
-										42511
-									],
-									[
-										42791,
-										42798
-									],
-									[
-										42809,
-										42816
-									],
-									[
-										43088,
-										43095
-									],
-									[
-										43255,
-										43262
-									],
-									[
-										43405,
-										43412
-									],
-									[
-										43439,
-										43446
-									],
-									[
-										43609,
-										43616
-									],
-									[
-										43626,
-										43633
-									],
-									[
-										43834,
-										43841
-									],
-									[
-										43897,
-										43904
-									],
-									[
-										44241,
-										44248
-									],
-									[
-										44259,
-										44266
-									],
-									[
-										44384,
-										44391
-									],
-									[
-										44437,
-										44444
-									],
-									[
-										44601,
-										44608
-									],
-									[
-										44665,
-										44672
-									],
-									[
-										44796,
-										44803
-									],
-									[
-										44885,
-										44892
-									],
-									[
-										44989,
-										44996
-									],
-									[
-										45089,
-										45096
-									],
-									[
-										45130,
-										45137
-									],
-									[
-										45177,
-										45184
-									],
-									[
-										45218,
-										45225
-									],
-									[
-										45341,
-										45348
-									],
-									[
-										45375,
-										45382
-									],
-									[
-										45491,
-										45498
-									],
-									[
-										45529,
-										45536
-									],
-									[
-										45705,
-										45712
-									],
-									[
-										45730,
-										45737
-									],
-									[
-										45761,
-										45768
-									],
-									[
-										45786,
-										45793
-									],
-									[
-										45888,
-										45895
-									],
-									[
-										45906,
-										45913
-									],
-									[
-										45968,
-										45975
-									],
-									[
-										45990,
-										45997
-									],
-									[
-										46240,
-										46247
-									],
-									[
-										46259,
-										46266
-									],
-									[
-										46278,
-										46285
-									],
-									[
-										46297,
-										46304
-									],
-									[
-										46391,
-										46398
-									],
-									[
-										46403,
-										46410
-									],
-									[
-										46435,
-										46442
-									],
-									[
-										46451,
-										46458
-									],
-									[
-										46624,
-										46631
-									],
-									[
-										46844,
-										46851
-									],
-									[
-										47065,
-										47072
-									],
-									[
-										47554,
-										47561
-									],
-									[
-										47712,
-										47719
-									],
-									[
-										48089,
-										48096
-									],
-									[
-										48280,
-										48287
-									],
-									[
-										48362,
-										48369
-									],
-									[
-										48455,
-										48462
-									],
-									[
-										48582,
-										48589
-									],
-									[
-										48597,
-										48604
-									],
-									[
-										49077,
-										49084
-									],
-									[
-										49235,
-										49242
-									],
-									[
-										49612,
-										49619
-									],
-									[
-										49803,
-										49810
-									],
-									[
-										49885,
-										49892
-									],
-									[
-										49978,
-										49985
-									],
-									[
-										50105,
-										50112
-									],
-									[
-										50120,
-										50127
-									],
-									[
-										50624,
-										50631
-									],
-									[
-										51045,
-										51052
-									],
-									[
-										51359,
-										51366
-									],
-									[
-										51377,
-										51384
-									],
-									[
-										51801,
-										51808
-									],
-									[
-										52079,
-										52086
-									],
-									[
-										52244,
-										52251
-									],
-									[
-										52585,
-										52592
-									],
-									[
-										52752,
-										52759
-									],
-									[
-										52902,
-										52909
-									],
-									[
-										52936,
-										52943
-									],
-									[
-										53106,
-										53113
-									],
-									[
-										53123,
-										53130
-									],
-									[
-										53331,
-										53338
-									],
-									[
-										53394,
-										53401
-									],
-									[
-										53738,
-										53745
-									],
-									[
-										53756,
-										53763
-									],
-									[
-										53881,
-										53888
-									],
-									[
-										53934,
-										53941
-									],
-									[
-										54098,
-										54105
-									],
-									[
-										54162,
-										54169
-									],
-									[
-										54293,
-										54300
-									],
-									[
-										54382,
-										54389
-									],
-									[
-										54486,
-										54493
-									],
-									[
-										54586,
-										54593
-									],
-									[
-										54627,
-										54634
-									],
-									[
-										54674,
-										54681
-									],
-									[
-										54715,
-										54722
-									],
-									[
-										54838,
-										54845
-									],
-									[
-										54872,
-										54879
-									],
-									[
-										54988,
-										54995
-									],
-									[
-										55026,
-										55033
-									],
-									[
-										55202,
-										55209
-									],
-									[
-										55227,
-										55234
-									],
-									[
-										55258,
-										55265
-									],
-									[
-										55283,
-										55290
-									],
-									[
-										55385,
-										55392
-									],
-									[
-										55403,
-										55410
-									],
-									[
-										55465,
-										55472
-									],
-									[
-										55487,
-										55494
-									],
-									[
-										55737,
-										55744
-									],
-									[
-										55756,
-										55763
-									],
-									[
-										55775,
-										55782
-									],
-									[
-										55794,
-										55801
-									],
-									[
-										55888,
-										55895
-									],
-									[
-										55900,
-										55907
-									],
-									[
-										55932,
-										55939
-									],
-									[
-										55948,
-										55955
-									],
-									[
-										56121,
-										56128
-									],
-									[
-										56341,
-										56348
-									],
-									[
-										56562,
-										56569
-									],
-									[
-										56921,
-										56928
-									],
-									[
-										56990,
-										56997
-									],
-									[
-										57285,
-										57292
-									],
-									[
-										57495,
-										57502
-									],
-									[
-										57646,
-										57653
-									],
-									[
-										57717,
-										57724
-									],
-									[
-										57879,
-										57886
-									],
-									[
-										57929,
-										57936
-									],
-									[
-										58148,
-										58155
-									],
-									[
-										58327,
-										58334
-									],
-									[
-										58492,
-										58499
-									],
-									[
-										58703,
-										58710
-									],
-									[
-										58804,
-										58811
-									],
-									[
-										59103,
-										59110
-									],
-									[
-										59153,
-										59160
-									],
-									[
-										59381,
-										59388
-									],
-									[
-										59431,
-										59438
-									],
-									[
-										59640,
-										59647
-									],
-									[
-										59694,
-										59701
-									],
-									[
-										59823,
-										59830
-									],
-									[
-										59998,
-										60005
-									],
-									[
-										60041,
-										60048
-									],
-									[
-										60320,
-										60327
-									],
-									[
-										60363,
-										60370
-									],
-									[
-										61065,
-										61072
-									],
-									[
-										61450,
-										61457
-									],
-									[
-										61575,
-										61582
-									],
-									[
-										61924,
-										61931
-									],
-									[
-										62211,
-										62218
-									],
-									[
-										62552,
-										62559
-									],
-									[
-										62825,
-										62832
-									],
-									[
-										63113,
-										63120
-									],
-									[
-										63378,
-										63385
-									],
-									[
-										63506,
-										63513
-									],
-									[
-										63541,
-										63548
-									],
-									[
-										63708,
-										63715
-									],
-									[
-										63743,
-										63750
-									],
-									[
-										64054,
-										64061
-									],
-									[
-										64182,
-										64189
-									],
-									[
-										64217,
-										64224
-									],
-									[
-										64357,
-										64364
-									],
-									[
-										64392,
-										64399
-									],
-									[
-										64726,
-										64733
-									],
-									[
-										64801,
-										64808
-									],
-									[
-										64824,
-										64831
-									],
-									[
-										64848,
-										64855
-									],
-									[
-										64874,
-										64881
-									],
-									[
-										64992,
-										64999
-									],
-									[
-										65138,
-										65145
-									],
-									[
-										65326,
-										65333
-									],
-									[
-										65532,
-										65539
-									],
-									[
-										65543,
-										65550
-									],
-									[
-										65562,
-										65569
-									],
-									[
-										65637,
-										65644
-									],
-									[
-										65927,
-										65934
-									],
-									[
-										65995,
-										66002
-									],
-									[
-										66173,
-										66180
-									],
-									[
-										66380,
-										66387
-									],
-									[
-										66576,
-										66583
-									],
-									[
-										66781,
-										66788
-									],
-									[
-										66836,
-										66843
-									],
-									[
-										66891,
-										66898
-									],
-									[
-										67180,
-										67187
-									],
-									[
-										67230,
-										67237
-									],
-									[
-										67447,
-										67454
-									],
-									[
-										67515,
-										67522
-									],
-									[
-										67693,
-										67700
-									],
-									[
-										67900,
-										67907
-									],
-									[
-										68096,
-										68103
-									],
-									[
-										68301,
-										68308
-									],
-									[
-										68356,
-										68363
-									],
-									[
-										68411,
-										68418
-									],
-									[
-										68908,
-										68915
-									],
-									[
-										69447,
-										69454
-									],
-									[
-										69986,
-										69993
-									],
-									[
-										70522,
-										70529
-									],
-									[
-										71178,
-										71185
-									],
-									[
-										71717,
-										71724
-									],
-									[
-										72256,
-										72263
-									],
-									[
-										72792,
-										72799
-									],
-									[
-										73364,
-										73371
-									],
-									[
-										73615,
-										73622
-									],
-									[
-										73756,
-										73763
-									],
-									[
-										74124,
-										74131
-									],
-									[
-										74458,
-										74465
-									],
-									[
-										74913,
-										74920
-									],
-									[
-										75164,
-										75171
-									],
-									[
-										75305,
-										75312
-									],
-									[
-										75580,
-										75587
-									],
-									[
-										75843,
-										75850
-									],
-									[
-										76101,
-										76108
-									],
-									[
-										76297,
-										76304
-									],
-									[
-										76423,
-										76430
-									],
-									[
-										76550,
-										76557
-									],
-									[
-										76677,
-										76684
-									],
-									[
-										76787,
-										76794
-									],
-									[
-										77036,
-										77043
-									],
-									[
-										77325,
-										77332
-									],
-									[
-										77590,
-										77597
-									],
-									[
-										78003,
-										78010
-									],
-									[
-										78419,
-										78426
-									],
-									[
-										78526,
-										78533
-									],
-									[
-										78633,
-										78640
-									],
-									[
-										78742,
-										78749
-									],
-									[
-										78849,
-										78856
-									],
-									[
-										78956,
-										78963
-									],
-									[
-										79063,
-										79070
-									],
-									[
-										79168,
-										79175
-									],
-									[
-										79275,
-										79282
-									],
-									[
-										79382,
-										79389
-									],
-									[
-										79487,
-										79494
-									],
-									[
-										79594,
-										79601
-									],
-									[
-										79872,
-										79879
-									],
-									[
-										80187,
-										80194
-									],
-									[
-										80904,
-										80911
-									],
-									[
-										81510,
-										81517
-									],
-									[
-										81586,
-										81593
-									],
-									[
-										81871,
-										81878
-									],
-									[
-										82588,
-										82595
-									],
-									[
-										83194,
-										83201
-									],
-									[
-										83270,
-										83277
-									],
-									[
-										83463,
-										83470
-									],
-									[
-										84012,
-										84019
-									],
-									[
-										84729,
-										84736
-									],
-									[
-										85335,
-										85342
-									],
-									[
-										85411,
-										85418
-									],
-									[
-										85604,
-										85611
-									],
-									[
-										86143,
-										86150
-									],
-									[
-										86211,
-										86218
-									],
-									[
-										86389,
-										86396
-									],
-									[
-										86596,
-										86603
-									],
-									[
-										86792,
-										86799
-									],
-									[
-										86997,
-										87004
-									],
-									[
-										87052,
-										87059
-									],
-									[
-										87107,
-										87114
-									],
-									[
-										87322,
-										87329
-									],
-									[
-										87372,
-										87379
-									],
-									[
-										87589,
-										87596
-									],
-									[
-										87657,
-										87664
-									],
-									[
-										87835,
-										87842
-									],
-									[
-										88042,
-										88049
-									],
-									[
-										88238,
-										88245
-									],
-									[
-										88443,
-										88450
-									],
-									[
-										88498,
-										88505
-									],
-									[
-										88553,
-										88560
-									],
-									[
-										88976,
-										88983
-									],
-									[
-										89515,
-										89522
-									],
-									[
-										90054,
-										90061
-									],
-									[
-										90590,
-										90597
-									],
-									[
-										91172,
-										91179
-									],
-									[
-										91711,
-										91718
-									],
-									[
-										92250,
-										92257
-									],
-									[
-										92786,
-										92793
-									],
-									[
-										93284,
-										93291
-									],
-									[
-										93535,
-										93542
-									],
-									[
-										93676,
-										93683
-									],
-									[
-										93970,
-										93977
-									],
-									[
-										94304,
-										94311
-									],
-									[
-										94685,
-										94692
-									],
-									[
-										94936,
-										94943
-									],
-									[
-										95077,
-										95084
-									],
-									[
-										95278,
-										95285
-									],
-									[
-										95541,
-										95548
-									],
-									[
-										95725,
-										95732
-									],
-									[
-										95921,
-										95928
-									],
-									[
-										96047,
-										96054
-									],
-									[
-										96174,
-										96181
-									],
-									[
-										96301,
-										96308
-									],
-									[
-										96411,
-										96418
-									],
-									[
-										96586,
-										96593
-									],
-									[
-										96801,
-										96808
-									],
-									[
-										97066,
-										97073
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								85951,
-								85951
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
-							"default_dir": "D:\\work\\ubuntu_shared\\work_under_linux\\node.js\\zhy_1\\express_fileUpload\\test1\\myapp",
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 4,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 36929.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "public/javascripts/ele2.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 34690,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2272,
-								2272
+								514,
+								514
 							]
 						],
 						"settings":
@@ -3459,41 +839,26 @@
 							"auto_complete": false,
 							"bh_regions":
 							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -3504,16 +869,31 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
 							],
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
@@ -3521,10 +901,645 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1705.0,
+						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "views/biaoZhunHua.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3970,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2383,
+								2394
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"is_xml": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 667.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/javascripts/biaoZhunHua.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22367,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14692,
+								14606
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7735.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/javascripts/ele2.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 36016,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9354,
+								9358
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 7407.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "views/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8000,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1208,
+								1208
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"is_xml": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "public/javascripts/test4.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 45783,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32723,
+								32737
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 18915.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2545,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								879,
+								879
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 600.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "public/javascripts/matrixLocalStorageHandle.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 732,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								591,
+								591
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -3579,32 +1594,72 @@
 		"selected_items":
 		[
 			[
+				"comput",
+				"public\\javascripts\\computing.js"
+			],
+			[
+				"normalcomput",
+				"public\\javascripts\\normalComputing.js"
+			],
+			[
+				"normal",
+				"routes\\normalComputingPage.js"
+			],
+			[
 				"test4.js",
-				"public/javascripts/test4.js"
-			],
-			[
-				"biao",
-				"public/javascripts/biaoZhunHua.js"
-			],
-			[
-				"express",
-				"pythonPart/expressionHandle.py"
-			],
-			[
-				"re",
-				"pythonPart/receiver.py"
-			],
-			[
-				"handle",
-				"pythonPart/sheetHandle.py"
-			],
-			[
-				"ele",
-				"public/javascripts/ele2.js"
+				"public\\javascripts\\test4.js"
 			],
 			[
 				"app",
 				"app.js"
+			],
+			[
+				"ele2.js",
+				"public\\javascripts\\ele2.js"
+			],
+			[
+				"mat",
+				"routes\\matrixLocalStorageHandle.js"
+			],
+			[
+				"biao",
+				"public\\javascripts\\biaoZhunHua.js"
+			],
+			[
+				"biaoz",
+				"views\\biaoZhunHua.html"
+			],
+			[
+				"app.js",
+				"app.js"
+			],
+			[
+				"index.html",
+				"views\\index.html"
+			],
+			[
+				"biaozhu",
+				"views\\biaoZhunHua.html"
+			],
+			[
+				"comp",
+				"public\\javascripts\\computing.js"
+			],
+			[
+				"compu",
+				"routes\\computing.js"
+			],
+			[
+				"recv",
+				"pythonPart\\receiver.py"
+			],
+			[
+				"handle",
+				"pythonPart\\sheetHandle.py"
+			],
+			[
+				"rec",
+				"pythonPart\\receiver.py"
 			],
 			[
 				"expre",
@@ -3619,20 +1674,16 @@
 				"pythonPart/validateMathExpression.py"
 			],
 			[
+				"express",
+				"pythonPart/expressionHandle.py"
+			],
+			[
+				"re",
+				"pythonPart/receiver.py"
+			],
+			[
 				"inde",
 				"views/index.html"
-			],
-			[
-				"ele2.js",
-				"public/javascripts/ele2.js"
-			],
-			[
-				"comp",
-				"public/javascripts/computing.js"
-			],
-			[
-				"compu",
-				"routes/computing.js"
 			],
 			[
 				"formu",
@@ -3685,10 +1736,6 @@
 			[
 				"css",
 				"public/stylesheets/14423.css"
-			],
-			[
-				"index.html",
-				"views/index.html"
 			]
 		],
 		"width": 0.0

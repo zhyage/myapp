@@ -15,6 +15,7 @@ var toGetBiaoZhunFaExpress = require('./routes/toGetBiaoZhunFaExpress');
 var toGetBiaoZhunFaConf = require('./routes/toGetBiaoZhunFaConf');
 var computingPage = require('./routes/computingPage');
 var biaoZhunHuaPage = require('./routes/biaoZhunHuaPage');
+var normalComputingPage = require('./routes/normalComputingPage');
 
 var app = express();
 app.disable('view cache');
@@ -41,6 +42,7 @@ app.use('/toGetBiaoZhunFaExpress', toGetBiaoZhunFaExpress);
 app.use('/toGetBiaoZhunFaConf', toGetBiaoZhunFaConf);
 app.use('/computingPage', computingPage);
 app.use('/biaoZhunHuaPage', biaoZhunHuaPage);
+app.use('/normalComputingPage', normalComputingPage);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

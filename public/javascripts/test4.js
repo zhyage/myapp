@@ -1,53 +1,53 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    var yellowRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+    var yellowRenderer = function(instance, td, row, col, prop, value, cellProperties) {
         Handsontable.renderers.TextRenderer.apply(this, arguments);
         td.style.backgroundColor = 'yellow';
     };
 
-    var orangeRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+    var orangeRenderer = function(instance, td, row, col, prop, value, cellProperties) {
         Handsontable.renderers.TextRenderer.apply(this, arguments);
         td.style.backgroundColor = 'orange';
 
     };
 
-    var greyRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+    var greyRenderer = function(instance, td, row, col, prop, value, cellProperties) {
         Handsontable.renderers.TextRenderer.apply(this, arguments);
         td.style.backgroundColor = 'grey';
 
     };
 
-    var greenRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+    var greenRenderer = function(instance, td, row, col, prop, value, cellProperties) {
         Handsontable.renderers.TextRenderer.apply(this, arguments);
         td.style.backgroundColor = 'green';
 
     };
 
-    var redRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+    var redRenderer = function(instance, td, row, col, prop, value, cellProperties) {
         Handsontable.renderers.TextRenderer.apply(this, arguments);
         td.style.backgroundColor = 'red';
 
     };
 
-    var pinkRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+    var pinkRenderer = function(instance, td, row, col, prop, value, cellProperties) {
         Handsontable.renderers.TextRenderer.apply(this, arguments);
         td.style.backgroundColor = 'pink';
 
     };
 
-    var blueRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+    var blueRenderer = function(instance, td, row, col, prop, value, cellProperties) {
         Handsontable.renderers.TextRenderer.apply(this, arguments);
         td.style.backgroundColor = 'blue';
 
     };
 
-    var blackRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+    var blackRenderer = function(instance, td, row, col, prop, value, cellProperties) {
         Handsontable.renderers.TextRenderer.apply(this, arguments);
         td.style.backgroundColor = 'black';
 
     };
 
-    var whiteRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+    var whiteRenderer = function(instance, td, row, col, prop, value, cellProperties) {
         Handsontable.renderers.TextRenderer.apply(this, arguments);
         td.style.backgroundColor = 'white';
 
@@ -58,19 +58,16 @@ $(document).ready(function () {
         $('#insertFrm').html('');
         var oldMatrix = matrix.copyMatrix();
         var insertColNo = 0;
-        if(true == before)
-        {
+        if (true == before) {
             insertColNo = colNo - 2;
-        }
-        else
-        {
+        } else {
             insertColNo = colNo - 2 + 1;
         }
         console.info("entry generateInsertCBForm");
         if (insertColNo < 0 || insertColNo > matrix.colNum) {
-            setTimeout(function () {
+            setTimeout(function() {
                 $.unblockUI({
-                    onUnblock : function () {
+                    onUnblock: function() {
                         alert('please select position where you want insert column first');
                     }
                 });
@@ -81,60 +78,55 @@ $(document).ready(function () {
         dataTypeList = g_eleType.getUseableDatatypeNameList();
 
         $('#insertFrm').jsonForm({
-            schema : {
-                columnHeader : {
-                    type : 'string',
-                    title : 'column Header Name',
-                    required : true
+            schema: {
+                columnHeader: {
+                    type: 'string',
+                    title: 'column Header Name',
+                    required: true
                 },
-                dataType : {
-                    type : 'string',
-                    title : 'data type',
-                    required : true,
-                    'enum' : dataTypeList,
+                dataType: {
+                    type: 'string',
+                    title: 'data type',
+                    required: true,
+                    'enum': dataTypeList,
                 }
             },
-            "value" : {
-                "columnHeader" : "",
-                "dataType" : "number",
+            "value": {
+                "columnHeader": "",
+                "dataType": "number",
             },
 
-            "form" : [
+            "form": [
                 "columnHeader",
-                "dataType", 
-                {
-                    "type" : "actions",
-                    "items" : [{
-                            "type" : "submit",
-                            "title" : "Submit"
-                        }, {
-                            "type" : "button",
-                            "title" : "Cancel",
-                            "onClick" : function (evt) {
-                                evt.preventDefault();
-                                console.info("cancel insert column on submit");
-                                $.unblockUI();
-                            }
+                "dataType", {
+                    "type": "actions",
+                    "items": [{
+                        "type": "submit",
+                        "title": "Submit"
+                    }, {
+                        "type": "button",
+                        "title": "Cancel",
+                        "onClick": function(evt) {
+                            evt.preventDefault();
+                            console.info("cancel insert column on submit");
+                            $.unblockUI();
                         }
-                    ]
+                    }]
                 }
             ],
 
-            onSubmit : function (errors, values) {
+            onSubmit: function(errors, values) {
                 if (errors) {
                     alert("error happens when set colHEaderName cell");
                 } else {
                     console.info("submit insert column on submit");
                     columnName = values.columnHeader;
                     dataType = values.dataType;
-                    
 
-                    if(false == matrix.insertColumn(insertColNo, columnName, dataType))
-                    {
+
+                    if (false == matrix.insertColumn(insertColNo, columnName, dataType)) {
                         reloadData(sheet, oldMatrix);
-                    }
-                    else
-                    {
+                    } else {
                         reloadData(sheet, matrix);
                     }
 
@@ -150,19 +142,16 @@ $(document).ready(function () {
         console.info("entry generateInsertRowForm");
         var oldMatrix = matrix.copyMatrix();
         var insertRowNo = 0;
-        if(true == before)
-        {
+        if (true == before) {
             insertRowNo = rowNo - 2;
-        }
-        else
-        {
+        } else {
             insertRowNo = rowNo - 2 + 1;
         }
-        
+
         if (insertRowNo < 0 || insertRowNo > matrix.rowNum) {
-            setTimeout(function () {
+            setTimeout(function() {
                 $.unblockUI({
-                    onUnblock : function () {
+                    onUnblock: function() {
                         alert('please select position where you want insert row first');
                     }
                 });
@@ -171,57 +160,50 @@ $(document).ready(function () {
         }
 
         $('#insertFrm').jsonForm({
-            schema : {
-                rowHeader : {
-                    type : 'string',
-                    title : 'row Header Name',
+            schema: {
+                rowHeader: {
+                    type: 'string',
+                    title: 'row Header Name',
                     //required : true
                 },
             },
-            "value" : {
-                "rowHeader" : "",
+            "value": {
+                "rowHeader": "",
             },
 
-            "form" : [
+            "form": [
                 "rowHeader", {
-                    "type" : "actions",
-                    "items" : [{
-                            "type" : "submit",
-                            "title" : "Submit"
-                        }, {
-                            "type" : "button",
-                            "title" : "Cancel",
-                            "onClick" : function (evt) {
-                                evt.preventDefault();
-                                console.info("cancel insert row");
-                                $.unblockUI();
-                            }
+                    "type": "actions",
+                    "items": [{
+                        "type": "submit",
+                        "title": "Submit"
+                    }, {
+                        "type": "button",
+                        "title": "Cancel",
+                        "onClick": function(evt) {
+                            evt.preventDefault();
+                            console.info("cancel insert row");
+                            $.unblockUI();
                         }
-                    ]
+                    }]
                 }
             ],
 
-            onSubmit : function (errors, values) {
+            onSubmit: function(errors, values) {
                 if (errors) {
                     alert("error happens when set rowHEaderName cell");
                     reloadData(sheet, oldMatrix);
                 } else {
 
-                    if(false == matrix.insertRow(insertRowNo))
-                    {
+                    if (false == matrix.insertRow(insertRowNo)) {
                         reloadData(sheet, oldMatrix);
-                    }
-                    else
-                    {
-                        if(false == matrix.setRowHeader(insertRowNo, values.rowHeader))
-                        {
+                    } else {
+                        if (false == matrix.setRowHeader(insertRowNo, values.rowHeader)) {
                             reloadData(sheet, oldMatrix);
-                        }
-                        else
-                        {
+                        } else {
                             reloadData(sheet, matrix);
                         }
-                        
+
                     }
                 }
                 $.unblockUI();
@@ -236,9 +218,9 @@ $(document).ready(function () {
         var delColNo = colNo - 2;
         console.info("entry generateDeleteColForm");
         if (delColNo < 0 || delColNo > matrix.colNum) {
-            setTimeout(function () {
+            setTimeout(function() {
                 $.unblockUI({
-                    onUnblock : function () {
+                    onUnblock: function() {
                         alert('please select position where you want delete column first');
                     }
                 });
@@ -247,42 +229,34 @@ $(document).ready(function () {
         }
 
         $('#insertFrm').jsonForm({
-            "form" : [{
-                    "type" : "help",
-                    "helpvalue" : "Would you like to contine?."
+            "form": [{
+                "type": "help",
+                "helpvalue": "Would you like to contine?."
+            }, {
+                "type": "actions",
+                "items": [{
+                    "type": "submit",
+                    "title": "Submit"
                 }, {
-                    "type" : "actions",
-                    "items" : [{
-                            "type" : "submit",
-                            "title" : "Submit"
-                        }, {
-                            "type" : "button",
-                            "title" : "Cancel",
-                            "onClick" : function (evt) {
-                                evt.preventDefault();
-                                console.info("cancel delete column");
-                                $.unblockUI();
-                            }
-                        }
-                    ]
-                }
-            ],
+                    "type": "button",
+                    "title": "Cancel",
+                    "onClick": function(evt) {
+                        evt.preventDefault();
+                        console.info("cancel delete column");
+                        $.unblockUI();
+                    }
+                }]
+            }],
 
-            onSubmit : function (errors, values) {
-                if (errors) 
-                {
+            onSubmit: function(errors, values) {
+                if (errors) {
                     alert("error happens when delete column");
                     reLoadSheet(sheet, oldMatrix);
-                } 
-                else 
-                {
+                } else {
                     console.info("submit delete column on submit");
-                    if(false == matrix.deleteColumn(delColNo))
-                    {
+                    if (false == matrix.deleteColumn(delColNo)) {
                         reloadData(sheet, oldMatrix);
-                    }
-                    else
-                    {
+                    } else {
                         reloadData(sheet, matrix);
                     }
                 }
@@ -298,9 +272,9 @@ $(document).ready(function () {
         var oldMatrix = matrix.copyMatrix();
         var delRowNo = rowNo - 2;
         if (delRowNo < 0 || delRowNo > matrix.rowNum) {
-            setTimeout(function () {
+            setTimeout(function() {
                 $.unblockUI({
-                    onUnblock : function () {
+                    onUnblock: function() {
                         alert('please select position where you want delete row first');
                     }
                 });
@@ -309,38 +283,33 @@ $(document).ready(function () {
         }
 
         $('#insertFrm').jsonForm({
-            "form" : [{
-                    "type" : "help",
-                    "helpvalue" : "Would you like to contine?."
+            "form": [{
+                "type": "help",
+                "helpvalue": "Would you like to contine?."
+            }, {
+                "type": "actions",
+                "items": [{
+                    "type": "submit",
+                    "title": "Submit"
                 }, {
-                    "type" : "actions",
-                    "items" : [{
-                            "type" : "submit",
-                            "title" : "Submit"
-                        }, {
-                            "type" : "button",
-                            "title" : "Cancel",
-                            "onClick" : function (evt) {
-                                evt.preventDefault();
-                                console.info("cancel delete row");
-                                $.unblockUI();
-                            }
-                        }
-                    ]
-                }
-            ],
+                    "type": "button",
+                    "title": "Cancel",
+                    "onClick": function(evt) {
+                        evt.preventDefault();
+                        console.info("cancel delete row");
+                        $.unblockUI();
+                    }
+                }]
+            }],
 
-            onSubmit : function (errors, values) {
+            onSubmit: function(errors, values) {
                 if (errors) {
                     alert("error happens when delete row");
                     reloadData(sheet, oldMatrix);
                 } else {
-                    if(false == matrix.deleteRow(delRowNo))
-                    {
+                    if (false == matrix.deleteRow(delRowNo)) {
                         reloadData(sheet, oldMatrix);
-                    }
-                    else
-                    {
+                    } else {
                         reloadData(sheet, matrix);
                     }
                 }
@@ -362,50 +331,42 @@ $(document).ready(function () {
         console.info("dataTypeList : ", dataTypeList);
         $('#editFrm').html('');
         $('#editFrm').jsonForm({
-            schema : {
-                columnHeader : {
-                    type : 'string',
-                    title : 'column Header Name',
-                    required : true,
+            schema: {
+                columnHeader: {
+                    type: 'string',
+                    title: 'column Header Name',
+                    required: true,
 
                 },
-                dataType : {
-                    type : 'string',
-                    title : 'data type',
-                    required : true,
-                    'enum' : dataTypeList,
+                dataType: {
+                    type: 'string',
+                    title: 'data type',
+                    required: true,
+                    'enum': dataTypeList,
                 }
             },
-            "value" : {
-                "columnHeader" : currentColHeaderName,
+            "value": {
+                "columnHeader": currentColHeaderName,
                 //"dataType": e.dataType
-                "dataType" : currentColDataType
+                "dataType": currentColDataType
             },
-            onSubmit : function (errors, values) {
+            onSubmit: function(errors, values) {
                 if (errors) {
                     alert("error to set column information");
                     reloadData(sheet, oldMatrix);
                 } else {
-                    if(values.dataType != currentColDataType)
-                    {
-                        if(true == matrix.changeColDataType(colNo - 2, values.dataType))
-                        {
+                    if (values.dataType != currentColDataType) {
+                        if (true == matrix.changeColDataType(colNo - 2, values.dataType)) {
                             reloadData(sheet, matrix);
-                        }
-                        else
-                        {
+                        } else {
                             alert("error to set column information!");
                             reloadData(sheet, oldMatrix);
                         }
                     }
-                    if(values.columnHeader != currentColHeaderName)
-                    {
-                        if(true == matrix.setColHeader(colNo - 2, values.columnHeader))
-                        {
+                    if (values.columnHeader != currentColHeaderName) {
+                        if (true == matrix.setColHeader(colNo - 2, values.columnHeader)) {
                             reloadData(sheet, matrix);
-                        }
-                        else
-                        {
+                        } else {
                             alert("error to set column information");
                             reloadData(sheet, oldMatrix);
                         }
@@ -420,32 +381,28 @@ $(document).ready(function () {
         console.info("entry generateRowHeaderForm");
         var oldMatrix = matrix.copyMatrix();
         var currentRowHeaderName = matrix.getRowHeaderNameByRowNo(rowNo - 2);
-        
+
         $('#editFrm').html('');
         $('#editFrm').jsonForm({
-            schema : {
-                rowHeader : {
-                    type : 'string',
-                    title : 'row Header Name',
-                    required : true
+            schema: {
+                rowHeader: {
+                    type: 'string',
+                    title: 'row Header Name',
+                    required: true
                 },
             },
-            "value" : {
-                "rowHeader" : currentRowHeaderName,
+            "value": {
+                "rowHeader": currentRowHeaderName,
             },
-            onSubmit : function (errors, values) {
+            onSubmit: function(errors, values) {
                 if (errors) {
                     alert("error happens when set rowHeaderName cell");
                     reloadData(sheet, oldMatrix);
                 } else {
-                    if(values.rowHeader != currentRowHeaderName)
-                    {
-                        if(true == matrix.setRowHeader(rowNo - 2, values.rowHeader))
-                        {
+                    if (values.rowHeader != currentRowHeaderName) {
+                        if (true == matrix.setRowHeader(rowNo - 2, values.rowHeader)) {
                             reloadData(sheet, matrix);
-                        }
-                        else
-                        {
+                        } else {
                             reloadData(sheet, oldMatrix);
                         }
                     }
@@ -459,43 +416,38 @@ $(document).ready(function () {
         console.info("entry generateTestForm");
         var i = 0;
         var colHeaderList = [];
-        for(i = 0; i < matrix.colNum; i++)
-        {
+        for (i = 0; i < matrix.colNum; i++) {
             colHeaderList.push(matrix.getColHeaderNameByColNo(i));
         }
-        
+
         $('#editFrm').html('');
         $('#editFrm').jsonForm({
-              "schema": {
+            "schema": {
                 "language": {
-                  "type": "string",
-                  "title": "Best language",
-                  //"enum": [ "JavaScript", "Python", "PHP", "Java", "C++", "other" ]
-                  "enum": colHeaderList
+                    "type": "string",
+                    "title": "Best language",
+                    //"enum": [ "JavaScript", "Python", "PHP", "Java", "C++", "other" ]
+                    "enum": colHeaderList
                 }
-              },
+            },
 
-              "form": [
-                {
-                  "key": "language",
-                  //"type": "radiobuttons",
-                  "type": "radios",
-                  "activeClass": "btn-success",
+            "form": [{
+                "key": "language",
+                //"type": "radiobuttons",
+                "type": "radios",
+                "activeClass": "btn-success",
 
-                  
-                  "onClick": function(evt)
-                  {
+
+                "onClick": function(evt) {
                     var value = $(evt.target).val();
                     console.info("value :", value, "length :", value.length);
-                    if(value.length != 0)
-                    {
+                    if (value.length != 0) {
                         alert("value :", value);
                     }
-                  } 
-                            
                 }
-              ]
-            });  
+
+            }]
+        });
     }
 
 
@@ -507,58 +459,53 @@ $(document).ready(function () {
         var currentRowHeaderName = matrix.getRowHeaderNameByRowNo(rowNo - 2);
         var tmp = matrix.getEleByXY(rowNo - 2, colNo - 2);
         var currentData = "";
-        if(false == tmp)//ugly, fix me
+        if (false == tmp) //ugly, fix me
         {
             currentData = "";
-        }
-        else
-        {
+        } else {
             currentData = tmp.data;
         }
 
         $('#editFrm').html('');
         $('#editFrm').jsonForm({
-            schema : {
-                columnHeaderName : {
-                    type : 'string',
-                    title : 'column header name',
-                    readonly : true,
+            schema: {
+                columnHeaderName: {
+                    type: 'string',
+                    title: 'column header name',
+                    readonly: true,
                 },
-                rowHeaderName : {
-                    type : 'string',
-                    title : 'row header name',
-                    readonly : true,
+                rowHeaderName: {
+                    type: 'string',
+                    title: 'row header name',
+                    readonly: true,
                 },
-                dataType : {
-                    type : 'string',
-                    title : 'data type',
-                    readonly : true,
+                dataType: {
+                    type: 'string',
+                    title: 'data type',
+                    readonly: true,
                 },
-                data : {
-                    type : 'string',
-                    title : 'data',
-                    required : true
+                data: {
+                    type: 'string',
+                    title: 'data',
+                    required: true
                 },
             },
-            "value" : {
-                "columnHeaderName" : currentColHeaderName,
-                "rowHeaderName" : currentRowHeaderName,
-                "dataType" : currentColDataType,
-                "data" : currentData,
+            "value": {
+                "columnHeaderName": currentColHeaderName,
+                "rowHeaderName": currentRowHeaderName,
+                "dataType": currentColDataType,
+                "data": currentData,
             },
-            onSubmit : function (errors, values) {
+            onSubmit: function(errors, values) {
                 if (errors) {
                     alert("error happens when set rowHeaderName cell");
                     reloadData(sheet, oldMatrix);
                 } else {
                     res = matrix.setData(rowNo - 2, colNo - 2, values.data);
-                    if(false == res)
-                    {
+                    if (false == res) {
                         alert("error to set data!");
                         reloadData(sheet, oldMatrix);
-                    }
-                    else
-                    {
+                    } else {
                         reloadData(sheet, matrix);
                     }
                 }
@@ -576,38 +523,37 @@ $(document).ready(function () {
         methodList = g_rightWeight.getRWMethodList();
 
         $('#insertFrm').jsonForm({
-            schema : {
-                method : {
-                    type : 'string',
-                    title : '权重算法',
-                    required : true,
-                    'enum' : methodList,
+            schema: {
+                method: {
+                    type: 'string',
+                    title: '权重算法',
+                    required: true,
+                    'enum': methodList,
                 },
             },
-            "value" : {
-                "method" : methodList[0]
+            "value": {
+                "method": methodList[0]
             },
 
-            "form" : [
+            "form": [
                 "method", {
-                    "type" : "actions",
-                    "items" : [{
-                            "type" : "submit",
-                            "title" : "Submit"
-                        }, {
-                            "type" : "button",
-                            "title" : "Cancel",
-                            "onClick" : function (evt) {
-                                evt.preventDefault();
-                                console.info("cancel select right weight");
-                                $.unblockUI();
-                            }
+                    "type": "actions",
+                    "items": [{
+                        "type": "submit",
+                        "title": "Submit"
+                    }, {
+                        "type": "button",
+                        "title": "Cancel",
+                        "onClick": function(evt) {
+                            evt.preventDefault();
+                            console.info("cancel select right weight");
+                            $.unblockUI();
                         }
-                    ]
+                    }]
                 }
             ],
 
-            onSubmit : function (errors, values) {
+            onSubmit: function(errors, values) {
                 if (errors) {
                     alert("error happens when select right weight");
                 } else {
@@ -628,61 +574,58 @@ $(document).ready(function () {
 
         });
     }
-    
+
     function generatePurifyDataForm() {
         $('#insertFrm').html('');
         console.info("entry generatePurifyDataForm");
 
         var methodList = [];
-        var directList = ['纵向','横向'];
+        var directList = ['纵向', '横向'];
         var g_purifyData = new purifyData();
         methodList = g_purifyData.getPurifyDataMethodList();
 
         $('#insertFrm').jsonForm({
-            schema : {
-                method : {
-                    type : 'string',
-                    title : '无量纲化算法',
-                    required : true,
-                    'enum' : methodList,
+            schema: {
+                method: {
+                    type: 'string',
+                    title: '无量纲化算法',
+                    required: true,
+                    'enum': methodList,
                 },
-                direct : {
-                    type : 'string',
-                    title : '方向',
-                    required : true,
-                    'enum' : directList,
+                direct: {
+                    type: 'string',
+                    title: '方向',
+                    required: true,
+                    'enum': directList,
                 },
             },
-            "value" : {
-                "method" : methodList[0],
-                "direct" : directList[0],
+            "value": {
+                "method": methodList[0],
+                "direct": directList[0],
             },
 
-            "form" : [
-                "method", 
-                {
-                            "key" : "direct",
-                            "type" : "radios"
-                },
-                {
-                    "type" : "actions",
-                    "items" : [{
-                            "type" : "submit",
-                            "title" : "Submit"
-                        }, {
-                            "type" : "button",
-                            "title" : "Cancel",
-                            "onClick" : function (evt) {
-                                evt.preventDefault();
-                                console.info("cancel select purify data");
-                                $.unblockUI();
-                            }
+            "form": [
+                "method", {
+                    "key": "direct",
+                    "type": "radios"
+                }, {
+                    "type": "actions",
+                    "items": [{
+                        "type": "submit",
+                        "title": "Submit"
+                    }, {
+                        "type": "button",
+                        "title": "Cancel",
+                        "onClick": function(evt) {
+                            evt.preventDefault();
+                            console.info("cancel select purify data");
+                            $.unblockUI();
                         }
-                    ]
+                    }]
                 }
             ],
 
-            onSubmit : function (errors, values) {
+            onSubmit: function(errors, values) {
                 if (errors) {
                     alert("error happens when select purify data");
                 } else {
@@ -693,11 +636,11 @@ $(document).ready(function () {
                     //console.info("getUsefulPureDataMatrix :", purifyDataMatrix);
                     //var resArray = [];
                     //var method = g_purifyData.getPurifyDataMethod(methodName);
-                    
+
                     myData_1.addCurrentPurifyMethod(directName, methodName);
                     alert("kkkkkk");
                     hot.loadData(myData_1.getShowPureDataMatrix());
-        
+
                     /*
                     if ('纵向' == directName) {
                         console.info("calculate 纵向");
@@ -723,7 +666,7 @@ $(document).ready(function () {
                         }
                     }
                     */
-                    
+
                     //hot.loadData(myData_1.getShowPureDataMatrix());
                 }
                 $.unblockUI();
@@ -731,29 +674,28 @@ $(document).ready(function () {
 
         });
     }
-    
 
-    function loadFileFromServer(fileName)
-    {
+
+    function loadFileFromServer(fileName) {
         var loadBody = new fileInServer();
         loadBody.setSaveData(fileName, '');
         var bodyData = JSON.stringify(loadBody);
 
         $.ajax({
-            type : "POST",
-            url : "/loadFileFromServer",
-            data : bodyData,
-            contentType : "application/json; charset=utf-8",
+            type: "POST",
+            url: "/loadFileFromServer",
+            data: bodyData,
+            contentType: "application/json; charset=utf-8",
             //contentType: "text/html; charset=utf-8",
             //dataType: "json",
             async: "false",
-            success : function (data) {
+            success: function(data) {
                 console.info("load file = ", data);
                 var loadMatrix = JSON.parse(data);
                 myMatrix.loadData(loadMatrix);
                 reloadData(mySheet, myMatrix);
             },
-            failure : function (errMsg) {
+            failure: function(errMsg) {
                 alert("load file error");
             }
         });
@@ -766,12 +708,12 @@ $(document).ready(function () {
 
         fileNameList = [];
         $.ajax({
-            type : "POST",
-            url : "/getSaveFileList",
-            data : '',
-            contentType : "application/json; charset=utf-8",
-            async : "false",
-            success : function (data) {
+            type: "POST",
+            url: "/getSaveFileList",
+            data: '',
+            contentType: "application/json; charset=utf-8",
+            async: "false",
+            success: function(data) {
                 console.info("getSaveFileListFromServer = ", data);
                 fileNameList = JSON.parse(data);
                 console.info("fileNameList parse = ", fileNameList);
@@ -782,41 +724,38 @@ $(document).ready(function () {
                 }
 
                 $('#insertFrm').jsonForm({
-                    schema : {
-                        "fileName" : {
-                            "type" : 'string',
-                            "title" : 'fileName',
-                            "required" : true,
-                            'enum' : fileNameList,
+                    schema: {
+                        "fileName": {
+                            "type": 'string',
+                            "title": 'fileName',
+                            "required": true,
+                            'enum': fileNameList,
                         },
                     },
-                    "value" : {
-                        "fileName" : "",
+                    "value": {
+                        "fileName": "",
                     },
 
-                    "form" : [{
-                            "key" : "fileName",
-                            "type" : "radios"
-                        },
-                        {
-                            "type" : "actions",
-                            "items" : [{
-                                    "type" : "submit",
-                                    "title" : "Submit"
-                                }, {
-                                    "type" : "button",
-                                    "title" : "Cancel",
-                                    "onClick" : function (evt) {
-                                        evt.preventDefault();
-                                        console.info("cancel Load file");
-                                        $.unblockUIl();
-                                    }
-                                }
-                            ]
-                        }
-                    ],
+                    "form": [{
+                        "key": "fileName",
+                        "type": "radios"
+                    }, {
+                        "type": "actions",
+                        "items": [{
+                            "type": "submit",
+                            "title": "Submit"
+                        }, {
+                            "type": "button",
+                            "title": "Cancel",
+                            "onClick": function(evt) {
+                                evt.preventDefault();
+                                console.info("cancel Load file");
+                                $.unblockUIl();
+                            }
+                        }]
+                    }],
 
-                    onSubmit : function (errors, values) {
+                    onSubmit: function(errors, values) {
                         if (errors) {
                             alert("error happens when set LoadFile");
                         } else {
@@ -828,7 +767,7 @@ $(document).ready(function () {
 
                 });
             },
-            failure : function (errMsg) {
+            failure: function(errMsg) {
                 alert("no file exist");
                 $.unblockUIl();
                 return;
@@ -840,32 +779,31 @@ $(document).ready(function () {
     function createForm(sheet, matrix, rowNo, colNo) {
         $('#editFrm').html('');
         var cellType = sheet.getCellDataType(rowNo, colNo);
-        switch(cellType)
-        {
-            case "colHeader" :
-            {
-                //alert("colHeader");
-                generateColHeaderForm(sheet, matrix, colNo);
-            }
-            break;
-            case "rowHeader" :
-            {
-                //alert("rowHeader");
-                generateRowHeaderForm(sheet, matrix, rowNo);
-            }
-            break;
-            case "data" :
-            case "pendingData" :
-            {
-                generateNormalDataForm(sheet, matrix, rowNo, colNo);
-                //alert("data");
-            }
-            break;
+        switch (cellType) {
+            case "colHeader":
+                {
+                    //alert("colHeader");
+                    generateColHeaderForm(sheet, matrix, colNo);
+                }
+                break;
+            case "rowHeader":
+                {
+                    //alert("rowHeader");
+                    generateRowHeaderForm(sheet, matrix, rowNo);
+                }
+                break;
+            case "data":
+            case "pendingData":
+                {
+                    generateNormalDataForm(sheet, matrix, rowNo, colNo);
+                    //alert("data");
+                }
+                break;
             default:
-            {
-                return false;
-            }
-            break;
+                {
+                    return false;
+                }
+                break;
         }
 
         /*
@@ -909,7 +847,7 @@ $(document).ready(function () {
     function fileInServer() {
         this.fileName = '';
         this.matrix = '';
-        this.setSaveData = function (fileName, matrix) {
+        this.setSaveData = function(fileName, matrix) {
             this.fileName = fileName;
             this.matrix = matrix;
         }
@@ -918,25 +856,25 @@ $(document).ready(function () {
     function saveCurrentSheetToServer(fileName, matrix) {
         console.info("entry saveCurrentSheetToServer");
         var saveBody = new fileInServer();
-        
+
         saveBody.setSaveData(fileName, matrix)
         var bodyData = JSON.stringify(saveBody);
         $.ajax({
-            type : "POST",
-            url : "/saveToServer",
+            type: "POST",
+            url: "/saveToServer",
             // The key needs to match your method's input parameter (case-sensitive).
             //data: JSON.stringify({ Markers: markers }),
-            data : bodyData,
+            data: bodyData,
             //data: JSON.stringify(myData_1.matrix),
-            contentType : "application/json; charset=utf-8",
+            contentType: "application/json; charset=utf-8",
             //contentType: "text/html; charset=utf-8",
             //dataType: "json",
             //async: "false",
-            success : function (data) {
+            success: function(data) {
                 //alert(data);
                 return true;
             },
-            failure : function (errMsg) {
+            failure: function(errMsg) {
                 alert(errMsg);
                 return false;
             }
@@ -954,56 +892,43 @@ $(document).ready(function () {
         createForm(sheet, matrix, row, col);
     }
 
-    function reloadData(sheet, matrix)
-    {
+    function reloadData(sheet, matrix) {
         sheet.reLoadSheet(matrix);
         hot.loadData(sheet.showSheet);
         console.info("after reloadData");
     }
 
-    function setChange(sheet, matrix, changeArray)
-    {
+    function setChange(sheet, matrix, changeArray) {
         var changeCellNum = changeArray.length;
         var i = 0;
         var res = true;
-        for(i = 0; i < changeCellNum; i++)
-        {
+        for (i = 0; i < changeCellNum; i++) {
             var rowNo = changeArray[i][0];
             var colNo = changeArray[i][1];
             var oldValue = changeArray[i][2];
             var newValue = changeArray[i][3];
 
             var cellType = sheet.getCellDataType(rowNo, colNo);
-            if("colHeader" == cellType)
-            {
+            if ("colHeader" == cellType) {
                 res = matrix.setColHeader(colNo - 2, newValue);
-                if(false == res)
-                {
+                if (false == res) {
                     alert("error to set column header name!");
                 }
                 return res;
-            }
-            else if("rowHeader" == cellType)
-            {
+            } else if ("rowHeader" == cellType) {
                 res = matrix.setRowHeader(rowNo - 2, newValue);
-                if(false == res)
-                {
+                if (false == res) {
                     alert("error to set row header name!");
                 }
                 return res;
-                
-            }
-            else if("data" == cellType || "pendingData"  == cellType)
-            {
+
+            } else if ("data" == cellType || "pendingData" == cellType) {
                 res = matrix.setData(rowNo - 2, colNo - 2, newValue);
-                if(false == res)
-                {
+                if (false == res) {
                     alert("error to set data!");
                 }
                 return res;
-            }
-            else
-            {
+            } else {
                 var msg = "incorrect cell type to modify rowNo: " + rowNo + "colNo: " + colNo;
                 alert(msg);
                 return false;
@@ -1012,44 +937,39 @@ $(document).ready(function () {
         return false;
     }
 
-    function checkMatrixValid(matrix)
-    {
+    function checkMatrixValid(matrix) {
         return true;
     }
 
-    function onEditCell(sheet, matrix, changeArray)
-    {
+    function onEditCell(sheet, matrix, changeArray) {
         var oldMatrix = matrix;
-        if(false == setChange(sheet, matrix, changeArray))
-        {
+        if (false == setChange(sheet, matrix, changeArray)) {
             reloadData(sheet, oldMatrix);
             return false;
         }
-        if(false == checkMatrixValid(matrix))
-        {
+        if (false == checkMatrixValid(matrix)) {
             alert("error to checkMatrixValid");
             reloadData(sheet, oldMatrix);
             return false;
         }
         reloadData(sheet, matrix);
         return true;
-        
+
     }
 
 
     console.info("xxxxxxxxxxxxxx start xxxxxxxxxxxxxx");
-    
+
     var myMatrix = new matrix();
 
-    var computedMatrixString = localStorage.getItem("computedMatrix");
-    console.info("9999999999999999 :", computedMatrixString);
-    if(null == computedMatrixString)
-    {
+    console.info("9999999999999999 ");
+
+    if (false == loadMatrixFromLocalStorage("computedMatrix", myMatrix)) {
         alert("no previous data");
         myMatrix.insertColumn(0, "kkk", "number");
         myMatrix.insertColumn(1, "bbb", "number");
         myMatrix.insertColumn(2, "ccc", "number");
-        
+
         myMatrix.setMatrixData("400", 0, 0);
         myMatrix.setMatrixData("401", 0, 1);
         myMatrix.setMatrixData("402", 0, 2);
@@ -1059,14 +979,12 @@ $(document).ready(function () {
         myMatrix.setMatrixData("501", 1, 1);
         myMatrix.setMatrixData("601", 2, 1);
         myMatrix.setMatrixData("701", 3, 1);
-    }
-    else
-    {
-        var computedMatrix = JSON.parse(computedMatrixString);
+    } else {
+        //var computedMatrix = JSON.parse(computedMatrixString);
         //var loadMatrix = JSON.parse(computedMatrix);
-        var loadMatrix = computedMatrix;
-            console.info("4444444444444444444 matrix:", computedMatrix);
-            myMatrix.loadData(loadMatrix);
+        //var loadMatrix = myMatrix;
+        console.info("4444444444444444444 matrix:", myMatrix);
+        myMatrix.loadData(myMatrix);
 
         /*if("success" == computedMatrix.result)
         {
@@ -1079,23 +997,16 @@ $(document).ready(function () {
         {
             alert("previous data error");
         }*/
-        
+
     }
-    
 
 
-
-    
-    
-    
-    
-    
 
     // myMatrix.insertColumn(3, "ddd", "integer");
     // myMatrix.insertColumn(4, "eee", "float");
     // myMatrix.insertColumn(5, "fff", "string");
     // myMatrix.insertColumn(6, "ggg", "region");
-    
+
 
     var mySheet = new sheet(myMatrix);
 
@@ -1109,134 +1020,119 @@ $(document).ready(function () {
 
     var container = document.getElementById('hot');
     var hot = new Handsontable(container, {
-            data : data,
-            minSpareRows : 1,
-            colHeaders : true,
-            rowHeaders : true,
-            manualColumnMove : true,
-            //manualRowMove : true,
+        data: data,
+        minSpareRows: 1,
+        colHeaders: true,
+        rowHeaders: true,
+        manualColumnMove: true,
+        //manualRowMove : true,
+        /*
+        afterOnCellMouseDown : function (changes, sources) {
+            console.info(" sources === ", sources);
+            console.info("sources.row = ", sources.row, "sources.col = ", sources.col);
+            setClickRowAndCol(sources.row, sources.col);
+        },
+        afterColumnMove : function (srcColNo, destColNo) {
+            console.info("afterColumnMove, srcColNo:", srcColNo, "destColNo:", destColNo);
+            myData_1.moveCol(srcColNo, destColNo);
+            hot.loadData(myData_1.getShowPureDataMatrix());
+        },
+        afterRowMove : function (srcRowNo, destRowNo) {
+            console.info("afterRowMove, srcRowNo:", srcRowNo, "destRowNo:", destRowNo);
+            myData_1.moveRow(srcRowNo, destRowNo);
+            hot.loadData(myData_1.getShowPureDataMatrix());
+        },
+        */
+
+        afterOnCellMouseDown: function(changes, sources) {
+            console.info(" sources === ", sources);
+            console.info("sources.row = ", sources.row, "sources.col = ", sources.col);
+            setClickRowAndCol(mySheet, myMatrix, sources.row, sources.col);
+        },
+
+        afterColumnMove: function(srcColNo, destColNo) {
+            console.info("afterColumnMove, srcColNo:", srcColNo, "destColNo:", destColNo);
+            //myData_1.moveCol(srcColNo, destColNo);
+            //hot.loadData(mySheet.showSheet);
+            myMatrix.moveCol(srcColNo - 2, destColNo - 2);
+            reloadData(mySheet, myMatrix);
+        },
+
+        afterChange: function(changes, source) {
+            console.info("afterChange changes : ", changes);
+            console.info("afterChange source : ", source);
+
+            if (source == "edit") {
+
+                onEditCell(mySheet, myMatrix, changes);
+
+            }
+        },
+
+
+        cells: function(row, col, prop) {
+
+            if ("grey" == mySheet.getCellColorByXY(row, col)) {
+                this.renderer = greyRenderer;
+            } else if ("yellow" == mySheet.getCellColorByXY(row, col)) {
+                this.renderer = yellowRenderer;
+            } else if ("black" == mySheet.getCellColorByXY(row, col)) {
+                this.renderer = blackRenderer;
+            } else if ("white" == mySheet.getCellColorByXY(row, col)) {
+                this.renderer = whiteRenderer;
+            } else {
+                this.renderer = orangeRenderer;
+            }
+
             /*
-            afterOnCellMouseDown : function (changes, sources) {
-                console.info(" sources === ", sources);
-                console.info("sources.row = ", sources.row, "sources.col = ", sources.col);
-                setClickRowAndCol(sources.row, sources.col);
-            },
-            afterColumnMove : function (srcColNo, destColNo) {
-                console.info("afterColumnMove, srcColNo:", srcColNo, "destColNo:", destColNo);
-                myData_1.moveCol(srcColNo, destColNo);
-                hot.loadData(myData_1.getShowPureDataMatrix());
-            },
-            afterRowMove : function (srcRowNo, destRowNo) {
-                console.info("afterRowMove, srcRowNo:", srcRowNo, "destRowNo:", destRowNo);
-                myData_1.moveRow(srcRowNo, destRowNo);
-                hot.loadData(myData_1.getShowPureDataMatrix());
-            },
+            var cellProperties = {};
+            if (row < 2 || col < 2) {
+                cellProperties.readOnly = true;
+            }
             */
+            var cellProperties = {};
+            if (true == mySheet.getCellEditableByXY(row, col)) {
+                cellProperties.readOnly = false;
+            } else {
+                cellProperties.readOnly = true;
+            }
+            return cellProperties;
 
-            afterOnCellMouseDown : function (changes, sources) {
-                console.info(" sources === ", sources);
-                console.info("sources.row = ", sources.row, "sources.col = ", sources.col);
-                setClickRowAndCol(mySheet, myMatrix, sources.row, sources.col);
-            },
-
-            afterColumnMove : function (srcColNo, destColNo) {
-                console.info("afterColumnMove, srcColNo:", srcColNo, "destColNo:", destColNo);
-                //myData_1.moveCol(srcColNo, destColNo);
-                //hot.loadData(mySheet.showSheet);
-                myMatrix.moveCol(srcColNo - 2, destColNo - 2);
-                reloadData(mySheet, myMatrix);
-            },
-
-            afterChange : function (changes, source)
-            {
-                console.info("afterChange changes : ", changes);
-                console.info("afterChange source : ", source);
-
-                if(source == "edit")
-                {
-                    
-                    onEditCell(mySheet, myMatrix, changes);
-                    
-                }
-            },
-            
-            
-            cells : function (row, col, prop) {
-                
-                if("grey" == mySheet.getCellColorByXY(row, col))
-                {
-                    this.renderer = greyRenderer;
-                }
-                else if("yellow" == mySheet.getCellColorByXY(row, col))
-                {
-                    this.renderer = yellowRenderer;
-                }
-                else if("black" == mySheet.getCellColorByXY(row, col))
-                {
-                    this.renderer = blackRenderer;
-                }
-                else if("white" == mySheet.getCellColorByXY(row, col))
-                {
-                    this.renderer = whiteRenderer;
-                }
-                else
-                {
-                    this.renderer = orangeRenderer;
-                }
-                
-                /*
-                var cellProperties = {};
-                if (row < 2 || col < 2) {
-                    cellProperties.readOnly = true;
-                }
-                */
-                var cellProperties = {};
-                if(true == mySheet.getCellEditableByXY(row, col))
-                {
-                    cellProperties.readOnly = false;
-                }
-                else
-                {
-                    cellProperties.readOnly = true;
-                }
-                return cellProperties;
-                
-            },
-            
-            
-
-        });
+        },
 
 
-/*    $('#cssmenu > ul > li > a').click(function () {
-        console.info("hello2");
-        $('#cssmenu li').removeClass('active');
-        $(this).closest('li').addClass('active');
-        var checkElement = $(this).next();
-        if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-            $(this).closest('li').removeClass('active');
-            checkElement.slideUp('normal');
-        }
-        if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-            $('#cssmenu ul ul:visible').slideUp('normal');
-            checkElement.slideDown('normal');
-        }
-        if ($(this).closest('li').find('ul').children().length == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    });*/
 
-    $('#cssmenu li.has-sub>a').on('click', function(){
+    });
+
+
+    /*    $('#cssmenu > ul > li > a').click(function () {
+            console.info("hello2");
+            $('#cssmenu li').removeClass('active');
+            $(this).closest('li').addClass('active');
+            var checkElement = $(this).next();
+            if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+                $(this).closest('li').removeClass('active');
+                checkElement.slideUp('normal');
+            }
+            if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+                $('#cssmenu ul ul:visible').slideUp('normal');
+                checkElement.slideDown('normal');
+            }
+            if ($(this).closest('li').find('ul').children().length == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        });*/
+
+    $('#cssmenu li.has-sub>a').on('click', function() {
         $(this).removeAttr('href');
         var element = $(this).parent('li');
         if (element.hasClass('open')) {
             element.removeClass('open');
             element.find('li').removeClass('open');
             element.find('ul').slideUp();
-        }
-        else {
+        } else {
             element.addClass('open');
             element.children('ul').slideDown();
             element.siblings('li').children('ul').slideUp();
@@ -1257,197 +1153,200 @@ $(document).ready(function () {
     });
     */
 
-    $('#Save').click(function () {
+    $('#Save').click(function() {
         console.info("save");
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#saveForm')
+            message: $('#saveForm')
         });
 
         //saveCurrentSheetToServer();
 
     });
 
-    $('#Load').click(function () {
+    $('#Load').click(function() {
         console.info("Load");
         generateLoadForm();
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#insertFrm')
+            message: $('#insertFrm')
         });
 
     });
 
-    $('#New').click(function () {
+    $('#New').click(function() {
         console.info("new");
         generateInsertColumnForm(mySheet, myMatrix, 0, mySheet.sheetColNum - 1, false);
 
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#insertFrm')
+            message: $('#insertFrm')
         });
     });
 
-    $('#InsertCB').click(function () {
+    $('#InsertCB').click(function() {
         console.info("insert column before");
         generateInsertColumnForm(mySheet, myMatrix, clickRow, clickCol, true);
 
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#insertFrm')
+            message: $('#insertFrm')
         });
     });
 
-    $('#InsertCA').click(function () {
+    $('#InsertCA').click(function() {
         console.info("insert column after");
         generateInsertColumnForm(mySheet, myMatrix, clickRow, clickCol, false);
 
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#insertFrm')
+            message: $('#insertFrm')
         });
     });
 
-    $('#InsertRB').click(function () {
+    $('#InsertRB').click(function() {
         console.info("insert row before");
         generateInsertRowForm(mySheet, myMatrix, clickRow, clickCol, true);
 
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#insertFrm')
+            message: $('#insertFrm')
         });
     });
 
-    $('#InsertRA').click(function () {
+    $('#InsertRA').click(function() {
         console.info("insert row after");
         generateInsertRowForm(mySheet, myMatrix, clickRow, clickCol, false);
 
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#insertFrm')
+            message: $('#insertFrm')
         });
     });
 
-    $('#DeleteColumn').click(function () {
+    $('#DeleteColumn').click(function() {
         console.info("delete column");
         generateDeleteColForm(mySheet, myMatrix, clickRow, clickCol);
 
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#insertFrm')
+            message: $('#insertFrm')
         });
     });
 
-    $('#DeleteRow').click(function () {
+    $('#DeleteRow').click(function() {
         console.info("delete row");
         generateDeleteRowForm(mySheet, myMatrix, clickRow, clickCol);
 
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#insertFrm')
+            message: $('#insertFrm')
         });
     });
 
-    $('#ColumnWeight').click(function () {
+    $('#ColumnWeight').click(function() {
         console.info("set column right weight");
         generateRightWeightForm(true);
 
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#insertFrm')
+            message: $('#insertFrm')
         });
     });
 
-    $('#RowWeight').click(function () {
+    $('#RowWeight').click(function() {
         console.info("set row right weight");
         generateRightWeightForm(false);
 
         $.blockUI({
             //$.fn.blockUI({
-            message : $('#insertFrm')
+            message: $('#insertFrm')
         });
     });
 
 
-/*    $('#purifyData').click(function () {
-        
-        localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
-        $.get('javascripts/computing.html', function(html) {
-            console.info("1111111111111111");
+    /*    $('#purifyData').click(function () {
+            
+            localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+            $.get('javascripts/computing.html', function(html) {
+                console.info("1111111111111111");
 
-        $.blockUI({ 
-                    message: html ,
-                    css: 
-                    {
-                        //top:  ($(window).height() - 400) /2 + 'px', 
-                        //left: ($(window).width() - 400) /2 + 'px', 
-                        //width: '400px'
-                        top: '10px',
-                        left: '10px',
-                        width: '400px' 
-                    }
-                });
-        });
+            $.blockUI({ 
+                        message: html ,
+                        css: 
+                        {
+                            //top:  ($(window).height() - 400) /2 + 'px', 
+                            //left: ($(window).width() - 400) /2 + 'px', 
+                            //width: '400px'
+                            top: '10px',
+                            left: '10px',
+                            width: '400px' 
+                        }
+                    });
+            });
 
-    });*/
+        });*/
 
-/*    $('#purifyData').click(function () {
+    /*    $('#purifyData').click(function () {
 
-        localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
-        $.ajax({
-            type : "GET",
-            url : "/computingPage",
-            data : "",
-            contentType : "application/json; charset=utf-8",
-            //contentType: "text/html; charset=utf-8",
-            //dataType: "json",
-            async: "false",
-            success : function (data) {
-                console.info("get computing.html file = ", data);
-                
-            },
-            failure : function (errMsg) {
-                alert("get computing.html error");
-            }
-        });
+            localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+            $.ajax({
+                type : "GET",
+                url : "/computingPage",
+                data : "",
+                contentType : "application/json; charset=utf-8",
+                //contentType: "text/html; charset=utf-8",
+                //dataType: "json",
+                async: "false",
+                success : function (data) {
+                    console.info("get computing.html file = ", data);
+                    
+                },
+                failure : function (errMsg) {
+                    alert("get computing.html error");
+                }
+            });
 
-    });*/
+        });*/
 
 
-    $('#calculate').click(function () {
-        localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
-        var win = window.open("/computingPage", '_blank');
-        if(win){
+    $('#calculate').click(function() {
+        //localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+        //var win = window.open("/computingPage", '_blank');
+        saveMatrix2LocalStorage("localMatrix", myMatrix);
+        var win = window.open("/normalComputingPage", '_blank');
+        if (win) {
             //Browser has allowed it to be opened
             win.focus();
-        }else{
+        } else {
             //Broswer has blocked it
             alert('Please allow popups for this site');
         }
     });
-    
-    
-    $('#purifyData').click(function () {
-        localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+
+
+    $('#purifyData').click(function() {
+        //localStorage.setItem("localMatrix", JSON.stringify(myMatrix));
+        saveMatrix2LocalStorage("localMatrix", myMatrix);
         var win = window.open("/biaoZhunHuaPage", '_blank');
-        if(win){
+        if (win) {
             //Browser has allowed it to be opened
             win.focus();
-        }else{
+        } else {
             //Broswer has blocked it
             alert('Please allow popups for this site');
         }
     });
 
-    $("#load li a").click(function (e) {
+    $("#load li a").click(function(e) {
         console.info("load");
     });
 
-    $("#import li a").click(function (e) {
+    $("#import li a").click(function(e) {
         console.info("import");
     });
 
-    $('#newFormNo').click(function () {
+    $('#newFormNo').click(function() {
         var frm = document.getElementById('newFrm');
         var colNum = document.getElementById('colNum');
         var rowNum = document.getElementById('rowNum');
@@ -1456,7 +1355,7 @@ $(document).ready(function () {
         return false;
     });
 
-    $('#newFormYes').click(function () {
+    $('#newFormYes').click(function() {
         var frm = document.getElementById('newFrm');
         var colNum = document.getElementById('colNum');
         var rowNum = document.getElementById('rowNum');
@@ -1468,14 +1367,14 @@ $(document).ready(function () {
         return true;
     });
 
-    $('#saveFormNo').click(function () {
+    $('#saveFormNo').click(function() {
         var frm = document.getElementById('saveFrm');
         var colNum = document.getElementById('fileName');
         $.unblockUIl();
         return false;
     });
 
-    $('#saveFormYes').click(function () {
+    $('#saveFormYes').click(function() {
         var frm = document.getElementById('saveFrm');
         var fileName = document.getElementById('fileName');
         console.info("save to server file name: ", fileName.value);

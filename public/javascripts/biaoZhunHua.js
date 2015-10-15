@@ -14,19 +14,21 @@ $(document).ready(function() {
     $('#formularCommitButton').click(function() {
 
 
-        submitFormular2Server();
+        //submitFormular2Server();
+        //function submitMath2Server(userName, passwd, mathType, matrix, mathContent) {
+        submitMath2Server("zhy", "123", "biaoZhunHua", biaoZhunHuaMatrix, g_generateFormularDataList);
 
         return true;
     });
 
-    function submitFormularReq(){
+/*    function submitFormularReq() {
         this.userName = '';
         this.passwd = '';
         this.sessionId = 0;
         this.matrix = '';
         this.formularList = '';
 
-        this.generateSubmitFormularReq = function(userName, passwd, sessionId, matrix, formularList){
+        this.generateSubmitFormularReq = function(userName, passwd, sessionId, matrix, formularList) {
             this.userName = userName;
             this.passwd = passwd;
             this.sessionId = sessionId;
@@ -35,7 +37,7 @@ $(document).ready(function() {
         }
     }
 
-    function submitFormular2Server(){
+    function submitFormular2Server() {
         console.info("entry submitFormular2Server");
 
         var userName = "zhy";
@@ -44,8 +46,8 @@ $(document).ready(function() {
 
         var submitBody = new submitFormularReq();
 
-        submitBody.generateSubmitFormularReq(userName, passwd, sessionId, 
-                                                    biaoZhunHuaMatrix, g_generateFormularDataList);
+        submitBody.generateSubmitFormularReq(userName, passwd, sessionId,
+            biaoZhunHuaMatrix, g_generateFormularDataList);
         var bodyData = JSON.stringify(submitBody);
 
         $.ajax({
@@ -59,15 +61,17 @@ $(document).ready(function() {
                 var resData = JSON.parse(data);
                 console.info(" resData.reason = ", resData.reason);
                 if (resData.result == "success") {
-                    //localStorage.setItem("computedMatrix", JSON.stringify(resData.matrix));
-                    //console.info("cccccccccccccc:", JSON.stringify(resData.matrix))
-                    localStorage.setItem("computedMatrix", resData.matrix);
-                    console.info("cccccccccccccc:", resData.matrix)
+                    saveMatrixStr2LocalStorage("computedMatrix", resData.matrix)
+                    //console.info("cccccccccccccc:", resData.matrix)
                 } else {
-                    var origData = localStorage.getItem("localMatrix");
-                    localStorage.setItem("computedMatrix", origData);
-                    console.info("cccccccccccccc:", origData);
-                    alert(resData.result);
+                    var origDataStr = "";
+                    origDataStr = loadMatrixStrFromLocalStorage("localMatrix");
+                    if(origDataStr){
+                        saveMatrixStr2LocalStorage("computedMatrix", origDataStr);
+                        alert(resData.result);
+                    }else{
+                        alert("error to handle local storage");
+                    }
                 }
                 console.info("now complete submitComputExpressAndData");
                 location.replace("http://192.168.56.101:3000");
@@ -80,7 +84,7 @@ $(document).ready(function() {
             }
         });
 
-    }
+    }*/
 
 
     function g_generateFormularDataLisRepeat(generateFormularData) {
@@ -151,19 +155,19 @@ var selectedData =
         selectedData.parameters = parameterList;
     }
 
-/*    $('#parameterSubmit').click(function() {
+    /*    $('#parameterSubmit').click(function() {
 
-        $.unblockUI();
+            $.unblockUI();
 
-        return true;
-    });
+            return true;
+        });
 
-    $('#parameterCancel').click(function() {
+        $('#parameterCancel').click(function() {
 
-        $.unblockUI();
+            $.unblockUI();
 
-        return true;
-    });*/
+            return true;
+        });*/
 
     $('#HintYesButton').click(function() {
 
@@ -214,7 +218,7 @@ var selectedData =
                 formularConf = JSON.parse(data);
                 console.info("formularConf : ", formularConf);
                 showFormulaList(formularConf);
-                initSelectedSourceDataList();
+                //initSelectedSourceDataList();
             },
             failure: function(errMsg) {
                 alert(errMsg);
@@ -245,7 +249,7 @@ var selectedData =
                     var value = $(evt.target).val();
                     if (value) {
                         setCurrentSelectFormular(value);
-                        refreshCheckBox();
+                        //refreshCheckBox();
                     } //alert(value);
                 }
 
@@ -282,9 +286,10 @@ var selectedData =
     var colNameList = [];
 
     function getMatrixData() {
-        var biaoZhunHuaMatrixString = localStorage.getItem("localMatrix");
+        /*var biaoZhunHuaMatrixString = localStorage.getItem("localMatrix");
         console.info("dddddddddddd:", biaoZhunHuaMatrixString);
-        biaoZhunHuaMatrix.loadData(JSON.parse(biaoZhunHuaMatrixString));
+        biaoZhunHuaMatrix.loadData(JSON.parse(biaoZhunHuaMatrixString));*/
+        loadMatrixFromLocalStorage("localMatrix", biaoZhunHuaMatrix);
 
 
         console.info("biaoZhunHuaMatrix colNum: ", biaoZhunHuaMatrix.colNum);
@@ -336,24 +341,24 @@ var selectedData =
     }
 
 
-    function generaterColumList() {
+    /*    function generaterColumList() {
 
-        getMatrixData();
-        var appendStr = "";
-        var i = 0;
-        for (i = 0; i < colNameList.length; i++) {
-            var colName = colNameList[i];
-            console.info("colName : ", colName);
-            var tmpStr = '<label><input type="checkbox" name= ' + colName + '  /> ' + colName + ' </label> <br>';
-            console.info("tmpStr : ", tmpStr);
-            appendStr = appendStr.concat(tmpStr);
+            getMatrixData();
+            var appendStr = "";
+            var i = 0;
+            for (i = 0; i < colNameList.length; i++) {
+                var colName = colNameList[i];
+                console.info("colName : ", colName);
+                var tmpStr = '<label><input type="checkbox" name= ' + colName + '  /> ' + colName + ' </label> <br>';
+                console.info("tmpStr : ", tmpStr);
+                appendStr = appendStr.concat(tmpStr);
 
-        }
-        console.log("appendStr :", appendStr);
-        $("#colNameList").append(appendStr);
-        attachCheckboxHandlers();
+            }
+            console.log("appendStr :", appendStr);
+            $("#colNameList").append(appendStr);
+            attachCheckboxHandlers();
 
-    }
+        }*/
 
 
 
@@ -378,21 +383,21 @@ var selectedData =
     }
 
 
-    // call onload or in script segment below form
-    function attachCheckboxHandlers() {
-        // get reference to element containing toppings checkboxes
-        var el = document.getElementById('colNameList');
+    /*    // call onload or in script segment below form
+        function attachCheckboxHandlers() {
+            // get reference to element containing toppings checkboxes
+            var el = document.getElementById('colNameList');
 
-        // get reference to input elements in toppings container element
-        var tops = el.getElementsByTagName('input');
+            // get reference to input elements in toppings container element
+            var tops = el.getElementsByTagName('input');
 
-        // assign updateTotal function to onclick property of each checkbox
-        for (var i = 0, len = tops.length; i < len; i++) {
-            if (tops[i].type === 'checkbox') {
-                tops[i].onclick = columDataSelected;
+            // assign updateTotal function to onclick property of each checkbox
+            for (var i = 0, len = tops.length; i < len; i++) {
+                if (tops[i].type === 'checkbox') {
+                    tops[i].onclick = columDataSelected;
+                }
             }
-        }
-    }
+        }*/
 
     function attachButtonClickHandlers() {
         // get reference to element containing toppings checkboxes
@@ -409,95 +414,93 @@ var selectedData =
         }
     }
 
-
-
-    // called onclick of toppings checkboxes
-    function columDataSelected(e) {
-
-        if (this.checked) {
-            //alert(this.name + "checked");
-            generateParameterHintForm(this.name);
-            //$.blockUI({ message: $('#parameterHintFrm') }); 
-
-            //setTimeout($.unblockUI, 2000); 
-
-            selectedSouceDataListAdd(this.name);
-        } else {
-            //alert(this.name + "unchecked");
-            selectedSourceDataListDel(this.name);
-        }
-        showSelectedSourceDataList();
-        generaterFormularExpressionList();
-
-    }
-
     function columDataClicked(e) {
         generateParameterHintForm(this.name);
     }
 
 
 
+    /*    // called onclick of toppings checkboxes
+        function columDataSelected(e) {
+
+            if (this.checked) {
+                //alert(this.name + "checked");
+                generateParameterHintForm(this.name);
+                //$.blockUI({ message: $('#parameterHintFrm') }); 
+
+                //setTimeout($.unblockUI, 2000); 
+
+                selectedSouceDataListAdd(this.name);
+            } else {
+                //alert(this.name + "unchecked");
+                selectedSourceDataListDel(this.name);
+            }
+            showSelectedSourceDataList();
+            generaterFormularExpressionList();
+
+        }
 
 
-    function refreshCheckBox() {
-        var list = selectedSourceDataList[currentFormular.name];
 
-        var el = document.getElementById('colNameList');
+        function refreshCheckBox() {
+            var list = selectedSourceDataList[currentFormular.name];
 
-        var tops = el.getElementsByTagName('input');
+            var el = document.getElementById('colNameList');
 
-        // assign updateTotal function to onclick property of each checkbox
-        for (var i = 0, len = tops.length; i < len; i++) {
-            if (tops[i].type === 'checkbox') {
-                if (undefined != _.find(list, function(name) {
-                    return (name === tops[i].name);
-                })) {
-                    tops[i].checked = true;
-                } else {
-                    tops[i].checked = false;
+            var tops = el.getElementsByTagName('input');
+
+            // assign updateTotal function to onclick property of each checkbox
+            for (var i = 0, len = tops.length; i < len; i++) {
+                if (tops[i].type === 'checkbox') {
+                    if (undefined != _.find(list, function(name) {
+                        return (name === tops[i].name);
+                    })) {
+                        tops[i].checked = true;
+                    } else {
+                        tops[i].checked = false;
+                    }
                 }
+            }
+
+        }
+
+
+
+        function initSelectedSourceDataList() {
+            var formularNameList = _.map(formularConf, function(conf) {
+                return conf.name;
+            })
+
+            for (var i = 0; i < formularNameList.length; i++) {
+                selectedSourceDataList[formularNameList[i]] = [];
+            }
+            console.info("selectedSourceDataList : ", selectedSourceDataList);
+
+        }
+
+        function clearSelectedSourceDataList() {
+            initSelectedSourceDataList();
+        }
+
+        function selectedSouceDataListAdd(ele) {
+            if (undefined == _.find(selectedSourceDataList[currentFormular.name], function(e) {
+                return (ele === e);
+            })) {
+                selectedSourceDataList[currentFormular.name].push(ele);
             }
         }
 
-    }
-
-
-
-    function initSelectedSourceDataList() {
-        var formularNameList = _.map(formularConf, function(conf) {
-            return conf.name;
-        })
-
-        for (var i = 0; i < formularNameList.length; i++) {
-            selectedSourceDataList[formularNameList[i]] = [];
+        function selectedSourceDataListDel(ele) {
+            var index = _.indexOf(selectedSourceDataList[currentFormular.name], ele);
+            if (-1 != index) {
+                selectedSourceDataList[currentFormular.name].splice(index, 1);
+            }
         }
-        console.info("selectedSourceDataList : ", selectedSourceDataList);
 
-    }
-
-    function clearSelectedSourceDataList() {
-        initSelectedSourceDataList();
-    }
-
-    function selectedSouceDataListAdd(ele) {
-        if (undefined == _.find(selectedSourceDataList[currentFormular.name], function(e) {
-            return (ele === e);
-        })) {
-            selectedSourceDataList[currentFormular.name].push(ele);
+        function showSelectedSourceDataList() {
+            console.info("selectedSourceDataList : ", selectedSourceDataList);
         }
-    }
-
-    function selectedSourceDataListDel(ele) {
-        var index = _.indexOf(selectedSourceDataList[currentFormular.name], ele);
-        if (-1 != index) {
-            selectedSourceDataList[currentFormular.name].splice(index, 1);
-        }
-    }
-
-    function showSelectedSourceDataList() {
-        console.info("selectedSourceDataList : ", selectedSourceDataList);
-    }
-
+    */
 
     /*    function generaterFormularExpressionList() {
 
@@ -538,7 +541,7 @@ var selectedData =
             var defaultArg = ele.srcDataName;
             var argList = ele.parameterList;
 
-            var expressString = targetName + " = "  + formularName + "( " + defaultArg + ", " + argList.toString() + " )";
+            var expressString = targetName + " = " + formularName + "( " + defaultArg + ", " + argList.toString() + " )";
             console.info(expressString);
             return expressString;
         }
