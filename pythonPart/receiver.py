@@ -2,8 +2,29 @@ import json
 import zmq
 import time
 import sys
-from validateMathExpression import validateMathExpression
-from expressionHandle import expressionHandle
+# from validateMathExpression import validateMathExpression
+# from expressionHandle import expressionHandle
+from purifyHandle import purifyMathHandle
+from normalMathHandle import normalMathHandle
+
+
+    # function submitMathReq() {
+    #     this.userName = '';
+    #     this.passwd = '';
+    #     this.sessionId = 0;
+    #     this.mathType = '';
+    #     this.matrix = '';
+    #     this.mathContent = '';
+
+    #     this.generateSubmitMathReq = function(userName, passwd, sessionId, mathType, matrix, mathContent) {
+    #         this.userName = userName;
+    #         this.passwd = passwd;
+    #         this.sessionId = sessionId;
+    #         this.mathType = mathType;
+    #         this.matrix = matrix;
+    #         this.mathContent = mathContent;
+    #     }
+    # }
 
 
 def parseMsg(jsonStr):
@@ -15,66 +36,43 @@ def parseMsg(jsonStr):
     userName = jsonObj["userName"]
     passwd = jsonObj["passwd"]
     sessionId = jsonObj["sessionId"]
-    formularList = jsonObj["formularList"]
+    mathType = jsonObj["mathType"]
+    matrix = jsonObj["matrix"]
+    mathContent = jsonObj["mathContent"]
 
-    print userName
-    print passwd
-    print sessionId
-    for formular in formularList:
-        print formular
+
+    print "userName : ", userName
+    print "passwd  : ", passwd
+    print "sessionId : ", sessionId
+    print "mathType : ", mathType
 
 
     sheet = jsonObj['matrix']
-    for formular in formularList:
-        targetVarName = formular['targetName']
-        srcVarName = formular['srcDataName']
-        expression = formular['formularName']
-        parameterList = formular['parameterList']
 
-        if True != validateMathExpression(targetVarName, srcVarName, expression, parameterList, sheet):
-            returnVar["result"] = "validate Mathexpression failed with" + targetVarName
-            returnVar["matrix"] = ""
-            return returnVar 
-
-        res = expressionHandle(targetVarName, srcVarName, expression, parameterList, sheet)
+    if mathType == "purifyCompute":
+        res = purifyMathHandle(sheet, mathContent)
         if True != res[0]:
             returnVar["result"] = res[2]
             returnVar["matrix"] = ""
             return returnVar
-
+    elif mathType == "normalCompute":
+        res = normalMathHandle(sheet, mathContent)
+        if True != res[0]:
+            returnVar["result"] = res[2]
+            returnVar["matrix"] = ""
+            return returnVar
+    else:
+        returnVar["result"] = "no such mathType : " + mathType
+        returnVar["matrix"] = ""
+        return returnVar
 
 
     returnVar["result"] = "success"
+
+    print "success return sheet : ", res[1]
+
     returnVar["matrix"] = res[1]
     return returnVar
-
-    # targetVarName = jsonObj["targetVarName"]
-    # expression = jsonObj["expression"]
-
-
-    # sheet = jsonObj["matrix"]
-    # colNum = sheet['colNum']
-    # rowNum = sheet['rowNum']
-    # matrix = sheet['matrix']
-
-    # for i in range(0, rowNum):
-    #     for j in range(0, colNum):
-    #         print "matrix [%d][%d] : %s" % (i, j, matrix[i][j]);
-
-    # if True != validateMathExpression(targetVarName, expression, sheet):
-    #     returnVar["result"] = "validate Mathexpression failed"
-    #     returnVar["matrix"] = ""
-    #     return returnVar    
-
-    # res = expressionHandle(targetVarName, expression, sheet)
-    # if True != res[0]:
-    #     returnVar["result"] = "expressionHandle failed"
-    #     returnVar["matrix"] = ""
-    #     return returnVar
-    # else:
-    #     returnVar["result"] = "success"
-    #     returnVar["matrix"] = res[1]
-    #     return returnVar
                 
 
 

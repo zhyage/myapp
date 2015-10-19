@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-xs-4 col-md-4">
         <div id="target_variable"> target variable: </div>
-        <textarea class="col-xs-12"  rows="1" name="textarea" id="targeetVar" placeholder="Text Area"></textarea>
+        <textarea class="col-xs-12"  rows="1" name="textarea" id="targetVar" placeholder="Text Area"></textarea>
         <div id="colNameList">Source data: <br> </div>
       </div>
       
@@ -102,14 +102,14 @@
         <div class="col-md-6 column">
           <div class="row clearfix">
             <div class="btn-group">
-              <button onclick="modifyExpression('math.abs(?)')" class="btn btn-default" type="button">ABS(x)</button>
-              <button onclick="modifyExpression('math.cos(?)')" class="btn btn-default" type="button">COS(x)</button>
+              <button onclick="modifyExpression('abs(?)')" class="btn btn-default" type="button">abs(x)</button>
+              <button onclick="modifyExpression('cos(?)')" class="btn btn-default" type="button">cos(x)</button>
             </div>
           </div>
           <div class="row clearfix">
             <div class="btn-group">
-              <button onclick="modifyExpression('math.sin(?)')" class="btn btn-default" type="button">SIN(x)</button>
-              <button onclick="modifyExpression('math.pow(?,?)')" class="btn btn-default" type="button">POW(x,y)</button>
+              <button onclick="modifyExpression('sin(?)')" class="btn btn-default" type="button">sin(x)</button>
+              <button onclick="modifyExpression('tan(?)')" class="btn btn-default" type="button">tan(x)</button>
             </div>
           </div>
         </div>
@@ -131,23 +131,6 @@
         </div>
       </div>
     </div>
-    <!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    -->
-    <div id="parameterHintFrm" style="display:none">
-      <div id="HintInputSrcData"> </div>
-      <div id="HintTargetName"> </div>
-      <div id="HintParameterList"> </div>
-      <div id="HintComment"> </div>
-      <div class="row clearfix">
-        <div id="HintYesButton" class="col-md-6 column">
-          <button type="button" class="btn btn-default">commit</button>
-        </div>
-        <div id="HintCancelButton" class="col-md-6 column">
-          <button type="button" class="btn btn-default">cancel</button>
-        </div>
-      </div>
-    </div>
+
   </body>
 </html>

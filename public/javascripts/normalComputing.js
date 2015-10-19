@@ -1,5 +1,23 @@
 $(document).ready(function() {
 
+    var g_submitMathContent = {};
+
+    $('#formularCancelButton').click(function() {
+
+        return true;
+    });
+
+    $('#formularCommitButton').click(function() {
+        var targetVarName = getTargetVarName();
+        var expression = getExpression();
+        g_submitMathContent.targetVarName = targetVarName;
+        g_submitMathContent.expression = expression;
+
+
+        submitMath2Server("zhy", "123", "normalCompute", normalComputingMatrix, g_submitMathContent);
+
+        return true;
+    });
 
 
     var normalComputingMatrix = new matrix();
@@ -103,4 +121,8 @@ function modifyExpression(addString) {
 
     }
     setExpression(newExpress);
+}
+
+function getTargetVarName() {
+    return $('#targetVar').val();
 }

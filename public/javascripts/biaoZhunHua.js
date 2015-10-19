@@ -16,7 +16,7 @@ $(document).ready(function() {
 
         //submitFormular2Server();
         //function submitMath2Server(userName, passwd, mathType, matrix, mathContent) {
-        submitMath2Server("zhy", "123", "biaoZhunHua", biaoZhunHuaMatrix, g_generateFormularDataList);
+        submitMath2Server("zhy", "123", "purifyCompute", biaoZhunHuaMatrix, g_generateFormularDataList);
 
         return true;
     });

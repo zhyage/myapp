@@ -8,7 +8,7 @@
         this.matrix = '';
         this.mathContent = '';
 
-        this.generateSubmitMathReq = function(userName, passwd, sessionId, mathType, matrix, mathContent) {
+        this.generateSubmitMathReq = function(userName, passwd, mathType, sessionId, matrix, mathContent) {
             this.userName = userName;
             this.passwd = passwd;
             this.sessionId = sessionId;

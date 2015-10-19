@@ -975,10 +975,11 @@ $(document).ready(function() {
         myMatrix.setMatrixData("402", 0, 2);
 
         myMatrix.setMatrixData("500", 1, 0);
-
         myMatrix.setMatrixData("501", 1, 1);
-        myMatrix.setMatrixData("601", 2, 1);
-        myMatrix.setMatrixData("701", 3, 1);
+        myMatrix.setMatrixData("502", 1, 2);
+
+        myMatrix.setMatrixData("601", 2, 0);
+        myMatrix.setMatrixData("701", 2, 1);
     } else {
         //var computedMatrix = JSON.parse(computedMatrixString);
         //var loadMatrix = JSON.parse(computedMatrix);
