@@ -1,5 +1,15 @@
 $(document).ready(function() {
 
+    window.addEventListener('storage', storageEventHandler, false);
+
+    function storageEventHandler(evt) {
+        //alert("storage event called key: " + evt.key);
+        if (evt.key == 'computedMatrix'){
+            //location.replace("http://192.168.56.101:3000");
+            location.reload();
+        }
+    }
+
     var yellowRenderer = function(instance, td, row, col, prop, value, cellProperties) {
         Handsontable.renderers.TextRenderer.apply(this, arguments);
         td.style.backgroundColor = 'yellow';

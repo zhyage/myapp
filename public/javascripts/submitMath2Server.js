@@ -35,7 +35,8 @@
                     }
         }
                 console.info("now complete submitComputExpressAndData");
-                location.replace("http://192.168.56.101:3000");
+                //location.replace("http://192.168.56.101:3000");
+                window.close();
     }
 
     function submitMath2Server(userName, passwd, mathType, matrix, mathContent) {
