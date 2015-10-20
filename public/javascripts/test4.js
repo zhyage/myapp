@@ -222,7 +222,7 @@ $(document).ready(function() {
         });
     }
 
-    function generateDeleteColForm(sheet, matrix, rowNo, colNo) {
+/*    function generateDeleteColForm(sheet, matrix, rowNo, colNo) {
         $('#insertFrm').html('');
         var oldMatrix = matrix.copyMatrix();
         var delColNo = colNo - 2;
@@ -274,9 +274,76 @@ $(document).ready(function() {
             },
 
         });
+    }*/
+
+
+    function generateDeleteColForm(sheet, matrix, startColNo, endColNo) {
+        $('#insertFrm').html('');
+        var oldMatrix = matrix.copyMatrix();
+        var startDelColNo = startColNo - 2;
+        var endDelColNo = endColNo - 2;
+        console.info("entry generateDeleteColForm");
+        if (startDelColNo < 0 || startDelColNo > matrix.colNum || endDelColNo < 0 || endDelColNo > matrix.colNum) {
+            setTimeout(function() {
+                $.unblockUI({
+                    onUnblock: function() {
+                        alert('please select correct position where you want delete columns first');
+                    }
+                });
+            }, 200);
+            return;
+        }
+
+        $('#insertFrm').jsonForm({
+            "form": [{
+                "type": "help",
+                "helpvalue": "Would you like to contine?."
+            }, {
+                "type": "actions",
+                "items": [{
+                    "type": "submit",
+                    "title": "Submit"
+                }, {
+                    "type": "button",
+                    "title": "Cancel",
+                    "onClick": function(evt) {
+                        evt.preventDefault();
+                        console.info("cancel delete columns");
+                        $.unblockUI();
+                    }
+                }]
+            }],
+
+            onSubmit: function(errors, values) {
+                if (errors) {
+                    alert("error happens when delete columns");
+                    reLoadSheet(sheet, oldMatrix);
+                } else {
+                    var delRes = true;
+                    if(startDelColNo <= endDelColNo){
+                        for(delCol = startDelColNo; delCol <= endDelColNo; delCol++){
+                            console.info("delColNo : ", delCol);
+                            delRes &= matrix.deleteColumn(startDelColNo);//acutally, after every del, the left cols will move forward
+                        }
+                    }else{
+                        for(delCol = endDelColNo; delCol <= startDelColNo; delCol++){
+                            console.info("delColNo2 : ", delCol);
+                            delRes &= matrix.deleteColumn(endDelColNo);
+                        }
+                    }
+                    if(delRes === 1){
+                        reloadData(sheet, matrix);
+                    }else{
+                        reloadData(sheet, oldMatrix);
+                    }
+                }
+                $.unblockUI();
+            },
+
+        });
     }
 
-    function generateDeleteRowForm(sheet, matrix, rowNo, colNo) {
+/*    function generateDeleteRowForm(sheet, matrix, rowNo, colNo) {
         $('#insertFrm').html('');
         console.info("entry generateDeleteRowForm");
         var oldMatrix = matrix.copyMatrix();
@@ -327,7 +394,74 @@ $(document).ready(function() {
             },
 
         });
-    }
+    }*/
+
+    function generateDeleteRowForm(sheet, matrix, startRow, endRow){
+        $('#insertFrm').html('');
+        console.info("entry generateDeleteRowForm");
+        var oldMatrix = matrix.copyMatrix();
+        var startDelRowNo = startRow - 2;
+        var endDelRowNo = endRow - 2;
+        if (startDelRowNo < 0 || startDelRowNo > matrix.rowNum || endDelRowNo < 0 || endDelRowNo > matrix.rowNum) {
+            setTimeout(function() {
+                $.unblockUI({
+                    onUnblock: function() {
+                        alert('please select correct position where you want delete rows first');
+                    }
+                });
+            }, 200);
+            return;
+        }
+
+        $('#insertFrm').jsonForm({
+            "form": [{
+                "type": "help",
+                "helpvalue": "Would you like to contine?."
+            }, {
+                "type": "actions",
+                "items": [{
+                    "type": "submit",
+                    "title": "Submit"
+                }, {
+                    "type": "button",
+                    "title": "Cancel",
+                    "onClick": function(evt) {
+                        evt.preventDefault();
+                        console.info("cancel delete rows");
+                        $.unblockUI();
+                    }
+                }]
+            }],
+
+            onSubmit: function(errors, values) {
+                if (errors) {
+                    alert("error happens when delete rows");
+                    reloadData(sheet, oldMatrix);
+                } else {
+                    var delRes = true;
+                    if(startDelRowNo <= endDelRowNo){
+                        for(delRow = startDelRowNo; delRow <= endDelRowNo; delRow++){
+                            console.info("delRowNo : ", delRow);
+                            delRes &= matrix.deleteRow(startDelRowNo);//actually, every del row, the left rows will move forward
+                        }
+                    }else{
+                        for(delRow = endDelRowNo; delRow <= startDelRowNo; delRow++){
+                            console.info("delRowNo2 : ", delRow);
+                            delRes &= matrix.deleteRow(endDelRowNo);
+                        }
+                    }
+                    if(delRes === 1){
+                        reloadData(sheet, matrix);
+                    }else{
+                        reloadData(sheet, oldMatrix);
+                    }
+
+                }
+                $.unblockUI();
+            },
+
+        });
+    } 
 
     function generateColHeaderForm(sheet, matrix, colNo) {
         console.info("entry generateColHeaderForm");
@@ -892,6 +1026,22 @@ $(document).ready(function() {
     }
 
 
+    var selectStartRow = 0;
+    var selectStartCol = 0;
+    var selectEndRow = 0;
+    var selectEndCol = 0;
+
+    function setSelectRowAndCol(startRow, startCol, endRow, endCol){
+        selectStartRow = startRow;
+        selectStartCol = startCol;
+        selectEndRow = endRow;
+        selectEndCol = endCol;
+        console.info(" afterSelection : startRow : ", selectStartRow);
+        console.info(" afterSelection : startCol : ", selectStartCol);
+        console.info(" afterSelection : endRow : ", selectEndRow);
+        console.info(" afterSelection : endCol : ", selectEndCol);
+    }
+
 
     var clickRow = 0;
     var clickCol = 0;
@@ -1080,6 +1230,14 @@ $(document).ready(function() {
             }
         },
 
+        afterSelection: function(startRow, startCol, endRow, endCol){
+            /*console.info(" afterSelection : startRow : ", startRow);
+            console.info(" afterSelection : startCol : ", startCol);
+            console.info(" afterSelection : endRow : ", endRow);
+            console.info(" afterSelection : endCol : ", endCol);*/
+            setSelectRowAndCol(startRow, startCol, endRow, endCol);
+        },
+
 
         cells: function(row, col, prop) {
 
@@ -1237,8 +1395,8 @@ $(document).ready(function() {
 
     $('#DeleteColumn').click(function() {
         console.info("delete column");
-        generateDeleteColForm(mySheet, myMatrix, clickRow, clickCol);
-
+        //generateDeleteColForm(mySheet, myMatrix, clickRow, clickCol);
+        generateDeleteColForm(mySheet, myMatrix, selectStartCol, selectEndCol);
         $.blockUI({
             //$.fn.blockUI({
             message: $('#insertFrm')
@@ -1247,7 +1405,8 @@ $(document).ready(function() {
 
     $('#DeleteRow').click(function() {
         console.info("delete row");
-        generateDeleteRowForm(mySheet, myMatrix, clickRow, clickCol);
+        //generateDeleteRowForm(mySheet, myMatrix, clickRow, clickCol);
+        generateDeleteRowForm(mySheet, myMatrix, selectStartRow, selectEndRow);
 
         $.blockUI({
             //$.fn.blockUI({
