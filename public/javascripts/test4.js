@@ -658,7 +658,7 @@ $(document).ready(function() {
         });
     }
 
-    function generateRightWeightForm(column) {
+/*    function generateRightWeightForm(column) {
         $('#insertFrm').html('');
         console.info("entry generateRightWeightForm");
 
@@ -717,6 +717,25 @@ $(document).ready(function() {
             },
 
         });
+    }*/
+
+
+    function generateRightWeightForm(column) {
+        $('#insertFrm').html('');
+        console.info("entry generateRightWeightForm");
+
+        var jsonForm = {
+            schema: {
+                parameters :{
+                    type: 'object',
+                    title: 'weight 1',
+                }
+            }
+        }
+
+        //$('#insertFrm').jsonForm(jsonForm);
+        $('#insertFrm').jsonForm(jsonForm);
+
     }
 
     function generatePurifyDataForm() {
@@ -1432,6 +1451,20 @@ $(document).ready(function() {
             //$.fn.blockUI({
             message: $('#insertFrm')
         });
+    });
+
+
+    $('#AHPWeight').click(function() {
+        saveMatrix2LocalStorage("localMatrix", myMatrix);
+        var win = window.open("/AHPConfPage1", '_blank');
+        if (win) {
+            //Browser has allowed it to be opened
+            win.focus();
+        } else {
+            //Broswer has blocked it
+            alert('Please allow popups for this site');
+        }
+
     });
 
 
