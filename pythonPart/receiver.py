@@ -6,6 +6,7 @@ import sys
 # from expressionHandle import expressionHandle
 from purifyHandle import purifyMathHandle
 from normalMathHandle import normalMathHandle
+from weightMathHandle import weightMathHandle
 
 
     # function submitMathReq() {
@@ -49,6 +50,8 @@ def parseMsg(jsonStr):
 
     sheet = jsonObj['matrix']
 
+    print sheet;
+
     if mathType == "purifyCompute":
         res = purifyMathHandle(sheet, mathContent)
         if True != res[0]:
@@ -57,6 +60,12 @@ def parseMsg(jsonStr):
             return returnVar
     elif mathType == "normalCompute":
         res = normalMathHandle(sheet, mathContent)
+        if True != res[0]:
+            returnVar["result"] = res[2]
+            returnVar["matrix"] = ""
+            return returnVar
+    elif mathType == "weightCompute":
+        res = weightMathHandle(sheet, mathContent)
         if True != res[0]:
             returnVar["result"] = res[2]
             returnVar["matrix"] = ""

@@ -361,6 +361,8 @@ function matrix()
     this.colNum = 0;
     this.rowNum = 0;
     this.matrix = [];
+    this.colWeight = {};
+    this.rowWeight = {};
 
 
     this.verifyMatrix = function(){
@@ -392,6 +394,8 @@ function matrix()
         this.colNum = matrix.colNum;
         this.rowNum = matrix.rowNum;
         this.matrix = matrix.matrix;
+        this.colWeight = matrix.colWeight;
+        this.rowWeight = matrix.rowWeight;
         this.cleanUpIllegalColnum(this.verifyMatrix());
     }
 
@@ -448,6 +452,11 @@ function matrix()
             }
             console.info("------------------------------------------------------------");
         }
+    }
+
+    this.getColWeightValueByColHeaderName = function(colHeaderName){
+        console.info("colWeight : ", this.colWeight);
+        return this.colWeight[colHeaderName];
     }
 
     this.insertColumn = function(colNo, colHeaderName, dataType)
@@ -1089,7 +1098,14 @@ function sheet(matrix)
                 }
                 else if(i == 1)//col RW
                 {
-                    e.setCell("colRW", "");
+                    colHeaderName = matrix.getColHeaderNameByColNo(j - 2);
+                    colWightValue = matrix.getColWeightValueByColHeaderName(colHeaderName);
+                    if(undefined != colWightValue){
+                        e.setCell("colRW", colWightValue);
+                    }else{
+                        e.setCell("colRW", "");
+                    }
+                    
                 }
                 else if(j == 1)//row RW
                 {

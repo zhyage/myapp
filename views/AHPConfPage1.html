@@ -10,7 +10,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap/style.css" />
-<!--   <link rel="stylesheet" type="text/css" href="stylesheets/biaoZhunZhi.css" /> -->
+  <!--   <link rel="stylesheet" type="text/css" href="stylesheets/biaoZhunZhi.css" /> -->
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,6 +29,7 @@
       <script type="text/javascript" src="javascripts/bootstrap/bootstrap.min.js"></script>
       <script src="javascripts/handsontable.full.js"></script>
       <link rel="stylesheet" media="screen" href="stylesheets/handsontable.full.css" >
+      <script type="text/javascript" src="javascripts/bower_components/mathjs/dist/math.js"></script>
       <script src="javascripts/matrixLocalStorageHandle.js"></script>
       <script src="javascripts/ele2.js"></script>
       <script src="javascripts/submitMath2Server.js"></script>
@@ -42,16 +43,20 @@
           <div id="participants"> please select participant source data: <br> </div>
           <!-- <div data-toggle="buttons" id = "sourceDataList"> -->
           <div id = "sourceDataList">
+          </div>
 
+          <div id = "weightMethodSelect"> please select weight compute method : <br> </div>
+
+          <div id = "weightMethodList">
 
           </div>
 
-          </div>
+        </div>
 
-          <div class="col-xs-6 col-md-6">
-            <div id="scaleLevel">Please fill the matrix : <br> </div>
+        <div class="col-xs-6 col-md-6">
+          <div id="scaleLevel">Please fill the matrix : <br> </div>
 
-            <div id = "AHPMatrix">
+          <div id = "AHPMatrix">
 
 
           </div>
@@ -76,5 +81,19 @@
         </div>
 
 
-</body>
-</html>
+        <div id="parameterHintFrm" style="display:none">
+          <div id="HintInputMethod"> </div>
+          <div id="HintParameterList"> </div>
+          <div id="HintComment"> </div>
+          <div class="row clearfix">
+            <div id="HintYesButton" class="col-md-6 column">
+             <button type="button" class="btn btn-default">commit</button>
+           </div>
+           <div id="HintCancelButton" class="col-md-6 column">
+             <button type="button" class="btn btn-default">cancel</button>
+           </div>
+         </div>
+       </div>  
+
+     </body>
+     </html>
