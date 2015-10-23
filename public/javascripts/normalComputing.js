@@ -63,7 +63,7 @@ $(document).ready(function() {
         for (i = 0; i < colNameList.length; i++) {
             var colName = '"' + colNameList[i] + '"';
             console.info("colName :", colName);
-            var tmpStr = '<label><input type="button" name=' + colName + ' value = ' + colName + ' /> </label> <br>';
+            var tmpStr = '<label><input type="button" class="btn btn-primary" name=' + colName + ' value = ' + colName + ' /> </label> <br>';
 
             console.info("tmpStr : ", tmpStr);
             appendStr = appendStr.concat(tmpStr);

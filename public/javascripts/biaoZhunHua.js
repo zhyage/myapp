@@ -197,7 +197,7 @@ var selectedData =
 
     function setCurrentSelectFormular(formularName) {
         currentFormular = getFormularConfByButtonName(formularName);
-        alert(currentFormular.buttonName);
+        //alert(currentFormular.buttonName);
     }
 
     function getCurrentSelectFormular() {
@@ -308,7 +308,7 @@ var selectedData =
             console.info("colName :", colName);
             //var tmpStr = '<button type="button"  onClick=this.generateParameterHintForm(' + colName + ') class="btn btn-default">' + colName + ' </button> <br>';
             //var tmpStr = '<button type="button"  class="btn btn-default">' + colName + ' </button> <br>';
-            var tmpStr = '<label><input type="button" name=' + colName + ' value = ' + colName + ' /> </label> <br>';
+            var tmpStr = '<label><input type="button" class="btn btn-primary" name=' + colName + ' value = ' + colName + ' /> </label> <br>';
 
             console.info("tmpStr : ", tmpStr);
             appendStr = appendStr.concat(tmpStr);

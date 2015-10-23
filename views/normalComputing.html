@@ -21,6 +21,7 @@
     <script type="text/javascript" src="javascripts/jquery.blockUI.js"></script>
     <script type="text/javascript" src="javascripts/underscore.js"></script>
     <script type="text/javascript" src="javascripts/jsv.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="javascripts/jsonform.js"></script>
     <script src="javascripts/ele2.js"></script>
     <script src="javascripts/matrixLocalStorageHandle.js"></script>
@@ -31,9 +32,17 @@
     <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
     <div class="row">
       <div class="col-xs-4 col-md-4">
-        <div id="target_variable"> target variable: </div>
+      <h4>
+             target variable: 
+      </h4>
+      <div id="target_variable"> </div>
         <textarea class="col-xs-12"  rows="1" name="textarea" id="targetVar" placeholder="Text Area"></textarea>
-        <div id="colNameList">Source data: <br> </div>
+        <h4>
+            Source data: 
+        </h4>
+        <div id="colNameList">
+          
+        </div>
       </div>
       
       <div class="col-xs-1 col-md-1">
@@ -44,7 +53,10 @@
         </div> -->
       </div>
       <div class="col-xs-7 col-md-7">
-        <div id = "numericExpressions_title"> nemericExpressions: <br>
+      <h4>
+             nemericExpressions: 
+      </h4>
+        <div id = "numericExpressions_title">
           <textarea class="col-xs-12" rows="5" class="medium" name="textarea" id="numericExpressions" placeholder="Text Area"></textarea>
         </div>
         <div class="row spacer">
@@ -52,7 +64,7 @@
         </div>
         <div class="col-md-6 column">
           <div class="row clearfix">
-            <div class="btn-group">
+            <div class="btn-group" >
               <button class="btn btn-default" type="button" onclick="modifyExpression('+')">+</button>
               <button onclick="modifyExpression('<')" class="btn btn-default" type="button"><</button>
               <button onclick="modifyExpression('>')" class="btn btn-default" type="button">></button>
@@ -118,6 +130,7 @@
     <div class="row spacer">
       <div class="span4">.</div>
     </div>
+  </div>
     <!-- Columns are always 50% wide, on mobile and desktop -->
     <div class="row">
       <div class="col-xs-6">
