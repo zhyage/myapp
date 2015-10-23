@@ -1160,7 +1160,7 @@ $(document).ready(function() {
         myMatrix.setMatrixData("601", 2, 0);
         myMatrix.setMatrixData("701", 2, 1);
 
-        myMatrix.colWeight = {"kkk":1, "bbb":2, "ddd":4};
+        /*myMatrix.colWeight = {"kkk":1, "bbb":2, "ddd":4};*/
     } else {
         //var computedMatrix = JSON.parse(computedMatrixString);
         //var loadMatrix = JSON.parse(computedMatrix);

@@ -267,6 +267,8 @@ $(document).ready(function() {
             }
         }
 
+        console.info("ggggg_AHPMatrix : ", g_AHPMatrix);
+
         g_matrix.loadData(g_AHPMatrix);
     }
 
@@ -306,7 +308,6 @@ $(document).ready(function() {
         var container = document.getElementById('AHPMatrix');
         g_matrix = new Handsontable(container, {
             data: g_AHPMatrix,
-            minSpareRows: 1,
             rowHeaders: true,
             colHeaders: true,
 

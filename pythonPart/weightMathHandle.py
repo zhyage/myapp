@@ -12,8 +12,10 @@ from sheetHandle import generateSheetByNSheet
 from sheetHandle import getNColumnByVarName
 from sheetHandle import appendSheetnewArr
 
+from weightSheetHandle import generateWeightNumpyArray
+
 sys.path.append("")
-sys.path.append("method")
+sys.path.append("weightComputeMethod")
 
 
 
@@ -55,6 +57,17 @@ sys.path.append("method")
 
 #     return True, newSheetJson, ""
 
+def computingWeight(methodName, argList, weightMatrix, weightNSheet, sheet, nSheet):
+
+    callFunction = methodName
+
+
+    module = __import__(methodName, globals(), locals(), [callFunction])
+    ds = getattr(module, callFunction)
+    res = ds(methodName, argList, weightMatrix, weightNSheet, sheet, nSheet)
+    print "execute result : ", res
+    return res
+
 
     
 def weightMathHandle(sheet, mathContent):
@@ -62,4 +75,14 @@ def weightMathHandle(sheet, mathContent):
     print "come into weightMathHandle"
     print mathContent
 
-    return False, "", "not ready yet"
+    weightMatrix = mathContent['matrix']
+    weightMethod = mathContent['weightMethod']
+    methodName = weightMethod['methodName']
+    argList = weightMethod['methodParameterList']
+
+    weightNSheet = generateWeightNumpyArray(weightMatrix)
+
+    [res, newSheet, reason] = computingWeight(methodName, argList, weightMatrix, weightNSheet, sheet, nSheet)
+    
+    newSheetJson =  json.dumps(newSheet)
+    return res, newSheetJson, reason
